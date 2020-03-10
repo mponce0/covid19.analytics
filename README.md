@@ -62,6 +62,17 @@ library(covid19)
  covid19.recovered.cases <- covid19("recovered")
 ```
 
+### Some basic analysis
+#### Totals per Country/Region/Province
+```
+# totals for confirmed cases for "Ontario"
+tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
+
+# total for confirmed cases for "Canada"
+tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
+
+```
+
 ## References
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
