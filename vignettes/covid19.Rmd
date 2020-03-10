@@ -1,0 +1,21 @@
+---
+title: "covid19 Package: get access to the live data from the nCOVID19 Coronavirus from JHU repository"
+author: "Marcelo Ponce"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{covid19 Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r child = "../README.md"}
+```
+

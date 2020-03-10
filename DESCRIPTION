@@ -1,0 +1,18 @@
+Package: covid19
+Type: Package
+Title: Load Live Data From The COVID-19 Virus
+Version: 1.0
+Date: 2020-03-11
+Author: Marcelo Ponce [aut, cre]
+Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
+Description: Loads updated data for the Novel Coronavirus (COVID-19) from JHU's CCSEGIS and Data repository.
+Imports:
+Suggests:
+    knitr,
+    devtools,
+    roxygen2,
+License: GPL (>=2)
+URL: https://github.com/mponce0/Visualize.CRAN.Downloads
+BugReports: https://github.com/mponce0/Visualize.CRAN.Downloads/issues
+RoxygenNote: 6.1.99.9001
+VignetteBuilder: knitr
