@@ -20,18 +20,25 @@ number of cases.
 
  
 ## Installation
-```
-# development version
-devtools::install_github("mponce0/covid19")
-```
+For using the "covi19" package, first you will need to install it.
 
+The stable version can be downloaded from the CRAN repository:
 ```
-# stable version from CRAN
 install.packages("covid19")
 ```
 
-After installating the package, just load it to use it:
+To obtain the development version you can get it from the github repository, i.e.
 ```
+# need devtools for installing from the github repo
+install.packages("devtools")
+
+# install bioC.logs
+devtools::install_github("mponce0/covid19")
+```
+
+For using the package, either the stable or developmemnt version, just load it using the library function:
+```
+# load covid19
 library(covid19)
 ```
 
