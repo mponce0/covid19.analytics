@@ -12,7 +12,7 @@ Suggests:
     devtools,
     roxygen2,
 License: GPL (>=2)
-URL: https://github.com/mponce0/Visualize.CRAN.Downloads
-BugReports: https://github.com/mponce0/Visualize.CRAN.Downloads/issues
-RoxygenNote: 6.1.99.9001
+URL: https://github.com/mponce0/covid19
+BugReports: https://github.com/mponce0/covid19/issues
+RoxygenNote: 7.0.2
 VignetteBuilder: knitr
