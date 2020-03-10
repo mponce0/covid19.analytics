@@ -4,7 +4,9 @@ covid19 <- function(case='ALL') {
 #' @param  case  a string indicating the category of the data, possible values are: "confirmed", "deaths", "recovered" OR "ALL"
 #' @return  a dataframe with the daily data for the selected category per country/region/city
 #'
-#' @keywords export
+#' @importFrom utils  read.csv
+#'
+#' @export
 #'
 #' @examples
 #' covid19.data <- covid19()
@@ -77,13 +79,15 @@ covid19 <- function(case='ALL') {
 		# warning
 		warning = function(cond) {
 				errorHandling.Msg(cond,cases.URL)
-			},
+		},
 
 		# error
 		error = function(e){
 				errorHandling.Msg(e,cases.URL)
-			}
-		)}
-
+		}
+		)
+	}
 
 }
+
+###########################################################################
