@@ -1,4 +1,34 @@
 covid19 <- function(case='ALL') {
+#' fucntion to read lice data as reported by JHU's CCSE repo
+#'
+#' @param  case  a string indicating the category of the data, possible values are: "confirmed", "deaths", "recovered" OR "ALL"
+#' @return  a dataframe with the daily data for the selected category per country/region/city
+#'
+#' @keywords export
+#'
+#' @examples
+#' covid19.data <- covid19()
+#' covid19.confirmed.cases <- covid19("confirmed")
+#' covid19.deaths <- covid19("deaths")
+#' covid19.recovered <- covid19("recovered")
+#'
+
+        ## function for error handling
+        errorHandling.Msg <- function(condition,target.case) {
+                message("A problem was detected when trying to retrieve the data for the package: ",target.case)
+                if (grepl("404 Not Found",condition)) {
+                        message("It is possible that you misspeled the name of this package! Please check!")
+                } else {
+                        message("It is possible that your internet connection is down! Please check!")
+                }
+                message(condition,'\n')
+
+                # update problems counter
+                #pkg.env$problems <- pkg.env$problems + 1
+        }
+
+        ###############################
+
 
 	# URL JHU's CCSE repository
 	JHU.REPO <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/"
@@ -26,17 +56,34 @@ covid19 <- function(case='ALL') {
 	# URL and filename
 	cases.URL <- paste0(JHU.REPO,cases)
 
-	# read data from the URL
-	covid19.cases <- read.csv(cases.URL, header=TRUE)
+	cat("Reading data from ", cases,'\n')
 
-	#restructure the column names for the dates
-	beginning.dates <- 5
-	ending.dates <- length(covid19.cases)
-	names(covid19.cases)[beginning.dates:ending.dates] <- as.character(as.Date(substr(names(covid19.cases)[beginning.dates:ending.dates],2,9),format='%m.%d.%y'))
+	# Attempt to protect against bad internet conenction or misspelled package name
+	tryCatch( {
+		# read data from the URL
+		covid19.cases <- read.csv(cases.URL, header=TRUE)
 
-	print(str(covid19.cases))
-	print(head(covid19.cases))
+		#restructure the column names for the dates
+		beginning.dates <- 5
+		ending.dates <- length(covid19.cases)
+		names(covid19.cases)[beginning.dates:ending.dates] <- as.character(as.Date(substr(names(covid19.cases)[beginning.dates:ending.dates],2,9),format='%m.%d.%y'))
 
-	return(covid19.cases)
-	}
+		print(str(covid19.cases))
+		print(head(covid19.cases))
+
+		return(covid19.cases)
+		},
+        
+		# warning
+		warning = function(cond) {
+				errorHandling.Msg(cond,cases.URL)
+			},
+
+		# error
+		error = function(e){
+				errorHandling.Msg(e,cases.URL)
+			}
+		)}
+
+
 }
