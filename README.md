@@ -20,6 +20,11 @@ In addition to the data availability we procide some basics functions to estimat
 totals per regions/country/cities, growth rates and daily changes in the reported
 number of cases.
 
+Function | description
+-----
+tots.per.location  |  compute totals per region and plot time series for that specific region/country
+---
+
  
 ## Installation
 For using the "covi19" package, first you will need to install it.
@@ -71,6 +76,11 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 # total for confirmed cases for "Canada"
 tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 
+# total nbr of deaths for "Mainland China"
+tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
+
+# total for death cases for "ALL" the regions
+tots.per.location(covid19.deaths.cases)
 ```
 
 ## References
