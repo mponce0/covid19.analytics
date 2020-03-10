@@ -9,5 +9,19 @@ aggregating the data in different categories "confirmed"/"deaths"/"recovered"
 cases reported daily per country/region/city.
 
 ## Installation
+```
+# development version
+devtools::install_github("mponce0/covid19")
+```
+
+```
+# stable version from CRAN
+install.packages("covid19")
+```
+
+After installating the package, just load it to use it:
+```
+library(covid19)
+```
 
 ## Examples
