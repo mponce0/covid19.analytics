@@ -47,6 +47,13 @@ library(covid19)
 
 ## Examples
 
+### Reading data
+```
+ covid19.data.ALLcases <- covid19()
+ covid19.confirmed.cases <- covid19("confirmed")
+ covid19.deaths.cases <- covid19("deaths")
+ covid19.recovered.cases <- covid19("recovered")
+```
 
 ## References
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
