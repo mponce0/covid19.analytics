@@ -20,10 +20,11 @@ In addition to the data availability we procide some basics functions to estimat
 totals per regions/country/cities, growth rates and daily changes in the reported
 number of cases.
 
-Function | description
 -----
-tots.per.location  |  compute totals per region and plot time series for that specific region/country
----
+ Function | description
+---------
+ tots.per.location  |  compute totals per region and plot time series for that specific region/country
+-----
 
  
 ## Installation
