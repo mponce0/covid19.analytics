@@ -49,9 +49,16 @@ library(covid19)
 
 ### Reading data
 ```
+# obtain all the records combined for "confirmed", "deaths" and "recovered" cases
  covid19.data.ALLcases <- covid19()
+
+# obtain records combined for "confirmed" cases
  covid19.confirmed.cases <- covid19("confirmed")
+
+# obtain records combined for "deaths" cases
  covid19.deaths.cases <- covid19("deaths")
+
+# obtain records combined for "recovered" cases
  covid19.recovered.cases <- covid19("recovered")
 ```
 
