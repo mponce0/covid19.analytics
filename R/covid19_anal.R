@@ -1,3 +1,6 @@
+
+
+
 tots.per.location <- function(data,geo.loc=NULL) {
 #' function to compute totals per location
 #'
@@ -56,7 +59,7 @@ tots.per.location <- function(data,geo.loc=NULL) {
 
 #############################################################################
 
-set.plt.canvas <- function(geo.loc) {
+set.plt.canvas <- function(geo.loc,ylayers=1) {
 #' fucntion to set the graphical layout
 #'
 #' @param geo.loc  list of locations
@@ -64,7 +67,7 @@ set.plt.canvas <- function(geo.loc) {
 #' @keywords internal
 #'
 	quadrants <- min(5,as.integer(sqrt(length(geo.loc))))
-	par(mfrow=c(quadrants,quadrants))
+	par(mfrow=c(quadrants*ylayers,quadrants))
 	#par(mfrow=c(2,1))
 	cat(length(geo.loc), " -- ", quadrants, '\n')
 
@@ -87,13 +90,20 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 
 	provinces.states <- toupper(unique(data$Province.State))
 	countries.regions <- toupper(unique(data$Country.Region))
+	geo.locs <- c()
 
 	# if the geo.loc has not been specified will look into ALL records...
 	if (is.null(geo.loc)) {
 		geo.loc <- countries.regions
 	} else {
-		if (!(toupper(geo.loc) %in% provinces.states) & !(toupper(geo.loc) %in% countries.regions))
-			stop("Unrecognized region: ",geo.loc)
+		for (geo.ind in geo.loc) {
+			if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions)) {
+				cat(paste("Unrecognized region: ",geo.loc," will skip it!",'\n'))
+			} else {
+				geo.locs <- c(geo.locs,geo.ind)
+			}
+		}
+		if (length(geo.locs) < 1) geo.loc <- geo.locs
 	}
 
 	return(toupper(geo.loc))
@@ -120,7 +130,7 @@ growth.rate <- function(data, geo.loc=NULL) {
 
 	totals.per.day <- data.frame()
 
-	set.plt.canvas(geo.loc)
+	set.plt.canvas(geo.loc,2)
 
 	for (i in geo.loc) {
 		cases.per.loc <- data[toupper(data$Country.Region) == i,]
@@ -140,11 +150,15 @@ growth.rate <- function(data, geo.loc=NULL) {
 				growth.rate <- c(growth.rate, 0)
 			}
 		}
+		stride <- 1
+		growth.rate <- unlist(changes[2:length(changes)])/unlist(changes[1,length(changes)-1])
 		print(growth.rate)
 		#totals.per.day <- rbind(totals.per.day, cbind(i,growth.rate))
-
+		
 		my.cols <- rep(rainbow(15L),each=20L)
-		plot(as.Date(names(totals.per.loc[2:(nbr.of.days-1)])),growth.rate, axes=FALSE, ylim=c(0,max(growth.rate)*1.05), main=i, type='b', col=my.cols)
+		x.dates <- as.Date(names(totals.per.loc[2:(nbr.of.days-1)]))
+		plot(log1p(changes), type='b')
+		plot(x.dates,growth.rate, axes=FALSE, ylim=c(0,max(growth.rate)*1.05), main=i, type='b', col=my.cols)
 		par(new=TRUE)
 		barplot(unlist(growth.rate), ylim=c(0,max(growth.rate)*1.05), col = my.cols)
 		par(new=FALSE)
