@@ -3,7 +3,8 @@
 ## Introduction
 The covid19 package allows users to obtain live data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
-The goal of this pakcage is to make the latest data quickly available
+
+The goal of this package is to make the latest data quickly available
 for reserachers and the scientific community.
 
 
@@ -20,10 +21,10 @@ In addition to the data availability we procide some basics functions to estimat
 totals per regions/country/cities, growth rates and daily changes in the reported
 number of cases.
 
+
+Function | description
 -----
- Function | description
----------
- tots.per.location  |  compute totals per region and plot time series for that specific region/country
+tots.per.location  |  compute totals per region and plot time series for that specific region/country
 -----
 
  
