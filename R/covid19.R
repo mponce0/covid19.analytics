@@ -1,7 +1,9 @@
-covid19 <- function(case='ALL') {
+covid19 <- function(case='ALL', debrief=FALSE) {
 #' fucntion to read lice data as reported by JHU's CCSE repo
 #'
 #' @param  case  a string indicating the category of the data, possible values are: "confirmed", "deaths", "recovered" OR "ALL"
+#' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
+#'
 #' @return  a dataframe with the daily data for the selected category per country/region/city
 #'
 #' @importFrom utils  read.csv
@@ -70,8 +72,10 @@ covid19 <- function(case='ALL') {
 		ending.dates <- length(covid19.cases)
 		names(covid19.cases)[beginning.dates:ending.dates] <- as.character(as.Date(substr(names(covid19.cases)[beginning.dates:ending.dates],2,9),format='%m.%d.%y'))
 
-		print(str(covid19.cases))
-		print(head(covid19.cases))
+		if (debrief) {
+			print(str(covid19.cases))
+			print(head(covid19.cases))
+		}
 
 		return(covid19.cases)
 		},
