@@ -36,13 +36,7 @@ tots.per.location <- function(data,geo.loc=NULL) {
 	set.plt.canvas(geo.loc)
 
 	for (i in geo.loc) {
-		# check whether the locations are coutnries/regions or provinces/states
-		if (i %in% toupper(data$Country.Region)) {
-			cases.per.loc <- data[toupper(data$Country.Region) == i,]
-		} else if (i %in% toupper(data$Province.State)) {
-			cases.per.loc <- data[toupper(data$Province.State) == i,]
-		}
-		print(i)
+		cases.per.loc <- select.per.loc(data,i)
 
 		totals.per.loc.day <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
 		print(totals.per.loc.day)
@@ -91,6 +85,21 @@ set.plt.canvas <- function(geo.loc,ylayers=1) {
 
 
 #############################################################################
+
+
+select.per.loc <- function(data,geo.loc) {
+
+	# check whether the locations are coutnries/regions or provinces/states
+	if (toupper(geo.loc) %in% toupper(data$Country.Region)) {
+		cases.per.loc <- data[toupper(data$Country.Region) == toupper(geo.loc),]
+	} else if (toupper(geo.loc) %in% toupper(data$Province.State)) {
+		cases.per.loc <- data[toupper(data$Province.State) == toupper(geo.loc),]
+	}
+
+	print(geo.loc)
+
+	return(cases.per.loc)
+}
 
 
 checkGeoLoc <- function(data, geo.loc=NULL) {
@@ -170,12 +179,14 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 	}
 
 	for (i in geo.loc) {
+		cases.per.loc <- select.per.loc(data,i)
+
 		# check whether the locations are coutnries/regions or provinces/states
-		if (i %in% toupper(data$Country.Region)) {
-			cases.per.loc <- data[toupper(data$Country.Region) == i,]
-		} else if (i %in% toupper(data$Province.State)) {
-			cases.per.loc <- data[toupper(data$Province.State) == i,]
-		}
+#		if (i %in% toupper(data$Country.Region)) {
+#			cases.per.loc <- data[toupper(data$Country.Region) == i,]
+#		} else if (i %in% toupper(data$Province.State)) {
+#			cases.per.loc <- data[toupper(data$Province.State) == i,]
+#		}
 		cat("Processing... ",i,'\n')
 
 		totals.per.loc <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
