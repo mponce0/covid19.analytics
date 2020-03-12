@@ -31,6 +31,8 @@ select.per.loc <- function(data,geo.loc) {
 		cases.per.loc <- data[toupper(data$Country.Region) == toupper(geo.loc),]
 	} else if (toupper(geo.loc) %in% toupper(data$Province.State)) {
 		cases.per.loc <- data[toupper(data$Province.State) == toupper(geo.loc),]
+	} else if (toupper(geo.loc) == "ALL") {
+		cases.per.loc <- data
 	}
 
 	print(geo.loc)
@@ -60,13 +62,18 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 		geo.loc <- countries.regions
 	} else {
 		for (geo.ind in geo.loc) {
-			if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions)) {
+			if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions) & !(toupper(geo.ind) == "ALL") ) {
 				cat(paste("Unrecognized region: ",geo.loc," will skip it!",'\n'))
 			} else {
 				geo.locs <- c(geo.locs,geo.ind)
 			}
 		}
-		if (length(geo.locs) < 1) geo.loc <- geo.locs
+
+		if (length(geo.locs) >= 1) {
+			geo.loc <- geo.locs
+		} else {
+			stop("Unrecognized location: ",geo.loc)
+		}
 	}
 
 	return(toupper(geo.loc))
