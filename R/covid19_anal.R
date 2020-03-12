@@ -40,12 +40,16 @@ tots.per.location <- function(data,geo.loc=NULL) {
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
 
-		totals.per.loc.day <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
+		colN <-ncol(cases.per.loc)
+		if (tolower("status") %in% tolower(cases.per.loc))
+			 colN <- colN - 1
+
+		totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
 		print(totals.per.loc.day)
 		if (toupper(i) != "ALL") {
 			totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),length(cases.per.loc)])
 		} else {
-			totals.per.loc <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
+			totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
 		}
 		cat(i,' -- ',totals.per.loc,'\n')
 		total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
@@ -117,6 +121,10 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
 
+                colN <-ncol(cases.per.loc)
+                if (tolower("status") %in% tolower(cases.per.loc))
+                         colN <- colN - 1
+
 		# check whether the locations are coutnries/regions or provinces/states
 #		if (i %in% toupper(data$Country.Region)) {
 #			cases.per.loc <- data[toupper(data$Country.Region) == i,]
@@ -125,7 +133,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 #		}
 		cat("Processing... ",i,'\n')
 
-		totals.per.loc <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
+		totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
 		#print(totals.per.loc)
 
 		# determine period of time and ranges...
