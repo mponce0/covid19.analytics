@@ -1,59 +1,96 @@
-totals <- function(data=NULL, geo.loc=NULL) {
+# "covid19" graphical functions
+#
+# M.Ponce
 
-	if (is.null(data)) {
+##################################################################
+
+totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
+#' function to plot total number of cases per day for different groups
+#'
+#' @param  data  dataset to process, default all the possible cases: 'confirmed', 'recovered' and 'deaths' for all countries/regions
+#' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
+#'
+#' @export
+#'
+
+	if (is.null(data0)) {
 		total.cases <- covid19()
 	} else {
-		total.cases <- data
+		total.cases <- data0
 	}
 
 	if (!is.null(geo.loc)) {
 		# check geographical location
-		geo.loc <- checkGeoLoc(geo.loc)
-
-		total.cases <- select.per.region(total.cases,geo.loc)
+		geo.loc <- checkGeoLoc(total.cases,geo.loc)
+		total.cases <- select.per.loc(total.cases,geo.loc)
 	}
 
 	col1 <-5; colN <- ncol(total.cases)
-	if (tolower("status") %in% colnames(totalcases)) colN <- colN-1
+	# check whether is the whole dataset...
+	if (tolower("status") %in% colnames(total.cases)) {
+		all.cases <- TRUE
+		colN <- colN-1
+
+		###
+		categories <- unique(total.cases$status)
+		totals.per.cat <- data.frame()
+		for (categ in seq_along(categories)) {
+			totals.per.cat <- c(totals.per.cat, c(categories[categ],apply(total.cases[total.cases$status==categ,col1:colN], MARGIN=2,sum) )  )
+		}
+		##
+		confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
+		recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
+		deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
+		###
+	} else {
+		all.cases <- FALSE
+	}
 
 	totals <- apply(total.cases[,col1:colN], MARGIN=2,sum)
 
-	###
-	categories <- unique(total.cases$status)
-	totals.per.cat <- data.frame()
-	for (categ in seq_along(categories)) {
-		totals.per.cat <- c(totals.per.cat, c(categories[categ],apply(total.cases[total.cases$status==categ,col1:colN], MARGIN=2,sum) )  )
-	}
-	##
-	confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
-	recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
-	deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
-	###
-
 	x.dates <- as.Date(names(total.cases)[col1:colN])
-	ymax <- max(totals)
+	ymax <- max(totals,na.rm=TRUE)
 
 	### STATIC PLOTS
-	plot(x.dates, totals, ylim=c(0,ymax),
-		xlab='time', ylab='nbr of cases', type='b', col='darkred')
+	plot(x.dates, totals, ylim=c(0,ymax),  type='l', col='darkred',
+		xlab='time', ylab='nbr of cases', main=geo.loc)
 
-	par(new=TRUE)
-	plot(x.dates,confirmed, ylim=c(0,ymax), axes=FALSE, type='l', col='black')
-	plot(x.dates,recovered, ylim=c(0,ymax), axes=FALSE, type='l', col='blue')
-	plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='l', col='red')
+	if (all.cases) {
+		par(new=TRUE,ann=FALSE)
+		plot(x.dates,confirmed, ylim=c(0,ymax), axes=FALSE, type='b', col='black')
+		par(new=TRUE,ann=FALSE)
+		plot(x.dates,recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
+		par(new=TRUE,ann=FALSE)
+		plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
+	}
 
 	### INTERACTIVE PLOTS
-	fig <- plot_ly(data, x = ~colnames(data[,col1:colN]))	#, type='scatter', mode='line+markers')
-#	for (categ in categories) {
-#		fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
-#	}
-	fig <- fig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers')
-	fig <- fig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers')
-	fig <- fig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
+	if (interactive.fig) {
+		# load/check plotly
+		loadLibrary("plotly")
 
-	return(totals.per.cat)
+		# define interactive figure/plot
+		totals.ifig <- plot_ly(total.cases, x = ~colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
+		if (all.cases) {
+#			for (categ in categories) {
+#				fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
+#			}
+			totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
+		} else {
+			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
+		}
+	
+		# activate interactive figure
+		print(totals.ifig)
+	}
+
+	#return(totals.per.cat)
 }
 
+
+##################################################################################
 
 
 time.series <- function(data) {
