@@ -42,9 +42,11 @@ tots.per.location <- function(data,geo.loc=NULL) {
 
 		totals.per.loc.day <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
 		print(totals.per.loc.day)
-		totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),length(cases.per.loc)])
-
-		#print(apply(totals.per.loc[,5:ncol(totals.per.loc)-1],MARGIN=2,sum))
+		if (toupper(i) != "ALL") {
+			totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),length(cases.per.loc)])
+		} else {
+			totals.per.loc <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
+		}
 		cat(i,' -- ',totals.per.loc,'\n')
 		total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
 
@@ -59,7 +61,7 @@ tots.per.location <- function(data,geo.loc=NULL) {
 		#print(y.cases)
 		plot(unlist(y.cases), main=i, type='b', xlab="", axes=FALSE, pch=16L,col=my.cols)
 		par(new=TRUE)
-		barplot(unlist(y.cases), col = my.cols)
+		barplot(unlist(y.cases), main=i, col = my.cols)
 		par(new=FALSE)
 	}
 
