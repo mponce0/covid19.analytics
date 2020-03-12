@@ -16,16 +16,17 @@ By using this function, the data will be pulled directly from the JHU repository
 with the latest updates.
 
 
-### Analitcal Estimates
+### Analitcal & Graphical Indicators
 In addition to the data availability the package includes some basics functions
 to estimate totals per regions/country/cities, growth rates and daily changes in
 the reported number of cases.
 
 
-Function | description
------
+Function  | description
+--------	 | -----------
 tots.per.location  |  compute totals per region and plot time series for that specific region/country
------
+grwoth.rate  |  compute changes and growth rates per region and plot time series for that specific region/country
+-----------------------
 
  
 ## Installation
