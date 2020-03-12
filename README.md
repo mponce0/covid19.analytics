@@ -24,9 +24,9 @@ the reported number of cases.
 
 Function  | description
 --------	 | -----------
-tots.per.location  |  compute totals per region and plot time series for that specific region/country
-grwoth.rate  |  compute changes and growth rates per region and plot time series for that specific region/country
------------------------
+`tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+`growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+-----
 
  
 ## Installation
