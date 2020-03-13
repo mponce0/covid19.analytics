@@ -86,7 +86,7 @@ tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
 tots.per.location(covid19.deaths.cases)
 ```
 
-### Growth Rate
+#### Growth Rate
 ```
 # read data for confirmed cases
 data <- covid19("confirmed")
@@ -101,10 +101,18 @@ growth.rate(data,geo.loc="Italy")
 growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 
+#### Graphical Output
+```
+# static and interactive plot 
+totals.plt(data)
+```
+
 
 ## Further Resources
 * https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
 * https://www.repidemicsconsortium.org/
+* https://rviews/rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
+* https://www.youtube.com/watch?v=Kas0tIxDvrg
 
 
 ## References
