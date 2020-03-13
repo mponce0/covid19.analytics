@@ -86,6 +86,22 @@ tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
 tots.per.location(covid19.deaths.cases)
 ```
 
+### Growth Rate
+```
+# read data for confirmed cases
+data <- covid19("confirmed")
+
+# compute changes and growth rates per location for all the countries
+growth.rate(data)
+
+# compute changes and growth rates per location for 'Italy'
+growth.rate(data,geo.loc="Italy")
+
+# compute changes and growth rates per location for 'Italy' and 'Germany'
+growth.rate(data,geo.loc=c("Italy","Germany"))
+```
+
+
 ## Further Resources
 * https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
 * https://www.repidemicsconsortium.org/
