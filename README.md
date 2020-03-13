@@ -111,7 +111,7 @@ totals.plt(data)
 ## Further Resources
 * https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
 * https://www.repidemicsconsortium.org/
-* https://rviews/rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
+* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
 * https://www.youtube.com/watch?v=Kas0tIxDvrg
 
 
