@@ -9,6 +9,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 #'
 #' @param  data  dataset to process, default all the possible cases: 'confirmed', 'recovered' and 'deaths' for all countries/regions
 #' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
+#' @param  interactive.fig  swith to turn off/on an interactive plot
 #'
 #' @export
 #'
@@ -92,6 +93,73 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 
 ##################################################################################
 
+live.map <- function(data, projctn='orthographic') {
+#' function to map cases in an interactive map
+#'
+#' @param  data  data to be used
+#' @param  projctn  type of map-projection to use, possible values are:
+#' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
+#'
+#' @export
+#'
+
+	Ncols <- length(data)
+	df <- data[,c(1,2,3,4,Ncols)]
+	names(df)[length(df)] <- "nbr.of.cases"
+
+
+	g <- list(
+	  scope = 'world',
+	  projection = list(
+	    type = projctn,
+		#list(type = "mercator"),
+		# 'natural earth',
+		# 'orthographic',
+	    rotation = list(lon = -100, lat = 40, roll = 0)
+	  ),  
+	  showland = TRUE,
+	  showcountries=TRUE,
+	  #showlakes = TRUE,
+	  showocean = TRUE,
+	  oceancolor = toRGB("steelblue"),
+	  showlegend = TRUE,
+	  landcolor = toRGB("gray15"),
+	  showsubunits = TRUE,
+	  #subunitwidth = 3,
+	  #countrywidth = 2,
+	  #subunitcolor = toRGB("green"),
+	  #countrycolor = toRGB("white"),
+	  bgcolor = toRGB("black")
+	)
+
+
+	fig <- plot_geo(df, locationmode = "country names", sizes = c(1, 250))
+
+	fig <- fig %>% add_markers(
+		x = ~Long, y = ~Lat, size=~(nbr.of.cases*50), color=~Country.Region,
+		colors = "Dark2", #"Set3", #"Paired",
+			#"YlGnBu","Blues", #"Reds", #"Blues", #"Accent",
+		#colorbar(title = "Viridis"),
+		#hoveron = "fills",
+		hoverinfo="text",
+		text = ~paste(df$Province.State," - ",df$Country.Region,":", df$nbr.of.cases)
+	)
+
+	fig <- fig %>% layout(title = paste("covid19 package - cases up to",names(data)[Ncols]), geo=g)
+
+	# set background color
+	fig <- fig %>% layout(plot_bgcolor='rgb(254, 247, 234)', paper_bgcolor='black')
+
+#	fig <- fig %>% layout(
+#  			plot_mapbox(), 
+#			mapbox = list(style = "satellite") )
+
+	print(fig)
+}
+
+
+
+##################################################################################
 
 time.series <- function(data) {
 
@@ -116,4 +184,8 @@ live.plot <- function(data) {
 	}
 
 	fig
+
 }
+
+
+##################################################################################
