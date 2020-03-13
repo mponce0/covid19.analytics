@@ -26,6 +26,7 @@ Function  | description
 --------	 | -----------
 `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
 `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+`totals.plt`   |  plots in a static and interactive plot total number of cases per day
 -----
 
  
@@ -85,6 +86,35 @@ tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
 ```
+
+#### Growth Rate
+```
+# read data for confirmed cases
+data <- covid19("confirmed")
+
+# compute changes and growth rates per location for all the countries
+growth.rate(data)
+
+# compute changes and growth rates per location for 'Italy'
+growth.rate(data,geo.loc="Italy")
+
+# compute changes and growth rates per location for 'Italy' and 'Germany'
+growth.rate(data,geo.loc=c("Italy","Germany"))
+```
+
+#### Graphical Output
+```
+# static and interactive plot 
+totals.plt(data)
+```
+
+
+## Further Resources
+* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* https://www.repidemicsconsortium.org/
+* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
+* https://www.youtube.com/watch?v=Kas0tIxDvrg
+
 
 ## References
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
