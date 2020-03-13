@@ -5,15 +5,21 @@
 
 #######################################################################
 
-fit <- function(x,y) {
+genModel <- function(y, deg=1) {
 
-	model <- lm(y ~ x)
+	y.var <- unlist(y)
+	x.var <- 1:length(y.var)
+	print(x.var)
+	print(y.var)
 
-	model <- lm(log1p(unlist(y)) ~ seq_along(y))
+	model <- lm(y.var ~ x.var)
+	print(summary(model))
 
-	model <- lm(unlist(y) ~ exp(seq_along(y)))
+	return(model)	
+}
 
-	
+evalModel <- function(model) {
+
 }
 
 #######################################################################
@@ -63,9 +69,9 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			for (sts in unique(cases.per.loc$status))
 				tots.per.location(data[data$status==sts,-colN],i,nbr.plts,sts)
 		} else {
-			print(cases.per.loc[,col1:colN])
+			#print(cases.per.loc[,col1:colN])
 			totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
-			print(totals.per.loc.day)
+			#print(totals.per.loc.day)
 			if (toupper(i) != "ALL") {
 				totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),colN])
 			} else {
@@ -74,6 +80,13 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			cat(i,' -- ',totals.per.loc,'\n')
 			total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
 
+			# modelling
+			yvar <- totals.per.loc.day
+			print(yvar)
+			model1 <- genModel(yvar,deg=1)
+			model2 <- genModel(log10(yvar),deg=1)
+
+			# plots
 			col0 <- 5
 			Ncols <- length(cases.per.loc)
 			Nrows <- nrow(cases.per.loc)
@@ -83,7 +96,9 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			my.cols <- rep(rainbow(15L),each=20L)
 			#print(x.dates)
 			#print(y.cases)
-			plot(log1p(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
+			plot(log10(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
+			abline((model1), col='blue')
+			abline((model2), col='red')
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
 			#par(new=FALSE)
