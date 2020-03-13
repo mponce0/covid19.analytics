@@ -87,7 +87,7 @@ tots.per.location(covid19.deaths.cases)
 ```
 
 ## Further Resources
-* htpps://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
 * https://www.repidemicsconsortium.org/
 
 
