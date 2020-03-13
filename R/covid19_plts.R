@@ -137,9 +137,11 @@ live.map <- function(data, projctn='orthographic') {
 
 	fig <- fig %>% add_markers(
 		x = ~Long, y = ~Lat, size=~(nbr.of.cases*50), color=~Country.Region,
-		colors = "Dark2", #"Set3", #"Paired",
+		colors = "Spectral", #"Set1", 
+			#"RdGy", "RdBu",
+			#"Dark2", "Set3", #"Paired",
 			#"YlGnBu","Blues", #"Reds", #"Blues", #"Accent",
-		#colorbar(title = "Viridis"),
+		# COLORS from RColorBrewer....
 		#hoveron = "fills",
 		hoverinfo="text",
 		text = ~paste(df$Province.State," - ",df$Country.Region,":", df$nbr.of.cases)
