@@ -9,6 +9,11 @@ fit <- function(x,y) {
 
 	model <- lm(y ~ x)
 
+	model <- lm(log1p(unlist(y)) ~ seq_along(y))
+
+	model <- lm(unlist(y) ~ exp(seq_along(y)))
+
+	
 }
 
 #######################################################################
