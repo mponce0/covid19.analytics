@@ -5,11 +5,21 @@
 
 #######################################################################
 
-tots.per.location <- function(data,geo.loc=NULL) {
+fit <- function(x,y) {
+
+	model <- lm(y ~ x)
+
+}
+
+#######################################################################
+
+tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 #' function to compute totals per location
 #'
 #' @param  data  data.frame with data from covid19
 #' @param  geo.loc  list of locations
+#' @param  nbr.plts  parameter to control the number of plots to display per figure
+#' @param  info  additional info to display
 #'
 #' @return  a dataframe with totals per specified locations
 #'
@@ -35,38 +45,44 @@ tots.per.location <- function(data,geo.loc=NULL) {
 	total.cases.per.country <- data.frame()
 
 	# set some graphical parameters
-	set.plt.canvas(geo.loc)
+#	if (tolower("status") %in% tolower(names(data)))
+#		nbr.plts <- length(unique(data$status))
+	set.plt.canvas(geo.loc,nbr.plts*2)
 
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
 
-		colN <-ncol(cases.per.loc)
-		if (tolower("status") %in% tolower(cases.per.loc))
-			 colN <- colN - 1
-
-		totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
-		print(totals.per.loc.day)
-		if (toupper(i) != "ALL") {
-			totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),length(cases.per.loc)])
+		colN <- ncol(cases.per.loc)
+		if (tolower("status") %in% tolower(colnames(cases.per.loc))) {
+			#colN <- colN - 1
+			for (sts in unique(cases.per.loc$status))
+				tots.per.location(data[data$status==sts,-colN],i,nbr.plts,sts)
 		} else {
-			totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
-		}
-		cat(i,' -- ',totals.per.loc,'\n')
-		total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
+			print(cases.per.loc[,col1:colN])
+			totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
+			print(totals.per.loc.day)
+			if (toupper(i) != "ALL") {
+				totals.per.loc <- sum(cases.per.loc[1:nrow(cases.per.loc),colN])
+			} else {
+				totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
+			}
+			cat(i,' -- ',totals.per.loc,'\n')
+			total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
 
-		col0 <- 5
-		Ncols <- length(cases.per.loc)
-		Nrows <- nrow(cases.per.loc)
-		x.dates <- as.Date(names(cases.per.loc)[col0:Ncols])
-		y.cases <- cases.per.loc[1:Nrows , col0:Ncols]
-		names(y.cases) <- x.dates
-		my.cols <- rep(rainbow(15L),each=20L)
-		#print(x.dates)
-		#print(y.cases)
-		plot(unlist(y.cases), main=i, type='b', xlab="", axes=FALSE, pch=16L,col=my.cols)
-		par(new=TRUE)
-		barplot(unlist(y.cases), main=i, col = my.cols)
-		par(new=FALSE)
+			col0 <- 5
+			Ncols <- length(cases.per.loc)
+			Nrows <- nrow(cases.per.loc)
+			x.dates <- as.Date(names(cases.per.loc)[col0:Ncols])
+			y.cases <- cases.per.loc[1:Nrows , col0:Ncols]
+			names(y.cases) <- x.dates
+			my.cols <- rep(rainbow(15L),each=20L)
+			#print(x.dates)
+			#print(y.cases)
+			plot(log1p(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
+			#par(new=TRUE)
+			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
+			#par(new=FALSE)
+		}
 	}
 
 	#plot(unlist(data[ data$Country.Region==i ,5:52]))
@@ -121,7 +137,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
 
-                colN <-ncol(cases.per.loc)
+                colN <- ncol(cases.per.loc)
                 if (tolower("status") %in% tolower(cases.per.loc))
                          colN <- colN - 1
 
