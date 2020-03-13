@@ -86,6 +86,10 @@ tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
 tots.per.location(covid19.deaths.cases)
 ```
 
+## Further Resources
+* blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+
+
 ## References
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
