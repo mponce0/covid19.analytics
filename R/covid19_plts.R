@@ -97,7 +97,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
-#' @param  projctn  type of map-projection to use, possible values are:
+#' @param  projctn  initial type of map-projection to use, possible values are:
 #' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
 #' @param  title  a string with a title to add to the plot
 #'
@@ -168,10 +168,16 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 	####
 
 	### figure creation
+	scalingFactor <- 4000
+	scaled.nbr.of.cases <- df$nbr.of.cases*scalingFactor
+
 	fig <- plot_geo(df, locationmode = "country names", sizes = c(1, 250))
 
 	fig <- fig %>% add_markers(
-		x = ~Long, y = ~Lat, size=~(nbr.of.cases*50), color=~Country.Region,
+		x = ~Long, y = ~Lat,
+		size = ~(log1p(nbr.of.cases)),
+		#color = ~nbr.of.cases,
+		color = ~Country.Region,
 		colors = "Spectral", #"Set1", 
 			#"RdGy", "RdBu",
 			#"Dark2", "Set3", #"Paired",
@@ -186,16 +192,31 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 #				"Recovered: ",df[,8])
 	)
 
+	# add country names
+	cties <- unique(df$Country.Region)
+	cties.lat <- c()
+	cties.long <- c()
+	for (i in cties) {
+		cties.lat <- c(cties.lat, mean(df[df$Country.Region==i,"Lat"]) )
+		cties.long <- c(cties.long, mean(df[df$Country.Region==i,"Long"]) )
+	}
+
+	fig <- fig %>% add_trace(type="scattergeo", # view all scattergeo properties here: https://plot.ly/r/reference/#scattergeo
+				lon = cties.long, lat = cties.lat, text = cties, mode="text",
+				textposition = 'top right',
+				textfont = list(color = toRGB("grey65"), size = 6),
+				opacity=.75,
+				showlegend = TRUE, name="Countries Names"
+)
+
+
 	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",names(data)[Ncols-1]), geo=g)
 
 
 	###### MENUES ... aka "buttons" in plotly #######
 	## dropdown
-projections = data.frame(type = c("equirectangular", "mercator", "orthographic", "natural earth","kavrayskiy7", 
-                                  "miller", "robinson", "eckert4", "azimuthal equal area","azimuthal equidistant", 
-                                  "conic equal area", "conic conformal", "conic equidistant", "gnomonic", "stereographic", 
-                                  "mollweide", "hammer", "transverse mercator", "albers usa", "winkel tripel"))
-
+	projections.types <- c(	"equirectangular", "mercator", "orthographic", "natural earth","kavrayskiy7", "miller", "robinson", "eckert4", "azimuthal equal area","azimuthal equidistant", "conic equal area", "conic conformal", "conic equidistant", "gnomonic", "stereographic", "mollweide", "hammer", "transverse mercator", "albers usa", "winkel tripel" )
+	projections = data.frame(type = projections.types)
 	all_buttons <- list()
 	for (i in 1:length(projections[,])) { 
 		  all_buttons[[i]] <- list(method = "relayout",
@@ -203,8 +224,20 @@ projections = data.frame(type = c("equirectangular", "mercator", "orthographic",
 						label = projections$type[i])
 	}
 
+	### update scale
+	scale.buttons <- list(
+			list(method = "update",
+				args = list("size", "~log1p(nbr.of.cases)"),
+				label = "log"),
+			list(method = "update",
+				args = list("size", "~(nbr.of.cases)"),
+				label = "linear"),
+			list(method="update",
+				args = list("size", ""),
+				label = "constant")
+			)
 
-	# sliders
+	## sliders for 'scrolling' longitude and latitude...
 	lon_range = data.frame(seq(-180, 180, 10))
 	lat_range = data.frame(seq(-90, 90, 10))
 	colnames(lon_range) <- "x"
@@ -239,7 +272,10 @@ projections = data.frame(type = c("equirectangular", "mercator", "orthographic",
 	# set pull down menues and buttons
 
 	fig <- fig %>% layout(
-			updatemenus = list(list(active = 2, x = 0, y = 0.8, buttons=all_buttons))
+			updatemenus = list(
+					list(active = 1, x = 0, y = 0.8, buttons=all_buttons),
+					list(active = 2, x = 0, y = 0.2, buttons=scale.buttons)
+					)
 		#	,
 		#	sliders = list(
 		#			list(
