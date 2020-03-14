@@ -1,4 +1,4 @@
-covid19 <- function(case='ALL', debrief=FALSE) {
+covid19.data <- function(case='ALL', debrief=FALSE) {
 #' fucntion to read lice data as reported by JHU's CCSE repo
 #'
 #' @param  case  a string indicating the category of the data, possible values are: "confirmed", "deaths", "recovered" OR "ALL"
@@ -11,10 +11,10 @@ covid19 <- function(case='ALL', debrief=FALSE) {
 #' @export
 #'
 #' @examples
-#' covid19.data <- covid19()
-#' covid19.confirmed.cases <- covid19("confirmed")
-#' covid19.deaths <- covid19("deaths")
-#' covid19.recovered <- covid19("recovered")
+#' covid19.all.cases <- covid19.data()
+#' covid19.confirmed.cases <- covid19.data("confirmed")
+#' covid19.deaths <- covid19.data("deaths")
+#' covid19.recovered <- covid19.data("recovered")
 #'
 
         ## function for error handling
