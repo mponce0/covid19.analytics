@@ -15,7 +15,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 #'
 
 	if (is.null(data0)) {
-		total.cases <- covid19()
+		total.cases <- covid19.data()
 	} else {
 		total.cases <- data0
 	}
@@ -93,7 +93,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 
 ##################################################################################
 
-live.map <- function(data=covid19(), projctn='orthographic', title="") {
+live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
@@ -188,13 +188,83 @@ live.map <- function(data=covid19(), projctn='orthographic', title="") {
 
 	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",names(data)[Ncols-1]), geo=g)
 
+
+	###### MENUES ... aka "buttons" in plotly #######
+	## dropdown
+projections = data.frame(type = c("equirectangular", "mercator", "orthographic", "natural earth","kavrayskiy7", 
+                                  "miller", "robinson", "eckert4", "azimuthal equal area","azimuthal equidistant", 
+                                  "conic equal area", "conic conformal", "conic equidistant", "gnomonic", "stereographic", 
+                                  "mollweide", "hammer", "transverse mercator", "albers usa", "winkel tripel"))
+
+	all_buttons <- list()
+	for (i in 1:length(projections[,])) { 
+		  all_buttons[[i]] <- list(method = "relayout",
+						args = list(list(geo.projection.type = projections$type[i])),
+						label = projections$type[i])
+	}
+
+
+	# sliders
+	lon_range = data.frame(seq(-180, 180, 10))
+	lat_range = data.frame(seq(-90, 90, 10))
+	colnames(lon_range) <- "x"
+	colnames(lat_range) <- "x"
+
+	all_lat <- list()
+	for (i in 1:length(lat_range[,])) { 
+		all_lat[[i]] <- list(method = "relayout",
+			args = list(list(geo.projection.rotation.lat = lat_range$x[i])),
+			label = lat_range$x[i])
+	}
+
+	all_lon <- list()
+	for (i in 1:length(lon_range[,])) {  
+		all_lon[[i]] <- list(method = "relayout", 
+			args = list(list(geo.projection.rotation.lon = lon_range$x[i])),
+			label = lon_range$x[i]) 
+	} 
+
+	# annotations
+	annot <- list(x = 0, y=0.8, text = "Projection", yanchor = 'bottom', 
+		xref = 'paper', xanchor = 'right',
+		showarrow = FALSE)
+
+	###################################################3
+
+
 	# set background color
 	fig <- fig %>% layout(plot_bgcolor='rgb(254, 247, 234)', paper_bgcolor='black')
+
+
+	# set pull down menues and buttons
+
+	fig <- fig %>% layout(
+			updatemenus = list(list(active = 2, x = 0, y = 0.8, buttons=all_buttons))
+		#	,
+		#	sliders = list(
+		#			list(
+		#				active = (length(lon_range[,])-1)/2, 
+		#				currentvalue = list(prefix = "Longitude: "), 
+		#				pad = list(t = 20), 
+		#				steps = all_lon
+		#			),
+		#
+		#			list(
+		#				active = (length(lat_range[,])-1)/2, 
+		#				currentvalue = list(prefix = "Latitude: "), 
+		#				pad = list(t = 100), 
+		#				steps = all_lat
+		#			)
+		#		)
+			)
+
 
 #	fig <- fig %>% layout(
 #  			plot_mapbox(), 
 #			mapbox = list(style = "satellite") )
 
+
+	# force displaying the figure
 	print(fig)
 
 	return(df)
