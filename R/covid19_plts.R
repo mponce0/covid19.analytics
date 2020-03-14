@@ -93,21 +93,54 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 
 ##################################################################################
 
-live.map <- function(data, projctn='orthographic') {
+live.map <- function(data=covid19(), projctn='orthographic', title="") {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
 #' @param  projctn  type of map-projection to use, possible values are:
 #' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
+#' @param  title  a string with a title to add to the plot
 #'
 #' @export
 #'
 
+	# load/check plotly
+	loadLibrary("plotly")
+
+	col1 <- 5
 	Ncols <- length(data)
-	df <- data[,c(1,2,3,4,Ncols)]
-	names(df)[length(df)] <- "nbr.of.cases"
+	if (tolower('status') %in% tolower(names(data))) {
+		df <- data[data$status=="confirmed", c(1,2,3,4,(Ncols-1))]
+		for (sts in unique(data$status)) {
+			if (tolower(sts) == "death") {
+			# ie. deaths or recovered, hence we need to add them
+				df$total.deaths <- data[data$status==sts,(Ncols-1)]
+				df$total.deaths <- data[data$status==sts,(Ncols-1)]
+			} else if (tolower(sts) == "recovered") {
+				df$total.recover <- data[data$status==sts,(Ncols-1)]
+			} else {
+				df$total.confirmed <- data[data$status == sts, (Ncols-1)]
+			}
+		
+		}
+		#Ncols <- Ncols-1
+		#df <- data[data$status=="confirmed", c(1,2,3,4,(Ncols-1),(Ncols+1),(Ncols+2),(Ncols+3))]
 
+		print(head(df))
+		# define description to display
+		#text = "~paste(df$Province.State," - ",df$Country.Region,":", df$nbr.of.cases, " confirmed \n", )"
+		hover.txt <- paste(df$Province.State," - ",df$Country.Region,'\n',
+					"Confirmed:", df[,6],'\n',
+					"Deaths: ",df[,7],'\n',
+					"Recovered: ",df[,8])
+	} else {
+		df <- data[,c(1,2,3,4,Ncols)]
+		hover.txt <- paste(df$Province.State," - ",df$Country.Region,": ",df[,5]) 
+	}
 
+	names(df)[5] <- "nbr.of.cases"
+
+	#### geographical parameters
 	g <- list(
 	  scope = 'world',
 	  projection = list(
@@ -131,8 +164,9 @@ live.map <- function(data, projctn='orthographic') {
 	  #countrycolor = toRGB("white"),
 	  bgcolor = toRGB("black")
 	)
+	####
 
-
+	### figure creation
 	fig <- plot_geo(df, locationmode = "country names", sizes = c(1, 250))
 
 	fig <- fig %>% add_markers(
@@ -144,10 +178,14 @@ live.map <- function(data, projctn='orthographic') {
 		# COLORS from RColorBrewer....
 		#hoveron = "fills",
 		hoverinfo="text",
-		text = ~paste(df$Province.State," - ",df$Country.Region,":", df$nbr.of.cases)
+		text = ~ hover.txt,
+#		paste(df$Province.State," - ",df$Country.Region,'\n',
+#				"Confirmed:", df[,6],'\n',
+#				"Deaths: ",df[,7],'\n',
+#				"Recovered: ",df[,8])
 	)
 
-	fig <- fig %>% layout(title = paste("covid19 package - cases up to",names(data)[Ncols]), geo=g)
+	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",names(data)[Ncols-1]), geo=g)
 
 	# set background color
 	fig <- fig %>% layout(plot_bgcolor='rgb(254, 247, 234)', paper_bgcolor='black')
@@ -157,6 +195,8 @@ live.map <- function(data, projctn='orthographic') {
 #			mapbox = list(style = "satellite") )
 
 	print(fig)
+
+	return(df)
 }
 
 
