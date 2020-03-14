@@ -132,7 +132,8 @@ live.map <- function(data=covid19(), projctn='orthographic', title="") {
 		hover.txt <- paste(df$Province.State," - ",df$Country.Region,'\n',
 					"Confirmed:", df[,6],'\n',
 					"Deaths: ",df[,7],'\n',
-					"Recovered: ",df[,8])
+					"Recovered: ",df[,8],'\n',
+					"Active cases: ",df[,6]-(df[,7]+df[,8]) )
 	} else {
 		df <- data[,c(1,2,3,4,Ncols)]
 		hover.txt <- paste(df$Province.State," - ",df$Country.Region,": ",df[,5]) 
