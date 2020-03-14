@@ -9,7 +9,7 @@ for researchers and the scientific community.
 
 
 ### Data Accesibility
-The `covid19()` function can obtain data from the JHU's CCSE repository,
+The `covid19.data()` function can obtain data from the JHU's CCSE repository,
 aggregating the data in different categories "confirmed"/"deaths"/"recovered"
 cases reported daily per country/region/city.
 By using this function, the data will be pulled directly from the JHU repository
@@ -27,6 +27,7 @@ Function  | description
 `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
 `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
 `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+`live.map`     |  interactive map displaying cases around the world
 -----
 
  
@@ -59,16 +60,16 @@ library(covid19)
 ### Reading data
 ```
 # obtain all the records combined for "confirmed", "deaths" and "recovered" cases
- covid19.data.ALLcases <- covid19()
+ covid19.data.ALLcases <- covid19.data()
 
 # obtain records combined for "confirmed" cases
- covid19.confirmed.cases <- covid19("confirmed")
+ covid19.confirmed.cases <- covid19.data("confirmed")
 
 # obtain records combined for "deaths" cases
- covid19.deaths.cases <- covid19("deaths")
+ covid19.deaths.cases <- covid19.data("deaths")
 
 # obtain records combined for "recovered" cases
- covid19.recovered.cases <- covid19("recovered")
+ covid19.recovered.cases <- covid19.data("recovered")
 ```
 
 ### Some basic analysis
@@ -90,7 +91,7 @@ tots.per.location(covid19.deaths.cases)
 #### Growth Rate
 ```
 # read data for confirmed cases
-data <- covid19("confirmed")
+data <- covid19.data("confirmed")
 
 # compute changes and growth rates per location for all the countries
 growth.rate(data)
@@ -106,6 +107,9 @@ growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 # static and interactive plot 
 totals.plt(data)
+
+# interactive map of cases
+live.map(data)
 ```
 
 
