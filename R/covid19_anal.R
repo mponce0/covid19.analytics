@@ -9,8 +9,8 @@ genModel <- function(y, deg=1) {
 
 	y.var <- unlist(y)
 	x.var <- 1:length(y.var)
-	print(x.var)
-	print(y.var)
+	#print(x.var)
+	#print(y.var)
 
 	model <- lm(y.var ~ x.var)
 	print(summary(model))
@@ -82,9 +82,9 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 
 			# modelling
 			yvar <- totals.per.loc.day
-			print(yvar)
+			#print(yvar)
 			model1 <- genModel(yvar,deg=1)
-			model2 <- genModel(log10(yvar),deg=1)
+			model2 <- genModel(log1p(yvar),deg=1)
 
 			# plots
 			col0 <- 5
@@ -96,9 +96,9 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			my.cols <- rep(rainbow(15L),each=20L)
 			#print(x.dates)
 			#print(y.cases)
-			plot(log10(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
-			abline((model1), col='blue')
-			abline((model2), col='red')
+			plot(log1p(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
+			#abline((model1), col='blue')
+			#abline((model2), col='red')
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
 			#par(new=FALSE)
