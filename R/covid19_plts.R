@@ -4,15 +4,20 @@
 
 ##################################################################
 
-totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
+totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
+			fileName=NULL) {
 #' function to plot total number of cases per day for different groups
 #'
-#' @param  data  dataset to process, default all the possible cases: 'confirmed', 'recovered' and 'deaths' for all countries/regions
+#' @param  data0  dataset to process, default all the possible cases: 'confirmed', 'recovered' and 'deaths' for all countries/regions
 #' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
 #' @param  interactive.fig  swith to turn off/on an interactive plot
+#' @param  fileName  file where to save the HTML version of the interactive figure
 #'
 #' @export
 #'
+#' @importFrom  plotly  plot_ly %>% add_trace
+#' @importFrom  htmlwidgets  saveWidget
+
 
 	if (is.null(data0)) {
 		total.cases <- covid19.data()
@@ -42,6 +47,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 		confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
 		recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
 		deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
+		active.cases <- confirmed - (recovered+deaths)
 		###
 	} else {
 		all.cases <- FALSE
@@ -50,10 +56,10 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 	totals <- apply(total.cases[,col1:colN], MARGIN=2,sum)
 
 	x.dates <- as.Date(names(total.cases)[col1:colN])
-	ymax <- max(totals,na.rm=TRUE)
+	ymax <- max(confirmed,na.rm=TRUE)
 
 	### STATIC PLOTS
-	plot(x.dates, totals, ylim=c(0,ymax),  type='l', col='darkred',
+	plot(x.dates, active.cases, ylim=c(0,ymax),  type='l', lwd=3, col='darkred',
 		xlab='time', ylab='nbr of cases', main=geo.loc)
 
 	if (all.cases) {
@@ -63,6 +69,8 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 		plot(x.dates,recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
 		par(new=TRUE,ann=FALSE)
 		plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
+		#par(new=TRUE,ann=FALSE)
+		#plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwt=2, col='red')
 	}
 
 	### INTERACTIVE PLOTS
@@ -79,29 +87,45 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE) {
 			totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers')
 			totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers')
 			totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines')
 		} else {
 			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
 		}
 	
 		# activate interactive figure
 		print(totals.ifig)
+
+        
+		if (!is.null(fileName)) {
+			FileName <- paste0(fileName,".html")
+			# informing where the plot is going to be saved
+			message("Saving interactive plot in ", FileName)
+			htmlwidgets::saveWidget(as_widget(totals.ifig), FileName)
+		}
 	}
 
 	#return(totals.per.cat)
 }
 
 
+
 ##################################################################################
 
-live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
+live.map <- function(data=covid19.data(), projctn='orthographic', title="",
+			fileName=NULL) {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
 #' @param  projctn  initial type of map-projection to use, possible values are:
 #' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
 #' @param  title  a string with a title to add to the plot
+#' @param  fileName  file where to save the HTML version of the interactive figure
 #'
 #' @export
+#'
+#' @importFrom  plotly  plot_ly plot_geo %>% add_markers add_trace layout toRGB
+#' @importFrom  htmlwidgets  saveWidget
+#' @importFrom  utils  head str
 #'
 
 	# load/check plotly
@@ -168,22 +192,24 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 	####
 
 	### figure creation
-	scalingFactor <- 4000
-	scaled.nbr.of.cases <- df$nbr.of.cases*scalingFactor
-
 	fig <- plot_geo(df, locationmode = "country names", sizes = c(1, 250))
 
+	# 1st LOG scale
 	fig <- fig %>% add_markers(
 		x = ~Long, y = ~Lat,
-		size = ~(log1p(nbr.of.cases)),
+		size = ~log1p(nbr.of.cases),
 		#color = ~nbr.of.cases,
 		color = ~Country.Region,
+		opacity = 0.65,
 		colors = "Spectral", #"Set1", 
 			#"RdGy", "RdBu",
 			#"Dark2", "Set3", #"Paired",
 			#"YlGnBu","Blues", #"Reds", #"Blues", #"Accent",
 		# COLORS from RColorBrewer....
 		#hoveron = "fills",
+		marker=list(sizeref=0.2, sizemode="area",
+				#sizes = c(~log1p(nbr.of.cases),~nbr.of.cases),
+				line = list(width = 1, color = 'black')),
 		hoverinfo="text",
 		text = ~ hover.txt,
 #		paste(df$Province.State," - ",df$Country.Region,'\n',
@@ -192,7 +218,32 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 #				"Recovered: ",df[,8])
 	)
 
-	# add country names
+	# linear scale
+#	fig <- fig %>% add_markers(
+#		x = ~Long, y = ~Lat,
+#		size = ~((nbr.of.cases)),
+#		color = ~Country.Region,
+#		colors = "Spectral",
+#		marker=list(sizeref=0.2, sizemode="area"),
+#		hoverinfo="text",
+#		text = ~ hover.txt,
+#		visible = FALSE
+#	)
+
+
+	# linear scale
+#        fig <- fig %>% add_markers(
+#                x = ~Long, y = ~Lat,
+#                size = ~((nbr.of.cases)),
+#                color = ~Country.Region,
+#                colors = "Spectral",
+#                marker=list(sizeref=0.2, sizemode="area"),
+#                hoverinfo="text",
+#                text = ~ hover.txt,
+#                visible = FALSE
+#        )
+
+	# add country names to the map
 	cties <- unique(df$Country.Region)
 	cties.lat <- c()
 	cties.long <- c()
@@ -206,8 +257,9 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 				textposition = 'top right',
 				textfont = list(color = toRGB("grey65"), size = 6),
 				opacity=.75,
-				showlegend = TRUE, name="Countries Names"
-)
+				showlegend = TRUE, name="Countries Names",
+				visible = TRUE
+				)
 
 
 	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",names(data)[Ncols-1]), geo=g)
@@ -227,13 +279,19 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 	### update scale
 	scale.buttons <- list(
 			list(method = "update",
-				args = list("size", "~log1p(nbr.of.cases)"),
+				args = list("marker", 'list(sizeref=0.2, sizemode="area")'),
+				#args = list("size", "~log1p(df$nbr.of.cases)"),
+				#args = list("visible", list(TRUE, FALSE, FALSE, TRUE)),
 				label = "log"),
 			list(method = "update",
-				args = list("size", "~(nbr.of.cases)"),
+				args = list("marker", 'list(sizeref=1, sizemode="area")'),
+				#args = list("visible", list(FALSE, TRUE, FALSE, TRUE)),
+				#args = list("size", "~nbr.of.cases"),
 				label = "linear"),
 			list(method="update",
-				args = list("size", ""),
+				args = list("marker", 'list(sizeref=2, sizemode="area")'),
+				#args = list("visible", list(FALSE, FALSE, TRUE, TRUE)),
+				#args = list("size", 3),
 				label = "constant")
 			)
 
@@ -273,8 +331,8 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 
 	fig <- fig %>% layout(
 			updatemenus = list(
-					list(active = 1, x = 0, y = 0.8, buttons=all_buttons),
-					list(active = 2, x = 0, y = 0.2, buttons=scale.buttons)
+					list(active = 1, x = 0, y = 0.8, buttons=all_buttons)
+					#list(active = -1, x = 0, y = 0.2, buttons=scale.buttons)
 					)
 		#	,
 		#	sliders = list(
@@ -302,6 +360,13 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="") {
 
 	# force displaying the figure
 	print(fig)
+
+	if (!is.null(fileName)) {
+		FileName <- paste0(fileName,".html")
+		# informing where the plot is going to be saved
+		message("Saving interactive plot in ", FileName)
+		htmlwidgets::saveWidget(as_widget(fig), FileName)
+	}
 
 	return(df)
 }
