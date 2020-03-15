@@ -72,7 +72,11 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 		if (length(geo.locs) >= 1) {
 			geo.loc <- geo.locs
 		} else {
-			stop("Unrecognized location: ",geo.loc)
+			message("Unrecognized location: ",geo.loc)
+			message("Possible options are:")
+			print(unlist(provinces.states))
+			print(unlist(countries.regions))
+			stop()
 		}
 	}
 
