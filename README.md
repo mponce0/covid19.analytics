@@ -28,7 +28,11 @@ Function  | description
  `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  `totals.plt`   |  plots in a static and interactive plot total number of cases per day
  `live.map`     |  interactive map displaying cases around the world
----
+
+
+### Further Features
+We will continue working on adding new features to the package, in particular modelling and predictive capabilities.
+
 
  
 ## Installation
