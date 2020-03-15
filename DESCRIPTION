@@ -7,6 +7,8 @@ Author: Marcelo Ponce [aut, cre]
 Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
 Description: Loads updated data for the Novel Coronavirus (COVID-19) from JHU's CCSEGIS and Data repository.
 Imports:
+    plotly,
+    htmlwidgets
 Suggests:
     knitr,
     devtools,
