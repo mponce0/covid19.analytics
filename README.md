@@ -22,12 +22,12 @@ to estimate totals per regions/country/cities, growth rates and daily changes in
 the reported number of cases.
 
 
-Function  | description
---------	 | -----------
-`tots.per.location`  |  compute totals per region and plot time series for that specific region/country
-`growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
-`totals.plt`   |  plots in a static and interactive plot total number of cases per day
-`live.map`     |  interactive map displaying cases around the world
+ Function  | description
+---------	 | -----------
+ `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+ `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+ `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+ `live.map`     |  interactive map displaying cases around the world
 -----
 
  
@@ -111,6 +111,14 @@ totals.plt(data)
 # interactive map of cases
 live.map(data)
 ```
+
+<object data="man/figures/totals.html" width="100%" height="525">
+   <embed src="man/figures/livemap.html" width="100%" height="525">
+       <p>A live example of this can be seen at
+            <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
+       </p>
+   </embed>
+</object>
 
 
 ## Further Resources
