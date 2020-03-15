@@ -6,6 +6,12 @@
 #######################################################################
 
 genModel <- function(y, deg=1) {
+#' function to generate models using Linear Regression
+#'
+#' @keywords internal
+#'
+#' @importFrom  stats  lm
+#'
 
 	y.var <- unlist(y)
 	x.var <- 1:length(y.var)
@@ -36,16 +42,22 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 #'
 #' @export
 #'
+#' @importFrom  grDevices  rainbow
+#' @importFrom  graphics   barplot par plot
+#'
+#'
 #' @examples
+#' \donttest{
 #' # read data for confirmed cases
-#' data <- covid19("confirmed")
+#' data <- covid19.data("confirmed")
 #' # compute totals per location for all the countries
 #' tots.per.location(data)
 #' # compute totals per location for 'Italy'
 #' tots.per.location(data,geo.loc="Italy")
 #' # compute totals per location for 'Italy' and 'Germany'
 #' tots.per.location(data,geo.loc=c("Italy","Germany"))
-
+#'}
+#'
 	# first column with daily data
 	col1 <- 6
 
@@ -125,14 +137,16 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' # read data for confirmed cases
-#' data <- covid19("confirmed")
+#' data <- covid19.data("confirmed")
 #' # compute changes and growth rates per location for all the countries
 #' growth.rate(data)
 #' # compute changes and growth rates per location for 'Italy'
 #' growth.rate(data,geo.loc="Italy")
 #' # compute changes and growth rates per location for 'Italy' and 'Germany'
 #' growth.rate(data,geo.loc=c("Italy","Germany"))
+#' }
 
 	# define first column of data
 	col1 <- 6
