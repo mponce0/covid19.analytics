@@ -7,6 +7,7 @@ novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
 The goal of this package is to make the latest data quickly available
 for researchers and the scientific community.
 
+<object data="man/figures/livemap.html" width="100%" height="525"></object>
 
 ### Data Accesibility
 The `covid19.data()` function can obtain data from the JHU's CCSE repository,
@@ -129,8 +130,6 @@ live.map(data)
 <p>
 Interactive examples can be seen at
     <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
-
-<object data="man/figures/livemap.html" width="100%" height="525"></object>
 </p>
 
 
