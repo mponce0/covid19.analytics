@@ -30,8 +30,10 @@ Function  | description
  `live.map`     |  interactive map displaying cases around the world
 
 
+
 ### Further Features
-We will continue working on adding new features to the package, in particular modelling and predictive capabilities.
+We will continue working on adding and developing new features to the package,
+in particular modelling and predictive capabilities.
 
 
  
