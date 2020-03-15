@@ -23,12 +23,12 @@ the reported number of cases.
 
 
  Function  | description
----------	 | -----------
+---	 | ---
  `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
  `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  `totals.plt`   |  plots in a static and interactive plot total number of cases per day
  `live.map`     |  interactive map displaying cases around the world
------
+---
 
  
 ## Installation
@@ -87,7 +87,7 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
 ```
-<p float="left">
+<p>
   <img src="man/figures/Hubei_totals.png" width="49.50%" />
   <img src="man/figures/Italy_totals.png" width="49.50%" />
 </p>
