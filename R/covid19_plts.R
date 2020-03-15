@@ -15,8 +15,8 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #'
 #' @export
 #'
-#' @importFrom  plotly  plot_ly %>% add_trace
-#' @importFrom  htmlwidgets  saveWidget
+#' @importFrom  plotly  plot_ly %>% add_trace as_widget
+#' @importFrom  htmlwidgets  saveWidget 
 
 
 	if (is.null(data0)) {
@@ -123,7 +123,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 #'
 #' @export
 #'
-#' @importFrom  plotly  plot_ly plot_geo %>% add_markers add_trace layout toRGB
+#' @importFrom  plotly  plot_ly plot_geo %>% add_markers add_trace layout toRGB as_widget
 #' @importFrom  htmlwidgets  saveWidget
 #' @importFrom  utils  head str
 #'
