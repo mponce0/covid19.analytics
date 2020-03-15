@@ -112,12 +112,17 @@ totals.plt(data)
 live.map(data)
 ```
 
-<object data="man/figures/totals.html" width="100%" height="525">
-   <embed src="man/figures/livemap.html" width="100%" height="525">
+<p float="left">
+  <object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+  <img src="man/figures/Hubei_totals.png" width="49.50%" />
+</p>
+
+<object data="man/figures/totals.html" width="30%" height="525">
+<object data="man/figures/livemap.html" width="30%" height="525">
        <p>A live example of this can be seen at
             <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
        </p>
-   </embed>
+</object>
 </object>
 
 
