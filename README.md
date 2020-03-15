@@ -87,6 +87,10 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
 ```
+<p float="left">
+  <img src="man/figures/Hubei_totals.png" width="49.50%" />
+</p>
+
 
 #### Growth Rate
 ```
@@ -112,13 +116,12 @@ totals.plt(data)
 live.map(data)
 ```
 
-<object data="man/figures/totals.html" width="100%" height="525">
-   <embed src="man/figures/livemap.html" width="100%" height="525">
-       <p>A live example of this can be seen at
-            <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
-       </p>
-   </embed>
-</object>
+
+<object data="man/figures/totals.html" width="30%" height="525"></object>
+<object data="man/figures/livemap.html" width="30%" height="525"></object>
+<p>A live example of this can be seen at
+    <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
+</p>
 
 
 ## Further Resources
