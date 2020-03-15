@@ -113,8 +113,8 @@ live.map(data)
 ```
 
 <p float="left">
-  <object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
-  <img src="man/figures/Hubei_totals.png" width="49.50%" />
+  <object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+<!--  <img src="man/figures/Hubei_totals.png" width="49.50%" /> -->
 </p>
 
 <object data="man/figures/totals.html" width="30%" height="525">
