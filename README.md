@@ -116,11 +116,12 @@ totals.plt(data)
 live.map(data)
 ```
 
-
-<object data="man/figures/totals.html" width="30%" height="525"></object>
-<object data="man/figures/livemap.html" width="70%" height="525"></object>
 <p>A live example of this can be seen at
     <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
+
+    <object data="man/figures/totals.html" width="80%" height="525"></object>
+
+    <object data="man/figures/livemap.html" width="100%" height="525"></object>
 </p>
 
 
