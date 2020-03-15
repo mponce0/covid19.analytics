@@ -82,7 +82,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 
 # total nbr of deaths for "Mainland China"
-tots.per.location(covid19.deaths.cases,geo.loc="Mainland China")
+tots.per.location(covid19.deaths.cases,geo.loc="China")
 
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
