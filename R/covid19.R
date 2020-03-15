@@ -38,13 +38,13 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 	JHU.REPO <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/"
 
 	if (case == "ALL") {
-		covid19.conf <- covid19("confirmed")
+		covid19.conf <- covid19.data("confirmed")
 		covid19.conf <- cbind(covid19.conf, "confirmed")
 		names(covid19.conf)[length(covid19.conf)] <- "status"
-		covid19.death <- covid19("deaths")
+		covid19.death <- covid19.data("deaths")
 		covid19.death <- cbind(covid19.death, "death")
 		names(covid19.death)[length(covid19.death)] <- "status"
-		covid19.recov <- covid19("recovered")
+		covid19.recov <- covid19.data("recovered")
 		covid19.recov <- cbind(covid19.recov, "recovered")
 		names(covid19.recov)[length(covid19.recov)] <- "status"
 
