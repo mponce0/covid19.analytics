@@ -89,6 +89,7 @@ tots.per.location(covid19.deaths.cases)
 ```
 <p float="left">
   <img src="man/figures/Hubei_totals.png" width="49.50%" />
+  <img src="man/figures/Italy_totals.png" width="49.50%" />
 </p>
 
 
@@ -115,15 +116,16 @@ totals.plt(data)
 # interactive map of cases
 live.map(data)
 ```
-
+<p algin="center">
 <object data="man/figures/totals.html" width="80%" height="525">
-<p>A live example of this can be seen at
+<p algin="left">
+A live example of this can be seen at
     <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
 </p>
 </object>
-
 <object data="man/figures/livemap.html" width="100%" height="525">
 </object>
+</p>
 
 
 ## Further Resources
