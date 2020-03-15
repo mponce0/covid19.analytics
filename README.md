@@ -113,8 +113,9 @@ live.map(data)
 ```
 
 <p float="left">
-  <object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+  <object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="50%">
 <!--  <img src="man/figures/Hubei_totals.png" width="49.50%" /> -->
+  </object>
 </p>
 
 <object data="man/figures/totals.html" width="30%" height="525">
