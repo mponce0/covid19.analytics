@@ -112,16 +112,17 @@ growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 # static and interactive plot 
 totals.plt(data)
+```
+<object data="man/figures/totals.html" width="80%" height="525">
+</object>
 
+```
 # interactive map of cases
 live.map(data)
 ```
-<p algin="center">
-<object data="man/figures/totals.html" width="80%" height="525">
-<p algin="left">
-A live example of this can be seen at
+<p>
+Interactive examples can be seen at
     <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
-</p>
 </object>
 <object data="man/figures/livemap.html" width="100%" height="525">
 </object>
