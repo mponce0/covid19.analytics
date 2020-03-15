@@ -87,11 +87,12 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
 ```
+<!--
 <p>
   <img src="man/figures/Hubei_totals.png" width="49.50%" />
   <img src="man/figures/Italy_totals.png" width="49.50%" />
 </p>
-
+-->
 
 #### Growth Rate
 ```
