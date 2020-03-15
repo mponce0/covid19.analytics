@@ -22,7 +22,7 @@ to estimate totals per regions/country/cities, growth rates and daily changes in
 the reported number of cases.
 
 
- Function  | description
+Function  | description
 ---	 | ---
  `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
  `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
