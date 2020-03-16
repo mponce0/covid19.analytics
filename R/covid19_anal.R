@@ -67,10 +67,16 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 	# dataframe to store results
 	total.cases.per.country <- data.frame()
 
+
+	### preserve user graphical env.
+	# save the state of par() before running the code
+	oldpar <- par(no.readonly = TRUE)
+	# restore the previous state after the fn is done, even if it fails, so the user environment is not altered
+	on.exit(par(oldpar))
+	#########
 	# set some graphical parameters
-#	if (tolower("status") %in% tolower(names(data)))
-#		nbr.plts <- length(unique(data$status))
 	set.plt.canvas(geo.loc,nbr.plts*2)
+
 
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
@@ -122,7 +128,7 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 	}
 
 	#plot(unlist(data[ data$Country.Region==i ,5:52]))
-	return(total.cases.per.country)
+	return(invisible(total.cases.per.country))
 
 }
 
@@ -163,8 +169,19 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 	# where to store the results
 	totals.per.day <-data.frame() 
 
+
+	### preserve user graphical env.
+	# save the state of par() before running the code
+	oldpar <- par(no.readonly = TRUE)
+	# restore the previous state after the fn is done, even if it fails, so the user environment is not altered
+	on.exit(par(oldpar))
+
 	# set graphical output parameters
 	set.plt.canvas(geo.loc,2)
+	###
+	if (length(geo.loc) > 5) par(mar=c(1,1,1,1))
+	#########
+
 
 	if ("status" %in% names(data0)) {
 		data <- data0[, ! names(data0) %in% "status", drop = F]
@@ -213,13 +230,23 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		names(totals.per.day) <- c(1:length(subTotals.per.day))	#("location",names(changes[range1]))
 		#print(subTotals.per.day)
 
+
 		# some graphic output...		
 		my.cols <- rep(rainbow(15L),each=20L)
 		x.dates <- as.Date(names(totals.per.loc[2:length(totals.per.loc)]))
-		plot(x.dates,changes, type='b', main=i, xlab="time",ylab="Nbr of Changes", col=my.cols)
+		plot(x.dates,changes, type='b', xlab="time",ylab="Nbr of Changes", col=my.cols)
+		#lines(x.dates,exp(model2$coefficients[2]*seq_along(x.dates))*model2$coefficients[1], col='blue')
+		par(new=TRUE)
+		plot(x.dates,log1p(changes), ylab='',xlab='', type='b', pch=8, cex=.3, col=my.cols, lwd=2, lty=1, axes=FALSE)
+		axis(4)
+		par(new=FALSE)
+
 		plot(x.dates,gr.rate, axes=FALSE,xlab='',ylab='', ylim=c(0,max(gr.rate,na.rm=TRUE)*1.05), main=i, type='b', col=my.cols)
 		par(new=TRUE)
-		barplot(unlist(gr.rate), ylab="Growth Rate",xlab="Time",col = my.cols)
+		barplot(unlist(gr.rate), ylab="Growth Rate",xlab="time",col = my.cols)
+		axis(side=1,labels=FALSE)
+		#axis.Date(side=1,x.dates)
+		#box()
 		par(new=FALSE)
 
 	}
