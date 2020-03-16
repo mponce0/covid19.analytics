@@ -6,14 +6,16 @@
 
 #############################################################################
 
-set.plt.canvas <- function(geo.loc,ylayers=1) {
-#' fucntion to set the graphical layout
+set.plt.canvas <- function(geo.loc,ylayers=1,minBreaks=5) {
+#' function to set the graphical layout
 #'
-#' @param geo.loc  list of locations
+#' @param  geo.loc  list of locations so that the fn can determine how many plots would be
+#' @param  ylayers  parameter to set a multiplier times the nbr of initial plots
+#' @param  minBreaks  cut-off to set the minimum nbr of plots
 #'
 #' @keywords internal
 #'
-	quadrants <- min(5,as.integer(sqrt(length(geo.loc))))
+	quadrants <- min(minBreaks,as.integer(sqrt(length(geo.loc))))
 	par(mfrow=c(quadrants*ylayers,quadrants))
 	#par(mfrow=c(2,1))
 	cat(length(geo.loc), " -- ", quadrants, '\n')
