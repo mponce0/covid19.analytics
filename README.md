@@ -96,10 +96,10 @@ tots.per.location(covid19.deaths.cases)
 ```
 
 <p>
-  <img src="man/figures/Hubei_totals.png" width="49.50%" />
-  <img src="man/figures/Italy_totals.png" width="49.50%" />
-  <img src="man/figures/Germany_totals.png" width="49.50%" />
-  <img src="man/figures/Ontario_totals.png" width="49.50%" />
+  <img src="man/figures/Hubei_totals.png" width="24%" />
+  <img src="man/figures/Italy_totals.png" width="24%" />
+  <img src="man/figures/Germany_totals.png" width="24%" />
+  <img src="man/figures/Ontario_totals.png" width="24%" />
 </p>
 
 
