@@ -102,6 +102,9 @@ tots.per.location(covid19.deaths.cases)
   <img src="man/figures/Ontario_totals.png" width="24%" />
 </p>
 
+The figures show the total number of cases for different cities (provinces/regions) and countries:
+one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
+
 
 #### Growth Rate
 ```
