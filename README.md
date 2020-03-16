@@ -92,7 +92,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 tots.per.location(covid19.deaths.cases,geo.loc="China")
 
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
-tots.per.location(covid19.confirmed.cases,geo.loc="China", confBnd=TRUE)
+tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
 <p>
