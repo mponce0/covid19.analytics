@@ -114,6 +114,13 @@ Nevertheless for the sake of a quick interpretation is OK, but one should bare i
 We also provide two additonal models, as shown in the figures above, using the Generalized Linear Model `glm()` function, using a *Poisson* and *Gamma* family function.
 
 
+<p>
+  <img src="man/figures/Japan_recovered.png" width="30%" />
+  <img src="man/figures/Japan_deaths.png" width="30%" />
+  <img src="man/figures/Japan_confirmed.png" width="30%" />
+</p>
+
+
 
 #### Growth Rate
 ```
