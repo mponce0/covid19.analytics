@@ -128,6 +128,17 @@ growth.rate(data,geo.loc="Italy")
 growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 
+<p>
+  <img src="man/figures/gr-changes_Hubei.png" width="40%" />
+  <img src="man/figures/gr-changes_Italy.png" width="40%" />
+  <img src="man/figures/gr-changes_Germany.png" width="40%" />
+  <img src="man/figures/gr-changes_Canada.png" width="40%" />
+</p>
+
+The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
+
+
+
 #### Graphical Output
 ```
 # static and interactive plot 
