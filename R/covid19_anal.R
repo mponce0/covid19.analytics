@@ -6,7 +6,7 @@
 #######################################################################
 
 genModel <- function(y, deg=1) {
-#' function to generate models using Linear Regression
+#' function to generate models using Linear Regression "LM"
 #'
 #' @keywords internal
 #'
@@ -19,6 +19,8 @@ genModel <- function(y, deg=1) {
 	#print(y.var)
 
 	model <- lm(y.var ~ x.var)
+
+	cat("Linear Regression (lm):", '\n')
 	print(summary(model))
 
 	return(model)	
@@ -26,6 +28,29 @@ genModel <- function(y, deg=1) {
 
 evalModel <- function(model) {
 
+}
+
+
+#######################################################################
+
+gen.glm.model <- function (y, family=Gamma(link="log")) {
+#' function to generate models using GLM
+#'
+#' @keywords internal
+#'
+#' @importFrom  stats  lm
+#'
+	y.var <- unlist(y)
+	x.var <- 1:length(y.var)
+	#print(x.var)
+	#print(y.var)
+
+	model <- glm(y.var ~ x.var, family=family)
+
+	cat(paste0("GLM using Family=",paste(family,collpase=' ')," :"),'\n')
+	print(summary(model))
+
+	return(model)
 }
 
 #######################################################################
@@ -101,9 +126,15 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			# modelling
 			yvar <- totals.per.loc.day
 			#print(yvar)
-			model1 <- genModel(yvar,deg=1)
-			model2 <- genModel(log1p(yvar),deg=1)
+
+			## LM models
+			cat("  running models...",'\n')
+			model.lm <- genModel(yvar,deg=1)
+			model.exp <- genModel(log1p(yvar),deg=1)
 			#print(str(model2))
+			## GLM models
+			model.poisson <- gen.glm.model(yvar,family="poisson")
+			if (sum(yvar<=0)==0) model.gamma <- gen.glm.model(yvar)
 
 			# plots
 			col0 <- 5
@@ -115,14 +146,23 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			my.cols <- rep(rainbow(15L),each=20L)
 			#print(x.dates)
 			#print(y.cases)
-			plot(log1p(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
+			plot(log1p(unlist(y.cases)), type='b', xlab="", ylab='nbr.of.cases (log)', pch=16L,col=my.cols)
 			#abline((model1), col='blue')
-			abline((model2), col='red')
-			text(30,0.85*log1p(max(yvar)),
-				paste("coefs: ",round(model2$coefficients[1],digits=3),";",round(model2$coefficients[2],digits=3)))
+			abline((model.exp), col='red')
+			abline(model.poisson, col='blue')
+			if (sum(yvar<=0)==0) abline(model.gamma, col='green')
+			text(20,0.85*log1p(max(yvar)),
+				paste("exp.model coefs: ",round(model.exp$coefficients[1],digits=3),";",round(model.exp$coefficients[2],digits=3)))
+			text(20,0.75*log1p(max(yvar)),
+				paste("GLM-Poisson model coefs: ",round(model.poisson$coefficients[1],digits=3),";",round(model.poisson$coefficients[2],digits=3)))
+			if (sum(yvar<=0)==0) text(20,0.65*log1p(max(yvar)),
+				paste("GLM-Gamma model coefs: ",round(model.gamma$coefficients[1],digits=3),";",round(model.gamma$coefficients[2],digits=3)))
+
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
-			text(20,0.85*max(yvar), paste(" GR = ",round(exp(model2$coefficients[2]),digits=2)))
+			text(15,0.85*max(yvar), paste("lm-exp GR = ",round(exp(model.exp$coefficients[2]),digits=2)))
+			text(15,0.75*max(yvar), paste("glm-Poisson GR = ",round(exp(model.poisson$coefficients[2]),digits=2)))
+			if (sum(yvar<=0)==0) text(15,0.65*max(yvar), paste("glm-Gamma GR = ",round(exp(model.gamma$coefficients[2]),digits=2)))
 			#par(new=FALSE)
 		}
 	}
