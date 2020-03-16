@@ -123,9 +123,9 @@ all.data <- covid19.data()
 tots.per.location(all.data,"Japan")
 ```
 <p>
-  <img src="man/figures/Japan_confirmed.png" width="31%" />
-  <img src="man/figures/Japan_recovered.png" width="31%" />
-  <img src="man/figures/Japan_deaths.png" width="31%" />
+  <img src="man/figures/Japan_confirmed.png" width="32%" />
+  <img src="man/figures/Japan_recovered.png" width="32%" />
+  <img src="man/figures/Japan_deaths.png" width="32%" />
 </p>
 
 
