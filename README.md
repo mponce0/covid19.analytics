@@ -92,7 +92,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 tots.per.location(covid19.deaths.cases,geo.loc="China")
 
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
-tots.per.location(covid19.confirmed.cases,geo.loc="China", confBnd=TRUE)
+tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
 <p>
@@ -123,9 +123,9 @@ all.data <- covid19.data()
 tots.per.location(all.data,"Japan")
 ```
 <p>
-  <img src="man/figures/Japan_confirmed.png" width="30%" />
-  <img src="man/figures/Japan_recovered.png" width="30%" />
-  <img src="man/figures/Japan_deaths.png" width="30%" />
+  <img src="man/figures/Japan_confirmed.png" width="32.5%" />
+  <img src="man/figures/Japan_recovered.png" width="32.5%" />
+  <img src="man/figures/Japan_deaths.png" width="32.5%" />
 </p>
 
 
