@@ -107,20 +107,20 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			plot(log1p(unlist(y.cases)),
 				#xlim=c(1,length(yvar)), ylim=c(0,max(yvar,na.rm=TRUE)),
 				type='b', xlab="days", ylab='nbr.of.cases (log)', pch=16L,col=my.cols)
-			# add confidence band based on moving Avg
-			if (confBnd) confBand(xvar,yvarlog1p, 1,length(yvarlog1p),0,max(yvarlog1p,na.rm=TRUE), windowsNbr=10)
 
 			#abline((model1), col='blue')
 			abline((model.exp), col='red')
 			abline(model.poisson, col='blue')
 			if (sum(yvar<=0)==0) abline(model.gamma, col='green')
-			text(40,0.85*max(yvarlog1p),
+			text(40,1.300*min(yvarlog1p),
 				paste("exp.model coefs: ",round(model.exp$coefficients[1],digits=3),";",round(model.exp$coefficients[2],digits=3)))
-			text(40,0.775*max(yvarlog1p),
+			text(40,1.215*min(yvarlog1p),
 				paste("GLM-Poisson model coefs: ",round(model.poisson$coefficients[1],digits=3),";",round(model.poisson$coefficients[2],digits=3)))
-			if (sum(yvar<=0)==0) text(40,0.7*max(yvarlog1p),
+			if (sum(yvar<=0)==0) text(40,1.115*min(yvarlog1p),
 				paste("GLM-Gamma model coefs: ",round(model.gamma$coefficients[1],digits=3),";",round(model.gamma$coefficients[2],digits=3)))
 
+			# add confidence band based on moving Avg
+			if (confBnd) confBand(xvar,yvarlog1p, 1,length(yvarlog1p),0,max(yvarlog1p,na.rm=TRUE), windowsNbr=10, lcolour='violet')
 
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
