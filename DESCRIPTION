@@ -1,6 +1,6 @@
 Package: covid19
 Type: Package
-Title: Load Live Data from The COVID-19 Virus
+Title: Load Live Data from the COVID-19 Virus
 Version: 1.0
 Date: 2020-03-15
 Author: Marcelo Ponce [aut, cre]
