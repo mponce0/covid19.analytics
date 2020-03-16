@@ -13,6 +13,7 @@ movingFn <- function(x, fn=mean, period=length(x), direction="forward") {
 #' @param  direction  type of moving avergage to consider: "forward", "centered", "backward"; ie. whether the window computation is ( "centered" / "forward" / "backward" ) wrt the data series
 #'
 #' @return  a vector with the 'moving operation' applied to the x vector
+#'
 
         if (!is.numeric(x)) stop("argument x must be of type numeric!")
         if (!is.function(fn)) stop("fn must be a function!")
@@ -44,19 +45,24 @@ movingFn <- function(x, fn=mean, period=length(x), direction="forward") {
 #######################################################################
 
 confBand <- function(x,y, x0,x1,y0,y1, windowsNbr=10, period=ceiling(length(y)/windowsNbr), lcolour='gray',ltype=4,lwidth=2, filling=TRUE) {
-# function to draw confidence bands, using generalized moving averages/sds
-# importFrom  grDevices  rgb
-# importFrom  graphics polygon
-# @keywords internal
+#' function to draw confidence bands, using generalized moving averages/sds
+#'
+#' importFrom  grDevices  rgb
+#' importFrom  graphics  lines polygon
+#' importFrom  stats  sd
+#'
+#' @keywords internal
+#'
 
                 lineWrapper <- function(x,y, x0,x1,y0,y1, line.col,line.lt,line.wdt) {
                 # wrapper function to draw lines
-                        lines(x,y, col=line.col, lty=line.lt, lwd=line.wdt,
+
+                        graphics::lines(x,y, col=line.col, lty=line.lt, lwd=line.wdt,
                                 xlim=c(x0,x1), ylim=c(y0,y1), ann=FALSE)
                 }
 
                 ym <- movingFn(y,mean,period)
-                ysd <- movingFn(y,sd,period)
+                ysd <- movingFn(y,stats::sd,period)
 
                 lineWrapper(x,ym, x0,x1,y0,y1, lcolour,ltype,lwidth)
                 lineWrapper(x,ym+(ysd/2), x0,x1,y0,y1, lcolour,ltype+1,lwidth/2)
