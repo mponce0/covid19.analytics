@@ -101,7 +101,9 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 	#########
 	# set some graphical parameters
 	set.plt.canvas(geo.loc,nbr.plts*2)
-
+	###
+	if (length(geo.loc) > 5) par(mar=c(1,1,1,1))
+	#########
 
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
