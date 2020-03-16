@@ -90,9 +90,6 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 
 # total nbr of deaths for "Mainland China"
 tots.per.location(covid19.deaths.cases,geo.loc="China")
-
-# total for death cases for "ALL" the regions
-tots.per.location(covid19.deaths.cases)
 ```
 
 <p>
@@ -127,6 +124,18 @@ tots.per.location(all.data,"Japan")
   <img src="man/figures/Japan_recovered.png" width="30%" />
   <img src="man/figures/Japan_deaths.png" width="30%" />
 </p>
+
+
+It is also possible to run the `tots.per.location` (and `growth.rate`) functions,
+on the whole data set, for which a quite large but complete mosiac figure will
+be generated, e.g.
+```
+# total for death cases for "ALL" the regions
+tots.per.location(covid19.deaths.cases)
+
+# or just
+tots.per.location(covid19.data("confirmed"))
+```
 
 
 
