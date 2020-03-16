@@ -107,11 +107,12 @@ one the upper plot in log-scale with a linear fit to an exponential law and in l
 Details about the models are included in the plot, in particular the *growth rate* which in several cases appears to be around 1.2+ as predicted by some models.
 Notice that in the case of Hubei, the values is closer to 1, as the dispersion of the virus has reached its logistic asymptope while in other cases (e.g. Germany and Italy --for the presented dates--) is still well above 1, indicating its exponential growth.
 
-**DISCLAIMER** Please notice that the "linear exponential" modelling function implements a *simple (naive)* and straight-forward linear regression model, which is **not** optimal for exponential fits.
+**IMPORTANT** Please notice that the "linear exponential" modelling function implements a *simple (naive)* and straight-forward linear regression model, which is **not** optimal for exponential fits.
 The reason is that the errors for large values of the dependant variable weight much more than those for small values when apply the exponential function to go back to the original model.
 Nevertheless for the sake of a quick interpretation is OK, but one should bare in mind the implications of this simplification.
 
 We also provide two additonal models, as shown in the figures above, using the Generalized Linear Model `glm()` function, using a *Poisson* and *Gamma* family function.
+In particular, the `tots.per.location` function will determine when is possible to automatically generate each model and display the information in the plot as well as details of the models in the console.
 
 
 ```
@@ -122,9 +123,9 @@ all.data <- covid19.data()
 tots.per.location(all.data,"Japan")
 ```
 <p>
-  <img src="man/figures/Japan_confirmed.png" width="33%" />
-  <img src="man/figures/Japan_recovered.png" width="33%" />
-  <img src="man/figures/Japan_deaths.png" width="33%" />
+  <img src="man/figures/Japan_confirmed.png" width="32%" />
+  <img src="man/figures/Japan_recovered.png" width="32%" />
+  <img src="man/figures/Japan_deaths.png" width="332" />
 </p>
 
 
