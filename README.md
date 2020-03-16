@@ -94,12 +94,24 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.deaths.cases)
 ```
-<!--
+
 <p>
-  <img src="man/figures/Hubei_totals.png" width="49.50%" />
-  <img src="man/figures/Italy_totals.png" width="49.50%" />
+  <img src="man/figures/Hubei_totals.png" width="40%" />
+  <img src="man/figures/Italy_totals.png" width="40%" />
+  <img src="man/figures/Germany_totals.png" width="40%" />
+  <img src="man/figures/Ontario_totals.png" width="40%" />
 </p>
--->
+
+The figures show the total number of cases for different cities (provinces/regions) and countries:
+one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
+Details about the models are included in the plot, in particular the *growth rate* which in several cases appears to be around 1.2+ as predicted by some models.
+Notice that in the case of Hubei, the values is closer to 1, as the dispersion of the virus has reached its logistic asymptope while in other cases (e.g. Germany and Italy --for the presented dates--) is still well above 1, indicating its exponential growth.
+
+**DISCLAIMER** Please notice that the modelling function implements a *simple (naive)* and straight-forward linear regression model, which is **not** optimal for exponential fits.
+The reason is that the errors for large values of the dependant variable weight much more than those for small values when apply the exponential function to go back to the original model.
+Nevertheless for the sake of a quick interpretation is OK, but one should bare in mind the implications of this simplification.
+
+
 
 #### Growth Rate
 ```
