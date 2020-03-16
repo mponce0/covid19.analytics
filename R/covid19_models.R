@@ -38,7 +38,8 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 #'
 #' @keywords internal
 #'
-#' @importFrom  stats  glm Gamma poisson
+#' @importFrom  stats  glm  Gamma poisson
+#' @importFrom  utils  capture.output
 #'
 	y.var <- unlist(y)
 	x.var <- 1:length(y.var)
@@ -47,7 +48,8 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 
 	model <- glm(y.var ~ x.var, family=family)
 
-	cat(paste0("GLM using Family=",paste(family,collpase=' ')," :"),'\n')
+	cat(paste0("GLM using Family ",
+		paste(capture.output(eval(family)),collapse="")," :"),'\n')
 	print(summary(model))
 
 	return(model)
