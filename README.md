@@ -9,7 +9,7 @@ for researchers and the scientific community.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
-### Data Accesibility
+### Data Accessibility
 The `covid19.data()` function can obtain data from the JHU's CCSE repository,
 aggregating the data in different categories "confirmed"/"deaths"/"recovered"
 cases reported daily per country/region/city.
@@ -96,10 +96,10 @@ tots.per.location(covid19.deaths.cases)
 ```
 
 <p>
-  <img src="man/figures/Hubei_totals.png" width="23%" />
-  <img src="man/figures/Italy_totals.png" width="23%" />
-  <img src="man/figures/Germany_totals.png" width="23%" />
-  <img src="man/figures/Ontario_totals.png" width="23%" />
+  <img src="man/figures/Hubei_totals.png" width="24%" />
+  <img src="man/figures/Italy_totals.png" width="24%" />
+  <img src="man/figures/Germany_totals.png" width="24%" />
+  <img src="man/figures/Ontario_totals.png" width="24%" />
 </p>
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
@@ -131,10 +131,10 @@ growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 
 <p>
-  <img src="man/figures/gr-changes_Hubei.png" width="40%" />
-  <img src="man/figures/gr-changes_Italy.png" width="40%" />
-  <img src="man/figures/gr-changes_Germany.png" width="40%" />
-  <img src="man/figures/gr-changes_Canada.png" width="40%" />
+  <img src="man/figures/gr-changes_Hubei.png" width="24%" />
+  <img src="man/figures/gr-changes_Italy.png" width="24%" />
+  <img src="man/figures/gr-changes_Germany.png" width="24%" />
+  <img src="man/figures/gr-changes_Canada.png" width="24%" />
 </p>
 
 The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
