@@ -1,8 +1,8 @@
 Package: covid19
 Type: Package
-Title: Load Live Data From The COVID-19 Virus
+Title: Load Live Data from The COVID-19 Virus
 Version: 1.0
-Date: 2020-03-11
+Date: 2020-03-15
 Author: Marcelo Ponce [aut, cre]
 Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
 Description: Loads updated data for the Novel Coronavirus (COVID-19) from JHU's CCSEGIS and Data repository.

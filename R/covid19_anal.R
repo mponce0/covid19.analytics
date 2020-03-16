@@ -97,6 +97,7 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			#print(yvar)
 			model1 <- genModel(yvar,deg=1)
 			model2 <- genModel(log1p(yvar),deg=1)
+			#print(str(model2))
 
 			# plots
 			col0 <- 5
@@ -110,9 +111,12 @@ tots.per.location <- function(data, geo.loc=NULL, nbr.plts=1, info="") {
 			#print(y.cases)
 			plot(log1p(unlist(y.cases)), main=paste(i,info), type='b', xlab="", pch=16L,col=my.cols)
 			#abline((model1), col='blue')
-			#abline((model2), col='red')
+			abline((model2), col='red')
+			text(30,0.85*log1p(max(yvar)),
+				paste("coefs: ",round(model2$coefficients[1],digits=3),";",round(model2$coefficients[2],digits=3)))
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
+			text(20,0.85*max(yvar), paste(" GR = ",round(exp(model2$coefficients[2]),digits=2)))
 			#par(new=FALSE)
 		}
 	}
