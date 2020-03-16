@@ -56,4 +56,25 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 }
 
 #######################################################################
+#######################################################################
+
+
+simple.SIR.model <- function(time, state, parameters) {
+# Define ODE for SIR model
+
+  par <- as.list(c(state, parameters))
+
+  # define ODE
+  with(par, {
+    dSdt <- -beta/N * I * S
+    dIdt <- beta/N * I * S - gamma * I
+    dRdt <- gamma * I
+    list(c(dSdt, dIdt, dRdt))
+    })
+}
+
+#######################################################################
+#######################################################################
+
+#######################################################################
 
