@@ -94,15 +94,18 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
+
 <object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
-<embed src="man/figures/Hubei_totals.pdf">XXX</embed>
+ <embed src="man/figures/Hubei_totals.pdf">
+ Images available <a href="man/figures/">here</a>
+ </embed>
 </object>
 
 <p>
-  <img src="man/figures/Hubei_totals.png" width="24%" />
-  <img src="man/figures/Italy_totals.png" width="24%" />
-  <img src="man/figures/Germany_totals.png" width="24%" />
-  <img src="man/figures/Ontario_totals.png" width="24%" />
+  <img src="man/figures/Hubei_totals.pdf" width="24%" />
+  <img src="man/figures/Italy_totals.pdf" width="24%" />
+  <img src="man/figures/Germany_totals.pdf" width="24%" />
+  <img src="man/figures/Ontario_totals.pdf" width="24%" />
 </p>
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
@@ -126,9 +129,9 @@ all.data <- covid19.data()
 tots.per.location(all.data,"Japan")
 ```
 <p>
-  <img src="man/figures/Japan_confirmed.png" width="32.5%" />
-  <img src="man/figures/Japan_recovered.png" width="32.5%" />
-  <img src="man/figures/Japan_deaths.png" width="32.5%" />
+  <img src="man/figures/Japan_confirmed.pdf" width="32.5%" />
+  <img src="man/figures/Japan_recovered.pdf" width="32.5%" />
+  <img src="man/figures/Japan_deaths.pdf" width="32.5%" />
 </p>
 
 
@@ -161,10 +164,10 @@ growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 
 <p>
-  <img src="man/figures/gr-changes_Hubei.png" width="24%" />
-  <img src="man/figures/gr-changes_Italy.png" width="24%" />
-  <img src="man/figures/gr-changes_Germany.png" width="24%" />
-  <img src="man/figures/gr-changes_Canada.png" width="24%" />
+  <img src="man/figures/gr-changes_Hubei.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Italy.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Germany.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Canada.pdf" width="24%" />
 </p>
 
 The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
