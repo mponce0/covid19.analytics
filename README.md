@@ -97,7 +97,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 
 <object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
  <embed src="man/figures/Hubei_totals.pdf">
- Images available <a href="man/figures/">here</a>
+ <p> Images available <a href="man/figures/">here</a> </p>
  </embed>
 </object>
 
