@@ -15,10 +15,12 @@ set.plt.canvas <- function(geo.loc,ylayers=1,minBreaks=5) {
 #'
 #' @keywords internal
 #'
-	quadrants <- min(minBreaks,as.integer(sqrt(length(geo.loc))))
-	par(mfrow=c(quadrants*ylayers,quadrants))
-	#par(mfrow=c(2,1))
-	cat(length(geo.loc), " -- ", quadrants, '\n')
+	quadrants <- min(minBreaks,ceiling(as.integer(sqrt(length(geo.loc)))))
+	#print(quadrants)
+	#print(ylayers)
+	#par(mfrow=c(quadrants*ylayers,quadrants))
+	par(mfrow=c(2,1))
+	#cat(length(geo.loc), " -- ", quadrants, '\n')
 
 }
 
@@ -88,6 +90,35 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 
 ############################################################################
 
+preProcessingData <- function(data0,geo.loc){
+
+        # define first column of data
+        col1 <- 6
+
+        # check on the location
+        geo.loc <- checkGeoLoc(data0,geo.loc)
+
+
+        if ("status" %in% names(data0)) {
+                data <- data0[, ! names(data0) %in% "status", drop = F]
+        } else {
+                data <- data0
+        }
+
+	cases.per.loc <- select.per.loc(data,geo.loc)
+	colN <- ncol(cases.per.loc)
+	if (tolower("status") %in% tolower(cases.per.loc))
+		colN <- colN - 1
+
+	cat("Processing... ",geo.loc,'\n')
+
+
+	# determine period of time and ranges...
+	stride <- 1
+	range1 <- seq(col1,colN,stride)
+
+	return(as.numeric(unlist(cases.per.loc[range1])))
+}
 
 
 ##########################################################################
