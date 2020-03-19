@@ -80,6 +80,12 @@ library(covid19)
 ```
 
 ### Some basic analysis
+#### Summary Report
+```
+# a quick function to overview top cases per region
+report.summary()
+```
+
 #### Totals per Country/Region/Province
 ```
 # totals for confirmed cases for "Ontario"
@@ -101,12 +107,14 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
  </embed>
 </object>
 
+<!--
 <p>
   <img src="man/figures/Hubei_totals.pdf" width="24%" />
   <img src="man/figures/Italy_totals.pdf" width="24%" />
   <img src="man/figures/Germany_totals.pdf" width="24%" />
   <img src="man/figures/Ontario_totals.pdf" width="24%" />
 </p>
+-->
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
 one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
