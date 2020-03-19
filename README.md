@@ -95,8 +95,8 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
-<object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
- <embed src="man/figures/Hubei_totals.pdf">
+<object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+ <embed src="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf">
  <p> Images available <a href="man/figures/">here</a> </p>
  </embed>
 </object>
