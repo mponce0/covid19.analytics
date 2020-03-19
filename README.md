@@ -38,6 +38,10 @@ We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
 
 
+### Experimental: Modelling the evolution of the Virus spread
+We are working in the development of *modelling* capabiltiies.
+A preliminar prototype has been included and can be accessed using the `simple.SIR.solver` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
+
  
 ## Installation
 For using the "covi19" package, first you will need to install it.
