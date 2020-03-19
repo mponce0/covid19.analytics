@@ -94,6 +94,9 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
+<object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+<embed src="man/figures/Hubei_totals.pdf">XXX</embed>
+</object>
 
 <p>
   <img src="man/figures/Hubei_totals.png" width="24%" />
