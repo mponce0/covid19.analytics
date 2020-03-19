@@ -106,20 +106,21 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
+<!--
 <object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
  <embed src="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf">
  <p> Images available <a href="man/figures/">here</a> </p>
  </embed>
 </object>
+-->
 
-<!--
 <p>
   <img src="man/figures/Hubei_totals.pdf" width="24%" />
   <img src="man/figures/Italy_totals.pdf" width="24%" />
   <img src="man/figures/Germany_totals.pdf" width="24%" />
   <img src="man/figures/Ontario_totals.pdf" width="24%" />
 </p>
--->
+
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
 one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.

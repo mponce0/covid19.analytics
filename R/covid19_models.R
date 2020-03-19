@@ -65,10 +65,10 @@ simple.SIR.ODE <- function(time, state, parameters) {
 # Define ODE for SIR model
 
 
-  par <- as.list(c(state, parameters))
+  ODE.params <- as.list(c(state, parameters))
 
   # define ODE
-  with(par, {
+  with(ODE.params, {
     dSdt <- -beta/N * I * S
     dIdt <- beta/N * I * S - gamma * I
     dRdt <- gamma * I
@@ -86,7 +86,8 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 #' @param  tot.population  total population of the country/region
 #'
 #' @importFrom  stats  optim setNames
-#' @importFrom  graphics  matplot title
+#' @importFrom  deSolve  ode
+#' @importFrom  graphics  matplot title legend points
 #'
 #' @export
 #'
@@ -102,7 +103,7 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 	# Determine nbr of days
 	Day <- 1:(length(Infected))
 	# total population of the region
-	N <<- tot.population
+	N <- tot.population
  
 	old <- par(mfrow = c(2, 2))
 	plot(Day, Infected, type ="b")
@@ -113,23 +114,26 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 	loadLibrary("deSolve")
 	init.cond <- c(S = N-Infected[1], I = Infected[1], R = 0)
 
-	# define RSS fn
+	# define RSS fn to measure deviation of the model from data....
 	RSS <- function(parameters) {
 		names(parameters) <- c("beta", "gamma")
 		out <- ode(y = init.cond, times = Day, func = simple.SIR.ODE, parms = parameters)
 		fit <- out[ , 3]
 		sum((Infected - fit)^2)
 	}
+	#######
  
+
 	Opt <- optim(c(0.5, 0.5), RSS, method = "L-BFGS-B", lower = c(0, 0), upper = c(1, 1)) # optimize with some sensible conditions
-	Opt$message
+	print(Opt$message)
 	## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
  
 	Opt_par <- setNames(Opt$par, c("beta", "gamma"))
-	Opt_par
+	print(Opt_par)
 	##      beta     gamma 
 	## 0.6746089 0.3253912
- 
+
+	# definte integration interval... 
 	time <- 1:tfinal # time in days
 	fit <- data.frame(ode(y = init.cond, times = time, func = simple.SIR.ODE, parms = Opt_par))
 
@@ -144,7 +148,7 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 	legend("bottomright", c("Susceptible", "Infected", "Recovered"), lty = 1, lwd = 2, col = col, inset = 0.05)
 	title(paste("SIR model 2019-nCoV:", geo.loc), outer = TRUE, line = -22)
 
-	# R naught
+	# R_naught
 	R0 <- setNames(Opt_par["beta"] / Opt_par["gamma"], "R0")
 	print(R0)
 	##       R0 
@@ -154,6 +158,7 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 	##            I
 	## 50 232001865
 
+	# assume a 2% fatility rate
 	fatality.rate <- 0.02 
 	print(max(fit$I) * fatality.rate) # max deaths with supposed 2% fatality rate
 	## [1] 4640037
