@@ -272,10 +272,11 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 #############################################################################
 #############################################################################
 
-report.summary <- function(Nentries=10) {
+report.summary <- function(Nentries=10, graphical.output=TRUE) {
 #' function to summarize the current situation, will download the latest data and summarize different quantities
 #'
 #' @param  Nentries  number of top cases to display
+#' @param  graphical.output  flag to deactivate graphical output
 #'
 #' @export
 #'
@@ -286,6 +287,16 @@ report.summary <- function(Nentries=10) {
 #' # get the top 20
 #' report.summary(20)
 #'
+
+	Ndefault <- 10
+
+	if (!is.numeric(Nentries)) {
+		stop("The argument to this function must be a number!")
+	} else if (Nentries < 0) {
+		message("Argument must be positive or zero (for listing all entries)!",'\n',
+			"Will assume default value:",Ndefault)
+		Nentries <- Ndefault
+	}
 
 	header <- paste(paste(rep("#",80),collapse=""),'\n')
 	header1 <- paste(paste(rep("-",80),collapse=""),'\n')
@@ -298,9 +309,12 @@ report.summary <- function(Nentries=10) {
 		# read data
 		data <- covid19.data(i)
 
+		if (Nentries==0) Nentries <- nrow(data)
+
 		colN <- ncol(data)
 		cat(header)
-		cat("##### ",toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()),'\n')
+		report.title <- paste(toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()))
+		cat("##### ",report.title,'\n')
 		cat(header)
 
 		cat("Total number of Countries/Regions affected: ",length(unique(data$Country.Region)),'\n')
@@ -310,13 +324,39 @@ report.summary <- function(Nentries=10) {
 		cat(header1)
 
 		# Totals per countries/cities
-		data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
+		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
+		data$Totals <- data[,colN]
 
 		# top countries/regions
-		print(data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colN+1)])
+		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colN+1)]
+		print(data.ordered)
 
 		cat(header,'\n')
-	}	
+
+		# graphics
+		if (graphical.output) {
+			legends <- paste(data.ordered$Country.Region,data.ordered$Province.State,'\n',data.ordered$Totals)
+			color.scheme <- heat.colors(Nentries)	#topo.colors(Nentries)
+					#terrain.colors(Nentries)	#rainbow(Nentries)
+
+			old.par <- par(no.readonly=TRUE)
+			on.exit(par(old.par))
+
+			par(mfrow=c(1,2))
+			#par(mfrow=c(1,1))
+
+			pie(data.ordered$Totals,
+				labels=legends,
+				main=substr(report.title,1,floor(nchar(report.title)/2)),
+				col=color.scheme )
+
+			#par(new=TRUE)
+			#par(mfrow=c(1,2))
+			barplot(data.ordered$Totals, names.arg=legends,
+				col=color.scheme,
+				main=substr(report.title,ceiling(nchar(report.title)/2),nchar(report.title)) )
+		}
+	}
 }
 
 #############################################################################
