@@ -54,7 +54,8 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 	on.exit(par(oldpar))
 	#########
 	# set some graphical parameters
-	set.plt.canvas(geo.loc,nbr.plts*2)
+	#set.plt.canvas(geo.loc,nbr.plts*2)
+	set.plt.canvas(geo.loc,nbr.plts)
 	###
 	if (length(geo.loc) > 5) par(mar=c(1,1,1,1))
 	#########
@@ -112,11 +113,13 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			abline((model.exp), col='red')
 			abline(model.poisson, col='blue')
 			if (sum(yvar<=0)==0) abline(model.gamma, col='green')
-			text(40,1.300*min(yvarlog1p),
+			# models legend
+			#print(.9*max(yvarlog1p+0.1))
+			text(.3*Ncols,0.8*max(yvarlog1p+0.1),
 				paste("exp.model coefs: ",round(model.exp$coefficients[1],digits=3),";",round(model.exp$coefficients[2],digits=3)))
-			text(40,1.215*min(yvarlog1p),
+			text(.3*Ncols,0.725*max(yvarlog1p+0.1),
 				paste("GLM-Poisson model coefs: ",round(model.poisson$coefficients[1],digits=3),";",round(model.poisson$coefficients[2],digits=3)))
-			if (sum(yvar<=0)==0) text(40,1.115*min(yvarlog1p),
+			if (sum(yvar<=0)==0) text(0.3*Ncols,0.65*max(yvarlog1p+0.1),
 				paste("GLM-Gamma model coefs: ",round(model.gamma$coefficients[1],digits=3),";",round(model.gamma$coefficients[2],digits=3)))
 
 			# add confidence band based on moving Avg
@@ -125,9 +128,10 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
 			#confBand(xvar,yvar, 1,length(yvar),0,max(yvar,na.rm=TRUE), windowsNbr=10)
-			text(15,0.85*max(unlist(y.cases)), paste("lm-exp GR = ",round(exp(model.exp$coefficients[2]),digits=2)))
-			text(15,0.75*max(unlist(y.cases)), paste("glm-Poisson GR = ",round(exp(model.poisson$coefficients[2]),digits=2)))
-			if (sum(yvar<=0)==0) text(15,0.65*max(yvar), paste("glm-Gamma GR = ",round(exp(model.gamma$coefficients[2]),digits=2)))
+			# models legend
+			text(.2*Ncols,0.85*max(unlist(y.cases)), paste("lm-exp GR = ",round(exp(model.exp$coefficients[2]),digits=2)))
+			text(.2*Ncols,0.75*max(unlist(y.cases)), paste("glm-Poisson GR = ",round(exp(model.poisson$coefficients[2]),digits=2)))
+			if (sum(yvar<=0)==0) text(.2*Ncols,0.65*max(yvar), paste("glm-Gamma GR = ",round(exp(model.gamma$coefficients[2]),digits=2)))
 			#par(new=FALSE)
 		}
 	}
@@ -263,6 +267,56 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 
 	
 	return(totals.per.day)
+}
+
+#############################################################################
+#############################################################################
+
+report.summary <- function(Nentries=10) {
+#' function to summarize the current situation, will download the latest data and summarize different quantities
+#'
+#' @param  Nentries  number of top cases to display
+#'
+#' @export
+#'
+#' @examples
+#' # displaying top 10s
+#' report.summary()
+#'
+#' # get the top 20
+#' report.summary(20)
+#'
+
+	header <- paste(paste(rep("#",80),collapse=""),'\n')
+	header1 <- paste(paste(rep("-",80),collapse=""),'\n')
+
+	# first column with cases data
+	col1 <- 5
+
+	cases <- c("confirmed","recovered","deaths")
+	for (i in cases) {
+		# read data
+		data <- covid19.data(i)
+
+		colN <- ncol(data)
+		cat(header)
+		cat("##### ",toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()),'\n')
+		cat(header)
+
+		cat("Total number of Countries/Regions affected: ",length(unique(data$Country.Region)),'\n')
+
+		cat("Total number of Cities/Provinces affected: ",length(unique(data$Province.State)),'\n')
+
+		cat(header1)
+
+		# Totals per countries/cities
+		data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
+
+		# top countries/regions
+		print(data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colN+1)])
+
+		cat(header,'\n')
+	}	
 }
 
 #############################################################################

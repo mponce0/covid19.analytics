@@ -1,5 +1,5 @@
 covid19.data <- function(case='ALL', debrief=FALSE) {
-#' fucntion to read lice data as reported by JHU's CCSE repo
+#' function to read "live" data as reported by JHU's CCSE repository
 #'
 #' @param  case  a string indicating the category of the data, possible values are: "confirmed", "deaths", "recovered" OR "ALL"
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
@@ -37,7 +37,7 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 	# URL JHU's CCSE repository
 	JHU.REPO <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/"
 
-	if (case == "ALL") {
+	if (toupper(case) == "ALL") {
 		covid19.conf <- covid19.data("confirmed")
 		covid19.conf <- cbind(covid19.conf, "confirmed")
 		names(covid19.conf)[length(covid19.conf)] <- "status"
@@ -50,8 +50,15 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 
 		return(rbind(covid19.conf,covid19.death,covid19.recov))
 	} else {
+
+
+	possible.cases <- c("confirmed","deaths","recovered")
+	if (! tolower(case) %in% possible.cases) 
+		stop("Unrecognized selection of case <",case,"> -- possible options are: ",paste(possible.cases,collapse=" "))
+
+
 	# filename for corresponding cases
-	cases <- switch(case,
+	cases <- switch(tolower(case),
 			'confirmed' = "time_series_19-covid-Confirmed.csv",
 			'deaths'    = "time_series_19-covid-Deaths.csv",
 			'recovered' = "time_series_19-covid-Recovered.csv")
@@ -60,6 +67,7 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 	# URL and filename
 	cases.URL <- paste0(JHU.REPO,cases)
 
+	message("Data being read from JHU/CCSE repository")
 	cat("Reading data from ", cases,'\n')
 
 	# Attempt to protect against bad internet conenction or misspelled package name

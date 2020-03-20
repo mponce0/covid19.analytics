@@ -13,6 +13,7 @@ Suggests:
     knitr,
     devtools,
     roxygen2,
+    deSolve
 License: GPL (>=2)
 URL: https://mponce0.github.io/covid19/
 BugReports: https://github.com/mponce0/covid19/issues

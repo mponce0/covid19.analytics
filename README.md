@@ -25,6 +25,7 @@ the reported number of cases.
 
 Function  | description
 ---	 | ---
+ `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
  `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
  `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  `totals.plt`   |  plots in a static and interactive plot total number of cases per day
@@ -36,6 +37,10 @@ Function  | description
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
 
+
+### Experimental: Modelling the evolution of the Virus spread
+We are working in the development of *modelling* capabiltiies.
+A preliminar prototype has been included and can be accessed using the `simple.SIR.solver` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
 
  
 ## Installation
@@ -80,6 +85,12 @@ library(covid19)
 ```
 
 ### Some basic analysis
+#### Summary Report
+```
+# a quick function to overview top cases per region
+report.summary()
+```
+
 #### Totals per Country/Region/Province
 ```
 # totals for confirmed cases for "Ontario"
@@ -95,12 +106,21 @@ tots.per.location(covid19.deaths.cases,geo.loc="China")
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
+<!--
+<object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+ <embed src="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf">
+ <p> Images available <a href="man/figures/">here</a> </p>
+ </embed>
+</object>
+-->
+
 <p>
-  <img src="man/figures/Hubei_totals.png" width="24%" />
-  <img src="man/figures/Italy_totals.png" width="24%" />
-  <img src="man/figures/Germany_totals.png" width="24%" />
-  <img src="man/figures/Ontario_totals.png" width="24%" />
+  <img src="man/figures/Hubei_totals.pdf" width="24%" />
+  <img src="man/figures/Italy_totals.pdf" width="24%" />
+  <img src="man/figures/Germany_totals.pdf" width="24%" />
+  <img src="man/figures/Ontario_totals.pdf" width="24%" />
 </p>
+
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
 one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
@@ -123,9 +143,9 @@ all.data <- covid19.data()
 tots.per.location(all.data,"Japan")
 ```
 <p>
-  <img src="man/figures/Japan_confirmed.png" width="32.5%" />
-  <img src="man/figures/Japan_recovered.png" width="32.5%" />
-  <img src="man/figures/Japan_deaths.png" width="32.5%" />
+  <img src="man/figures/Japan_confirmed.pdf" width="32.5%" />
+  <img src="man/figures/Japan_recovered.pdf" width="32.5%" />
+  <img src="man/figures/Japan_deaths.pdf" width="32.5%" />
 </p>
 
 
@@ -158,10 +178,10 @@ growth.rate(data,geo.loc=c("Italy","Germany"))
 ```
 
 <p>
-  <img src="man/figures/gr-changes_Hubei.png" width="24%" />
-  <img src="man/figures/gr-changes_Italy.png" width="24%" />
-  <img src="man/figures/gr-changes_Germany.png" width="24%" />
-  <img src="man/figures/gr-changes_Canada.png" width="24%" />
+  <img src="man/figures/gr-changes_Hubei.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Italy.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Germany.pdf" width="24%" />
+  <img src="man/figures/gr-changes_Canada.pdf" width="24%" />
 </p>
 
 The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
