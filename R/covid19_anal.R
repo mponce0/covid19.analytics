@@ -15,9 +15,9 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 #' @param  geo.loc  list of locations
 #' @param  confBnd  flag to activate/deactivate drawing of confidence bands base on a moving average window
 #' @param  nbr.plts  parameter to control the number of plots to display per figure
-#' @param  info  additional info to display
+#' @param  info  additional info to display in plots' titles
 #'
-#' @return  a dataframe with totals per specified locations
+#' @return  a list or dataframe with totals per specified locations and type of case
 #'
 #' @export
 #'
@@ -46,7 +46,6 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 	# dataframe to store results
 	total.cases.per.country <- data.frame()
 
-
 	### preserve user graphical env.
 	# save the state of par() before running the code
 	oldpar <- par(no.readonly = TRUE)
@@ -59,13 +58,26 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 	if (length(geo.loc) > 5) par(mar=c(1,1,1,1))
 	#########
 
+
+	# if the dataset contains all the posisble cases ('confirmed','recovered','deaths')
+	# process them separatedly by using recursion...
+	if ("status" %in% tolower(names(data))) {
+		colN <- ncol(data)
+		results.lst <- list()
+		for (sts in unique(data$status) ) {
+			message("Processing ",sts, " cases")
+			results.lst <- list(results.lst, tots.per.location(data[data$status==sts,-colN],geo.loc,confBnd,nbr.plts,sts))
+		}
+		return(results.lst)
+	}
+	#######
+
+
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
 		colN <- ncol(cases.per.loc)
 		if (tolower("status") %in% tolower(colnames(cases.per.loc))) {
-			#colN <- colN - 1
-			for (sts in unique(cases.per.loc$status))
-				tots.per.location(data[data$status==sts,-colN],i,confBnd,nbr.plts,sts)
+			warning("Some internal inconsistency ocurred!",'\n',"Please check with the developer")
 		} else {
 			#print(cases.per.loc[,col1:colN])
 			totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
@@ -76,7 +88,8 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 				totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
 			}
 			cat(i,' -- ',totals.per.loc,'\n')
-			total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
+			#total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
+			total.cases.per.country <- rbind(total.cases.per.country, totals.per.loc.day)
 
 			##### modelling
 			yvar <- totals.per.loc.day
@@ -137,22 +150,28 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 		}
 	}
 
+	# set the name of the columns
+	names(total.cases.per.country) <- names(cases.per.loc[,col1:colN-1])
+	# add the location
+	total.cases.per.country <- cbind(geo.loc, total.cases.per.country)
+
 	#plot(unlist(data[ data$Country.Region==i ,5:52]))
 	return(invisible(total.cases.per.country))
-
 }
 
 
 #############################################################################
 
 
-growth.rate <- function(data0, geo.loc=NULL, stride=1) {
+growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' function to compute Growth Rates
 #'
 #' @param  data0  data.frame with data from covid19
 #' @param  geo.loc  list of locations
 #' @param  stride  how frequently to compute the growth rate in units of days
+#' @param  info  additional information to include in plots' title
 #'
+#' @return  a list containing two dataframes: one reporting changes on daily baisis and a second one reporting growth rates, for the indicated regions
 #'
 #' @export
 #'
@@ -177,8 +196,8 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 	geo.loc <- checkGeoLoc(data,geo.loc)
 
 	# where to store the results
-	totals.per.day <-data.frame() 
-
+	total.changes.per.day <-data.frame() 
+	total.gr.per.day <- data.frame()
 
 	### preserve user graphical env.
 	# save the state of par() before running the code
@@ -194,7 +213,15 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 
 
 	if ("status" %in% names(data0)) {
-		data <- data0[, ! names(data0) %in% "status", drop = F]
+		results <- list()
+		for (i in unique(data0$status) ) {
+			message("Considering ",i, " cases")
+			data <- data0[ data0$status == i, ]
+			data <- data[, ! names(data) %in% "status", drop = F]
+			result.per.case <- growth.rate(data,geo.loc,stride, i)
+			results <- list(result.per.case, results)
+		}
+		return(results)
 	} else {
 		data <- data0
 	}
@@ -229,13 +256,8 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		#print(gr.rate)
 
 		# update resulting dataframe
-		subTotals.per.day <- c(i,as.numeric(unlist(gr.rate)))
-		names(subTotals.per.day) <- c(1:length(subTotals.per.day))	#("location",names(changes[range1]))
-		#print(names(subTotals.per.day))
-		totals.per.day <- rbind(totals.per.day,subTotals.per.day, deparse.level=0)
-		names(totals.per.day) <- c(1:length(subTotals.per.day))	#("location",names(changes[range1]))
-		#print(subTotals.per.day)
-
+		total.changes.per.day <- rbind(changes,total.changes.per.day)
+		total.gr.per.day <- rbind(gr.rate,total.gr.per.day)
 
 		# some graphic output...		
 		my.cols <- rep(rainbow(15L),each=20L)
@@ -243,7 +265,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		plot(x.dates,changes, type='b', xlab="time",ylab="Nbr of Changes", col=my.cols)
 		#lines(x.dates,exp(model2$coefficients[2]*seq_along(x.dates))*model2$coefficients[1], col='blue')
 		par(new=TRUE)
-		plot(x.dates,log1p(changes), ylab='',xlab='', type='b', pch=8, cex=.3, col=my.cols, lwd=2, lty=1, axes=FALSE)
+		plot(x.dates,log1p(changes), ylab='',xlab='', main=paste(i,info), type='b', pch=8, cex=.3, col=my.cols, lwd=2, lty=1, axes=FALSE)
 		axis(4)
 		par(new=FALSE)
 
@@ -251,7 +273,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		if (sum(changes==0) < length(changes)-1) {
 			plot(x.dates,unlist(gr.rate),
 				axes=FALSE, xlab='',ylab='', ylim=c(0,max(gr.rate,na.rm=TRUE)*1.05),
-				main=i, type='b', col=my.cols)
+				main=paste(i,info), type='b', col=my.cols)
 			par(new=TRUE)
 			barplot(unlist(gr.rate), ylab="Growth Rate",xlab="time",col = my.cols)
 			axis(side=1,labels=FALSE)
@@ -263,13 +285,30 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		}
 	}
 
-	#names(totals.per.day)[1] <- "location"
-	#names(totals.per.day)[2:length(totals.per.day)] <- names(changes[range1])
-	#totals.per.day <- gr.rate
-	#names(totals.per.day) <- names(totals.per.loc[seq(2,(nbr.of.days-1),stride)])
+	if ( (nrow(total.changes.per.day)>=1) && (length(geo.loc)>=1) )  {
+		names(total.changes.per.day) <- names(changes)
+		total.changes.per.day <- cbind(geo.loc, total.changes.per.day)
 
-	
-	return(totals.per.day)
+		names(total.gr.per.day) <- names(gr.rate)
+		total.gr.per.day <- cbind(geo.loc, total.gr.per.day)
+
+		par(mfrow=c(1,2))
+		if (nrow(total.changes.per.day) > 1)
+			heatmap((as.matrix(total.changes.per.day[,2:length(changes)])),
+				main=paste("Changes per day",info),
+				labRow=geo.loc, Colv=NA,Rowv=NA,
+				scale="column",
+				col = topo.colors(256) )
+
+		if (nrow(total.gr.per.day) > 1)
+			heatmap((as.matrix(total.gr.per.day[,2:length(gr.rate)])),
+				main=paste("Growth Rate",info),
+				labRow=geo.loc, Colv=NA,Rowv=NA,
+				scale="column",
+				col = rainbow(256) )
+	}
+
+	return(list(Changes=total.changes.per.day,Growth.Rate=total.gr.per.day))
 }
 
 #############################################################################
