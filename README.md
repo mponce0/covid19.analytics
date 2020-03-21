@@ -207,6 +207,11 @@ Interactive examples can be seen at
 
 
 ## Further Resources
+<p>
+ <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="45%">
+ <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
+</p>
+
 * https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
 * https://www.repidemicsconsortium.org/
 * https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
