@@ -18,8 +18,8 @@ set.plt.canvas <- function(geo.loc,ylayers=1,minBreaks=5) {
 	quadrants <- min(minBreaks,ceiling(as.integer(sqrt(length(geo.loc)))))
 	#print(quadrants)
 	#print(ylayers)
-	#par(mfrow=c(quadrants*ylayers,quadrants))
-	par(mfrow=c(2,1))
+	par(mfrow=c(quadrants*ylayers,quadrants))
+	#par(mfrow=c(2,1))
 	#cat(length(geo.loc), " -- ", quadrants, '\n')
 
 }

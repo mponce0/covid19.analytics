@@ -54,20 +54,18 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 	on.exit(par(oldpar))
 	#########
 	# set some graphical parameters
-	#set.plt.canvas(geo.loc,nbr.plts*2)
-	set.plt.canvas(geo.loc,nbr.plts)
+	set.plt.canvas(geo.loc,nbr.plts*2)
 	###
 	if (length(geo.loc) > 5) par(mar=c(1,1,1,1))
 	#########
 
 	for (i in geo.loc) {
 		cases.per.loc <- select.per.loc(data,i)
-
 		colN <- ncol(cases.per.loc)
 		if (tolower("status") %in% tolower(colnames(cases.per.loc))) {
 			#colN <- colN - 1
 			for (sts in unique(cases.per.loc$status))
-				tots.per.location(data[data$status==sts,-colN],i,nbr.plts,sts)
+				tots.per.location(data[data$status==sts,-colN],i,confBnd,nbr.plts,sts)
 		} else {
 			#print(cases.per.loc[,col1:colN])
 			totals.per.loc.day <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
@@ -80,7 +78,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			cat(i,' -- ',totals.per.loc,'\n')
 			total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
 
-			# modelling
+			##### modelling
 			yvar <- totals.per.loc.day
 			#print(yvar)
 
@@ -93,7 +91,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			model.poisson <- gen.glm.model(yvar,family="poisson")
 			if (sum(yvar<=0)==0) model.gamma <- gen.glm.model(yvar)
 
-			# plots
+			##### plots
 			col0 <- 5
 			Ncols <- length(cases.per.loc)
 			Nrows <- nrow(cases.per.loc)
@@ -106,9 +104,11 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			yvarlog1p <- log1p(unlist(y.cases))
 			xvar <- 1:length(yvarlog1p)
 			plot(log1p(unlist(y.cases)),
-				#xlim=c(1,length(yvar)), ylim=c(0,max(yvar,na.rm=TRUE)),
+				#xlim=c(1,length(yvar)),
+				#ylim=c(0,max(yvar,na.rm=TRUE)),
 				type='b', xlab="days", ylab='nbr.of.cases (log)', pch=16L,col=my.cols)
 
+			## adding models to plot
 			#abline((model1), col='blue')
 			abline((model.exp), col='red')
 			abline(model.poisson, col='blue')
@@ -122,8 +122,9 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			if (sum(yvar<=0)==0) text(0.3*Ncols,0.65*max(yvarlog1p+0.1),
 				paste("GLM-Gamma model coefs: ",round(model.gamma$coefficients[1],digits=3),";",round(model.gamma$coefficients[2],digits=3)))
 
-			# add confidence band based on moving Avg
-			if (confBnd) confBand(xvar,yvarlog1p, 1,length(yvarlog1p),0,max(yvarlog1p,na.rm=TRUE), windowsNbr=10, lcolour='violet')
+			### add confidence band based on moving Avg
+			if (confBnd)
+				confBand(xvar,yvarlog1p, 1,length(yvarlog1p),0,max(yvarlog1p,na.rm=TRUE), windowsNbr=10, lcolour='violet')
 
 			#par(new=TRUE)
 			barplot(unlist(y.cases), main=paste(i,info), col = my.cols)
@@ -198,19 +199,15 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		data <- data0
 	}
 
+
 	for (i in geo.loc) {
+		# check whether the locations are countries/regions or provinces/states
 		cases.per.loc <- select.per.loc(data,i)
 
                 colN <- ncol(cases.per.loc)
                 if (tolower("status") %in% tolower(cases.per.loc))
                          colN <- colN - 1
 
-		# check whether the locations are coutnries/regions or provinces/states
-#		if (i %in% toupper(data$Country.Region)) {
-#			cases.per.loc <- data[toupper(data$Country.Region) == i,]
-#		} else if (i %in% toupper(data$Province.State)) {
-#			cases.per.loc <- data[toupper(data$Province.State) == i,]
-#		}
 		cat("Processing... ",i,'\n')
 
 		totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
@@ -229,12 +226,12 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		gr.rate <- changes[range2]/changes[range1]
 		# remove infinites in case of divison by 0 or something tiny...
 		gr.rate[gr.rate == "Inf"] <- NA
-		print(gr.rate)
+		#print(gr.rate)
 
 		# update resulting dataframe
 		subTotals.per.day <- c(i,as.numeric(unlist(gr.rate)))
 		names(subTotals.per.day) <- c(1:length(subTotals.per.day))	#("location",names(changes[range1]))
-		print(names(subTotals.per.day))
+		#print(names(subTotals.per.day))
 		totals.per.day <- rbind(totals.per.day,subTotals.per.day, deparse.level=0)
 		names(totals.per.day) <- c(1:length(subTotals.per.day))	#("location",names(changes[range1]))
 		#print(subTotals.per.day)
@@ -250,14 +247,20 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1) {
 		axis(4)
 		par(new=FALSE)
 
-		plot(x.dates,gr.rate, axes=FALSE,xlab='',ylab='', ylim=c(0,max(gr.rate,na.rm=TRUE)*1.05), main=i, type='b', col=my.cols)
-		par(new=TRUE)
-		barplot(unlist(gr.rate), ylab="Growth Rate",xlab="time",col = my.cols)
-		axis(side=1,labels=FALSE)
-		#axis.Date(side=1,x.dates)
-		#box()
-		par(new=FALSE)
-
+		# check to see if there is enough data to display gr.rate
+		if (sum(changes==0) < length(changes)-1) {
+			plot(x.dates,unlist(gr.rate),
+				axes=FALSE, xlab='',ylab='', ylim=c(0,max(gr.rate,na.rm=TRUE)*1.05),
+				main=i, type='b', col=my.cols)
+			par(new=TRUE)
+			barplot(unlist(gr.rate), ylab="Growth Rate",xlab="time",col = my.cols)
+			axis(side=1,labels=FALSE)
+			#axis.Date(side=1,x.dates)
+			#box()
+			par(new=FALSE)
+		} else {
+			message("Not enough data to compute growth rate for ",i)
+		}
 	}
 
 	#names(totals.per.day)[1] <- "location"
@@ -277,6 +280,9 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 #'
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
+#'
+#' @importFrom  grDevices  heat.colors
+#' @importFrom  graphics  pie
 #'
 #' @export
 #'
