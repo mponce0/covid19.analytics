@@ -3,6 +3,31 @@
 # M.Ponce
 
 
+#############################################################################
+
+        
+header <- function(x="-",title="",total.len=80,eol='\n') {
+#' auxiliary fn to print "headers" adn 'titles'
+#'
+#' @param  x  character to use as lines
+#' @param  title  title to dispo
+#' @param  total.len  length of the line
+#' @param  eol  end of line character
+#'
+#' @keywords internal
+#'
+
+	len.title <- nchar(title)
+	if (len.title !=0) {
+		reps <- (total.len-len.title)/2
+		header(x,total.len=reps,eol=' ')
+		cat(title)
+		header(x,total.len=reps,eol='\n')
+	} else {
+		cat(paste(paste(rep(as.character(x),total.len),collapse=""),eol))
+	}
+}
+
 
 #############################################################################
 
