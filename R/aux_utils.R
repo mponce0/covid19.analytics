@@ -39,7 +39,7 @@ select.per.loc <- function(data,geo.loc) {
 		cases.per.loc <- data
 	}
 
-	print(geo.loc)
+	#print(geo.loc)
 
 	return(cases.per.loc)
 }
