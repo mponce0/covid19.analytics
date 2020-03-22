@@ -77,7 +77,10 @@ simple.SIR.ODE <- function(time, state, parameters) {
 }
 
 
-simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.population=1400000000) {
+simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
+				t0=30,t1=45, tfinal=90,
+				fatality.rate = 0.02,
+				tot.population=1400000000) {
 #' function to generate a simple SIR model
 #'
 #' @param  data  dataset to consider
@@ -92,23 +95,57 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 #' @export
 #'
 
+	header <- function(x="-",title="",total.len=80,eol='\n') {
+		len.title <- nchar(title)
+		if (len.title !=0) {
+			reps <- (total.len-len.title)/2
+			header(x,total.len=reps,eol=' ')
+			cat(title)
+			header(x,total.len=reps,eol='\n')
+		} else {
+			cat(paste(paste(rep(as.character(x),total.len),collapse=""),eol))
+		}
+	}
+
+	header("#")
 	message("This is an experimental feature, being currently under active development!")
-	message("Please check the development version of the package for updates on it")
+	message("Please check the development version of the package for the latest updates on it")
+	header("#")
+
+	header('-'," Parameters used to create model ")
+	cat('\t',"Region: ",geo.loc,'\n')
+	cat('\t',"Time interval to consider: t0=",t0," - t1=",t1," ; tfinal=",tfinal,'\n')
+	cat('\t',"Fatality rate: ",fatality.rate,'\n')
+	cat('\t',"Population of the region: ",tot.population,'\n')
+	header('-')
 
 	# get actual data from indicated region...
 	Infected <- preProcessingData(data,geo.loc)
-	#Infected <- Infected[cumsum(Infected)!=0]
+	Infected <- Infected[cumsum(Infected)!=0]
+	Infected <- Infected[t0:t1]
 	print(Infected)
 
-	# Determine nbr of days
-	Day <- 1:(length(Infected))
 	# total population of the region
-	N <- tot.population
- 
+	N <<- tot.population
+
+
+	#### TEST CASES ####
+	###### MAINLAND CHINA #####
+	#Infected <- c(45, 62, 121, 198, 291, 440, 571, 830, 1287, 1975, 2744, 4515, 5974, 7711, 9692, 11791, 14380, 17205, 20440)
+	#N <- 1400000000 # population of mainland china
+	###### GERMANY #######
+	#Infected <- c(16, 18, 21, 26, 53, 66, 117, 150, 188, 240, 349, 534, 684, 847, 1110, 1458, 1881, 2364, 3057, 3787, 4826, 5999)
+	#N <- 83149300 # population of Germany acc. to Destatis
+	#######################
+
+
+	# Determine nbr of days 
+	Day <- 1:(length(Infected))
+
 	old <- par(mfrow = c(2, 2))
 	plot(Day, Infected, type ="b")
 	plot(Day, Infected, log = "y")
-	abline(lm(log1p(Infected) ~ Day))
+	abline(lm(log10(Infected) ~ Day))
 	title(paste("Confirmed Cases 2019-nCoV:",geo.loc), outer = TRUE, line = -2)
 
 	loadLibrary("deSolve")
@@ -151,17 +188,14 @@ simple.SIR.solver <- function(data=NULL,geo.loc="Hubei", tfinal=90, tot.populati
 	# R_naught
 	R0 <- setNames(Opt_par["beta"] / Opt_par["gamma"], "R0")
 	print(R0)
-	##       R0 
-	## 2.073224
  
-	print(fit[fit$I == max(fit$I), "I", drop = FALSE]) # height of pandemic
-	##            I
-	## 50 232001865
+	# height of pandemic
+	cat("Max of infecteded:")
+	print(fit[fit$I == max(fit$I), "I", drop = FALSE]) 
 
-	# assume a 2% fatility rate
-	fatality.rate <- 0.02 
-	print(max(fit$I) * fatality.rate) # max deaths with supposed 2% fatality rate
-	## [1] 4640037
+	# Max number of casualties
+	cat("Max nbr of casualties, with ", fatality.rate*100,"% fatality rate:")
+	print(max(fit$I) * fatality.rate)
 }
 
 #######################################################################
