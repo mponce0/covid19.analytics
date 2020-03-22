@@ -256,8 +256,8 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 		#print(gr.rate)
 
 		# update resulting dataframe
-		total.changes.per.day <- rbind(changes,total.changes.per.day)
-		total.gr.per.day <- rbind(gr.rate,total.gr.per.day)
+		total.changes.per.day <- rbind(total.changes.per.day, changes)
+		total.gr.per.day <- rbind(total.gr.per.day, gr.rate)
 
 		# some graphic output...		
 		my.cols <- rep(rainbow(15L),each=20L)
@@ -286,6 +286,10 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 	}
 
 	if ( (nrow(total.changes.per.day)>=1) && (length(geo.loc)>=1) )  {
+		# load pheatmap
+		#loadLibrary("pheatmap")
+		loadLibrary("gplots")
+
 		names(total.changes.per.day) <- names(changes)
 		total.changes.per.day <- cbind(geo.loc, total.changes.per.day)
 
@@ -293,19 +297,54 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 		total.gr.per.day <- cbind(geo.loc, total.gr.per.day)
 
 		par(mfrow=c(1,2))
-		if (nrow(total.changes.per.day) > 1)
-			heatmap((as.matrix(total.changes.per.day[,2:length(changes)])),
-				main=paste("Changes per day",info),
-				labRow=geo.loc, Colv=NA,Rowv=NA,
-				scale="column",
-				col = topo.colors(256) )
+		if (nrow(total.changes.per.day) > 1) {
+			mat.tgt <- (as.matrix(total.changes.per.day[,2:length(changes)]))
+			# Heatmap.2
+			heatmap.2(mat.tgt,
+				dendrogram="none", trace='none',
+				col=bluered, labRow=geo.loc,
+				main=paste("Changes per day",info) )
 
-		if (nrow(total.gr.per.day) > 1)
-			heatmap((as.matrix(total.gr.per.day[,2:length(gr.rate)])),
-				main=paste("Growth Rate",info),
-				labRow=geo.loc, Colv=NA,Rowv=NA,
-				scale="column",
-				col = rainbow(256) )
+			# pheatmap
+			pheatmap(mat.tgt,
+				cluster_rows = FALSE, cluster_cols = FALSE,
+				scale = 'none',
+				annotation_legend = FALSE,
+				drop_levels       = TRUE,
+				fontsize          = 8,
+				labels_col = "",
+				labels_row = geo.loc,
+				display_numbers = FALSE)
+
+			# R basic heatmap
+			#heatmap(mat.tgt,
+			#	main=paste("Changes per day",info),
+			#	labRow=geo.loc, Colv=NA,Rowv=NA,
+			#	scale="column",
+			#	col = topo.colors(256) )
+		}
+
+		if (nrow(total.gr.per.day) > 1) {
+			mst.tgt <- (as.matrix(total.gr.per.day[,2:length(gr.rate)]))
+			heatmap.2(mat.tgt,
+				dendrogram="none", trace='none',
+				col=bluered, labRow=geo.loc,
+				main=paste("Growth Rate",info) )
+
+			# pheatmap
+			pheatmap(mat.tgt,
+				cluster_rows = FALSE, cluster_cols = FALSE,
+				display_numbers=FALSE,
+				labels_col = "",
+				labels_row = geo.loc)
+
+			# R basic heatmap
+			#heatmap(mat.tgt,
+			#	main=paste("Growth Rate",info),
+			#	labRow=geo.loc, Colv=NA,Rowv=NA,
+			#	scale="column",
+			#	col = rainbow(256) )
+		}
 	}
 
 	return(list(Changes=total.changes.per.day,Growth.Rate=total.gr.per.day))
@@ -343,8 +382,6 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		Nentries <- Ndefault
 	}
 
-	header <- paste(paste(rep("#",80),collapse=""),'\n')
-	header1 <- paste(paste(rep("-",80),collapse=""),'\n')
 
 	# first column with cases data
 	col1 <- 5
@@ -357,16 +394,16 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		if (Nentries==0) Nentries <- nrow(data)
 
 		colN <- ncol(data)
-		cat(header)
+		header("#")
 		report.title <- paste(toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()))
 		cat("##### ",report.title,'\n')
-		cat(header)
+		header("#")
 
 		cat("Total number of Countries/Regions affected: ",length(unique(data$Country.Region)),'\n')
 
 		cat("Total number of Cities/Provinces affected: ",length(unique(data$Province.State)),'\n')
 
-		cat(header1)
+		header("-")
 
 		# Totals per countries/cities
 		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
@@ -376,7 +413,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colN+1)]
 		print(data.ordered)
 
-		cat(header,'\n')
+		header("=")
 
 		# graphics
 		if (graphical.output) {
