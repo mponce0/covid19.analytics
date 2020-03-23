@@ -8,6 +8,9 @@
 genModel <- function(y, deg=1) {
 #' function to generate models using Linear Regression "LM"
 #'
+#' @param  y  vector containing the data to fit
+#' @param  deg  degree of the polynomial fit
+#' 
 #' @keywords internal
 #'
 #' @importFrom  stats  lm
@@ -36,11 +39,15 @@ evalModel <- function(model) {
 gen.glm.model <- function (y, family=Gamma(link="log")) {
 #' function to generate models using GLM
 #'
+#' @param  y  vector containing the data to fit
+#' @param  family  family to use in the GLM method
+#'
 #' @keywords internal
 #'
 #' @importFrom  stats  glm  Gamma poisson
 #' @importFrom  utils  capture.output
 #'
+
 	y.var <- unlist(y)
 	x.var <- 1:length(y.var)
 	#print(x.var)
@@ -62,8 +69,14 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 #######################################################################
 
 simple.SIR.ODE <- function(time, state, parameters) {
-# Define ODE for SIR model
-
+#' Define ODE for SIR model
+#'
+#' @param  time  time variable
+#' @param  state  state variable
+#' @param  parameters parameters of the ODE
+#'
+#' @keywords internal
+#'
 
   ODE.params <- as.list(c(state, parameters))
 
@@ -82,7 +95,7 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 				tfinal=90,
 				fatality.rate = 0.02,
 				tot.population=1400000000) {
-#' function to generate a simple SIR model
+#' function to generate a simple SIR (Susceptible-Infected-Recovered) model
 #'
 #' @param  data  dataset to consider
 #' @param  geo.loc  country/region to analyze
