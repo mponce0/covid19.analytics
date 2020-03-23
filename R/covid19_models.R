@@ -69,7 +69,7 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 #######################################################################
 
 simple.SIR.ODE <- function(time, state, parameters) {
-#' Define ODE for SIR model
+#' Define an ODE system for a simple SIR model
 #'
 #' @param  time  time variable
 #' @param  state  state variable
@@ -90,12 +90,12 @@ simple.SIR.ODE <- function(time, state, parameters) {
 }
 
 
-simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
+simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 				t0=NULL,t1=NULL, deltaT=NULL,
 				tfinal=90,
 				fatality.rate = 0.02,
 				tot.population=1400000000) {
-#' function to generate a simple SIR (Susceptible-Infected-Recovered) model
+#' function to generate a simple SIR (Susceptible-Infected-Recovered) model based on the actual data of the coivd19 cases
 #'
 #' @param  data  dataset to consider
 #' @param  geo.loc  country/region to analyze
@@ -114,9 +114,9 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 #'
 #' @examples
 #' data <- covid19.data("confirmed")
-#' simple.SIR.solver(data,"Hubei")
-#' simple.SIR.solver(data,"Germany",tot.population=83149300)
-#' simple.SIR.solver(data,"Uruguay", tot.population=3500000)
+#' simple.SIR.model(data,"Hubei", t0=1,t1=15)
+#' simple.SIR.model(data,"Germany",tot.population=83149300)
+#' simple.SIR.model(data,"Uruguay", tot.population=3500000)
 #'
 
 	# DISCLAIMER // EXPERIMENTAL FEATURES
@@ -130,13 +130,15 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 	pot.Infected <- preProcessingData(data,geo.loc)
 	# eliminate entries without cases, ie equal 0
 	#pot.Infected <- pot.Infected[cumsum(pot.Infected)!=0]
-	print(pot.Infected)
+	#print(pot.Infected)
 
 
         # default values
         t0.default=30
         deltaT.default=25
         t1.default=t0.default+deltaT.default
+	#
+	colOffset <- 5
         ###########
 	
 	if (is.null(t0)) {
@@ -161,7 +163,7 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 			} else {
 				Infected <- pot.Infected[t0:min(t0+deltaT.default,l1)]
 			}
-		print(Infected)
+		#print(Infected)
 	} else if (!is.null(t1)) {
 			# user indicated t0 & t1
 			Infected <- pot.Infected[t0:t1]
@@ -183,16 +185,16 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 
 	###########
 	header('-',"Parameters used to create model ")
-	cat('\t',"Region: ",geo.loc,'\n')
+	cat('\t',"Region: ",toupper(geo.loc),'\n')
 	cat('\t',"Time interval to consider: t0=",t0," - t1=",t1," ; tfinal=",tfinal,'\n')
-	cat('\t\t',"t0: ",names(data)[t0]," -- t1: ",names(data)[t1],'\n')
+	cat('\t\t',"t0: ",names(data)[t0+colOffset]," -- t1: ",names(data)[t1+colOffset],'\n')
 	cat('\t',"Number of days considered for initial guess: ",length(Infected),'\n')
 	cat('\t',"Fatality rate: ",fatality.rate,'\n')
 	cat('\t',"Population of the region: ",tot.population,'\n')
 	header('-')
 	###########
 
-	print(Infected)
+	#print(Infected)
 
 	# total population of the region
 	N <<- tot.population
@@ -215,7 +217,7 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 	plot(Day, Infected, type ="b")
 	plot(Day, Infected, log = "y")
 	abline(lm(log10(Infected) ~ Day))
-	title(paste("Confirmed Cases 2019-nCoV:",geo.loc), outer = TRUE, line = -2)
+	title(paste("Confirmed Cases 2019-nCoV:",toupper(geo.loc)), outer = TRUE, line = -2)
 
 	loadLibrary("deSolve")
 	init.cond <- c(S = N-Infected[1], I = Infected[1], R = 0)
@@ -252,7 +254,8 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 
 	points(Day, Infected)
 	legend("bottomright", c("Susceptible", "Infected", "Recovered"), lty = 1, lwd = 2, col = col, inset = 0.05)
-	title(paste("SIR model 2019-nCoV:", geo.loc), outer = TRUE, line = -22)
+	title(paste("SIR model 2019-nCoV:", toupper(geo.loc)), outer = TRUE, line = -22)
+	#axis.Date(1,as.Date(names(data)[colOffset:ncol(data)]))
 
 	# R_naught
 	R0 <- setNames(Opt_par["beta"] / Opt_par["gamma"], "R0")
@@ -269,7 +272,7 @@ simple.SIR.solver <- function(data=NULL, geo.loc="Hubei",
 		max.I*fatality.rate,'\n')
 	cat("Max reached at day :", max.I.time,
 		'==> ')
-	print(as.Date(names(data)[t0])+max.I.time)
+	print(as.Date(names(data)[t0+colOffset])+max.I.time)
 
 	header("=")
 }
