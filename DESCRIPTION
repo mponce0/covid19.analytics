@@ -8,12 +8,12 @@ Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
 Description: Loads updated data for the Novel Coronavirus (COVID-19) from JHU's CCSEGIS and Data repository <https://github.com/CSSEGISandData/COVID-19>.
 Imports:
     plotly,
-    htmlwidgets
+    htmlwidgets,
+    deSolve
 Suggests:
     knitr,
     devtools,
-    roxygen2,
-    deSolve
+    roxygen2
 License: GPL (>=2)
 URL: https://mponce0.github.io/covid19/
 BugReports: https://github.com/mponce0/covid19/issues
