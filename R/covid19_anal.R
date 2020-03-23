@@ -164,7 +164,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 
 
 growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
-#' function to compute Growth Rates
+#' function to compute daily changes and "Growth Rates" per location; "Growth Rates" defined as the ratio between changes in consecutive days
 #'
 #' @param  data0  data.frame with data from covid19
 #' @param  geo.loc  list of locations
@@ -354,7 +354,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #############################################################################
 
 report.summary <- function(Nentries=10, graphical.output=TRUE) {
-#' function to summarize the current situation, will download the latest data and summarize different quantities
+#' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
