@@ -32,7 +32,7 @@ header <- function(x="-",title="",total.len=80,eol='\n') {
 #############################################################################
 
 set.plt.canvas <- function(geo.loc,ylayers=1,minBreaks=5) {
-#' function to set the graphical layout
+#' auxiliary function to set the graphical layout
 #'
 #' @param  geo.loc  list of locations so that the fn can determine how many plots would be
 #' @param  ylayers  parameter to set a multiplier times the nbr of initial plots
@@ -54,6 +54,13 @@ set.plt.canvas <- function(geo.loc,ylayers=1,minBreaks=5) {
 
 
 select.per.loc <- function(data,geo.loc) {
+#' auxiliary function to select data based on geographical location
+#'
+#' @param  data  data set to process
+#' @param  geo.loc  geopgraphical location, can be a country, region, province or city
+#'
+#' @keywords internal
+#'
 
 	# check whether the locations are coutnries/regions or provinces/states
 	if (toupper(geo.loc) %in% toupper(data$Country.Region)) {
@@ -116,32 +123,47 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 ############################################################################
 
 preProcessingData <- function(data0,geo.loc){
+#' auxiliary function to pre-process data per geographical location
+#'
+#' @param  data0  data set
+#' @param  geo.loc  geopgraphical location, can be a country, region, province or city
+#'
+#' @keywords internal
+#'
 
         # define first column of data
-        col1 <- 6
+        col1 <- 5
 
         # check on the location
         geo.loc <- checkGeoLoc(data0,geo.loc)
 
 
         if ("status" %in% names(data0)) {
-                data <- data0[, ! names(data0) %in% "status", drop = F]
+#                data <- data0[, ! names(data0) %in% "status", drop = F]
+		data <- data0[ data$status == "confirmed",! names(data0) %in% "status", drop = F]
         } else {
                 data <- data0
         }
 
 	cases.per.loc <- select.per.loc(data,geo.loc)
-	colN <- ncol(cases.per.loc)
-	if (tolower("status") %in% tolower(cases.per.loc))
-		colN <- colN - 1
+	if (nrow(cases.per.loc) > 1) {
+		#cases.per.loc <- cbind("*",cases.per.loc$Country.Region,mean(cases.per.loc$Lat),mean(cases.per.loc$Long),
+		cases.per.loc <- apply(cases.per.loc[,col1:ncol(cases.per.loc)],MARGIN=2,sum)
+		#cases.per.loc["Country"] <- cases.per.loc$Country[1]
+		#cases.per.loc["Lat"] <- mean(cases.per.loc$Lat)
+		#cases.per.loc["Long"] <- mean(cases.per.loc$Long)
+	} else {
+		cases.per.loc <- cases.per.loc[,col1:ncol(cases.per.loc)]
+	}
+	colN <- length(cases.per.loc)
+
+	#if (tolower("status") %in% tolower(cases.per.loc))
+	#	colN <- colN - 1
 
 	cat("Processing... ",geo.loc,'\n')
-
-
 	# determine period of time and ranges...
 	stride <- 1
-	range1 <- seq(col1,colN,stride)
-
+	range1 <- seq(1,colN,stride)
 	return(as.numeric(unlist(cases.per.loc[range1])))
 }
 
@@ -151,7 +173,7 @@ preProcessingData <- function(data0,geo.loc){
 
 # load and check needed packages/libraries...
 loadLibrary <- function(lib) {
-#' function to check and load an specific set of libraries
+#' auxiliary function to check and load an specific set of libraries
 #' @param  lib  is a list of packages to be loaded
 #' @keywords internal
 
