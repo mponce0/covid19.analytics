@@ -117,6 +117,7 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' simple.SIR.model(data,"Hubei", t0=1,t1=15)
 #' simple.SIR.model(data,"Germany",tot.population=83149300)
 #' simple.SIR.model(data,"Uruguay", tot.population=3500000)
+#' simple.SIR.model(data,"Canada", tot.population=37590000)
 #'
 
 	# DISCLAIMER // EXPERIMENTAL FEATURES
