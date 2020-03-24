@@ -23,16 +23,6 @@ to estimate totals per regions/country/cities, growth rates and daily changes in
 the reported number of cases.
 
 
-Function  | description
----	 | ---
- `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
- `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
- `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
- `totals.plt`   |  plots in a static and interactive plot total number of cases per day
- `live.map`     |  interactive map displaying cases around the world
-
-
-
 ### Further Features
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
@@ -42,7 +32,25 @@ in particular modelling and predictive capabilities.
 We are working in the development of *modelling* capabiltiies.
 A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
 
- 
+
+### Summary of "covid19" Functions
+
+
+Function  | description
+---	 | ---
+ `covid19.data` |  obtain live worlwide data from the JHU repository
+ ---
+ `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
+ `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+ `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+ `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+ `live.map`     |  interactive map displaying cases around the world
+---
+ `simple.SIR.model`  |  
+ ---
+
+
+
 ## Installation
 For using the "covi19" package, first you will need to install it.
 
