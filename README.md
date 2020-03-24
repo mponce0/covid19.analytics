@@ -39,15 +39,12 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 Function  | description
 ---	 | ---
  `covid19.data` |  obtain live worlwide data from the JHU repository
- ---
  `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
  `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
  `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  `totals.plt`   |  plots in a static and interactive plot total number of cases per day
  `live.map`     |  interactive map displaying cases around the world
----
  `simple.SIR.model`  |  
- ---
 
 
 
