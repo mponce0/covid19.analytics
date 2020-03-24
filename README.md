@@ -1,7 +1,7 @@
 # COVID19
 
 ## Introduction
-The covid19 package allows users to obtain live data from the
+The covid19 package allows users to obtain live worlwide data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
 
 The goal of this package is to make the latest data quickly available
@@ -40,7 +40,7 @@ in particular modelling and predictive capabilities.
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabiltiies.
-A preliminar prototype has been included and can be accessed using the `simple.SIR.solver` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
+A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
 
  
 ## Installation
@@ -204,6 +204,23 @@ live.map(data)
 Interactive examples can be seen at
     <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
 </p>
+
+
+#### Simulating the Virus spread
+```
+# read data
+data <- covid19.data("confirmed")
+
+# run a SIR model for a given geographical location
+simple.SIR.model(data,"Hubei", t0=1,t1=15)
+simple.SIR.model(data,"Germany",tot.population=83149300)
+simple.SIR.model(data,"Uruguay", tot.population=3500000)
+simple.SIR.model(data,"Ontario",tot.population=14570000)
+
+# the function will agregate data for a geographical location, like a country with multiple entries
+simple.SIR.model(data,"Canada",tot.population=37590000)
+```
+
 
 
 ## Further Resources
