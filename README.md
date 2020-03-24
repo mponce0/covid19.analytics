@@ -17,7 +17,7 @@ By using this function, the data will be pulled directly from the JHU repository
 with the latest updates.
 
 
-### Analitcal & Graphical Indicators
+### Analitical & Graphical Indicators
 In addition to the data availability the package includes some basics functions
 to estimate totals per regions/country/cities, growth rates and daily changes in
 the reported number of cases.
