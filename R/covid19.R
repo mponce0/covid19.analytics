@@ -68,7 +68,7 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 	cases.URL <- paste0(JHU.REPO,cases)
 
 	message("Data being read from JHU/CCSE repository")
-	cat("Reading data from ", cases,'\n')
+	message("Reading data from ", cases)
 
 	# Attempt to protect against bad internet conenction or misspelled package name
 	tryCatch( {
@@ -84,6 +84,12 @@ covid19.data <- function(case='ALL', debrief=FALSE) {
 			print(str(covid19.cases))
 			print(head(covid19.cases))
 		}
+
+		t0 <- names(covid19.cases)[5]
+		tf <- names(covid19.cases)[ncol(covid19.cases)]
+		message("Data retrieved on ",Sys.time()," || ",
+			"Range of dates on data: ",t0,"--",tf, 
+			" | Nbr of records: ",nrow(covid19.cases))
 
 		return(covid19.cases)
 		},
