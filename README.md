@@ -219,6 +219,9 @@ simple.SIR.model(data,"Ontario",tot.population=14570000)
 
 # the function will agregate data for a geographical location, like a country with multiple entries
 simple.SIR.model(data,"Canada",tot.population=37590000)
+
+# projecting the spread for the whole world
+simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
 
