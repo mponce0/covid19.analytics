@@ -214,7 +214,15 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	# Determine nbr of days 
 	Day <- 1:(length(Infected))
 
-	old <- par(mfrow = c(2, 2))
+        
+	### preserve user graphical env.
+	# save the state of par() before running the code
+	oldpar <- par(no.readonly = TRUE)
+	# restore the previous state after the fn is done, even if it fails, so the user environment is not altered
+	on.exit(par(oldpar))
+	#########
+
+	par(mfrow = c(2, 2))
 	plot(Day, Infected, type ="b")
 	plot(Day, Infected, log = "y")
 	abline(lm(log10(Infected) ~ Day))
