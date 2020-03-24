@@ -18,9 +18,9 @@ with the latest updates.
 
 
 ### Analitical & Graphical Indicators
-In addition to the data availability the package includes some basics functions
-to estimate totals per regions/country/cities, growth rates and daily changes in
-the reported number of cases.
+In addition to the access and retrieval of the data, the package includes some
+basics functions to estimate totals per regions/country/cities, growth rates
+and daily changes in the reported number of cases.
 
 
 ### Further Features
@@ -36,15 +36,15 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 ### Summary of "covid19" Functions
 
 
-Function  | description
----	 | ---
- `covid19.data` |  obtain live worlwide data from the JHU repository
- `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
- `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
- `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
- `totals.plt`   |  plots in a static and interactive plot total number of cases per day
- `live.map`     |  interactive map displaying cases around the world
- `simple.SIR.model`  |  
+| Function  | description |
+| --------	 | ----------- |
+| `covid19.data` |  obtain live worlwide data from the JHU repository
+| `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
+| `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+| `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+| `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+| `live.map`     |  interactive map displaying cases around the world
+| `simple.SIR.model`  |  
 
 
 
