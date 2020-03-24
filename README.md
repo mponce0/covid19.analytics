@@ -38,7 +38,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 | Function  | description |
 | --------	 | ----------- |
 **Data Adquisition**
-| `covid19.data` |  obtain live\* worlwide data from the JHU repository
+| `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
 **Analysis**
 | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
 | `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
