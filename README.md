@@ -1,7 +1,7 @@
 # COVID19
 
 ## Introduction
-The covid19 package allows users to obtain live data from the
+The covid19 package allows users to obtain live worlwide data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
 
 The goal of this package is to make the latest data quickly available
