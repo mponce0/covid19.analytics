@@ -173,6 +173,9 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #'
 #' @return  a list containing two dataframes: one reporting changes on daily baisis and a second one reporting growth rates, for the indicated regions
 #'
+#' @importFrom  gplots  heatmap.2 bluered
+#' @importFrom  pheatmap  pheatmap
+#'
 #' @export
 #'
 #' @examples
@@ -286,8 +289,8 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 	}
 
 	if ( (nrow(total.changes.per.day)>=1) && (length(geo.loc)>=1) )  {
-		# load pheatmap
-		#loadLibrary("pheatmap")
+		# load some graphical libraries 
+		loadLibrary("pheatmap")
 		loadLibrary("gplots")
 
 		names(total.changes.per.day) <- names(changes)
@@ -391,6 +394,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		# read data
 		data <- covid19.data(i)
 
+		# if Nentries i set to 0, will consider *all* entries
 		if (Nentries==0) Nentries <- nrow(data)
 
 		colN <- ncol(data)
@@ -408,9 +412,19 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		# Totals per countries/cities
 		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
 		data$Totals <- data[,colN]
+		# store total nbr of cases
+		if (i=="confirmed") {
+                        total.cases <- data[,ncol(data)]
+			colsF <- colN+1
+		} else {
+			# get percentage cases
+			data$Perc  <- round((data[,colN]/total.cases)*100,2)
+			colsF <- (colN+1):(colN+2)
+		}
 
 		# top countries/regions
-		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colN+1)]
+		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colsF)]
+		
 		print(data.ordered)
 
 		header("=")
