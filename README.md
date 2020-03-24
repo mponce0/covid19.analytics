@@ -1,7 +1,7 @@
 # COVID19
 
 ## Introduction
-The covid19 package allows users to obtain live(\*) worlwide data from the
+The covid19 package allows users to obtain live \* worlwide data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
 
 The goal of this package is to make the latest data quickly available
@@ -38,7 +38,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 | Function  | description |
 | --------	 | ----------- |
 **Data Adquisition**
-| `covid19.data` |  obtain live(\*) worlwide data from the JHU repository
+| `covid19.data` |  obtain live\* worlwide data from the JHU repository
 **Analysis**
 | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
 | `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
