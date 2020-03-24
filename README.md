@@ -33,7 +33,7 @@ We are working in the development of *modelling* capabiltiies.
 A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
-### Summary of "covid19" Functions
+### Summary of the Functions from the "covid19" Package
 
 | Function  | description |
 | --------	 | ----------- |
