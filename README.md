@@ -1,7 +1,7 @@
 # COVID19
 
 ## Introduction
-The covid19 package allows users to obtain live worlwide data from the
+The covid19 package allows users to obtain live\* worlwide data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
 
 The goal of this package is to make the latest data quickly available
@@ -17,20 +17,10 @@ By using this function, the data will be pulled directly from the JHU repository
 with the latest updates.
 
 
-### Analitcal & Graphical Indicators
-In addition to the data availability the package includes some basics functions
-to estimate totals per regions/country/cities, growth rates and daily changes in
-the reported number of cases.
-
-
-Function  | description
----	 | ---
- `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
- `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
- `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
- `totals.plt`   |  plots in a static and interactive plot total number of cases per day
- `live.map`     |  interactive map displaying cases around the world
-
+### Analytical & Graphical Indicators
+In addition to the access and retrieval of the data, the package includes some
+basics functions to estimate totals per regions/country/cities, growth rates
+and daily changes in the reported number of cases.
 
 
 ### Further Features
@@ -40,9 +30,27 @@ in particular modelling and predictive capabilities.
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabiltiies.
-A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
+A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
- 
+
+### Summary of the Functions from the "covid19" Package
+
+| Function  | description |
+| --------	 | ----------- |
+**Data Adquisition**
+| `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
+**Analysis**
+| `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
+| `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+| `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+**Graphics**
+| `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+| `live.map`     |  interactive map displaying cases around the world
+**Modelling**
+| `simple.SIR.model`  |  generates a SIR model
+
+
+
 ## Installation
 For using the "covi19" package, first you will need to install it.
 
@@ -219,6 +227,9 @@ simple.SIR.model(data,"Ontario",tot.population=14570000)
 
 # the function will agregate data for a geographical location, like a country with multiple entries
 simple.SIR.model(data,"Canada",tot.population=37590000)
+
+# projecting the spread for the whole world
+simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
 
@@ -237,5 +248,7 @@ simple.SIR.model(data,"Canada",tot.population=37590000)
 
 
 ## References
+(\*) Data can be upto 24 hs delayed wrt latest updates.
+
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
