@@ -30,11 +30,10 @@ in particular modelling and predictive capabilities.
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabiltiies.
-A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (Survival-Infected-Recovered) ODE model using the actual data of the virus.
+A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
 ### Summary of "covid19" Functions
-
 
 | Function  | description |
 | --------	 | ----------- |
@@ -44,7 +43,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 | `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
 | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
 | `live.map`     |  interactive map displaying cases around the world
-| `simple.SIR.model`  |  
+| `simple.SIR.model`  |  generates a SIR model
 
 
 
