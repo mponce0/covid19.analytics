@@ -23,8 +23,10 @@ genModel <- function(y, deg=1) {
 
 	model <- lm(y.var ~ x.var)
 
-	cat("Linear Regression (lm):", '\n')
+	#header('-')
+	header('',"Linear Regression (lm):")
 	print(summary(model))
+	header('-')
 
 	return(model)	
 }
@@ -55,9 +57,11 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 
 	model <- glm(y.var ~ x.var, family=family)
 
-	cat(paste0("GLM using Family ",
-		paste(capture.output(eval(family)),collapse="")," :"),'\n')
+	#header('-')
+	header('',paste0("GLM using Family ",
+		paste(capture.output(eval(family)),collapse="")," :") )
 	print(summary(model))
+	header('-')
 
 	return(model)
 }
@@ -103,7 +107,7 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' @param  t1  final period of time for data consideration
 #' @param  deltaT interval period of time from t0, ie. number of days to consider since t0
 #' @param  tfinal  total number of days
-#' @param  fatality.rate  rate of causality, deafault value of 2%
+#' @param  fatality.rate  rate of causality, deafault value of 2 percent
 #' @param  tot.population  total population of the country/region
 #'
 #' @importFrom  stats  optim setNames
@@ -198,8 +202,11 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	#print(Infected)
 
 	# total population of the region
-	N <<- tot.population
-
+	#N <<- tot.population
+	# needs to be a global variable for the ODE solver
+	# will enforce a new environment
+	#.SIR.model.env <- new.env()
+	assign("N",tot.population, envir = .GlobalEnv)
 
 	#### TEST CASES ####
 	###### MAINLAND CHINA #####
