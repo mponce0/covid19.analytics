@@ -62,11 +62,15 @@ select.per.loc <- function(data,geo.loc) {
 #' @keywords internal
 #'
 
+	# generalize Country/Region & Province/State column id
+	Country.col <- pmatch("Country", names(data))
+	Province.col <- pmatch("Province", names(data))
+
 	# check whether the locations are coutnries/regions or provinces/states
-	if (toupper(geo.loc) %in% toupper(data$Country.Region)) {
-		cases.per.loc <- data[toupper(data$Country.Region) == toupper(geo.loc),]
-	} else if (toupper(geo.loc) %in% toupper(data$Province.State)) {
-		cases.per.loc <- data[toupper(data$Province.State) == toupper(geo.loc),]
+	if (toupper(geo.loc) %in% toupper(data[,Country.col])) {
+		cases.per.loc <- data[toupper(data[,Country.col]) == toupper(geo.loc),]
+	} else if (toupper(geo.loc) %in% toupper(data[,Province.col])) {
+		cases.per.loc <- data[toupper(data[,Province.col]) == toupper(geo.loc),]
 	} else if (toupper(geo.loc) == "ALL") {
 		cases.per.loc <- data
 	}
@@ -89,8 +93,12 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 #' @keywords internal
 #'
 
-	provinces.states <- toupper(unique(data$Province.State))
-	countries.regions <- toupper(unique(data$Country.Region))
+        # generalize Country/Region & Province/State column id
+        Country.col <- pmatch("Country", names(data))
+        Province.col <- pmatch("Province", names(data))
+
+	provinces.states <- toupper(unique(data[,Province.col]))
+	countries.regions <- toupper(unique(data[,Country.col]))
 	geo.locs <- c()
 
 	# if the geo.loc has not been specified will look into ALL records...
