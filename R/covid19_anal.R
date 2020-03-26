@@ -11,7 +11,7 @@
 tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, info="") {
 #' function to compute totals per location
 #'
-#' @param  data  data.frame with data from covid19
+#' @param  data  data.frame with *time series* data from covid19
 #' @param  geo.loc  list of locations
 #' @param  confBnd  flag to activate/deactivate drawing of confidence bands base on a moving average window
 #' @param  nbr.plts  parameter to control the number of plots to display per figure
@@ -28,7 +28,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 #' @examples
 #' \donttest{
 #' # read data for confirmed cases
-#' data <- covid19.data("confirmed")
+#' data <- covid19.data("ts-confirmed")
 #' # compute totals per location for all the countries
 #' tots.per.location(data)
 #' # compute totals per location for 'Italy'
@@ -37,8 +37,12 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 #' tots.per.location(data,geo.loc=c("Italy","Germany"))
 #'}
 #'
+
+	# check that the data is time series
+	chk.TS.data(data,xtp=TRUE)
+
 	# first column with daily data
-	col1 <- 6
+	col1 <- 5
 
 	# check the location indicated
 	geo.loc <- checkGeoLoc(data,geo.loc)
@@ -59,6 +63,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 	#########
 
 
+	# depricated
 	# if the dataset contains all the posisble cases ('confirmed','recovered','deaths')
 	# process them separatedly by using recursion...
 	if ("status" %in% tolower(names(data))) {
@@ -71,6 +76,24 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 		return(results.lst)
 	}
 	#######
+
+	#######################
+	# Aggregated (new) structure
+	conditions <- c("confirmed","deaths","recovered","active")
+	results.lst <- list()
+	Country.col <- pmatch("Country", names(data))
+	Province.col <- pmatch("Province", names(data))
+	for (cond in conditions) {
+		if ( (cond %in% tolower(names(data))) & ("FIPS" %in% names(data)) ) {
+			col.X <- pmatch(cond, tolower(names(data)))
+			message("Processing ",cond, " cases")
+			results.lst <- list(results.lst, tots.per.location(data[,c(Province.col,Country.col,col.X)],geo.loc,confBnd,nbr.plts,cond))
+		}
+		if (length(results.lst) > 0)
+			return(results.lst)
+	}
+	#######################
+	#######################
 
 
 	for (i in geo.loc) {
@@ -88,15 +111,15 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 				totals.per.loc <- apply(cases.per.loc[,col1:colN],MARGIN=2,sum)
 			}
 			cat(i,' -- ',totals.per.loc,'\n')
-			#total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
-			total.cases.per.country <- rbind(total.cases.per.country, totals.per.loc.day)
+			total.cases.per.country <- rbind(total.cases.per.country,c(i,totals.per.loc.day,totals.per.loc))
+
 
 			##### modelling
 			yvar <- totals.per.loc.day
 			#print(yvar)
 
 			## LM models
-			cat("  running models...",'\n')
+			header("="," running models...")
 			model.lm <- genModel(yvar,deg=1)
 			model.exp <- genModel(log1p(yvar),deg=1)
 			#print(str(model2))
@@ -105,12 +128,13 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 			if (sum(yvar<=0)==0) model.gamma <- gen.glm.model(yvar)
 
 			##### plots
-			col0 <- 5
 			Ncols <- length(cases.per.loc)
 			Nrows <- nrow(cases.per.loc)
+			col0 <- 5
 			x.dates <- as.Date(names(cases.per.loc)[col0:Ncols])
 			y.cases <- cases.per.loc[1:Nrows , col0:Ncols]
-			names(y.cases) <- x.dates
+			y.cases <- unlist(yvar)
+			#names(y.cases) <- x.dates
 			my.cols <- rep(rainbow(15L),each=20L)
 			#print(x.dates)
 			#print(y.cases)
@@ -166,7 +190,7 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' function to compute daily changes and "Growth Rates" per location; "Growth Rates" defined as the ratio between changes in consecutive days
 #'
-#' @param  data0  data.frame with data from covid19
+#' @param  data0  data.frame with *time series* data from covid19
 #' @param  geo.loc  list of locations
 #' @param  stride  how frequently to compute the growth rate in units of days
 #' @param  info  additional information to include in plots' title
@@ -181,7 +205,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' @examples
 #' \donttest{
 #' # read data for confirmed cases
-#' data <- covid19.data("confirmed")
+#' data <- covid19.data("ts-confirmed")
 #' # compute changes and growth rates per location for all the countries
 #' growth.rate(data)
 #' # compute changes and growth rates per location for 'Italy'
@@ -190,8 +214,12 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' growth.rate(data,geo.loc=c("Italy","Germany"))
 #' }
 
+
+	# check that the data is time series
+	chk.TS.data(data0,xtp=TRUE)
+
 	# define first column of data
-	col1 <- 6
+	col1 <- 5
 
 	cluster.type <- c("ALL","Country","City","Region","City/Region")
 
@@ -389,7 +417,8 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 	# first column with cases data
 	col1 <- 5
 
-	cases <- c("confirmed","recovered","deaths")
+	#cases <- c("confirmed","recovered","deaths")
+	cases <- c("ts-confirmed","ts-deaths")
 	for (i in cases) {
 		# read data
 		data <- covid19.data(i)
@@ -403,9 +432,11 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		cat("##### ",report.title,'\n')
 		header("#")
 
-		cat("Total number of Countries/Regions affected: ",length(unique(data$Country.Region)),'\n')
+		country.col <- pmatch("Country", names(data))
+		province.col <- pmatch("Province", names(data))
+		cat("Total number of Countries/Regions affected: ",length(unique(data[,country.col])),'\n')
 
-		cat("Total number of Cities/Provinces affected: ",length(unique(data$Province.State)),'\n')
+		cat("Total number of Cities/Provinces affected: ",length(unique(data[,province.col])),'\n')
 
 		header("-")
 
@@ -413,7 +444,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
 		data$Totals <- data[,colN]
 		# store total nbr of cases
-		if (i=="confirmed") {
+		if (grepl("confirmed",i)) {
                         total.cases <- data[,ncol(data)]
 			colsF <- colN+1
 		} else {
@@ -423,8 +454,9 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		}
 
 		# top countries/regions
-		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(2,1,colsF)]
-		
+		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(country.col,province.col,colsF)]
+		names(data.ordered)[1:3] <- c("Country.Region","Province.State","Totals")
+	
 		print(data.ordered)
 
 		header("=")
