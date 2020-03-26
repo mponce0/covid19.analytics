@@ -130,6 +130,33 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 
 ############################################################################
 
+chk.TS.data <- function(data, xtp=FALSE) {
+#' auxiliary function to check whether a dataset is composed of time series data
+#'
+#' @param  data  data set to consider
+#' @param  xtp  indicator whether to stop the program if data is not time series
+#'
+#' @ return  a boolean indicator whether the data contains time series values or not
+#'
+#' @keywords internal
+
+	# define some unique column names to aggregated data
+	agg.cols <- c("FIPS","Last_Update")
+	
+	if ( sum(agg.cols %in% names(data)) >0 ) {
+		if (xtp) {
+			stop("Data provided does not contain *time series* data!")
+		} else {
+			return(FALSE)
+		}
+	} else {
+		return(TRUE)
+	}
+}
+
+
+############################################################################
+
 preProcessingData <- function(data0,geo.loc){
 #' auxiliary function to pre-process data per geographical location
 #'
