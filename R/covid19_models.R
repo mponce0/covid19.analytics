@@ -101,7 +101,7 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 				tot.population=1400000000) {
 #' function to generate a simple SIR (Susceptible-Infected-Recovered) model based on the actual data of the coivd19 cases
 #'
-#' @param  data  dataset to consider
+#' @param  data  time series dataset to consider
 #' @param  geo.loc  country/region to analyze
 #' @param  t0  initial period of time for data consideration
 #' @param  t1  final period of time for data consideration
@@ -117,7 +117,7 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' @export
 #'
 #' @examples
-#' data <- covid19.data("confirmed")
+#' data <- covid19.data("ts-confirmed")
 #' simple.SIR.model(data,"Hubei", t0=1,t1=15)
 #' simple.SIR.model(data,"Germany",tot.population=83149300)
 #' simple.SIR.model(data,"Uruguay", tot.population=3500000)
@@ -130,6 +130,9 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	message("Please check the development version of the package for the latest updates on it")
 	header("#")
 
+
+	# check that the data is time series data
+	chk.TS.data(data,xtp=TRUE)
 
 	# get actual data from indicated region...
 	pot.Infected <- preProcessingData(data,geo.loc)
