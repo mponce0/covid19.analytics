@@ -72,7 +72,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 
 		min.cols <- min(ncol.conf-1,ncol.death-1,ncol.recov-1)
 
-		print(min.cols)
+		#print(min.cols)
 		# combine cases
                 covid19.ts <- rbind( covid19.conf[,c(1:min.cols, ncol.conf)],
 					covid19.death[,c(1:min.cols, ncol.death)],
