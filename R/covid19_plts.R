@@ -8,7 +8,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 			fileName=NULL) {
 #' function to plot total number of cases per day for different groups
 #'
-#' @param  data0  dataset to process, default all the possible cases: 'confirmed', 'recovered' and 'deaths' for all countries/regions
+#' @param  data0  time series dataset to process, default all the possible cases: 'confirmed' and 'deaths' for all countries/regions
 #' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
 #' @param  interactive.fig  swith to turn off/on an interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
@@ -20,16 +20,22 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 
 
 	if (is.null(data0)) {
-		total.cases <- covid19.data()
+		total.cases <- covid19.data("ts-ALL")
 	} else {
 		total.cases <- data0
 	}
+
+	# check time series
+	chk.TS.data(total.cases,xtp=TRUE)
 
 	if (!is.null(geo.loc)) {
 		# check geographical location
 		geo.loc <- checkGeoLoc(total.cases,geo.loc)
 		total.cases <- select.per.loc(total.cases,geo.loc)
 	}
+
+	# remove NAs
+	total.cases <- na.omit(total.cases)
 
 	col1 <-5; colN <- ncol(total.cases)
 	# check whether is the whole dataset...
@@ -51,26 +57,29 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 		###
 	} else {
 		all.cases <- FALSE
+		X.cases <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
+		active.cases <- X.cases
 	}
 
+	# totals per column
 	totals <- apply(total.cases[,col1:colN], MARGIN=2,sum)
 
 	x.dates <- as.Date(names(total.cases)[col1:colN])
-	ymax <- max(confirmed,na.rm=TRUE)
+	ymax <- max(totals,na.rm=TRUE)
 
 	### STATIC PLOTS
-	plot(x.dates, active.cases, ylim=c(0,ymax),  type='l', lwd=3, col='darkred',
+	plot(x.dates, totals, ylim=c(0,ymax),  type='l', lwd=3, col='darkred',
 		xlab='time', ylab='nbr of cases', main=geo.loc)
 
 	if (all.cases) {
 		par(new=TRUE,ann=FALSE)
 		plot(x.dates,confirmed, ylim=c(0,ymax), axes=FALSE, type='b', col='black')
 		par(new=TRUE,ann=FALSE)
-		plot(x.dates,recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
+		plot(x.dates[1:length(recovered)],recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
 		par(new=TRUE,ann=FALSE)
 		plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
-		#par(new=TRUE,ann=FALSE)
-		#plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwt=2, col='red')
+		par(new=TRUE,ann=FALSE)
+		plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwd=2, col='red')
 	}
 
 	### INTERACTIVE PLOTS
@@ -91,6 +100,28 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 		} else {
 			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
 		}
+
+
+		# trying to add a menu for switching log/linear scale
+		updatemenus = list(
+ 				list(y = 0.8,
+				buttons = list(
+					list(method = "update",
+						args = list(
+								list("yaxis", list("type",'log') )
+							),
+						label = "log scale"),
+					list(method = "update",
+						args = list(
+								list("yaxis", list("type",'linear') )
+							),
+						label = "linear scale")
+					)
+				)
+			)
+
+		#totals.ifig <- totals.ifig %>% layout(updatemenus=updatemenus)
+
 	
 		# activate interactive figure
 		print(totals.ifig)
@@ -112,6 +143,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 ##################################################################################
 
 live.map <- function(data=covid19.data(), projctn='orthographic', title="",
+			szRef=0.2,
 			fileName=NULL) {
 #' function to map cases in an interactive map
 #'
@@ -119,6 +151,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 #' @param  projctn  initial type of map-projection to use, possible values are:
 #' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
 #' @param  title  a string with a title to add to the plot
+#' @param  szRef  numerical value to use as reference, to scale up the size of the bubbles in the map, from 0 to 1 (smmaller value --> larger bubbles)
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
 #' @export
@@ -131,14 +164,20 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 	# load/check plotly
 	loadLibrary("plotly")
 
+	# identify columns
+	country.col <- pmatch("Country",names(data))
+	province.col <- pmatch("Province",names(data))
+	long.col <- pmatch("Long",names(data))
+	lat.col <- pmatch("Lat",names(data))
+
 	col1 <- 5
 	Ncols <- length(data)
+	### depricated...
 	if (tolower('status') %in% tolower(names(data))) {
-		df <- data[data$status=="confirmed", c(1,2,3,4,(Ncols-1))]
+		df <- data[data$status=="confirmed", c(province.col,country.col,lat.col,long.col,(Ncols-1))]
 		for (sts in unique(data$status)) {
 			if (tolower(sts) == "death") {
 			# ie. deaths or recovered, hence we need to add them
-				df$total.deaths <- data[data$status==sts,(Ncols-1)]
 				df$total.deaths <- data[data$status==sts,(Ncols-1)]
 			} else if (tolower(sts) == "recovered") {
 				df$total.recover <- data[data$status==sts,(Ncols-1)]
@@ -150,20 +189,51 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 		#Ncols <- Ncols-1
 		#df <- data[data$status=="confirmed", c(1,2,3,4,(Ncols-1),(Ncols+1),(Ncols+2),(Ncols+3))]
 
-		print(head(df))
+		#print(head(df))
 		# define description to display
 		#text = "~paste(df$Province.State," - ",df$Country.Region,":", df$nbr.of.cases, " confirmed \n", )"
-		hover.txt <- paste(df$Province.State," - ",df$Country.Region,'\n',
+		hover.txt <- paste(df[,1]," - ",df[,2],'\n',
 					"Confirmed:", df[,6],'\n',
 					"Deaths: ",df[,7],'\n',
-					"Recovered: ",df[,8],'\n',
-					"Active cases: ",df[,6]-(df[,7]+df[,8]) )
+					#"Recovered: ",df[,8],'\n',
+					#"Active cases: ",df[,6]-(df[,7]+df[,8]) )
+					"Active cases: ",df[,6]-(df[,7]) )
+		recorded.date <- names(data)[Ncols-1]
 	} else {
-		df <- data[,c(1,2,3,4,Ncols)]
-		hover.txt <- paste(df$Province.State," - ",df$Country.Region,": ",df[,5]) 
+		# check if time series data
+		if (chk.TS.data(data)) {
+			df <- data[,c(province.col,country.col,lat.col,long.col,Ncols)]
+			hover.txt <- paste(df[,1]," - ",df[,2],": ",df[,5]) 
+			#szRef <- 0.05
+			recorded.date <- names(data)[Ncols]
+		} else {
+			df <- data[,c(province.col,country.col,lat.col,long.col)]
+			df$total.confirmed <- data$"Confirmed"
+			df$total.recovered <- data$"Recovered"
+			df$total.deaths <- data$"Deaths"
+			df$total.active <- data$"Active"
+
+			hover.txt <- paste(df[,1]," - ",df[,2],'\n',
+				"Confirmed: ", df[,5],'\n',
+				"Recovered: ", df[,6],'\n',
+				"Deaths: ", df[,7],'\n',
+				"Active: ", df[,5]-(df[,6]+df[,7]),
+						# df[,8],
+						'\n')
+			szRef <- .85
+			recorded.date <- max(as.Date(data[,"Last_Update"]))
+		}
 	}
 
+	# restauring column names
+	names(df)[1] <- "Province.State"
+	names(df)[2] <- "Country.Region"
+	names(df)[3] <- "Lat"
+	names(df)[4] <- "Long"
 	names(df)[5] <- "nbr.of.cases"
+
+	# protecting against some weirdeness in the data
+	df[df[,5] < 0,5] <- NA
 
 	#### geographical parameters
 	g <- list(
@@ -207,7 +277,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 			#"YlGnBu","Blues", #"Reds", #"Blues", #"Accent",
 		# COLORS from RColorBrewer....
 		#hoveron = "fills",
-		marker=list(sizeref=0.2, sizemode="area",
+		marker=list(sizeref=szRef, sizemode="area",
 				#sizes = c(~log1p(nbr.of.cases),~nbr.of.cases),
 				line = list(width = 1, color = 'black')),
 		hoverinfo="text",
@@ -262,7 +332,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 				)
 
 
-	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",names(data)[Ncols-1]), geo=g)
+	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",recorded.date), geo=g)
 
 
 	###### MENUES ... aka "buttons" in plotly #######
