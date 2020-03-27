@@ -2,7 +2,9 @@
 
 ## Introduction
 The covid19 package allows users to obtain live\* worlwide data from the
-novel Coronavirus COVID-19 as published by the JHU CCSE repository [1].
+novel Coronavirus COVID-19 as published by the JHU CCSE repository [1],
+as well as, provide basic analysis tools and functions to investigate
+these datasets.
 
 The goal of this package is to make the latest data quickly available
 for researchers and the scientific community.
@@ -11,10 +13,36 @@ for researchers and the scientific community.
 
 ### Data Accessibility
 The `covid19.data()` function can obtain data from the JHU's CCSE repository,
-aggregating the data in different categories "confirmed"/"deaths"/"recovered"
-cases reported daily per country/region/city.
-By using this function, the data will be pulled directly from the JHU repository
+in two main modalities:
+* "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
+* "time series" data for larger accumulated geographical regions (provinces/countries)
+
+* "depricated": we also include the original data style in which these datasets were reported inititally.
+
+The datasets also include information about the different categories (status) "confirmed"/"deaths"/"recovered"
+of the cases reported daily per country/region/city.
+
+This data-adquisiton function, will first attempt to retrieve the data directly from the JHU repository
 with the latest updates.
+If for what ever reason this fails (eg. problems with the connection) the package will load a preserved "image" of the data which is **not** the latest one but still allows the user to explore that older dataset.
+
+#### Data retrieval options
+
+|    argument    |   description  |
+|----------------|----------------|
+| `aggregated`   |  latest number of cases *aggregated* by country |
+**Time Series data**
+| `ts-confirmed` |  time data of confirmed cases |
+| `ts-deaths`    |  time series data of fatal cases |
+| `ts-recovered` |  time series data of recovered cases |
+| `ts-ALL`       |  all time series data combined |
+**Depricated data formats**
+| `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
+| `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
+| `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
+**Combined**
+| `ALL`          | all of the above |
+
 
 
 ### Analytical & Graphical Indicators
