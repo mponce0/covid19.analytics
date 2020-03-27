@@ -418,7 +418,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 	col1 <- 5
 
 	#cases <- c("confirmed","recovered","deaths")
-	cases <- c("ts-confirmed","ts-deaths")
+	cases <- c("ts-confirmed","ts-recovered","ts-deaths")
 	for (i in cases) {
 		# read data
 		data <- covid19.data(i)
@@ -427,6 +427,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		if (Nentries==0) Nentries <- nrow(data)
 
 		colN <- ncol(data)
+		nRecords <- nrow(data)
 		header("#")
 		report.title <- paste(toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()))
 		cat("##### ",report.title,'\n')
@@ -445,14 +446,21 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		data$Totals <- data[,colN]
 		# store total nbr of cases
 		if (grepl("confirmed",i)) {
+			geo.list <- data[,c(country.col,province.col)]
                         total.cases <- data[,ncol(data)]
 			colsF <- colN+1
 		} else {
-			# get percentage cases
-			data$Perc  <- round((data[,colN]/total.cases)*100,2)
-			colsF <- (colN+1):(colN+2)
+			# check that the countries/regions match in order to compute percentages...
+			# Could improve partial matches...
+			if ( sum(as.character(data[,country.col])==as.character(geo.list[1:nRecords,1]))==nRecords
+				&&  sum(as.character(data[,province.col])==as.character(geo.list[1:nRecords,2]))==nRecords ) {
+				# get percentage cases
+				data$Perc  <- round((data[,colN]/total.cases[1:nRecords])*100,2)
+				colsF <- (colN+1):(colN+2)
+			} else {
+				colsF <- colN+1
+			}
 		}
-
 		# top countries/regions
 		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(country.col,province.col,colsF)]
 		names(data.ordered)[1:3] <- c("Country.Region","Province.State","Totals")
