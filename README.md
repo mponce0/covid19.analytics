@@ -188,8 +188,8 @@ In particular, the `tots.per.location` function will determine when is possible 
 
 
 ```
-# read all the cases
-all.data <- covid19.data()
+# read the time series data for all the cases
+all.data <- covid19.data('ts-ALL')
 
 # run on all the cases
 tots.per.location(all.data,"Japan")
@@ -206,27 +206,27 @@ on the whole data set, for which a quite large but complete mosiac figure will
 be generated, e.g.
 ```
 # total for death cases for "ALL" the regions
-tots.per.location(covid19.deaths.cases)
+tots.per.location(covid19.TS.deaths)
 
 # or just
-tots.per.location(covid19.data("confirmed"))
+tots.per.location(covid19.data("ts-confirmed"))
 ```
 
 
 
 #### Growth Rate
 ```
-# read data for confirmed cases
-data <- covid19.data("confirmed")
+# read time series data for confirmed cases
+TS.data <- covid19.data("ts-confirmed")
 
 # compute changes and growth rates per location for all the countries
-growth.rate(data)
+growth.rate(TS.data)
 
 # compute changes and growth rates per location for 'Italy'
-growth.rate(data,geo.loc="Italy")
+growth.rate(TS.data,geo.loc="Italy")
 
 # compute changes and growth rates per location for 'Italy' and 'Germany'
-growth.rate(data,geo.loc=c("Italy","Germany"))
+growth.rate(TS.data,geo.loc=c("Italy","Germany"))
 ```
 
 <p>
