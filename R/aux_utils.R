@@ -137,7 +137,7 @@ chk.TS.data <- function(data, xtp=FALSE) {
 #' @param  data  data set to consider
 #' @param  xtp  indicator whether to stop the program if data is not time series
 #'
-#' @ return  a boolean indicator whether the data contains time series values or not
+#' @return  a boolean indicator whether the data contains time series values or not
 #'
 #' @keywords internal
 
