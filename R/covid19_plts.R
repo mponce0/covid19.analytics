@@ -15,6 +15,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #'
 #' @export
 #'
+#' @importFrom  stats  na.omit
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
 #' @importFrom  htmlwidgets  saveWidget 
 
@@ -120,7 +121,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 		loadLibrary("plotly")
 
 		# define interactive figure/plot
-		totals.ifig <- plot_ly(total.cases, x = ~colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
+		totals.ifig <- plot_ly(total.cases, x = ~x.dates)	#colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
 		if (all.cases) {
 #			for (categ in categories) {
 #				fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
@@ -130,7 +131,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 			totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
 			totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines')
 			# extra traces for activating log-scale
-			totals.ifig <- add.traces(totals.ifig,confirmed,recovered,deathsactive.cases,vis=FALSE)
+			totals.ifig <- add.traces(totals.ifig, confirmed,recovered,deaths,active.cases, vis=FALSE)
 			# log-scale menu based on nbr of traces...
 			updatemenues <- log.sc.setup(4)
 		} else {
