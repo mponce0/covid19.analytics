@@ -169,21 +169,21 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
 			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
-			'aggregated'   = system.file("extdata","03-27-2020.csv", package=covid19.pckg),
+			'aggregated'   = system.file("extdata","03-27-2020.csv", package=covid19.pckg, mustWork = TRUE),
                         # time series cases
                         # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
                         # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
-			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg),
-			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv", package=covid19.pckg),
-			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv", package=covid19.pckg),
+			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv", package=covid19.pckg, mustWork = TRUE),
 
                         # depricated time series
                         # 'ts-dep-confirmed' = paste0(LOCAL.repo,"time_series_19-covid-Confirmed.csv"),
                         # 'ts-dep-deaths'    = paste0(LOCAL.repo,"time_series_19-covid-Deaths.csv"),
                         # 'ts-dep-recovered' = paste0(LOCAL.repo,"time_series_19-covid-Recovered.csv")
-			'ts-dep-confirmed' = system.file("extdata","time_series_19-covid-Confirmed.csv", package=covid19.pckg),
-			'ts-dep-deaths'    = system.file("extdata","time_series_19-covid-Deaths.csv", package=covid19.pckg),
-			'ts-dep-recovered' = system.file("extdata","time_series_19-covid-Recovered.csv", package=covid19.pckg)
+			'ts-dep-confirmed' = system.file("extdata","time_series_19-covid-Confirmed.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-deaths'    = system.file("extdata","time_series_19-covid-Deaths.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-recovered' = system.file("extdata","time_series_19-covid-Recovered.csv", package=covid19.pckg, mustWork = TRUE)
                 )
 
 		cases.URL <- cases
