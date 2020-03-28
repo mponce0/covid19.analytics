@@ -120,7 +120,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 		#names(covid19.recov)[length(covid19.recov)] <- "status"
 		#
 		#covid19.dep <- rbind(covid19.conf,covid19.death,covid19.recov)
-		covid19.dep <-get.comb.TS("dep-",local.data)
+		covid19.dep <-get.comb.TS("dep-",local.data=TRUE)
 
 		return(list('aggregated'=covid19.agg, 'time.series'=covid19.ts, 'ts.dep'=covid19.dep))
 	} else if(toupper(case) == "TS-ALL") {
