@@ -139,7 +139,7 @@ Read covid19's genomic data
 ### Some basic analysis
 #### Summary Report
 ```
-# a quick function to overview top cases per region
+# a quick function to overview top cases per region for time series and aggregated records
 report.summary()
 ```
 
@@ -152,7 +152,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 
 # total nbr of deaths for "Mainland China"
-tots.per.location(covid19.deaths.cases,geo.loc="China")
+tots.per.location(covid19.TS.deaths,geo.loc="China")
 
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
