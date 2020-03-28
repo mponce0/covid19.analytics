@@ -22,11 +22,11 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 #'
 #' @examples
 #' # reads all possible datastest, returnin a list
-#' covid19.all.cases <- covid19.data("ALL")
+#' covid19.all.datasets <- covid19.data("ALL")
 #' # reads the latest aggregated data
-#' covid19.confirmed.cases <- covid19.data("aggregated")
+#' covid19.ALL-agg.cases <- covid19.data("aggregated")
 #' # reads time series data for casualities
-#' covid19.deaths <- covid19.data("ts-deaths")
+#' covid19.TS.deaths <- covid19.data("ts-deaths")
 #'
 
 	###############################
