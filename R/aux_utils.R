@@ -20,6 +20,7 @@ header <- function(x="-",title="",total.len=80,eol='\n') {
 	len.title <- nchar(title)
 	if (len.title !=0) {
 		reps <- (total.len-len.title)/2
+		if (reps < 0) reps <- 1
 		header(x,total.len=reps,eol=' ')
 		cat(title)
 		header(x,total.len=reps,eol='\n')
