@@ -123,6 +123,15 @@ library(covid19)
  covid19.recovered.cases <- covid19.data("recovered")
 ```
 
+```
+# obtain covid19's genomic data
+ covid19.gen.seq <- covid19.geomic.data()
+
+# display the actual RNA seq
+ covid19.gen.seq$NC_045512.2
+```
+
+
 ### Some basic analysis
 #### Summary Report
 ```
