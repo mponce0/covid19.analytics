@@ -110,19 +110,23 @@ library(covid19)
 
 ### Reading data
 ```
-# obtain all the records combined for "confirmed", "deaths" and "recovered" cases
+# obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *agreggated* data
  covid19.data.ALLcases <- covid19.data()
 
-# obtain records combined for "confirmed" cases
- covid19.confirmed.cases <- covid19.data("confirmed")
+# obtain time series data for "confirmed" cases
+ covid19.confirmed.cases <- covid19.data("ts-confirmed")
 
-# obtain records combined for "deaths" cases
- covid19.deaths.cases <- covid19.data("deaths")
+# reads all possible datastest, returnin a list
+ covid19.all.datasets <- covid19.data("ALL")
 
-# obtain records combined for "recovered" cases
- covid19.recovered.cases <- covid19.data("recovered")
+# reads the latest aggregated data
+ covid19.ALL.agg.cases <- covid19.data("aggregated")
+
+# reads time series data for casualities
+ covid19.TS.deaths <- covid19.data("ts-deaths")
 ```
 
+Read covid19's genomic data 
 ```
 # obtain covid19's genomic data
  covid19.gen.seq <- covid19.geomic.data()
