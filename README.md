@@ -242,15 +242,28 @@ The previous figures show on the upper panel the number of changes on a daily ba
 
 #### Graphical Output
 ```
+# retrieve time series data
+TS.data <- covid19.data("ts-ALL")
+
 # static and interactive plot 
-totals.plt(data)
+totals.plt(TS.data)
 ```
 <object data="man/figures/totals.html" width="80%" height="525">
 </object>
 
 ```
-# interactive map of cases
+# retrieve aggregated data
+data <- covid19.data("aggregated")
+
+# interactive map of aggregated cases -- with more spatial resolution
 live.map(data)
+
+# or
+live.map()
+
+# interactive map of the time series data of the confirmed cases with less spatial resolution, ie. aggregated by country
+live.map(covid19.data("ts-confirmed"))
+
 ```
 <p>
 Interactive examples can be seen at
