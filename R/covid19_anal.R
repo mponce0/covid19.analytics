@@ -383,10 +383,96 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 
 #############################################################################
 #############################################################################
+process.agg.cases <- function(data, Nentries, graphical.output) {
 
-report.summary <- function(Nentries=10, graphical.output=TRUE) {
+	comb.cols <- function(x,y) {
+
+		return(c(x[1:2],y[1],x[3],y[2],x[4],y[3]))
+	}
+
+
+	if (graphical.output)
+		par(mfrow=c(4,2))
+
+	# define some cols and values...
+	colN <- ncol(data)
+	nRecords <- nrow(data)
+
+	col.names <- names(data)
+	country.col <- pmatch("Country", col.names)
+	province.col <- pmatch("Province", col.names)
+	date.col <- pmatch("Last_Update", col.names)
+
+	col.conf <- pmatch("Confirmed",col.names)
+	col.death <- pmatch("Deaths",col.names)
+	col.recov <- pmatch("Recovered",col.names)
+	col.activ <- pmatch("Active",col.names)
+	col.cases <- c(col.conf,col.death,col.recov,col.activ)
+
+	# if Nentries i set to 0, will consider *all* entries                
+	if (Nentries==0) Nentries <- nRecords
+
+	cases <- c("Confirmed","Deaths","Recovered","Active")
+	for (i in col.cases) {
+		header("#")
+		report.title <- paste("AGGREGATED Data  -- ORDERED BY ",toupper(col.names[i]),"Cases  -- Data dated: ",
+					as.character(max(as.Date(data[,date.col]))) ,
+					" :: ",as.character(Sys.time()) )
+		header('',paste0("##### ",report.title))
+		header("#")
+
+		header('',paste0("Total number of Countries/Regions affected: ",length(unique(data[,country.col]))))
+		header('',paste0("Total number of Cities/Provinces affected: ",length(unique(data[,province.col]))))
+		header("-")
+
+		# get percentage cases
+		cols.perc <- c()
+		for (j in col.cases[2:4]) {
+			data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/data[,col.conf])*100,2)
+			cols.perc <- c(cols.perc,ncol(data))
+		}
+
+		# top countries/regions
+		#data.ordered <- data[order(data[,i],decreasing=TRUE),][1:Nentries,c(country.col,province.col, col.cases, cols.perc)]
+		custom.list <- comb.cols(col.cases,cols.perc)
+		data.ordered <- data[order(data[,i],decreasing=TRUE),][1:Nentries,c(country.col,province.col, custom.list)]
+#                names(data.ordered) <- c("Country.Region","Province.State", cases)
+
+                print(data.ordered)
+
+		header("=")
+
+		target.col <- col.names[i]
+		ord.cty.col <- pmatch("Country",names(data.ordered))
+		ord.prv.col <- pmatch("Province",names(data.ordered))
+                # graphics
+                if (graphical.output) {
+                        legends <- paste(as.character(data.ordered[,ord.cty.col]),as.character(data.ordered[,ord.prv.col]),'\n',data.ordered[,target.col])
+                        color.scheme <- heat.colors(Nentries)   #topo.colors(Nentries)
+                                        #terrain.colors(Nentries)       #rainbow(Nentries)
+
+                        pie(data.ordered[,target.col],
+                                labels=legends,
+                                main=substr(report.title,1,floor(nchar(report.title)/2)),
+                                col=color.scheme )
+
+                        #par(new=TRUE)
+                        #par(mfrow=c(1,2))
+                        barplot(data.ordered[,target.col], names.arg=legends,
+                                col=color.scheme,
+                                main=substr(report.title,ceiling(nchar(report.title)/2),nchar(report.title)) )
+                }
+
+		# remove perc cols
+		data <- data[,-cols.perc]
+	}
+}
+
+
+report.summary <- function(cases="ALL", Nentries=10, graphical.output=TRUE) {
 #' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
+#' @param  cases  which data to process: "TS", "AGG" or "ALL"
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
 #'
@@ -414,11 +500,20 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 	}
 
 
+	# preserve user graphical environment
+	if (graphical.output) {
+		old.par <- par(no.readonly=TRUE)
+		on.exit(par(old.par))
+	}
+
+
+	##### PROCESS TIME SERIES DATA ######
+	if (toupper(cases)=="ALL" || toupper(cases)=="TS") {
 	# first column with cases data
 	col1 <- 5
 
 	#cases <- c("confirmed","recovered","deaths")
-	cases <- c("ts-confirmed","ts-recovered","ts-deaths")
+	cases <- c("ts-confirmed","ts-recovered","ts-deaths")	#, "aggregated")
 	for (i in cases) {
 		# read data
 		data <- covid19.data(i)
@@ -428,9 +523,11 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 
 		colN <- ncol(data)
 		nRecords <- nrow(data)
+#		if (grepl("aggregated",i))	col.Tgt <-
+
 		header("#")
 		report.title <- paste(toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()))
-		cat("##### ",report.title,'\n')
+		header('',paste0("##### ",report.title))
 		header("#")
 
 		country.col <- pmatch("Country", names(data))
@@ -444,6 +541,7 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 		# Totals per countries/cities
 		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
 		data$Totals <- data[,colN]
+
 		# store total nbr of cases
 		if (grepl("confirmed",i)) {
 			geo.list <- data[,c(country.col,province.col)]
@@ -475,9 +573,6 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 			color.scheme <- heat.colors(Nentries)	#topo.colors(Nentries)
 					#terrain.colors(Nentries)	#rainbow(Nentries)
 
-			old.par <- par(no.readonly=TRUE)
-			on.exit(par(old.par))
-
 			par(mfrow=c(1,2))
 			#par(mfrow=c(1,1))
 
@@ -492,6 +587,12 @@ report.summary <- function(Nentries=10, graphical.output=TRUE) {
 				col=color.scheme,
 				main=substr(report.title,ceiling(nchar(report.title)/2),nchar(report.title)) )
 		}
+	}
+	}
+
+	##### PROCESS "AGREGATED" DATA  #######
+	if (toupper(cases)=="ALL" || toupper(cases)=="AGG") {
+		process.agg.cases(covid19.data("aggregated"), Nentries, graphical.output)
 	}
 }
 
