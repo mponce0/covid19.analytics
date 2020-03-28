@@ -12,8 +12,8 @@ for researchers and the scientific community.
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
-The `covid19.data()` function can obtain data from the JHU's CCSE repository,
-in two main modalities:
+The `covid19.data()` function allows users to obtain realtime data about the covid19 reported cases
+from the JHU's CCSE repository, in two main modalities:
 * "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
 
@@ -43,6 +43,9 @@ If for what ever reason this fails (eg. problems with the connection) the packag
 **Combined**
 | `ALL`          | all of the above |
 
+
+### covid19-Sequencing data
+The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [2].
 
 
 ### Analytical & Graphical Indicators
@@ -280,3 +283,7 @@ simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
+
+[2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
