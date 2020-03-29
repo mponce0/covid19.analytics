@@ -1,7 +1,7 @@
-# COVID19
+# COVID19.Analytics
 
 ## Introduction
-The covid19 package allows users to obtain live\* worlwide data from the
+The "covid19.analytics" package allows users to obtain live\* worlwide data from the
 novel Coronavirus COVID-19 as published by the JHU CCSE repository [1],
 as well as, provide basic analysis tools and functions to investigate
 these datasets.
@@ -12,7 +12,7 @@ for researchers and the scientific community.
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
-The `covid19.data()` function allows users to obtain realtime data about the covid19 reported cases
+The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in two main modalities:
 * "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
@@ -64,7 +64,7 @@ We are working in the development of *modelling* capabiltiies.
 A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
-### Summary of the Functions from the "covid19" Package
+### Summary of the Functions from the "covid19.analytics" Package
 
 | Function  | description |
 | --------	 | ----------- |
@@ -87,7 +87,7 @@ For using the "covi19" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
 ```
-install.packages("covid19")
+install.packages("covid19.analytics")
 ```
 
 To obtain the development version you can get it from the github repository, i.e.
@@ -96,13 +96,13 @@ To obtain the development version you can get it from the github repository, i.e
 install.packages("devtools")
 
 # install bioC.logs
-devtools::install_github("mponce0/covid19")
+devtools::install_github("mponce0/covid19.analytics")
 ```
 
 For using the package, either the stable or developmemnt version, just load it using the library function:
 ```
-# load covid19
-library(covid19)
+# load "covid19.analytics"
+library(covid19.analytics)
 ```
 
 
@@ -159,8 +159,8 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
 <!--
-<object data="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
- <embed src="https://github.com/mponce0/covid19/blob/master/man/figures/Hubei_totals.pdf">
+<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf">
  <p> Images available <a href="man/figures/">here</a> </p>
  </embed>
 </object>
@@ -267,7 +267,7 @@ live.map(covid19.data("ts-confirmed"))
 ```
 <p>
 Interactive examples can be seen at
-    <a href="https://mponce0.github.io/covid19/">https://mponce0.github.io/covid19/</a>
+    <a href="https://mponce0.github.io/covid19.analytics/">https://mponce0.github.io/covid19.analytics/</a>
 </p>
 
 
