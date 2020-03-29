@@ -7,10 +7,22 @@ covid19.geomic.data <- function(graphics.ON=TRUE) {
 #' Reference:  https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 #' 
 #' @param  graphics.ON  flag to activate/deactivate graphical output
+#'
+#' @importFrom  ape  read.GenBank
+#
+#' @export
+#'
+#' @examples
+#' # obtain covid19's genomic data
+#' covid19.gen.seq <- covid19.geomic.data()
+#' # display the actual RNA seq
+#' covid19.gen.seq$NC_045512.2
+#'
 
+	# load 'ape' library
 	loadLibrary("ape")
 
-
+	# retrieve genetic data
 	message("Retrieving data from NCBI...")
 	covid19.seq <- read.GenBank("NC_045512.2",as.character=TRUE)
 

@@ -6,7 +6,7 @@
 #############################################################################
 
         
-header <- function(x="-",title="",total.len=80,eol='\n') {
+header0 <- function(x="-",title="",total.len=80,eol='\n') {
 #' auxiliary fn to print "headers" adn 'titles'
 #'
 #' @param  x  character to use as lines

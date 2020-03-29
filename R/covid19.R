@@ -164,7 +164,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 
 		#LOCAL.repo <- "data/"
 		#system.file("extdata", "03-27-2020.csv", package = "covid19")
-		covid19.pckg='covid19'
+		covid19.pckg='covid19.analytics'
 		cases <- switch(tolower(case),
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
