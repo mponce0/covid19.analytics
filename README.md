@@ -174,6 +174,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 </p>
 
 
+
 The figures show the total number of cases for different cities (provinces/regions) and countries:
 one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
 Details about the models are included in the plot, in particular the *growth rate* which in several cases appears to be around 1.2+ as predicted by some models.
