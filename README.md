@@ -86,12 +86,12 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 For using the "covi19" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
-```
+```R
 install.packages("covid19.analytics")
 ```
 
 To obtain the development version you can get it from the github repository, i.e.
-```
+```R
 # need devtools for installing from the github repo
 install.packages("devtools")
 
@@ -100,7 +100,7 @@ devtools::install_github("mponce0/covid19.analytics")
 ```
 
 For using the package, either the stable or developmemnt version, just load it using the library function:
-```
+```R
 # load "covid19.analytics"
 library(covid19.analytics)
 ```
@@ -109,7 +109,7 @@ library(covid19.analytics)
 ## Examples
 
 ### Reading data
-```
+```R
 # obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *agreggated* data
  covid19.data.ALLcases <- covid19.data()
 
@@ -127,7 +127,7 @@ library(covid19.analytics)
 ```
 
 Read covid19's genomic data 
-```
+```R
 # obtain covid19's genomic data
  covid19.gen.seq <- covid19.geomic.data()
 
@@ -138,7 +138,7 @@ Read covid19's genomic data
 
 ### Some basic analysis
 #### Summary Report
-```
+```R
 # a quick function to overview top cases per region for time series and aggregated records
 report.summary()
 ```
@@ -150,7 +150,7 @@ report.summary()
 
 
 #### Totals per Country/Region/Province
-```
+```R
 # totals for confirmed cases for "Ontario"
 tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 
@@ -194,7 +194,7 @@ We also provide two additonal models, as shown in the figures above, using the G
 In particular, the `tots.per.location` function will determine when is possible to automatically generate each model and display the information in the plot as well as details of the models in the console.
 
 
-```
+```R
 # read the time series data for all the cases
 all.data <- covid19.data('ts-ALL')
 
@@ -211,7 +211,7 @@ tots.per.location(all.data,"Japan")
 It is also possible to run the `tots.per.location` (and `growth.rate`) functions,
 on the whole data set, for which a quite large but complete mosiac figure will
 be generated, e.g.
-```
+```R
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.TS.deaths)
 
@@ -222,7 +222,7 @@ tots.per.location(covid19.data("ts-confirmed"))
 
 
 #### Growth Rate
-```
+```R
 # read time series data for confirmed cases
 TS.data <- covid19.data("ts-confirmed")
 
@@ -269,7 +269,7 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
 
 
 #### Visualization Tools
-```
+```R
 # retrieve time series data
 TS.data <- covid19.data("ts-ALL")
 
@@ -279,7 +279,7 @@ totals.plt(TS.data)
 <object data="man/figures/totals.html" width="80%" height="525">
 </object>
 
-```
+```R
 # retrieve aggregated data
 data <- covid19.data("aggregated")
 
@@ -300,7 +300,7 @@ Interactive examples can be seen at
 
 
 #### Simulating the Virus spread
-```
+```R
 # read time series data for confirmed cases
 data <- covid19.data("ts-confirmed")
 
