@@ -68,7 +68,7 @@ gen.glm.model <- function (y, family=Gamma(link="log")) {
 
 #######################################################################
 #######################################################################
-##### UNDER DEVELOPMENT #####
+##### UNDER ACTIVE DEVELOPMENT #####
 #######################################################################
 #######################################################################
 
@@ -205,11 +205,11 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	#print(Infected)
 
 	# total population of the region
-	#N <<- tot.population
+	# N <<- tot.population
 	# needs to be a global variable for the ODE solver
 	# will enforce a new environment
-	#.SIR.model.env <- new.env()
-	assign("N",tot.population, envir = .GlobalEnv)
+	.SIR.model.env <- new.env()
+	assign("N",tot.population, envir = .SIR.model.env)	#.GlobalEnv)
 
 	#### TEST CASES ####
 	###### MAINLAND CHINA #####
@@ -239,11 +239,13 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	title(paste("Confirmed Cases 2019-nCoV:",toupper(geo.loc)), outer = TRUE, line = -2)
 
 	loadLibrary("deSolve")
-	init.cond <- c(S = N-Infected[1], I = Infected[1], R = 0)
+	init.cond <- c(S = .SIR.model.env$N-Infected[1], I = Infected[1], R = 0)
 
 	# define RSS fn to measure deviation of the model from data....
 	RSS <- function(parameters) {
-		names(parameters) <- c("beta", "gamma")
+		# include N as a parameter for the ODE
+		parameters <- c(parameters,.SIR.model.env$N)
+		names(parameters) <- c("beta", "gamma","N")
 		out <- ode(y = init.cond, times = Day, func = simple.SIR.ODE, parms = parameters)
 		fit <- out[ , 3]
 		sum((Infected - fit)^2)
@@ -259,6 +261,10 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	print(Opt_par)
 	##      beta     gamma 
 	## 0.6746089 0.3253912
+
+	# add N as a parameter for the ODE...
+	Opt_par <- c(Opt_par,.SIR.model.env$N)
+	names(Opt_par)[3] <- "N"
 
 	# definte integration interval... 
 	time <- 1:tfinal # time in days
