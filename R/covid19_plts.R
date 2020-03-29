@@ -18,6 +18,14 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #' @importFrom  stats  na.omit
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
 #' @importFrom  htmlwidgets  saveWidget 
+#'
+#' @examples
+#' # retrieve time series data
+#' TS.data <- covid19.data("ts-ALL")
+#'
+#' # static and interactive plot 
+#' totals.plt(TS.data)
+#'
 
 	############
 	add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
@@ -147,7 +155,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 
 	
 		# activate interactive figure
-		print(totals.ifig)
+		#print(class(totals.ifig))
 
         
 		if (!is.null(fileName)) {
@@ -158,6 +166,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 		}
 	}
 
+	if (interactive.fig) return(totals.ifig)
 	#return(totals.per.cat)
 }
 
@@ -182,6 +191,17 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 #' @importFrom  plotly  plot_ly plot_geo %>% add_markers add_trace layout toRGB as_widget
 #' @importFrom  htmlwidgets  saveWidget
 #' @importFrom  utils  head str
+#'
+#' @examples
+#' # retrieve aggregated data
+#' data <- covid19.data("aggregated")
+#' # interactive map of aggregated cases -- with more spatial resolution
+#' live.map(data)
+# # or
+# 'live.map()
+#' # interactive map of the time series data of the confirmed cases
+#' # with less spatial resolution, ie. aggregated by country
+#' live.map(covid19.data("ts-confirmed"))
 #'
 
 	# load/check plotly
@@ -452,7 +472,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 
 
 	# force displaying the figure
-	print(fig)
+	#print(fig)
 
 	if (!is.null(fileName)) {
 		FileName <- paste0(fileName,".html")
@@ -461,7 +481,11 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 		htmlwidgets::saveWidget(as_widget(fig), FileName)
 	}
 
-	return(df)
+	if (TRUE) {
+		return(fig)
+	} else {
+		return(df)
+	}
 }
 
 
