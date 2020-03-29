@@ -246,8 +246,29 @@ growth.rate(TS.data,geo.loc=c("Italy","Germany"))
 The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
 
 
+Combining mutliple geographical locations:
+```R
+# obtain Time Series data
+TSconfirmed <- covid19.data("ts-confirmed")
 
-#### Graphical Output
+# explore different combinations of regions/cities/countries
+# when combining different locations heatmaps will also be generated comparing the trends among these locations
+growth.rate(TSconfirmed,geo.loc=c("Italy","Canada","Ontario","Quebec","Uruguay"))
+
+growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","United States","Canada","Ontario","Quebec","Uruguay"))
+
+growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario","Quebec","Uruguay")
+```
+
+<p>
+  <img src="man/figures/changes-per-day-1.pdf" width="22.5%" />
+  <img src="man/figures/changes-per-day-2.pdf" width="22.5%" />
+  <img src="man/figures/heatmap-changes.pdf" width="22.5%" />
+  <img src="man/figures/heatmap-growthRate.pdf" width="22.5%" />
+</p>
+
+
+#### Visualization Tools
 ```
 # retrieve time series data
 TS.data <- covid19.data("ts-ALL")
