@@ -12,8 +12,8 @@ for researchers and the scientific community.
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
-The `covid19.data()` function can obtain data from the JHU's CCSE repository,
-in two main modalities:
+The `covid19.data()` function allows users to obtain realtime data about the covid19 reported cases
+from the JHU's CCSE repository, in two main modalities:
 * "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
 
@@ -43,6 +43,9 @@ If for what ever reason this fails (eg. problems with the connection) the packag
 **Combined**
 | `ALL`          | all of the above |
 
+
+### covid19-Sequencing data
+The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [2].
 
 
 ### Analytical & Graphical Indicators
@@ -107,23 +110,36 @@ library(covid19)
 
 ### Reading data
 ```
-# obtain all the records combined for "confirmed", "deaths" and "recovered" cases
+# obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *agreggated* data
  covid19.data.ALLcases <- covid19.data()
 
-# obtain records combined for "confirmed" cases
- covid19.confirmed.cases <- covid19.data("confirmed")
+# obtain time series data for "confirmed" cases
+ covid19.confirmed.cases <- covid19.data("ts-confirmed")
 
-# obtain records combined for "deaths" cases
- covid19.deaths.cases <- covid19.data("deaths")
+# reads all possible datastest, returnin a list
+ covid19.all.datasets <- covid19.data("ALL")
 
-# obtain records combined for "recovered" cases
- covid19.recovered.cases <- covid19.data("recovered")
+# reads the latest aggregated data
+ covid19.ALL.agg.cases <- covid19.data("aggregated")
+
+# reads time series data for casualities
+ covid19.TS.deaths <- covid19.data("ts-deaths")
 ```
+
+Read covid19's genomic data 
+```
+# obtain covid19's genomic data
+ covid19.gen.seq <- covid19.geomic.data()
+
+# display the actual RNA seq
+ covid19.gen.seq$NC_045512.2
+```
+
 
 ### Some basic analysis
 #### Summary Report
 ```
-# a quick function to overview top cases per region
+# a quick function to overview top cases per region for time series and aggregated records
 report.summary()
 ```
 
@@ -136,7 +152,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 tots.per.location(covid19.confirmed.cases,geo.loc="Canada")
 
 # total nbr of deaths for "Mainland China"
-tots.per.location(covid19.deaths.cases,geo.loc="China")
+tots.per.location(covid19.TS.deaths,geo.loc="China")
 
 # total nbr of confirmed cases in Hubei including a confidence band based on moving average
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
@@ -172,8 +188,8 @@ In particular, the `tots.per.location` function will determine when is possible 
 
 
 ```
-# read all the cases
-all.data <- covid19.data()
+# read the time series data for all the cases
+all.data <- covid19.data('ts-ALL')
 
 # run on all the cases
 tots.per.location(all.data,"Japan")
@@ -190,27 +206,27 @@ on the whole data set, for which a quite large but complete mosiac figure will
 be generated, e.g.
 ```
 # total for death cases for "ALL" the regions
-tots.per.location(covid19.deaths.cases)
+tots.per.location(covid19.TS.deaths)
 
 # or just
-tots.per.location(covid19.data("confirmed"))
+tots.per.location(covid19.data("ts-confirmed"))
 ```
 
 
 
 #### Growth Rate
 ```
-# read data for confirmed cases
-data <- covid19.data("confirmed")
+# read time series data for confirmed cases
+TS.data <- covid19.data("ts-confirmed")
 
 # compute changes and growth rates per location for all the countries
-growth.rate(data)
+growth.rate(TS.data)
 
 # compute changes and growth rates per location for 'Italy'
-growth.rate(data,geo.loc="Italy")
+growth.rate(TS.data,geo.loc="Italy")
 
 # compute changes and growth rates per location for 'Italy' and 'Germany'
-growth.rate(data,geo.loc=c("Italy","Germany"))
+growth.rate(TS.data,geo.loc=c("Italy","Germany"))
 ```
 
 <p>
@@ -226,15 +242,28 @@ The previous figures show on the upper panel the number of changes on a daily ba
 
 #### Graphical Output
 ```
+# retrieve time series data
+TS.data <- covid19.data("ts-ALL")
+
 # static and interactive plot 
-totals.plt(data)
+totals.plt(TS.data)
 ```
 <object data="man/figures/totals.html" width="80%" height="525">
 </object>
 
 ```
-# interactive map of cases
+# retrieve aggregated data
+data <- covid19.data("aggregated")
+
+# interactive map of aggregated cases -- with more spatial resolution
 live.map(data)
+
+# or
+live.map()
+
+# interactive map of the time series data of the confirmed cases with less spatial resolution, ie. aggregated by country
+live.map(covid19.data("ts-confirmed"))
+
 ```
 <p>
 Interactive examples can be seen at
@@ -244,8 +273,8 @@ Interactive examples can be seen at
 
 #### Simulating the Virus spread
 ```
-# read data
-data <- covid19.data("confirmed")
+# read time series data for confirmed cases
+data <- covid19.data("ts-confirmed")
 
 # run a SIR model for a given geographical location
 simple.SIR.model(data,"Hubei", t0=1,t1=15)
@@ -256,7 +285,7 @@ simple.SIR.model(data,"Ontario",tot.population=14570000)
 # the function will agregate data for a geographical location, like a country with multiple entries
 simple.SIR.model(data,"Canada",tot.population=37590000)
 
-# projecting the spread for the whole world
+# modelling the spread for the whole world
 simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
@@ -280,3 +309,7 @@ simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
+
+[2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2

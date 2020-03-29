@@ -15,8 +15,41 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #'
 #' @export
 #'
+#' @importFrom  stats  na.omit
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
 #' @importFrom  htmlwidgets  saveWidget 
+
+	############
+	add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
+                        totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers', visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers', visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers', visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines', visible=vis)
+
+			return(totals.ifig)
+	}
+
+	############
+
+	log.sc.setup <- function(nbr.traces) {
+
+                updatemenus = list(list(
+                                active = 0,
+                                buttons= list(
+                                                list(label = 'linear',
+
+                                                        method = 'update',
+                                                        args = list(list(visible = c(rep(T,nbr.traces),rep(F,nbr.traces))), list(yaxis = list(type = 'linear')))
+                                                        ),
+                                                list(label = 'log',
+                                                        method = 'update',
+                                                        args = list(list(visible = c(rep(F,nbr.traces),rep(T,nbr.traces))), list(yaxis = list(type = 'log'))))
+                                        )       )       )
+
+		return(updatemenus)
+	}
+
+	############
 
 
 	if (is.null(data0)) {
@@ -88,7 +121,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 		loadLibrary("plotly")
 
 		# define interactive figure/plot
-		totals.ifig <- plot_ly(total.cases, x = ~colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
+		totals.ifig <- plot_ly(total.cases, x = ~x.dates)	#colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
 		if (all.cases) {
 #			for (categ in categories) {
 #				fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
@@ -97,30 +130,20 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 			totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers')
 			totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
 			totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines')
+			# extra traces for activating log-scale
+			totals.ifig <- add.traces(totals.ifig, confirmed,recovered,deaths,active.cases, vis=FALSE)
+			# log-scale menu based on nbr of traces...
+			updatemenues <- log.sc.setup(4)
 		} else {
 			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
+			# extra traces for activating log-scale
+			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers', visible=F)
+			# log-scale menu based on nbr of traces...
+			updatemenues <- log.sc.setup(1)
 		}
 
-
-		# trying to add a menu for switching log/linear scale
-		updatemenus = list(
- 				list(y = 0.8,
-				buttons = list(
-					list(method = "update",
-						args = list(
-								list("yaxis", list("type",'log') )
-							),
-						label = "log scale"),
-					list(method = "update",
-						args = list(
-								list("yaxis", list("type",'linear') )
-							),
-						label = "linear scale")
-					)
-				)
-			)
-
-		#totals.ifig <- totals.ifig %>% layout(updatemenus=updatemenus)
+		# add a menu for switching log/linear scale
+		totals.ifig <- totals.ifig %>% layout(updatemenus=updatemenues)
 
 	
 		# activate interactive figure

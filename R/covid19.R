@@ -22,11 +22,11 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 #'
 #' @examples
 #' # reads all possible datastest, returnin a list
-#' covid19.all.cases <- covid19.data("ALL")
+#' covid19.all.datasets <- covid19.data("ALL")
 #' # reads the latest aggregated data
-#' covid19.confirmed.cases <- covid19.data("aggregated")
+#' covid19.ALL.agg.cases <- covid19.data("aggregated")
 #' # reads time series data for casualities
-#' covid19.deaths <- covid19.data("ts-deaths")
+#' covid19.TS.deaths <- covid19.data("ts-deaths")
 #'
 
 	###############################
@@ -72,7 +72,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 
 		min.cols <- min(ncol.conf-1,ncol.death-1,ncol.recov-1)
 
-		print(min.cols)
+		#print(min.cols)
 		# combine cases
                 covid19.ts <- rbind( covid19.conf[,c(1:min.cols, ncol.conf)],
 					covid19.death[,c(1:min.cols, ncol.death)],
@@ -120,7 +120,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 		#names(covid19.recov)[length(covid19.recov)] <- "status"
 		#
 		#covid19.dep <- rbind(covid19.conf,covid19.death,covid19.recov)
-		covid19.dep <-get.comb.TS("dep-",local.data)
+		covid19.dep <-get.comb.TS("dep-",local.data=TRUE)
 
 		return(list('aggregated'=covid19.agg, 'time.series'=covid19.ts, 'ts.dep'=covid19.dep))
 	} else if(toupper(case) == "TS-ALL") {
@@ -162,18 +162,28 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 		message("Data being read from *local* repo in the 'covid19' package")
 		header('~')
 
-		LOCAL.repo <- "data/"
+		#LOCAL.repo <- "data/"
+		#system.file("extdata", "03-27-2020.csv", package = "covid19")
+		covid19.pckg='covid19'
 		cases <- switch(tolower(case),
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
-			'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
+			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
+			'aggregated'   = system.file("extdata","03-27-2020.csv", package=covid19.pckg, mustWork = TRUE),
                         # time series cases
-                        'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
-                        'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
+                        # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
+                        # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
+			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv", package=covid19.pckg, mustWork = TRUE),
+
                         # depricated time series
-                        'ts-dep-confirmed' = paste0(LOCAL.repo,"time_series_19-covid-Confirmed.csv"),
-                        'ts-dep-deaths'    = paste0(LOCAL.repo,"time_series_19-covid-Deaths.csv"),
-                        'ts-dep-recovered' = paste0(LOCAL.repo,"time_series_19-covid-Recovered.csv")
+                        # 'ts-dep-confirmed' = paste0(LOCAL.repo,"time_series_19-covid-Confirmed.csv"),
+                        # 'ts-dep-deaths'    = paste0(LOCAL.repo,"time_series_19-covid-Deaths.csv"),
+                        # 'ts-dep-recovered' = paste0(LOCAL.repo,"time_series_19-covid-Recovered.csv")
+			'ts-dep-confirmed' = system.file("extdata","time_series_19-covid-Confirmed.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-deaths'    = system.file("extdata","time_series_19-covid-Deaths.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-recovered' = system.file("extdata","time_series_19-covid-Recovered.csv", package=covid19.pckg, mustWork = TRUE)
                 )
 
 		cases.URL <- cases

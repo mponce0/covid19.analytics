@@ -20,6 +20,7 @@ header <- function(x="-",title="",total.len=80,eol='\n') {
 	len.title <- nchar(title)
 	if (len.title !=0) {
 		reps <- (total.len-len.title)/2
+		if (reps < 0) reps <- 1
 		header(x,total.len=reps,eol=' ')
 		cat(title)
 		header(x,total.len=reps,eol='\n')
@@ -136,7 +137,7 @@ chk.TS.data <- function(data, xtp=FALSE) {
 #' @param  data  data set to consider
 #' @param  xtp  indicator whether to stop the program if data is not time series
 #'
-#' @ return  a boolean indicator whether the data contains time series values or not
+#' @return  a boolean indicator whether the data contains time series values or not
 #'
 #' @keywords internal
 
