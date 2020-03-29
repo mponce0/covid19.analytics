@@ -143,6 +143,12 @@ Read covid19's genomic data
 report.summary()
 ```
 
+<p>
+  <img src="man/figures/report-summ-agg.pdf" width="45%" />
+  <img src="man/figures/report-summ-TSconfirmed.pdf" width="45%" />
+</p>
+
+
 #### Totals per Country/Region/Province
 ```
 # totals for confirmed cases for "Ontario"
@@ -290,11 +296,10 @@ simple.SIR.model(data,"Canada",tot.population=37590000)
 simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
-
 <p>
-  <img src="man/figures/SIR-model-Ontario.pdf" width="33%" />
-  <img src="man/figures/SIR-model-Canada.pdf" width="33%" />
-  <img src="man/figures/SIR-model-Germany.pdf" width="33%" />
+  <img src="man/figures/SIR-model-Ontario.pdf" width="32.5%" />
+  <img src="man/figures/SIR-model-Canada.pdf" width="32.5%" />
+  <img src="man/figures/SIR-model-Germany.pdf" width="32.5%" />
 </p>
 
 
