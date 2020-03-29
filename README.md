@@ -291,6 +291,12 @@ simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
 
+<p>
+  <img src="man/figures/SIR-model-Ontario.pdf" width="33%" />
+  <img src="man/figures/SIR-model-Canada.pdf" width="33%" />
+  <img src="man/figures/SIR-model-Germany.pdf" width="33%" />
+</p>
+
 
 ## Further Resources
 <p aling="center">
