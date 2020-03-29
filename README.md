@@ -28,20 +28,20 @@ If for what ever reason this fails (eg. problems with the connection) the packag
 
 #### Data retrieval options
 
-|    argument    |   description  |
-|----------------|----------------|
-| `aggregated`   |  latest number of cases *aggregated* by country |
-**Time Series data**
-| `ts-confirmed` |  time data of confirmed cases |
-| `ts-deaths`    |  time series data of fatal cases |
-| `ts-recovered` |  time series data of recovered cases |
-| `ts-ALL`       |  all time series data combined |
-**Depricated data formats**
-| `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
-| `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
-| `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
-**Combined**
-| `ALL`          | all of the above |
+ |    argument    |   description  |
+ |----------------|----------------|
+ | `aggregated`   |  latest number of cases *aggregated* by country |
+ **Time Series data**
+ | `ts-confirmed` |  time data of confirmed cases |
+ | `ts-deaths`    |  time series data of fatal cases |
+ | `ts-recovered` |  time series data of recovered cases |
+ | `ts-ALL`       |  all time series data combined |
+ **Depricated data formats**
+ | `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
+ | `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
+ | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
+ **Combined**
+ | `ALL`          | all of the above |
 
 
 ### covid19-Sequencing data
@@ -66,19 +66,19 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 
 ### Summary of the Functions from the "covid19.analytics" Package
 
-| Function  | description |
-| --------	 | ----------- |
-**Data Adquisition**
-| `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
-**Analysis**
-| `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
-| `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
-| `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
-**Graphics**
-| `totals.plt`   |  plots in a static and interactive plot total number of cases per day
-| `live.map`     |  interactive map displaying cases around the world
-**Modelling**
-| `simple.SIR.model`  |  generates a SIR model
+ | Function  | description |
+ | --------	 | ----------- |
+ **Data Adquisition**
+ | `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
+ **Analysis**
+ | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
+ | `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+ | `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+ **Graphics**
+ | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+ | `live.map`     |  interactive map displaying cases around the world
+ **Modelling**
+ | `simple.SIR.model`  |  generates a SIR model
 
 
 
