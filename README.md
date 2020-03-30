@@ -37,7 +37,7 @@ dynamical situation with respect to data availablitly and integrity.
  |----------------|----------------|
  | `aggregated`   |  latest number of cases *aggregated* by country |
  **Time Series data**
- | `ts-confirmed` |  time data of confirmed cases |
+ | `ts-confirmed` |  time series data of confirmed cases |
  | `ts-deaths`    |  time series data of fatal cases |
  | `ts-recovered` |  time series data of recovered cases |
  | `ts-ALL`       |  all time series data combined |
@@ -47,6 +47,56 @@ dynamical situation with respect to data availablitly and integrity.
  | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
  **Combined**
  | `ALL`          | all of the above |
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>argument</th>
+    <th>description</th> 
+  </tr>
+  <tr>
+    <td>`aggregated`</td>
+    <td>latest number of cases *aggregated* by country</td> 
+  </tr>
+  <tr>
+    <td> **Time Series data** </td>
+  </tr>
+  <tr>
+    <td>`ts-confirmed`</td>
+    <td>time series data of confirmed cases</td> 
+  </tr>
+  <tr>
+    <td>`ts-deaths`</td>
+    <td>time series data of fatal cases</td> 
+  </tr>
+  <tr>
+    <td>`ts-recovered`</td>
+    <td>time series data of recovered cases</td> 
+  </tr>
+  <tr>
+    <td>`ts-ALL`</td>
+    <td>all time series data combined</td> 
+  </tr>
+  <tr>
+    <td> **Depricated data formats** </td>
+  </tr>
+  <tr>
+   <td> `ts-dep-confirmed` </td><td> time series data of confirmed cases as originally reported (depricated) </td>
+  </tr>
+  <tr>
+   <td> `ts-dep-deaths`    </td><td> time series data of deaths as originally reported (depricated) </td>
+ </tr>
+ <tr>
+   <td> `ts-dep-recovered` </td><td> time series data of recovered cases as originally reported (depricated) </td>
+ </tr>
+ <tr>
+  <td> **Combined** </td>
+ </tr>
+ <tr>
+  <td> `ALL`        </td><td>   all of the above </td>
+ </tr>
+</table>
 
 
 ### covid19-Sequencing data
