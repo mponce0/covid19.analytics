@@ -26,16 +26,17 @@ tots.per.location <- function(data, geo.loc=NULL, confBnd=FALSE, nbr.plts=1, inf
 #'
 #'
 #' @examples
-#' \donttest{
+#' 
 #' # read data for confirmed cases
 #' data <- covid19.data("ts-confirmed")
 #' # compute totals per location for all the countries
+#' \donttest{
 #' tots.per.location(data)
+#' }
 #' # compute totals per location for 'Italy'
 #' tots.per.location(data,geo.loc="Italy")
 #' # compute totals per location for 'Italy' and 'Germany'
 #' tots.per.location(data,geo.loc=c("Italy","Germany"))
-#'}
 #'
 
 	# check that the data is time series
@@ -203,7 +204,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' ###\donttest{
 #' # read data for confirmed cases
 #' data <- covid19.data("ts-confirmed")
 #' # compute changes and growth rates per location for all the countries
@@ -212,7 +213,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #' growth.rate(data,geo.loc="Italy")
 #' # compute changes and growth rates per location for 'Italy' and 'Germany'
 #' growth.rate(data,geo.loc=c("Italy","Germany"))
-#' }
+#' ###}
 
 
 	# check that the data is time series
@@ -469,10 +470,10 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 }
 
 
-report.summary <- function(cases="ALL", Nentries=10, graphical.output=TRUE) {
+report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE) {
 #' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
-#' @param  cases  which data to process: "TS", "AGG" or "ALL"
+#' @param  cases.to.process  which data to process: "TS", "AGG" or "ALL"
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
 #'
@@ -508,7 +509,7 @@ report.summary <- function(cases="ALL", Nentries=10, graphical.output=TRUE) {
 
 
 	##### PROCESS TIME SERIES DATA ######
-	if (toupper(cases)=="ALL" || toupper(cases)=="TS") {
+	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="TS") ) {
 	# first column with cases data
 	col1 <- 5
 
@@ -591,7 +592,7 @@ report.summary <- function(cases="ALL", Nentries=10, graphical.output=TRUE) {
 	}
 
 	##### PROCESS "AGREGATED" DATA  #######
-	if (toupper(cases)=="ALL" || toupper(cases)=="AGG") {
+	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="AGG") ) {
 		process.agg.cases(covid19.data("aggregated"), Nentries, graphical.output)
 	}
 }
