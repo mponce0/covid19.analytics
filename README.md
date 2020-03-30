@@ -32,7 +32,7 @@ dynamical situation with respect to data availablitly and integrity.
 
 
 #### Data retrieval options
-
+<!--
  |    argument    |   description  |
  |----------------|----------------|
  | `aggregated`   |  latest number of cases *aggregated* by country |
@@ -47,8 +47,7 @@ dynamical situation with respect to data availablitly and integrity.
  | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
  **Combined**
  | `ALL`          | all of the above |
-
-
+-->
 
 <table style="width:100%">
   <tr>
@@ -56,45 +55,49 @@ dynamical situation with respect to data availablitly and integrity.
     <th>description</th> 
   </tr>
   <tr>
-    <td>`aggregated`</td>
-    <td>latest number of cases *aggregated* by country</td> 
+    <td> <code>aggregated</code> </td>
+    <td> latest number of cases *aggregated* by country </td>
   </tr>
   <tr>
-    <td> **Time Series data** </td>
+    <th colspan="2"> <b>Time Series data</b> </th>
   </tr>
   <tr>
-    <td>`ts-confirmed`</td>
-    <td>time series data of confirmed cases</td> 
+    <td> <code>ts-confirmed</code> </td>
+    <td> time series data of confirmed cases </td> 
   </tr>
   <tr>
-    <td>`ts-deaths`</td>
-    <td>time series data of fatal cases</td> 
+    <td> <code>ts-deaths</code> </td>
+    <td> time series data of fatal cases </td> 
   </tr>
   <tr>
-    <td>`ts-recovered`</td>
-    <td>time series data of recovered cases</td> 
+    <td> <code>ts-recovered</code> </td>
+    <td> time series data of recovered cases </td>
   </tr>
   <tr>
-    <td>`ts-ALL`</td>
-    <td>all time series data combined</td> 
+    <td> <code>ts-ALL</code> </td>
+    <td> all time series data combined </td>
   </tr>
   <tr>
-    <td> **Depricated data formats** </td>
+    <th colspan="2"> <b>Depricated data formats</b> </th>
   </tr>
   <tr>
-   <td> `ts-dep-confirmed` </td><td> time series data of confirmed cases as originally reported (depricated) </td>
+   <td> <code>ts-dep-confirmed</code> </td>
+   <td> time series data of confirmed cases as originally reported (depricated) </td>
   </tr>
   <tr>
-   <td> `ts-dep-deaths`    </td><td> time series data of deaths as originally reported (depricated) </td>
+   <td> <code>ts-dep-deaths</code> </td>
+   <td> time series data of deaths as originally reported (depricated) </td>
  </tr>
  <tr>
-   <td> `ts-dep-recovered` </td><td> time series data of recovered cases as originally reported (depricated) </td>
+   <td> <code>ts-dep-recovered</code> </td>
+   <td> time series data of recovered cases as originally reported (depricated) </td>
  </tr>
  <tr>
-  <td> **Combined** </td>
+  <th colspan="2"> <b>Combined</b> </th>
  </tr>
  <tr>
-  <td> `ALL`        </td><td>   all of the above </td>
+  <td> <code>ALL</code> </td>
+  <td> all of the above </td>
  </tr>
 </table>
 
