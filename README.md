@@ -24,7 +24,7 @@ of the cases reported daily per country/region/city.
 
 This data-adquisiton function, will first attempt to retrieve the data directly from the JHU repository
 with the latest updates.
-If for what ever reason this fails (eg. problems with the connection) the package will load a preserved "image" of the data which is **not** the latest one but still allows the user to explore that older dataset.
+If for what ever reason this fails (eg. problems with the connection) the package will load a preserved "image" of the data which is **not** the latest one but it will still allow the user to explore this older dataset.
 
 #### Data retrieval options
 
