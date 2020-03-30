@@ -2,18 +2,18 @@
 
 ## Introduction
 The "covid19.analytics" package allows users to obtain live\* worlwide data from the
-novel Coronavirus COVID-19 as published by the JHU CCSE repository [1],
+novel CoronaVirus Disease, CoViD-19, as published by the JHU CCSE repository [1],
 as well as, provide basic analysis tools and functions to investigate
 these datasets.
 
-The goal of this package is to make the latest data quickly available
-for researchers and the scientific community.
+The goal of this package is to make the latest data promptly available
+to researchers and the scientific community.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
-from the JHU's CCSE repository, in two main modalities:
+from the JHU's CCSE repository, in the following modalities:
 * "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
 
@@ -22,9 +22,14 @@ from the JHU's CCSE repository, in two main modalities:
 The datasets also include information about the different categories (status) "confirmed"/"deaths"/"recovered"
 of the cases reported daily per country/region/city.
 
-This data-adquisiton function, will first attempt to retrieve the data directly from the JHU repository
-with the latest updates.
-If for what ever reason this fails (eg. problems with the connection) the package will load a preserved "image" of the data which is **not** the latest one but it will still allow the user to explore this older dataset.
+This data-adquisiton function, will first attempt to retrieve the data directly
+from the JHU repository with the latest updates.
+If for what ever reason this fails (eg. problems with the connection) the package
+will load a preserved "image" of the data which is **not** the latest one but it
+will still allow the user to explore this older dataset.
+In this way, the package offers a more robust and resilient approach to the quite
+dynamical situation with respect to data availablitly and integrity.
+
 
 #### Data retrieval options
 
