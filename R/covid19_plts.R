@@ -193,12 +193,14 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 #' @importFrom  utils  head str
 #'
 #' @examples
+#' \donttest{
 #' # retrieve aggregated data
 #' data <- covid19.data("aggregated")
 #' # interactive map of aggregated cases -- with more spatial resolution
 #' live.map(data)
 # # or
 # 'live.map()
+#' }
 #' # interactive map of the time series data of the confirmed cases
 #' # with less spatial resolution, ie. aggregated by country
 #' live.map(covid19.data("ts-confirmed"))

@@ -21,8 +21,10 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 #' @export
 #'
 #' @examples
+#'\donttest{
 #' # reads all possible datastest, returnin a list
 #' covid19.all.datasets <- covid19.data("ALL")
+#' }
 #' # reads the latest aggregated data
 #' covid19.ALL.agg.cases <- covid19.data("aggregated")
 #' # reads time series data for casualities
@@ -159,12 +161,13 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 		message("Data being read from JHU/CCSE repository")
 		header('~')
 	} else {
-		message("Data being read from *local* repo in the 'covid19' package")
+		covid19.pckg <- 'covid19.analytics'
+		message("Data being read from *local* repo in the '",covid19.pckg,"' package")
 		header('~')
 
 		#LOCAL.repo <- "data/"
-		#system.file("extdata", "03-27-2020.csv", package = "covid19")
-		covid19.pckg='covid19.analytics'
+		#print(system.file("extdata", "03-27-2020.csv", package = covid19.pckg))
+
 		cases <- switch(tolower(case),
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),

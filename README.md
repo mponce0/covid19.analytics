@@ -2,18 +2,18 @@
 
 ## Introduction
 The "covid19.analytics" package allows users to obtain live\* worlwide data from the
-novel Coronavirus COVID-19 as published by the JHU CCSE repository [1],
+novel CoronaVirus Disease, CoViD-19, as published by the JHU CCSE repository [1],
 as well as, provide basic analysis tools and functions to investigate
 these datasets.
 
-The goal of this package is to make the latest data quickly available
-for researchers and the scientific community.
+The goal of this package is to make the latest data promptly available
+to researchers and the scientific community.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
-from the JHU's CCSE repository, in two main modalities:
+from the JHU's CCSE repository, in the following modalities:
 * "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
 
@@ -22,26 +22,31 @@ from the JHU's CCSE repository, in two main modalities:
 The datasets also include information about the different categories (status) "confirmed"/"deaths"/"recovered"
 of the cases reported daily per country/region/city.
 
-This data-adquisiton function, will first attempt to retrieve the data directly from the JHU repository
-with the latest updates.
-If for what ever reason this fails (eg. problems with the connection) the package will load a preserved "image" of the data which is **not** the latest one but still allows the user to explore that older dataset.
+This data-adquisiton function, will first attempt to retrieve the data directly
+from the JHU repository with the latest updates.
+If for what ever reason this fails (eg. problems with the connection) the package
+will load a preserved "image" of the data which is **not** the latest one but it
+will still allow the user to explore this older dataset.
+In this way, the package offers a more robust and resilient approach to the quite
+dynamical situation with respect to data availablitly and integrity.
+
 
 #### Data retrieval options
 
-|    argument    |   description  |
-|----------------|----------------|
-| `aggregated`   |  latest number of cases *aggregated* by country |
-**Time Series data**
-| `ts-confirmed` |  time data of confirmed cases |
-| `ts-deaths`    |  time series data of fatal cases |
-| `ts-recovered` |  time series data of recovered cases |
-| `ts-ALL`       |  all time series data combined |
-**Depricated data formats**
-| `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
-| `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
-| `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
-**Combined**
-| `ALL`          | all of the above |
+ |    argument    |   description  |
+ |----------------|----------------|
+ | `aggregated`   |  latest number of cases *aggregated* by country |
+ **Time Series data**
+ | `ts-confirmed` |  time data of confirmed cases |
+ | `ts-deaths`    |  time series data of fatal cases |
+ | `ts-recovered` |  time series data of recovered cases |
+ | `ts-ALL`       |  all time series data combined |
+ **Depricated data formats**
+ | `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
+ | `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
+ | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
+ **Combined**
+ | `ALL`          | all of the above |
 
 
 ### covid19-Sequencing data
@@ -66,19 +71,19 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 
 ### Summary of the Functions from the "covid19.analytics" Package
 
-| Function  | description |
-| --------	 | ----------- |
-**Data Adquisition**
-| `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
-**Analysis**
-| `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
-| `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
-| `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
-**Graphics**
-| `totals.plt`   |  plots in a static and interactive plot total number of cases per day
-| `live.map`     |  interactive map displaying cases around the world
-**Modelling**
-| `simple.SIR.model`  |  generates a SIR model
+ | Function  | description |
+ | --------	 | ----------- |
+ **Data Adquisition**
+ | `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
+ **Analysis**
+ | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
+ | `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
+ | `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
+ **Graphics**
+ | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
+ | `live.map`     |  interactive map displaying cases around the world
+ **Modelling**
+ | `simple.SIR.model`  |  generates a SIR model
 
 
 
@@ -86,12 +91,12 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 For using the "covi19" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
-```
+```R
 install.packages("covid19.analytics")
 ```
 
 To obtain the development version you can get it from the github repository, i.e.
-```
+```R
 # need devtools for installing from the github repo
 install.packages("devtools")
 
@@ -100,7 +105,7 @@ devtools::install_github("mponce0/covid19.analytics")
 ```
 
 For using the package, either the stable or developmemnt version, just load it using the library function:
-```
+```R
 # load "covid19.analytics"
 library(covid19.analytics)
 ```
@@ -109,7 +114,7 @@ library(covid19.analytics)
 ## Examples
 
 ### Reading data
-```
+```R
 # obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *agreggated* data
  covid19.data.ALLcases <- covid19.data()
 
@@ -127,7 +132,7 @@ library(covid19.analytics)
 ```
 
 Read covid19's genomic data 
-```
+```R
 # obtain covid19's genomic data
  covid19.gen.seq <- covid19.geomic.data()
 
@@ -138,13 +143,19 @@ Read covid19's genomic data
 
 ### Some basic analysis
 #### Summary Report
-```
+```R
 # a quick function to overview top cases per region for time series and aggregated records
 report.summary()
 ```
 
+<p>
+  <img src="man/figures/report-summ-agg.pdf" width="45%" />
+  <img src="man/figures/report-summ-TSconfirmed.pdf" width="45%" />
+</p>
+
+
 #### Totals per Country/Region/Province
-```
+```R
 # totals for confirmed cases for "Ontario"
 tots.per.location(covid19.confirmed.cases,geo.loc="Ontario")
 
@@ -188,7 +199,7 @@ We also provide two additonal models, as shown in the figures above, using the G
 In particular, the `tots.per.location` function will determine when is possible to automatically generate each model and display the information in the plot as well as details of the models in the console.
 
 
-```
+```R
 # read the time series data for all the cases
 all.data <- covid19.data('ts-ALL')
 
@@ -205,7 +216,7 @@ tots.per.location(all.data,"Japan")
 It is also possible to run the `tots.per.location` (and `growth.rate`) functions,
 on the whole data set, for which a quite large but complete mosiac figure will
 be generated, e.g.
-```
+```R
 # total for death cases for "ALL" the regions
 tots.per.location(covid19.TS.deaths)
 
@@ -216,7 +227,7 @@ tots.per.location(covid19.data("ts-confirmed"))
 
 
 #### Growth Rate
-```
+```R
 # read time series data for confirmed cases
 TS.data <- covid19.data("ts-confirmed")
 
@@ -240,9 +251,30 @@ growth.rate(TS.data,geo.loc=c("Italy","Germany"))
 The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
 
 
+Combining mutliple geographical locations:
+```R
+# obtain Time Series data
+TSconfirmed <- covid19.data("ts-confirmed")
 
-#### Graphical Output
+# explore different combinations of regions/cities/countries
+# when combining different locations heatmaps will also be generated comparing the trends among these locations
+growth.rate(TSconfirmed,geo.loc=c("Italy","Canada","Ontario","Quebec","Uruguay"))
+
+growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","United States","Canada","Ontario","Quebec","Uruguay"))
+
+growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario","Quebec","Uruguay")
 ```
+
+<p>
+  <img src="man/figures/changes-per-day-1.pdf" width="22.5%" />
+  <img src="man/figures/changes-per-day-2.pdf" width="22.5%" />
+  <img src="man/figures/heatmap-changes.pdf" width="22.5%" />
+  <img src="man/figures/heatmap-growthRate.pdf" width="22.5%" />
+</p>
+
+
+#### Visualization Tools
+```R
 # retrieve time series data
 TS.data <- covid19.data("ts-ALL")
 
@@ -252,7 +284,7 @@ totals.plt(TS.data)
 <object data="man/figures/totals.html" width="80%" height="525">
 </object>
 
-```
+```R
 # retrieve aggregated data
 data <- covid19.data("aggregated")
 
@@ -273,7 +305,7 @@ Interactive examples can be seen at
 
 
 #### Simulating the Virus spread
-```
+```R
 # read time series data for confirmed cases
 data <- covid19.data("ts-confirmed")
 
@@ -290,6 +322,11 @@ simple.SIR.model(data,"Canada",tot.population=37590000)
 simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
+<p>
+  <img src="man/figures/SIR-model-Ontario.pdf" width="32.5%" />
+  <img src="man/figures/SIR-model-Canada.pdf" width="32.5%" />
+  <img src="man/figures/SIR-model-Germany.pdf" width="32.5%" />
+</p>
 
 
 ## Further Resources
