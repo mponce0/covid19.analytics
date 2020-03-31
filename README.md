@@ -32,12 +32,12 @@ dynamical situation with respect to data availablitly and integrity.
 
 
 #### Data retrieval options
-
+<!--
  |    argument    |   description  |
  |----------------|----------------|
  | `aggregated`   |  latest number of cases *aggregated* by country |
  **Time Series data**
- | `ts-confirmed` |  time data of confirmed cases |
+ | `ts-confirmed` |  time series data of confirmed cases |
  | `ts-deaths`    |  time series data of fatal cases |
  | `ts-recovered` |  time series data of recovered cases |
  | `ts-ALL`       |  all time series data combined |
@@ -47,6 +47,59 @@ dynamical situation with respect to data availablitly and integrity.
  | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
  **Combined**
  | `ALL`          | all of the above |
+-->
+
+<table style="width:100%">
+  <tr>
+    <th>argument</th>
+    <th>description</th> 
+  </tr>
+  <tr>
+    <td> <code>aggregated</code> </td>
+    <td> latest number of cases <i>aggregated</i> by country </td>
+  </tr>
+  <tr>
+    <th colspan="2"> <b>Time Series data</b> </th>
+  </tr>
+  <tr>
+    <td> <code>ts-confirmed</code> </td>
+    <td> time series data of confirmed cases </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-deaths</code> </td>
+    <td> time series data of fatal cases </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-recovered</code> </td>
+    <td> time series data of recovered cases </td>
+  </tr>
+  <tr>
+    <td> <code>ts-ALL</code> </td>
+    <td> all time series data combined </td>
+  </tr>
+  <tr>
+    <th colspan="2"> <b>Depricated data formats</b> </th>
+  </tr>
+  <tr>
+   <td> <code>ts-dep-confirmed</code> </td>
+   <td> time series data of confirmed cases as originally reported (depricated) </td>
+  </tr>
+  <tr>
+   <td> <code>ts-dep-deaths</code> </td>
+   <td> time series data of deaths as originally reported (depricated) </td>
+ </tr>
+ <tr>
+   <td> <code>ts-dep-recovered</code> </td>
+   <td> time series data of recovered cases as originally reported (depricated) </td>
+ </tr>
+ <tr>
+  <th colspan="2"> <b>Combined</b> </th>
+ </tr>
+ <tr>
+  <td> <code>ALL</code> </td>
+  <td> all of the above </td>
+ </tr>
+</table>
 
 
 ### covid19-Sequencing data
@@ -70,10 +123,10 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 
 
 ### Summary of the Functions from the "covid19.analytics" Package
-
+<!--
  | Function  | description |
  | --------	 | ----------- |
- **Data Adquisition**
+ **Data Acquisition**
  | `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
  **Analysis**
  | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
@@ -81,10 +134,70 @@ A preliminar prototype has been included and can be accessed using the `simple.S
  | `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  **Graphics**
  | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
- | `live.map`     |  interactive map displaying cases around the world
+ | `live.map`     |  generates an interactive map displaying cases around the world
  **Modelling**
- | `simple.SIR.model`  |  generates a SIR model
+ | `simple.SIR.model`  |  generates a SIR (Susceptible-Infected-Recovered) model
+-->
 
+<table style="width:100%">
+  <tr>
+    <th> Function </th>
+    <th> Description </th>
+    <th> Main Type of Output</th>
+  </tr>
+  <tr>
+   <th colspan="3"> <b>Data Acquisition</b> </th>
+  </tr>
+  <tr>
+    <td> <code>covid19.data</code> </td>
+    <td> obtain live* worlwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> return dataframes/list with the collected data </td>
+  </tr>
+ <tr>
+  <td> <code>covid19.genomic.data</code> </td>
+  <td> obtain covid19's genomic sequencing data from NCBI [2] </td>
+  <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
+ </tr>
+  <tr>
+   <th colspan="3"> <b>Analysis</b> </th>
+  </tr>
+  <tr>
+    <td> <code>report.summary</code> </td>
+    <td> summarize the current situation, will download the latest data and summarize different quantities </td>
+    <td> on screen table and static plots (pie and bar plots) with reported information </td>
+  </tr>
+  <tr>
+   <td> <code>tots.per.location</code> </td>
+   <td> compute totals per region and plot time series for that specific region/country </td>
+   <td> static plots: data + models (exp/linear, Poisson, Gamma), mosaic and histograms when more than one location are selected </td>
+  </tr>
+  <tr>
+   <td> <code>growth.rate</code> </td>
+   <td> compute changes and growth rates per region and plot time series for that specific region/country </td>
+   <td> static plots: data + models (linear,Poisson,Exp), mosaic and histograms when more than one location are selected </td>
+  </tr>
+  <tr>
+   <th colspan="3">Graphics and Visualization</th>
+ </tr>
+  <tr>
+   <td> <code>total.plts</code> </td>
+   <td> plots in a static and interactive plot total number of cases per day </td>
+   <td> static and interactive plot </td>
+ </tr>
+  <tr>
+   <td> <code>live.map</code> </td>
+   <td> generates an interactive map displaying cases around the world </td>
+   <td> static and interactive plot </td>
+  </tr>
+  <tr>
+   <th colspan="3">Modelling</th>
+ </tr>
+  <tr>
+   <td> <code>simnple.SIR.model</code> </td>
+   <td> generates a SIR (Susceptible-Infected-Recovered) model </td>
+   <td> static plot with data and models generated </td>
+ </tr>
+</table>
 
 
 ## Installation
@@ -191,9 +304,11 @@ one the upper plot in log-scale with a linear fit to an exponential law and in l
 Details about the models are included in the plot, in particular the *growth rate* which in several cases appears to be around 1.2+ as predicted by some models.
 Notice that in the case of Hubei, the values is closer to 1, as the dispersion of the virus has reached its logistic asymptope while in other cases (e.g. Germany and Italy --for the presented dates--) is still well above 1, indicating its exponential growth.
 
+
 **IMPORTANT** Please notice that the "linear exponential" modelling function implements a *simple (naive)* and straight-forward linear regression model, which is **not** optimal for exponential fits.
 The reason is that the errors for large values of the dependant variable weight much more than those for small values when apply the exponential function to go back to the original model.
 Nevertheless for the sake of a quick interpretation is OK, but one should bare in mind the implications of this simplification.
+
 
 We also provide two additonal models, as shown in the figures above, using the Generalized Linear Model `glm()` function, using a *Poisson* and *Gamma* family function.
 In particular, the `tots.per.location` function will determine when is possible to automatically generate each model and display the information in the plot as well as details of the models in the console.
