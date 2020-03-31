@@ -300,12 +300,12 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 </object>
 <object data="man/figures/Ontario_totals.pdf" type="application/pdf" width="450px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Ontario_totals.pdf">
- <p>
+<p>
   <img src="man/figures/Hubei_totals.png" width="24%" >
   <img src="man/figures/Italy_totals.png" width="24%" >
   <img src="man/figures/Germany_totals.png" width="24%" >
   <img src="man/figures/Ontario_totals.png" width="24%" >
- </p>
+</p>
   <p>
   Images available <a href="man/figures/">here</a> 
  </p>
