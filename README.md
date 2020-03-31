@@ -468,7 +468,7 @@ simple.SIR.model(data,"Canada",tot.population=37590000)
 # modelling the spread for the whole world, storing the model and generating an interactive visualization
 world.SIR.model <- simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
 # plotting and visualizing the model
-plot.SIR.model(xyz,"Ontario",interactiveFig=TRUE,fileName="world.SIR.model")
+plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
 ```
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
