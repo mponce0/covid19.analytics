@@ -156,7 +156,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
  <tr>
   <td> <code>covid19.genomic.data</code> </td>
   <td> obtain covid19's genomic sequencing data from NCBI [2] </td>
-  <td> list, with the RNA seq data in the "$NC_045512.2" entry
+  <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
   <tr>
    <th colspan="3"> <b>Analysis</b> </th>
@@ -169,7 +169,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
   <tr>
    <td> <code>tots.per.location</code> </td>
    <td> compute totals per region and plot time series for that specific region/country </td>
-   <td> static plots: data + models (linear,Poisson,Exp), mosaic and histograms when more than one location are selected </td>
+   <td> static plots: data + models (exp/linear, Poisson, Gamma), mosaic and histograms when more than one location are selected </td>
   </tr>
   <tr>
    <td> <code>growth.rate</code> </td>
