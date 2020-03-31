@@ -455,9 +455,6 @@ simple.SIR.model(data,"Ontario",tot.population=14570000)
 
 # the function will agregate data for a geographical location, like a country with multiple entries
 simple.SIR.model(data,"Canada",tot.population=37590000)
-
-# modelling the spread for the whole world
-simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
 ```
 
 <p>
@@ -465,6 +462,16 @@ simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9)
   <img src="man/figures/SIR-model-Canada.pdf" width="32.5%" />
   <img src="man/figures/SIR-model-Germany.pdf" width="32.5%" />
 </p>
+
+
+```R
+# modelling the spread for the whole world, storing the model and generating an interactive visualization
+world.SIR.model <- simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
+# plotting and visualizing the model
+plot.SIR.model(xyz,"Ontario",interactiveFig=TRUE,fileName="world.SIR.model")
+```
+
+<object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
 
 ## Further Resources
