@@ -56,7 +56,7 @@ dynamical situation with respect to data availablitly and integrity.
   </tr>
   <tr>
     <td> <code>aggregated</code> </td>
-    <td> latest number of cases *aggregated* by country </td>
+    <td> latest number of cases <i>aggregated</i> by country </td>
   </tr>
   <tr>
     <th colspan="2"> <b>Time Series data</b> </th>
@@ -123,10 +123,10 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 
 
 ### Summary of the Functions from the "covid19.analytics" Package
-
+<!--
  | Function  | description |
  | --------	 | ----------- |
- **Data Adquisition**
+ **Data Acquisition**
  | `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
  **Analysis**
  | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
@@ -134,11 +134,66 @@ A preliminar prototype has been included and can be accessed using the `simple.S
  | `growth.rate`  |  compute changes and growth rates per region and plot time series for that specific region/country
  **Graphics**
  | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
- | `live.map`     |  interactive map displaying cases around the world
+ | `live.map`     |  generates an interactive map displaying cases around the world
  **Modelling**
- | `simple.SIR.model`  |  generates a SIR model
+ | `simple.SIR.model`  |  generates a SIR (Susceptible-Infected-Recovered) model
+-->
 
-
+<table style="width:100%">
+  <tr>
+    <th> Function </th>
+    <th> Description </th>
+    <th> Main Type of Output</th>
+  </tr>
+  <tr>
+   <th colspan="3"> <b>Data Acquisition</b> </th>
+  </tr>
+  <tr>
+    <td> <code>covid19.data</code> </td>
+    <td> obtain live* worlwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> return dataframes/list with the collected data
+  </tr>
+  <tr>
+   <th colspan="3"> <b>Analysis</b> </th>
+  </tr>
+  <tr>
+    <td> <code>report.summary</code> </td>
+    <td> summarize the current situation, will download the latest data and summarize different quantities </td>
+    <td> on screen table and static plots (pie and bar plots) with reported information
+  </tr>
+  <tr>
+   <td> <code>tots.per.location</code> </td>
+   <td> compute totals per region and plot time series for that specific region/country </td>
+   <td> static plots: mosaic and histograms when more than one location are selected </td>
+  </tr>
+  <tr>
+   <td> <code>growth.rate</code> </td>
+   <td> compute changes and growth rates per region and plot time series for that specific region/country </td>
+   <td> static plots: mosaic and histograms when more than one location are selected </td>
+  </tr>
+  <tr>
+   <th colspan="3">Graphics and Visualization</th>
+ </tr>
+  <tr>
+   <td> <code>total.plts</code> </td>
+   <td> plots in a static and interactive plot total number of cases per day </td>
+   <td> static and interactive plot </td>
+ </tr>
+  <tr>
+   <td> <code>live.map</code> </td>
+   <td> generates an interactive map displaying cases around the world </td>
+   <td> static and interactive plot </td>
+  </tr>
+  <tr>
+   <th colspan="3">Modelling</th>
+ </tr>
+  <tr>
+   <td> <code>simnple.SIR.model</code> </td>
+   <td> generates a SIR (Susceptible-Infected-Recovered) model </td>
+   <td> static plot with data and models generated </td>
+ </tr>
+ 
+</table>
 
 ## Installation
 For using the "covi19" package, first you will need to install it.
