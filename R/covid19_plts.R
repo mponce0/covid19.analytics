@@ -4,6 +4,68 @@
 
 ##################################################################
 
+##################################################################
+##### AUXILIARY FUNCTIONS FOR SETTING UP LOG-scale PULLDOWNS #####
+##################################################################
+
+	log.sc.setup <- function(nbr.traces) {
+	#' aux fn to create a log-scale pulldown option in plotly plots
+	#' @param  nbr.traces  number of traces in order to set Ts/Fs
+	#' @keyword internal
+
+                updatemenus = list(list(
+                                active = 0,
+                                buttons= list(
+                                                list(label = 'linear',
+
+                                                        method = 'update',
+                                                        args = list(list(visible = c(rep(T,nbr.traces),rep(F,nbr.traces))), list(yaxis = list(type = 'linear')))
+                                                        ),
+                                                list(label = 'log',
+                                                        method = 'update',
+                                                        args = list(list(visible = c(rep(F,nbr.traces),rep(T,nbr.traces))), list(yaxis = list(type = 'log'))))
+                                        )       )       )
+
+                return(updatemenus)
+        }
+
+        ############
+
+        ############
+
+        add.Ntraces <- function(i.fig, traces, tr.names=rep("",length(traces)), vis=TRUE) {
+
+			nn <- names(traces)
+			#print(nn)
+			range <- 2:length(traces)
+			#print(range)
+			for (tr in range) {
+				tr.i <- traces[nn[tr]][,1]
+				#print(tr.i)
+				i.fig <- i.fig %>% add_trace(x=~tr[1][,1], y = ~tr.i, name=tr.names[tr], type='scatter', mode='lines+markers', visible=vis)
+			}
+
+			return(i.fig)
+	}
+
+
+        add.N.traces <- function(i.fig, traces, tr.names=rep("",length(traces)), vis=TRUE) {
+
+			tr.x <- traces[,2]
+                        i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,3], name=tr.names[2], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,4], name=tr.names[3], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,5], name=tr.names[4], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,1], name=tr.names[1], type='scatter', mode='markers', visible=vis)
+
+			return(i.fig)
+        }
+
+        ############
+
+##################################################################
+
+
+
 totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 			fileName=NULL) {
 #' function to plot total number of cases per day for different groups
@@ -27,37 +89,17 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #' totals.plt(TS.data)
 #'
 
-	############
-	add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
+        ############
+        add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
                         totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers', visible=vis)
                         totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers', visible=vis)
                         totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers', visible=vis)
                         totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines', visible=vis)
 
-			return(totals.ifig)
-	}
+                        return(totals.ifig)
+        }
 
-	############
-
-	log.sc.setup <- function(nbr.traces) {
-
-                updatemenus = list(list(
-                                active = 0,
-                                buttons= list(
-                                                list(label = 'linear',
-
-                                                        method = 'update',
-                                                        args = list(list(visible = c(rep(T,nbr.traces),rep(F,nbr.traces))), list(yaxis = list(type = 'linear')))
-                                                        ),
-                                                list(label = 'log',
-                                                        method = 'update',
-                                                        args = list(list(visible = c(rep(F,nbr.traces),rep(T,nbr.traces))), list(yaxis = list(type = 'log'))))
-                                        )       )       )
-
-		return(updatemenus)
-	}
-
-	############
+        ############
 
 
 	if (is.null(data0)) {
@@ -155,7 +197,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 
 	
 		# activate interactive figure
-		#print(class(totals.ifig))
+		#print(totals.ifig)
 
         
 		if (!is.null(fileName)) {
