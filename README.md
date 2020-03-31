@@ -116,7 +116,7 @@ and daily changes in the reported number of cases.
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabiltiies.
-A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
+A preliminar prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
 ### Further Features
@@ -138,7 +138,7 @@ in particular modelling and predictive capabilities.
  | `totals.plt`   |  plots in a static and interactive plot total number of cases per day
  | `live.map`     |  generates an interactive map displaying cases around the world
  **Modelling**
- | `simple.SIR.model`  |  generates a SIR (Susceptible-Infected-Recovered) model
+ | `generate.SIR.model`  |  generates a SIR (Susceptible-Infected-Recovered) model
 -->
 
 <!------- TABLE ------>
@@ -196,9 +196,14 @@ in particular modelling and predictive capabilities.
    <th colspan="3">Modelling</th>
  </tr>
   <tr>
-   <td> <code>simnple.SIR.model</code> </td>
+   <td> <code>generate.SIR.model</code> </td>
    <td> generates a SIR (Susceptible-Infected-Recovered) model </td>
-   <td> static plot with data and models generated </td>
+   <td> list containing the fits for the SIR model </td>
+ </tr>
+  <tr>
+   <td> <code>plot.SIR.model</code> </td>
+   <td> plot the results from the SIR model </td>
+   <td> static and interactive plots </td>
  </tr>
 </table>
 <!------- TABLE ------>
@@ -300,12 +305,14 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 </object>
 <object data="man/figures/Ontario_totals.pdf" type="application/pdf" width="450px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Ontario_totals.pdf">
+<!--
 <p>
   <img src="man/figures/Hubei_totals.png" width="24%" >
   <img src="man/figures/Italy_totals.png" width="24%" >
   <img src="man/figures/Germany_totals.png" width="24%" >
   <img src="man/figures/Ontario_totals.png" width="24%" >
 </p>
+-->
   <p>
   Images available <a href="man/figures/">here</a> 
  </p>
@@ -448,13 +455,13 @@ Interactive examples can be seen at
 data <- covid19.data("ts-confirmed")
 
 # run a SIR model for a given geographical location
-simple.SIR.model(data,"Hubei", t0=1,t1=15)
-simple.SIR.model(data,"Germany",tot.population=83149300)
-simple.SIR.model(data,"Uruguay", tot.population=3500000)
-simple.SIR.model(data,"Ontario",tot.population=14570000)
+generate.SIR.model(data,"Hubei", t0=1,t1=15)
+generate.SIR.model(data,"Germany",tot.population=83149300)
+generate.SIR.model(data,"Uruguay", tot.population=3500000)
+generate.SIR.model(data,"Ontario",tot.population=14570000)
 
 # the function will agregate data for a geographical location, like a country with multiple entries
-simple.SIR.model(data,"Canada",tot.population=37590000)
+generate.SIR.model(data,"Canada",tot.population=37590000)
 ```
 
 <p>
@@ -466,7 +473,7 @@ simple.SIR.model(data,"Canada",tot.population=37590000)
 
 ```R
 # modelling the spread for the whole world, storing the model and generating an interactive visualization
-world.SIR.model <- simple.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
+world.SIR.model <- generate.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
 # plotting and visualizing the model
 plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
 ```
