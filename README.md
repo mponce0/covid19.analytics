@@ -49,6 +49,7 @@ dynamical situation with respect to data availablitly and integrity.
  | `ALL`          | all of the above |
 -->
 
+<!------- TABLE ------>
 <table style="width:100%">
   <tr>
     <th>argument</th>
@@ -100,6 +101,7 @@ dynamical situation with respect to data availablitly and integrity.
   <td> all of the above </td>
  </tr>
 </table>
+<!------- TABLE ------>
 
 
 ### covid19-Sequencing data
@@ -139,6 +141,7 @@ in particular modelling and predictive capabilities.
  | `simple.SIR.model`  |  generates a SIR (Susceptible-Infected-Recovered) model
 -->
 
+<!------- TABLE ------>
 <table style="width:100%">
   <tr>
     <th> Function </th>
@@ -198,7 +201,7 @@ in particular modelling and predictive capabilities.
    <td> static plot with data and models generated </td>
  </tr>
 </table>
-
+<!------- TABLE ------>
 
 ## Installation
 For using the "covi19.analytics" package, first you will need to install it.
@@ -309,14 +312,14 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
  </embed>
 </object>
 
-
+<!--
 <p>
   <img src="man/figures/Hubei_totals.pdf" width="24%" />
   <img src="man/figures/Italy_totals.pdf" width="24%" />
   <img src="man/figures/Germany_totals.pdf" width="24%" />
   <img src="man/figures/Ontario_totals.pdf" width="24%" />
 </p>
-
+-->
 
 
 The figures show the total number of cases for different cities (provinces/regions) and countries:
