@@ -94,7 +94,7 @@ simple.SIR.ODE <- function(time, state, parameters) {
 }
 
 
-simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
+generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 				t0=NULL,t1=NULL, deltaT=NULL,
 				tfinal=90,
 				fatality.rate = 0.02,
@@ -120,10 +120,10 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #'
 #' @examples
 #' data <- covid19.data("ts-confirmed")
-#' simple.SIR.model(data,"Hubei", t0=1,t1=15)
-#' simple.SIR.model(data,"Germany",tot.population=83149300)
-#' simple.SIR.model(data,"Uruguay", tot.population=3500000)
-#' simple.SIR.model(data,"Canada", tot.population=37590000)
+#' generate.SIR.model(data,"Hubei", t0=1,t1=15)
+#' generate.SIR.model(data,"Germany",tot.population=83149300)
+#' generate.SIR.model(data,"Uruguay", tot.population=3500000)
+#' generate.SIR.model(data,"Canada", tot.population=37590000)
 #'
 
 	# DISCLAIMER // EXPERIMENTAL FEATURES
@@ -294,7 +294,7 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 plot.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=NULL) {
 #' function to plot the results from the SIR model fn
 #'
-#' @param  SIR.model model resulting from the simple.SIR.model() fn
+#' @param  SIR.model model resulting from the generate.SIR.model() fn
 #' @param  geo.loc  optional string to specify geographical location
 #' @param  interactiveFig  optional flag to activate interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
