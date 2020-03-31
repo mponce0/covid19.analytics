@@ -1,7 +1,7 @@
 # COVID19.Analytics
 
 ## Introduction
-The "covid19.analytics" package allows users to obtain live\* worlwide data from the
+The "covid19.analytics" R package allows users to obtain live\* worlwide data from the
 novel CoronaVirus Disease, CoViD-19, as published by the JHU CCSE repository [1],
 as well as, provide basic analysis tools and functions to investigate
 these datasets.
@@ -112,14 +112,14 @@ basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
 
 
-### Further Features
-We will continue working on adding and developing new features to the package,
-in particular modelling and predictive capabilities.
-
-
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabiltiies.
 A preliminar prototype has been included and can be accessed using the `simple.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
+
+
+### Further Features
+We will continue working on adding and developing new features to the package,
+in particular modelling and predictive capabilities.
 
 
 ### Summary of the Functions from the "covid19.analytics" Package
@@ -201,7 +201,7 @@ A preliminar prototype has been included and can be accessed using the `simple.S
 
 
 ## Installation
-For using the "covi19" package, first you will need to install it.
+For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
 ```R
@@ -282,13 +282,20 @@ tots.per.location(covid19.TS.deaths,geo.loc="China")
 tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
-<!--
+
 <object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf">
- <p> Images available <a href="man/figures/">here</a> </p>
+ <p>
+  <img src="man/figures/Hubei_totals.png" width="24%" />
+  <img src="man/figures/Italy_totals.png" width="24%" />
+  <img src="man/figures/Germany_totals.png" width="24%" />
+  <img src="man/figures/Ontario_totals.png" width="24%" />
+
+  Images available <a href="man/figures/">here</a> 
+ </p>
  </embed>
 </object>
--->
+
 
 <p>
   <img src="man/figures/Hubei_totals.pdf" width="24%" />
