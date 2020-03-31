@@ -2,9 +2,9 @@
 
 ## Introduction
 The "covid19.analytics" R package allows users to obtain live\* worlwide data from the
-novel CoronaVirus Disease, CoViD-19, as published by the JHU CCSE repository [1],
-as well as, provide basic analysis tools and functions to investigate
-these datasets.
+*novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
+JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
+investigate these datasets.
 
 The goal of this package is to make the latest data promptly available
 to researchers and the scientific community.
@@ -283,7 +283,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
 
-<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="700px" height="700px">
+<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf" type="application/pdf" width="300px" height="300px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf">
  <p>
   <img src="man/figures/Hubei_totals.png" width="24%" />
