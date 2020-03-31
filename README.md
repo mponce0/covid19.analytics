@@ -197,8 +197,8 @@ A preliminar prototype has been included and can be accessed using the `simple.S
    <td> generates a SIR (Susceptible-Infected-Recovered) model </td>
    <td> static plot with data and models generated </td>
  </tr>
- 
 </table>
+
 
 ## Installation
 For using the "covi19" package, first you will need to install it.
