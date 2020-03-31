@@ -283,14 +283,24 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 ```
 
 
-<object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="300px" height="300px">
+<object data="man/figures/Hubei_totals.pdf" type="application/pdf" width="100px" height="100px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Hubei_totals.pdf">
- <p>
   <img src="man/figures/Hubei_totals.png" width="24%" />
+ </embed>
+</object>
+<object data="man/figures/Italy_totals.pdf" type="application/pdf" width="100px" height="100px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Italy_totals.pdf"> 
   <img src="man/figures/Italy_totals.png" width="24%" />
+ </embed>
+</object>
+<object data="man/figures/Germany_totals.pdf" type="application/pdf" width="100px" height="100px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Germany_totals.pdf">
   <img src="man/figures/Germany_totals.png" width="24%" />
+ </embed>
+</object>
+<object data="man/figures/Ontario_totals.pdf" type="application/pdf" width="100px" height="100px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/Ontario_totals.pdf">
   <img src="man/figures/Ontario_totals.png" width="24%" />
-
   Images available <a href="man/figures/">here</a> 
  </p>
  </embed>
