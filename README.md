@@ -1,7 +1,7 @@
 # COVID19.Analytics
 
 ## Introduction
-The "covid19.analytics" R package allows users to obtain live\* worlwide data from the
+The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
 JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
 investigate these datasets.
@@ -14,21 +14,21 @@ to researchers and the scientific community.
 ### Data Accessibility
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in the following modalities:
-* "agreggated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
+* "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
 
-* "depricated": we also include the original data style in which these datasets were reported inititally.
+* "deprecated": we also include the original data style in which these datasets were reported initially.
 
 The datasets also include information about the different categories (status) "confirmed"/"deaths"/"recovered"
 of the cases reported daily per country/region/city.
 
-This data-adquisiton function, will first attempt to retrieve the data directly
+This data-acquisition function, will first attempt to retrieve the data directly
 from the JHU repository with the latest updates.
 If for what ever reason this fails (eg. problems with the connection) the package
 will load a preserved "image" of the data which is **not** the latest one but it
 will still allow the user to explore this older dataset.
 In this way, the package offers a more robust and resilient approach to the quite
-dynamical situation with respect to data availablitly and integrity.
+dynamical situation with respect to data availability and integrity.
 
 
 #### Data retrieval options
@@ -41,10 +41,10 @@ dynamical situation with respect to data availablitly and integrity.
  | `ts-deaths`    |  time series data of fatal cases |
  | `ts-recovered` |  time series data of recovered cases |
  | `ts-ALL`       |  all time series data combined |
- **Depricated data formats**
- | `ts-dep-confirmed` | time series data of confirmed cases as originally reported (depricated) |
- | `ts-dep-deaths`    | time series data of deaths as originally reported (depricated) |
- | `ts-dep-recovered` | time series data of recovered cases as originally reported (depricated)|
+ **Deprecated data formats**
+ | `ts-dep-confirmed` | time series data of confirmed cases as originally reported (deprecated) |
+ | `ts-dep-deaths`    | time series data of deaths as originally reported (deprecated) |
+ | `ts-dep-recovered` | time series data of recovered cases as originally reported (deprecated)|
  **Combined**
  | `ALL`          | all of the above |
 -->
@@ -79,19 +79,19 @@ dynamical situation with respect to data availablitly and integrity.
     <td> all time series data combined </td>
   </tr>
   <tr>
-    <th colspan="2"> <b>Depricated data formats</b> </th>
+    <th colspan="2"> <b>Deprecated data formats</b> </th>
   </tr>
   <tr>
    <td> <code>ts-dep-confirmed</code> </td>
-   <td> time series data of confirmed cases as originally reported (depricated) </td>
+   <td> time series data of confirmed cases as originally reported (deprecated) </td>
   </tr>
   <tr>
    <td> <code>ts-dep-deaths</code> </td>
-   <td> time series data of deaths as originally reported (depricated) </td>
+   <td> time series data of deaths as originally reported (deprecated) </td>
  </tr>
  <tr>
    <td> <code>ts-dep-recovered</code> </td>
-   <td> time series data of recovered cases as originally reported (depricated) </td>
+   <td> time series data of recovered cases as originally reported (deprecated) </td>
  </tr>
  <tr>
   <th colspan="2"> <b>Combined</b> </th>
@@ -115,8 +115,8 @@ and daily changes in the reported number of cases.
 
 
 ### Experimental: Modelling the evolution of the Virus spread
-We are working in the development of *modelling* capabiltiies.
-A preliminar prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
+We are working in the development of *modelling* capabilities.
+A preliminary prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
 ### Further Features
@@ -129,7 +129,7 @@ in particular modelling and predictive capabilities.
  | Function  | description |
  | --------	 | ----------- |
  **Data Acquisition**
- | `covid19.data` |  obtain live\* worlwide data for covid19 virus, from the JHU's CCSE repository [1]
+ | `covid19.data` |  obtain live\* worldwide data for covid19 virus, from the JHU's CCSE repository [1]
  **Analysis**
  | `report.summary`  |  summarize the current situation, will download the latest data and summarize different quantities
  | `tots.per.location`  |  compute totals per region and plot time series for that specific region/country
@@ -153,7 +153,7 @@ in particular modelling and predictive capabilities.
   </tr>
   <tr>
     <td> <code>covid19.data</code> </td>
-    <td> obtain live* worlwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
  <tr>
@@ -225,7 +225,7 @@ install.packages("devtools")
 devtools::install_github("mponce0/covid19.analytics")
 ```
 
-For using the package, either the stable or developmemnt version, just load it using the library function:
+For using the package, either the stable or development version, just load it using the library function:
 ```R
 # load "covid19.analytics"
 library(covid19.analytics)
@@ -236,19 +236,19 @@ library(covid19.analytics)
 
 ### Reading data
 ```R
-# obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *agreggated* data
+# obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *aggregated* data
  covid19.data.ALLcases <- covid19.data()
 
 # obtain time series data for "confirmed" cases
  covid19.confirmed.cases <- covid19.data("ts-confirmed")
 
-# reads all possible datastest, returnin a list
+# reads all possible datasets, returning a list
  covid19.all.datasets <- covid19.data("ALL")
 
 # reads the latest aggregated data
  covid19.ALL.agg.cases <- covid19.data("aggregated")
 
-# reads time series data for casualities
+# reads time series data for casualties
  covid19.TS.deaths <- covid19.data("ts-deaths")
 ```
 
@@ -332,15 +332,15 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 The figures show the total number of cases for different cities (provinces/regions) and countries:
 one the upper plot in log-scale with a linear fit to an exponential law and in linear scale in the bottom panel.
 Details about the models are included in the plot, in particular the *growth rate* which in several cases appears to be around 1.2+ as predicted by some models.
-Notice that in the case of Hubei, the values is closer to 1, as the dispersion of the virus has reached its logistic asymptope while in other cases (e.g. Germany and Italy --for the presented dates--) is still well above 1, indicating its exponential growth.
+Notice that in the case of Hubei, the values is closer to 1, as the dispersion of the virus has reached its logistic asymptote while in other cases (e.g. Germany and Italy --for the presented dates--) is still well above 1, indicating its exponential growth.
 
 
 **IMPORTANT** Please notice that the "linear exponential" modelling function implements a *simple (naive)* and straight-forward linear regression model, which is **not** optimal for exponential fits.
-The reason is that the errors for large values of the dependant variable weight much more than those for small values when apply the exponential function to go back to the original model.
+The reason is that the errors for large values of the dependent variable weight much more than those for small values when apply the exponential function to go back to the original model.
 Nevertheless for the sake of a quick interpretation is OK, but one should bare in mind the implications of this simplification.
 
 
-We also provide two additonal models, as shown in the figures above, using the Generalized Linear Model `glm()` function, using a *Poisson* and *Gamma* family function.
+We also provide two additional models, as shown in the figures above, using the Generalized Linear Model `glm()` function, using a *Poisson* and *Gamma* family function.
 In particular, the `tots.per.location` function will determine when is possible to automatically generate each model and display the information in the plot as well as details of the models in the console.
 
 
@@ -359,7 +359,7 @@ tots.per.location(all.data,"Japan")
 
 
 It is also possible to run the `tots.per.location` (and `growth.rate`) functions,
-on the whole data set, for which a quite large but complete mosiac figure will
+on the whole data set, for which a quite large but complete mosaic figure will
 be generated, e.g.
 ```R
 # total for death cases for "ALL" the regions
@@ -393,10 +393,10 @@ growth.rate(TS.data,geo.loc=c("Italy","Germany"))
   <img src="man/figures/gr-changes_Canada.pdf" width="24%" />
 </p>
 
-The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, righty-axis), while the bottom panel displays the growth rate for the given country/region/city.
+The previous figures show on the upper panel the number of changes on a daily basis in linear scale (thin line, left y-axis) and log scale (thicker line, right y-axis), while the bottom panel displays the growth rate for the given country/region/city.
 
 
-Combining mutliple geographical locations:
+Combining multiple geographical locations:
 ```R
 # obtain Time Series data
 TSconfirmed <- covid19.data("ts-confirmed")
@@ -460,7 +460,7 @@ generate.SIR.model(data,"Germany",tot.population=83149300)
 generate.SIR.model(data,"Uruguay", tot.population=3500000)
 generate.SIR.model(data,"Ontario",tot.population=14570000)
 
-# the function will agregate data for a geographical location, like a country with multiple entries
+# the function will aggregate data for a geographical location, like a country with multiple entries
 generate.SIR.model(data,"Canada",tot.population=37590000)
 ```
 
@@ -495,7 +495,7 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 
 
 ## References
-(\*) Data can be upto 24 hs delayed wrt latest updates.
+(\*) Data can be upto 24 hs delayed wrt the latest updates.
 
 [1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 https://github.com/CSSEGISandData/COVID-19
