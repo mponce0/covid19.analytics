@@ -11,7 +11,7 @@
 	log.sc.setup <- function(nbr.traces) {
 	#' aux fn to create a log-scale pulldown option in plotly plots
 	#' @param  nbr.traces  number of traces in order to set Ts/Fs
-	#' @keyword internal
+	#' @keywords internal
 
                 updatemenus = list(list(
                                 active = 0,
