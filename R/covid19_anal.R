@@ -428,8 +428,12 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
 		# get percentage cases
 		cols.perc <- c()
-		for (j in col.cases[2:4]) {
-			data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/data[,col.conf])*100,2)
+		for (j in col.cases[1:4]) {
+			if (j != col.conf) {
+				data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/data[,col.conf])*100,2)
+			} else {
+				 data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/sum(data[,col.conf]))*100,2)
+			}
 			cols.perc <- c(cols.perc,ncol(data))
 		}
 
@@ -468,6 +472,9 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 		data <- data[,-cols.perc]
 	}
 }
+
+
+#########################################################################
 
 
 report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE) {
@@ -547,7 +554,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		if (grepl("confirmed",i)) {
 			geo.list <- data[,c(country.col,province.col)]
                         total.cases <- data[,ncol(data)]
-			colsF <- colN+1
+			colsF <- (colN+1):(colN+2)
+			total.global <- sum(total.cases)
+			data$GlobalPerc <- round((total.cases/total.global)*100,2)
 		} else {
 			# check that the countries/regions match in order to compute percentages...
 			# Could improve partial matches...
@@ -565,6 +574,18 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		names(data.ordered)[1:3] <- c("Country.Region","Province.State","Totals")
 	
 		print(data.ordered)
+
+		# Average percentages...
+		Perc.col <- which(grepl("Perc",names(data)))
+		if (length(Perc.col)>0) {
+			header('-')
+			#print(data[,Perc.col])
+			header("",paste("Global Perc. Average: ",(mean(data[,Perc.col],na.rm=TRUE))) )
+		}
+		Perc.col.top <- which(grepl("Perc",names(data.ordered)))
+		if (length(Perc.col.top)>0) {
+			header("",paste("Global Perc. Average in top ",Nentries,": ",(mean(data.ordered[,Perc.col.top],na.rm=TRUE))) )		
+		}
 
 		header("=")
 
