@@ -116,7 +116,7 @@ and daily changes in the reported number of cases.
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabilities.
-A preliminary prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Survival-Infected-Recovered*) ODE model using the actual data of the virus.
+A preliminary prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Susceptible-Infected-Recovered*) ODE model using the actual data of the virus.
 
 
 ### Further Features
