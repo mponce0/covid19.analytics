@@ -402,7 +402,7 @@ Combining multiple geographical locations:
 TSconfirmed <- covid19.data("ts-confirmed")
 
 # explore different combinations of regions/cities/countries
-# when combining different locations heatmaps will also be generated comparing the trends among these locations
+# when combining different locations, heatmaps will also be generated comparing the trends among these locations
 growth.rate(TSconfirmed,geo.loc=c("Italy","Canada","Ontario","Quebec","Uruguay"))
 
 growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","United States","Canada","Ontario","Quebec","Uruguay"))
