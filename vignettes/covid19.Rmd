@@ -1,5 +1,5 @@
 ---
-title: "covid19 Package: get access to the live data from the nCOVID19 Coronavirus from JHU repository"
+title: "covid19.analytics Package: get access to and analyze the live worldwide data from the novel CoViD19 from JHU repository"
 author: "Marcelo Ponce"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
