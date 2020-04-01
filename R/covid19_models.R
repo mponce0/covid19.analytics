@@ -94,11 +94,12 @@ simple.SIR.ODE <- function(time, state, parameters) {
 }
 
 
-simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
+generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 				t0=NULL,t1=NULL, deltaT=NULL,
 				tfinal=90,
 				fatality.rate = 0.02,
-				tot.population=1400000000) {
+				tot.population=1400000000,
+				staticPlt=TRUE, interactiveFig=FALSE) {
 #' function to generate a simple SIR (Susceptible-Infected-Recovered) model based on the actual data of the coivd19 cases
 #'
 #' @param  data  time series dataset to consider
@@ -109,19 +110,20 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' @param  tfinal  total number of days
 #' @param  fatality.rate  rate of causality, deafault value of 2 percent
 #' @param  tot.population  total population of the country/region
+#' @param  staticPlt  optional flag to activate/deactive plotting of the data and the SIR model generated
+#' @param  interactiveFig  optional flag to activate/deactive the generation of an interactive plot of the data and the SIR model generated
 #'
 #' @importFrom  stats  optim setNames
 #' @importFrom  deSolve  ode
-#' @importFrom  graphics  matplot title legend points
 #'
 #' @export
 #'
 #' @examples
 #' data <- covid19.data("ts-confirmed")
-#' simple.SIR.model(data,"Hubei", t0=1,t1=15)
-#' simple.SIR.model(data,"Germany",tot.population=83149300)
-#' simple.SIR.model(data,"Uruguay", tot.population=3500000)
-#' simple.SIR.model(data,"Canada", tot.population=37590000)
+#' generate.SIR.model(data,"Hubei", t0=1,t1=15)
+#' generate.SIR.model(data,"Germany",tot.population=83149300)
+#' generate.SIR.model(data,"Uruguay", tot.population=3500000)
+#' generate.SIR.model(data,"Canada", tot.population=37590000)
 #'
 
 	# DISCLAIMER // EXPERIMENTAL FEATURES
@@ -193,12 +195,12 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 
 	###########
 	header('-',"Parameters used to create model ")
-	cat('\t',"Region: ",toupper(geo.loc),'\n')
-	cat('\t',"Time interval to consider: t0=",t0," - t1=",t1," ; tfinal=",tfinal,'\n')
-	cat('\t\t',"t0: ",names(data)[t0+colOffset]," -- t1: ",names(data)[t1+colOffset],'\n')
-	cat('\t',"Number of days considered for initial guess: ",length(Infected),'\n')
-	cat('\t',"Fatality rate: ",fatality.rate,'\n')
-	cat('\t',"Population of the region: ",tot.population,'\n')
+	header("",paste0('\t',"Region: ",toupper(geo.loc)))
+	header("",paste0('\t',"Time interval to consider: t0=",t0," - t1=",t1," ; tfinal=",tfinal))
+	header("",paste0('\t\t',"t0: ",names(data)[t0+colOffset]," -- t1: ",names(data)[t1+colOffset]))
+	header("",paste0('\t',"Number of days considered for initial guess: ",length(Infected)))
+	header("",paste0('\t',"Fatality rate: ",fatality.rate))
+	header("",paste0('\t',"Population of the region: ",tot.population))
 	header('-')
 	###########
 
@@ -225,19 +227,6 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	Day <- 1:(length(Infected))
 
         
-	### preserve user graphical env.
-	# save the state of par() before running the code
-	oldpar <- par(no.readonly = TRUE)
-	# restore the previous state after the fn is done, even if it fails, so the user environment is not altered
-	on.exit(par(oldpar))
-	#########
-
-	par(mfrow = c(2, 2))
-	plot(Day, Infected, type ="b")
-	plot(Day, Infected, log = "y")
-	abline(lm(log10(Infected) ~ Day))
-	title(paste("Confirmed Cases 2019-nCoV:",toupper(geo.loc)), outer = TRUE, line = -2)
-
 	loadLibrary("deSolve")
 	init.cond <- c(S = .SIR.model.env$N-Infected[1], I = Infected[1], R = 0)
 
@@ -270,40 +259,126 @@ simple.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	time <- 1:tfinal # time in days
 	fit <- data.frame(ode(y = init.cond, times = time, func = simple.SIR.ODE, parms = Opt_par))
 
-	col <- c("blue","red","green") 
- 
-	matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col)
-	matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col, log = "y")
-	## Warning in xy.coords(x, y, xlabel, ylabel, log = log): 1 y value <= 0
-	## omitted from logarithmic plot
-
-	points(Day, Infected)
-	legend("bottomright", c("Susceptible", "Infected", "Recovered"), lty = 1, lwd = 2, col = col, inset = 0.05)
-	title(paste("SIR model 2019-nCoV:", toupper(geo.loc)), outer = TRUE, line = -22)
-	#axis.Date(1,as.Date(names(data)[colOffset:ncol(data)]))
-
 	# R_naught
 	R0 <- setNames(Opt_par["beta"] / Opt_par["gamma"], "R0")
-	print(R0)
+	header("",paste("R0 =",R0))
  
 	# height of pandemic
 	max.I <- max(fit$I)
 	max.I.time <- fit$time[fit$I==max.I]
-	cat("Max of infecteded:", max.I, " (",(max.I/tot.population)*100,"%)",'\n')
+	header("",paste("Max of infecteded:", round(max.I,2), " (",round((max.I/tot.population)*100,2),"%)"))
 	#print(fit[fit$I == max(fit$I), "I", drop = FALSE]) 
 
+
 	# Max number of casualties
-	cat("Max nbr of casualties, with ", paste0(fatality.rate*100,"% fatality rate:"),
-		max.I*fatality.rate,'\n')
-	cat("Max reached at day :", max.I.time,
-		'==> ')
-	print(as.Date(names(data)[t0+colOffset])+max.I.time)
+	header("",paste("Max nbr of casualties, assuming ", paste0(round(fatality.rate*100,2),"% fatality rate:"),
+		round(max.I*fatality.rate,2)))
+	header("",paste("Max reached at day :", max.I.time, '==> ',as.Date(names(data)[t0+colOffset])+max.I.time))
 
 	header("=")
+
+	# group fit and data in an object to be returned
+	SIR.model <- list(Infected=Infected, model=fit)
+
+	# display plots if requested
+	if (staticPlt | interactiveFig)
+		plot.SIR.model(SIR.model,geo.loc, interactiveFig)
+
+
+	return(SIR.model)
 }
 
 #######################################################################
 #######################################################################
+
+plot.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=NULL) {
+#' function to plot the results from the SIR model fn
+#'
+#' @param  SIR.model model resulting from the generate.SIR.model() fn
+#' @param  geo.loc  optional string to specify geographical location
+#' @param  interactiveFig  optional flag to activate interactive plot
+#' @param  fileName  file where to save the HTML version of the interactive figure
+#'
+#' @keywords internal
+#'
+#' @importFrom  graphics  matplot title legend points
+#' @importFrom  plotly  plot_ly %>% add_trace as_widget
+#' @importFrom  htmlwidgets  saveWidget
+#'
+
+	# recover data from model
+	Infected <- SIR.model$Infected
+	fit <- SIR.model$model
+
+        # Determine nbr of days 
+        Day <- 1:(length(Infected))
+
+
+        ### preserve user graphical env.
+        # save the state of par() before running the code
+        oldpar <- par(no.readonly = TRUE)
+        # restore the previous state after the fn is done, even if it fails, so the user environment is not altered
+        on.exit(par(oldpar))
+        #########
+
+        par(mfrow = c(2, 2))
+        plot(Day, Infected, type ="b")
+        plot(Day, Infected, log = "y")
+        abline(lm(log10(Infected) ~ Day))
+        title(paste("Confirmed Cases 2019-nCoV:",toupper(geo.loc)), outer = TRUE, line = -2)
+
+        col <- c("blue","red","green")
+
+        matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col)
+        matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col, log = "y")
+        ## Warning in xy.coords(x, y, xlabel, ylabel, log = log): 1 y value <= 0
+        ## omitted from logarithmic plot
+
+        points(Day, Infected)
+        legend("bottomright", c("Susceptible", "Infected", "Recovered"), lty = 1, lwd = 2, col = col, inset = 0.05)
+        title(paste("SIR model 2019-nCoV:", toupper(geo.loc)), outer = TRUE, line = -22)
+        #axis.Date(1,as.Date(names(data)[colOffset:ncol(data)]))
+
+        ### INTERACTIVE PLOTS
+        if (interactiveFig) {
+                # load/check plotly
+                loadLibrary("plotly")
+
+                # define interactive figure/plot
+		model.ifig <- plot_ly(data=fit, x = ~fit[,1])
+
+		length(Infected) <- length(fit[,1])
+
+		loc.data <- cbind(Infected,fit[,1:4])
+		#print(loc.data)
+
+		#model.ifig <- model.ifig %>% add_trace(y = ~Infected, name="Actual data", type='scatter', mode='markers', visible=TRUE)
+		# add traces
+		model.ifig <- add.N.traces(model.ifig,loc.data, c("data","Susceptible", "Infected", "Recovered"), vis=TRUE)
+
+		# extra traces for activating log-scale
+		model.ifig <- add.N.traces(model.ifig, log10(loc.data), c("data","Susceptible", "Infected", "Recovered"), vis=FALSE)
+                        
+		# log-scale menu based on nbr of traces...
+                        
+		updatemenues <- log.sc.setup(4)
+
+                # add a menu for switching log/linear scale
+                model.ifig <- model.ifig %>% layout(updatemenus=updatemenues)
+
+
+                # activate interactive figure
+                print(model.ifig)
+
+
+		if (!is.null(fileName)) {
+			FileName <- paste0(fileName,".html")
+			# informing where the plot is going to be saved
+			message("Saving interactive plot in ", FileName)
+			htmlwidgets::saveWidget(as_widget(model.ifig), FileName)
+		}
+	}
+}
 
 #######################################################################
 

@@ -6,12 +6,12 @@
 #############################################################################
 
 # Define methods associated with descrn.obj
-print <- function(report.obj){
-#' method associated with 'report' objects
-#' @param  report.obj  'report' object
-#' @keywords internal
-       UseMethod("print",report.obj)
-}
+#print <- function(report.obj){
+##' method associated with 'report' objects
+##' @param  report.obj  'report' object
+##' @keywords internal
+#       UseMethod("print",report.obj)
+#}
 
 print.report <- function(report.obj) {
 #' function associated to the 'report' object method
