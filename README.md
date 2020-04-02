@@ -481,30 +481,6 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
 
-## Further Resources
-<p aling="center">
- <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
- <br>
- <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
-</p>
-
-* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
-* https://www.repidemicsconsortium.org/
-* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
-* https://www.youtube.com/watch?v=Kas0tIxDvrg
-
-
-### Dashboards
-<!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
-* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
-* https://resources-covid19canada.hub.arcgis.com/
-* https://aatishb.com/covidtrends/
-* https://nextstrain.org/ncov
-* https://coronavirus.jhu.edu/map.html
-* https://coronavirus.jhu.edu/data/new-cases
-<!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
-
-
 ## References
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
@@ -520,3 +496,30 @@ Complexity of the Basic Reproduction Number (R0).
 Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
+
+## Further Resources
+<p aling="center">
+ <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
+ <br>
+ <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
+</p>
+
+* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* https://www.repidemicsconsortium.org/
+* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
+* Exponential Growth and Epidemics, by 3Blue1Brown: https://www.youtube.com/watch?v=Kas0tIxDvrg
+
+* http://gabgoh.github.io/COVID/index.html
+
+
+### Dashboards
+<!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
+* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
+* https://resources-covid19canada.hub.arcgis.com/
+* https://aatishb.com/covidtrends/
+* https://nextstrain.org/ncov
+* https://coronavirus.jhu.edu/map.html
+* https://coronavirus.jhu.edu/data/new-cases
+<!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
+
