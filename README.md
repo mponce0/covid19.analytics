@@ -314,7 +314,7 @@ tots.per.location(covid19.confirmed.cases,geo.loc="Hubei", confBnd=TRUE)
 </p>
 -->
   <p>
-  Images available <a href="man/figures/">here</a> 
+  Images available <a href="https://github.com/mponce0/covid19.analytics/tree/master/man/figures/">here</a> 
  </p>
  </embed>
 </object>
