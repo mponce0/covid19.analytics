@@ -494,6 +494,15 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 * https://www.youtube.com/watch?v=Kas0tIxDvrg
 
 
+
+### Dashboards
+* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/
+* https://resources-covid19canada.hub.arcgis.com/
+* https://aatishb.com/covidtrends/
+* https://nextstrain.org/ncov
+* https://schulich.yorku.ca/covid-19-dynamics/
+
+
 ## References
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
@@ -503,3 +512,9 @@ https://github.com/CSSEGISandData/COVID-19
 [2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
+
+* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
+Complexity of the Basic Reproduction Number (R0).
+Emerg Infect Dis. 2019;25(1):1-4.
+https://dx.doi.org/10.3201/eid2501.171901
+https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
