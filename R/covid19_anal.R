@@ -477,12 +477,13 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 #########################################################################
 
 
-report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE) {
+report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE, saveReport=FALSE) {
 #' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
 #' @param  cases.to.process  which data to process: "TS", "AGG" or "ALL"
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
+#' @param  saveREPORT  flsg to indicate whether the report should be saved in a file
 #'
 #' @importFrom  grDevices  heat.colors
 #' @importFrom  graphics  pie
@@ -514,6 +515,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		on.exit(par(old.par))
 	}
 
+	if (saveReport) sink(file=paste0("covid19-SummaryReport_",Sys.Date(),".txt"),split=TRUE)
 
 	##### PROCESS TIME SERIES DATA ######
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="TS") ) {
@@ -540,9 +542,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 
 		country.col <- pmatch("Country", names(data))
 		province.col <- pmatch("Province", names(data))
-		cat("Total number of Countries/Regions affected: ",length(unique(data[,country.col])),'\n')
+		header('',paste("Total number of Countries/Regions affected: ",length(unique(data[,country.col]))) )
 
-		cat("Total number of Cities/Provinces affected: ",length(unique(data[,province.col])),'\n')
+		header('',paste("Total number of Cities/Provinces affected: ",length(unique(data[,province.col]))) )
 
 		header("-")
 
@@ -616,6 +618,8 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="AGG") ) {
 		process.agg.cases(covid19.data("aggregated"), Nentries, graphical.output)
 	}
+
+	if (saveReport) sink()
 }
 
 #############################################################################
