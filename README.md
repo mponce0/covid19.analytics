@@ -494,13 +494,15 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 * https://www.youtube.com/watch?v=Kas0tIxDvrg
 
 
-
 ### Dashboards
-* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/
+<!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
+* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
 * https://resources-covid19canada.hub.arcgis.com/
 * https://aatishb.com/covidtrends/
 * https://nextstrain.org/ncov
-* https://schulich.yorku.ca/covid-19-dynamics/
+* https://coronavirus.jhu.edu/map.html
+* https://coronavirus.jhu.edu/data/new-cases
+<!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
 
 
 ## References
