@@ -513,6 +513,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 * https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
 
 
+### Explanatory Videos
 * Exponential Growth and Epidemics, by 3Blue1Brown:  https://www.youtube.com/watch?v=Kas0tIxDvrg
 * Simulating an epidemic, by 3Blue1Brown:  https://www.youtube.com/watch?v=gxAaO2rsdIs
 
