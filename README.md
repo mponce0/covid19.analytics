@@ -510,7 +510,6 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 * https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
 * Exponential Growth and Epidemics, by 3Blue1Brown: https://www.youtube.com/watch?v=Kas0tIxDvrg
 
-* http://gabgoh.github.io/COVID/index.html
 
 
 ### Dashboards
@@ -519,6 +518,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 * https://resources-covid19canada.hub.arcgis.com/
 * https://aatishb.com/covidtrends/
 * https://nextstrain.org/ncov
+* http://gabgoh.github.io/COVID/index.html
 * https://coronavirus.jhu.edu/map.html
 * https://coronavirus.jhu.edu/data/new-cases
 <!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
