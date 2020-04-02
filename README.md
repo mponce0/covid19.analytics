@@ -507,9 +507,9 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
 
 ### More R Resources
-* https://www.repidemicsconsortium.org/
-* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
-* https://rviews.rstudio.com/2020/03/19/simulating-covid-19-interventions-with-r/
+* The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
+* SIR model: https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* EpiModel: https://rviews.rstudio.com/2020/03/19/simulating-covid-19-interventions-with-r/
 * https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
 
 
