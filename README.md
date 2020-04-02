@@ -505,11 +505,16 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
 
-* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
-* https://www.repidemicsconsortium.org/
-* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
-* Exponential Growth and Epidemics, by 3Blue1Brown: https://www.youtube.com/watch?v=Kas0tIxDvrg
 
+### More R Resources
+* https://www.repidemicsconsortium.org/
+* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* https://rviews.rstudio.com/2020/03/19/simulating-covid-19-interventions-with-r/
+* https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
+
+
+* Exponential Growth and Epidemics, by 3Blue1Brown:  https://www.youtube.com/watch?v=Kas0tIxDvrg
+* Simulating an epidemic, by 3Blue1Brown:  https://www.youtube.com/watch?v=gxAaO2rsdIs
 
 
 ### Dashboards
