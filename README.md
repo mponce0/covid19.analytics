@@ -281,7 +281,7 @@ report.summary()
 report.summary(saveReport=TRUE)
 ```
 
-<object data="man/figures/covid19-SummaryReport.txt" type="application/txt" width="450px">
+<object data="man/figures/covid19-SummaryReport.pdf" type="application/txt" width="450px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt">
  <p>
   E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/tree/master/man/figures/covid19-SummaryReport.txt">here</a> 
