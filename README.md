@@ -167,7 +167,7 @@ in particular modelling and predictive capabilities.
   <tr>
     <td> <code>report.summary</code> </td>
     <td> summarize the current situation, will download the latest data and summarize different quantities </td>
-    <td> on screen table and static plots (pie and bar plots) with reported information </td>
+    <td> on screen table and static plots (pie and bar plots) with reported information, can also output the tables into a text file</td>
   </tr>
   <tr>
    <td> <code>tots.per.location</code> </td>
@@ -267,6 +267,9 @@ Read covid19's genomic data
 ```R
 # a quick function to overview top cases per region for time series and aggregated records
 report.summary()
+
+# save the tables into a text file named 'covid19-SummaryReport_CURRENTDATE.txt' where CURRRENTDATE is the actual date
+report.summary(saveReport=TRUE)
 ```
 
 <p>
