@@ -481,6 +481,26 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
 
+## References
+(\*) Data can be upto 24 hs delayed wrt the latest updates.
+
+[1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
+https://github.com/CSSEGISandData/COVID-19
+[1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
+https://github.com/CSSEGISandData/COVID-19
+
+[2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
+
+* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
+Complexity of the Basic Reproduction Number (R0).
+Emerg Infect Dis. 2019;25(1):1-4.
+https://dx.doi.org/10.3201/eid2501.171901
+https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
+
 ## Further Resources
 <p aling="center">
  <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
@@ -488,19 +508,27 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
 
-* https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
-* https://www.repidemicsconsortium.org/
+
+### More R Resources
+* The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
+* SIR model: https://blog.ephorie.de/epidemiology-how-contagious-is-novel-coronavirus-2019-ncov
+* EpiModel: https://rviews.rstudio.com/2020/03/19/simulating-covid-19-interventions-with-r/
 * https://rviews.rstudio.com/2020/03/05/covid-19-epidemiology-with-r/
-* https://www.youtube.com/watch?v=Kas0tIxDvrg
 
+<!--
+### Explanatory Videos
+* Exponential Growth and Epidemics, by 3Blue1Brown:  https://www.youtube.com/watch?v=Kas0tIxDvrg
+* Simulating an epidemic, by 3Blue1Brown:  https://www.youtube.com/watch?v=gxAaO2rsdIs
+-->
 
-## References
-(\*) Data can be upto 24 hs delayed wrt the latest updates.
+### Dashboards
+<!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
+* https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
+* https://resources-covid19canada.hub.arcgis.com/
+* https://aatishb.com/covidtrends/
+* https://nextstrain.org/ncov
+* http://gabgoh.github.io/COVID/index.html
+* https://coronavirus.jhu.edu/map.html
+* https://coronavirus.jhu.edu/data/new-cases
+<!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
 
-[1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by 
-Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
-https://github.com/CSSEGISandData/COVID-19
-
-[2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
-NCBI Reference Sequence: NC_045512.2
-https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
