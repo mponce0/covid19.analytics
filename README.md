@@ -267,15 +267,24 @@ Read covid19's genomic data
 ```R
 # a quick function to overview top cases per region for time series and aggregated records
 report.summary()
-
-# save the tables into a text file named 'covid19-SummaryReport_CURRENTDATE.txt' where CURRRENTDATE is the actual date
-report.summary(saveReport=TRUE)
 ```
 
 <p>
   <img src="man/figures/report-summ-agg.pdf" width="45%" />
   <img src="man/figures/report-summ-TSconfirmed.pdf" width="45%" />
 </p>
+
+
+```R
+# save the tables into a text file named 'covid19-SummaryReport_CURRENTDATE.txt'
+# where *CURRRENTDATE* is the actual date
+report.summary(saveReport=TRUE)
+```
+
+<object data="man/figures/covid19-SummaryReport.txt" type="application/txt" width="450px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt">
+ </embed>
+</object>
 
 
 #### Totals per Country/Region/Province
