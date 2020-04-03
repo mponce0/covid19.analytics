@@ -480,10 +480,10 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE, saveReport=FALSE) {
 #' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
-#' @param  cases.to.process  which data to process: "TS", "AGG" or "ALL"
+#' @param  cases.to.process  which data to process: "TS" --time series--, "AGG" --aggregated-- or "ALL" --time series and aggregated--
 #' @param  Nentries  number of top cases to display
 #' @param  graphical.output  flag to deactivate graphical output
-#' @param  saveREPORT  flsg to indicate whether the report should be saved in a file
+#' @param  saveReport  flag to indicate whether the report should be saved in a file
 #'
 #' @importFrom  grDevices  heat.colors
 #' @importFrom  graphics  pie
