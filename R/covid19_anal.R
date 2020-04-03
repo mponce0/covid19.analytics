@@ -515,7 +515,11 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		on.exit(par(old.par))
 	}
 
-	if (saveReport) sink(file=paste0("covid19-SummaryReport_",Sys.Date(),".txt"),split=TRUE)
+	# save report to a file
+	if (saveReport) {
+			fileName <- paste0("covid19-SummaryReport_",Sys.Date(),".txt")
+			sink(file=fileName,split=TRUE)
+	}
 
 	##### PROCESS TIME SERIES DATA ######
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="TS") ) {
@@ -619,7 +623,10 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		process.agg.cases(covid19.data("aggregated"), Nentries, graphical.output)
 	}
 
-	if (saveReport) sink()
+	if (saveReport) {
+		sink()
+		message("Report saved in ",fileName)
+	}
 }
 
 #############################################################################
