@@ -1,11 +1,11 @@
 Package: covid19.analytics
 Type: Package
-Title: Load and Analyze Live Data from the COVID-19 Virus
+Title: Load and Analyze Live Data from the CoViD-19 Pandemic
 Version: 1.0
-Date: 2020-03-28
+Date: 2020-04-03
 Author: Marcelo Ponce [aut, cre]
 Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
-Description: Loads and analyze updated worldwide data for the Novel Coronavirus (COVID-19) from JHU's CCSEGIS and Data repository <https://github.com/CSSEGISandData/COVID-19>.
+Description: Load and analyze updated time series worldwide data of reported cases for the Novel CoronaVirus Disease (CoViD-19) from the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) data repository <https://github.com/CSSEGISandData/COVID-19>. Several analysis, visualization and modelling functions are available in the package to analyze and model the disease spread.
 Imports:
     ape,
     plotly,
