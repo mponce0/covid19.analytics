@@ -255,7 +255,7 @@ library(covid19.analytics)
 Read covid19's genomic data 
 ```R
 # obtain covid19's genomic data
- covid19.gen.seq <- covid19.geomic.data()
+ covid19.gen.seq <- covid19.genomic.data()
 
 # display the actual RNA seq
  covid19.gen.seq$NC_045512.2
@@ -497,7 +497,8 @@ plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.m
 ## References
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
-[1] 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
+[1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by 
+Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
 [2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
