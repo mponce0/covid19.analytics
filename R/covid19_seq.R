@@ -2,7 +2,7 @@
 #
 # M.Ponce
 
-covid19.geomic.data <- function(graphics.ON=TRUE) {
+covid19.genomic.data <- function(graphics.ON=TRUE) {
 #' function to obtain sequencing data grom NCBI
 #' Reference:  https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 #' 
@@ -14,7 +14,7 @@ covid19.geomic.data <- function(graphics.ON=TRUE) {
 #'
 #' @examples
 #' # obtain covid19's genomic data
-#' covid19.gen.seq <- covid19.geomic.data()
+#' covid19.gen.seq <- covid19.genomic.data()
 #' # display the actual RNA seq
 #' covid19.gen.seq$NC_045512.2
 #'
