@@ -509,6 +509,10 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 	}
 
 
+	# preserve user options
+	old.opts <- options("width")
+	options(width=200)
+
 	# preserve user graphical environment
 	if (graphical.output) {
 		old.par <- par(no.readonly=TRUE)
@@ -627,6 +631,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		sink()
 		message("Report saved in ",fileName)
 	}
+
+	# reset options to user ones
+	options(old.opts)
 }
 
 #############################################################################
