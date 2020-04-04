@@ -386,11 +386,18 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 #############################################################################
 process.agg.cases <- function(data, Nentries, graphical.output) {
 
+	#######
+
 	comb.cols <- function(x,y) {
 
-		return(c(x[1:2],y[1],x[3],y[2],x[4],y[3]))
+		#return(c(x[1:2],y[1],x[3],y[2],x[4],y[3]))
+		return(c(x[1],y[1], x[2],y[2], x[3],y[3], x[4],y[4]))
 	}
 
+	#######
+
+	# set the length in chars for the output
+	scr.len <- 122
 
 	if (graphical.output)
 		par(mfrow=c(4,2))
@@ -415,17 +422,17 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
 	cases <- c("Confirmed","Deaths","Recovered","Active")
 	for (i in col.cases) {
-		header("#", total.len=120)
+		header("#", total.len=scr.len)
 		report.title <- paste("AGGREGATED Data  -- ORDERED BY ",toupper(col.names[i]),"Cases  -- Data dated: ",
 					as.character(max(as.Date(data[,date.col]))) ,
 					" :: ",as.character(Sys.time()) )
 		header('',paste0("##### ",report.title))
-		header("#", total.len=120)
+		header("#", total.len=scr.len)
 
 		header('',paste0("Number of Countries/Regions reported: ",length(unique(data[,country.col]))))
 		header('',paste0("Number of Cities/Provinces reported: ",length(unique(data[,province.col]))))
 		header('',paste0("Unique number of geographical locations combined: ",nrow(unique(data[,c(country.col,province.col)]))))
-		header("-", total.len=120)
+		header("-", total.len=scr.len)
 
 		# get percentage cases
 		cols.perc <- c()
@@ -441,12 +448,13 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 		# top countries/regions
 		#data.ordered <- data[order(data[,i],decreasing=TRUE),][1:Nentries,c(country.col,province.col, col.cases, cols.perc)]
 		custom.list <- comb.cols(col.cases,cols.perc)
+		#print(custom.list)
 		data.ordered <- data[order(data[,i],decreasing=TRUE),][1:Nentries,c(country.col,province.col, custom.list)]
 #                names(data.ordered) <- c("Country.Region","Province.State", cases)
 
                 print(data.ordered)
 
-		header("=", total.len=120)
+		header("=", total.len=scr.len)
 
 		target.col <- col.names[i]
 		ord.cty.col <- pmatch("Country",names(data.ordered))
