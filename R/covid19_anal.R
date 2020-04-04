@@ -415,16 +415,17 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
 	cases <- c("Confirmed","Deaths","Recovered","Active")
 	for (i in col.cases) {
-		header("#")
+		header("#", total.len=120)
 		report.title <- paste("AGGREGATED Data  -- ORDERED BY ",toupper(col.names[i]),"Cases  -- Data dated: ",
 					as.character(max(as.Date(data[,date.col]))) ,
 					" :: ",as.character(Sys.time()) )
 		header('',paste0("##### ",report.title))
-		header("#")
+		header("#", total.len=120)
 
-		header('',paste0("Total number of Countries/Regions affected: ",length(unique(data[,country.col]))))
-		header('',paste0("Total number of Cities/Provinces affected: ",length(unique(data[,province.col]))))
-		header("-")
+		header('',paste0("Number of Countries/Regions reported: ",length(unique(data[,country.col]))))
+		header('',paste0("Number of Cities/Provinces reported: ",length(unique(data[,province.col]))))
+		header('',paste0("Unique number of geographical locations combined: ",nrow(unique(data[,c(country.col,province.col)]))))
+		header("-", total.len=120)
 
 		# get percentage cases
 		cols.perc <- c()
@@ -445,7 +446,7 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
                 print(data.ordered)
 
-		header("=")
+		header("=", total.len=120)
 
 		target.col <- col.names[i]
 		ord.cty.col <- pmatch("Country",names(data.ordered))
@@ -497,6 +498,25 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 #' # get the top 20
 #' report.summary(20)
 #'
+
+	######################
+
+	report.Avgs <- function(data,target="Perc",descr="") {
+
+                Perc.col <- which(grepl(target,names(data)))
+                if (length(Perc.col)>0) {
+                        #print(data[,Perc.col])
+                        header("",paste(descr,
+						round(mean(data[,Perc.col],na.rm=TRUE),2),
+						paste0("(sd: ",round(sd(data[,Perc.col],na.rm=TRUE),2),")")
+                                        )
+                                )
+                }
+
+	}
+
+	#####################
+
 
 	Ndefault <- 10
 
@@ -550,10 +570,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 
 		country.col <- pmatch("Country", names(data))
 		province.col <- pmatch("Province", names(data))
-		header('',paste("Total number of Countries/Regions affected: ",length(unique(data[,country.col]))) )
-
-		header('',paste("Total number of Cities/Provinces affected: ",length(unique(data[,province.col]))) )
-
+		header('',paste("Number of Countries/Regions reported: ",length(unique(data[,country.col]))) )
+		header('',paste("Number of Cities/Provinces reported: ",length(unique(data[,province.col]))) )
+		header('',paste0("Unique number of geographical locations combined: ",nrow(unique(data[,c(country.col,province.col)]))))
 		header("-")
 
 		# Totals per countries/cities
@@ -563,8 +582,8 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		# store total nbr of cases
 		if (grepl("confirmed",i)) {
 			geo.list <- data[,c(country.col,province.col)]
-                        total.cases <- data[,ncol(data)]
-			colsF <- (colN+1):(colN+2)
+                        total.cases <- data[,colN]
+			colsF <- (colN+1):(colN+3)
 			total.global <- sum(total.cases)
 			data$GlobalPerc <- round((total.cases/total.global)*100,2)
 		} else {
@@ -574,29 +593,24 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 				&&  sum(as.character(data[,province.col])==as.character(geo.list[1:nRecords,2]))==nRecords ) {
 				# get percentage cases
 				data$Perc  <- round((data[,colN]/total.cases[1:nRecords])*100,2)
-				colsF <- (colN+1):(colN+2)
+				colsF <- (colN+1):(colN+3)
 			} else {
-				colsF <- colN+1
+				colsF <- (colN+1):(colN+2)
 			}
 		}
+		# last day change for all cases
+		data$"LastDayChange" <- data[,colN]-data[,colN-1]
+
 		# top countries/regions
 		data.ordered <- data[order(data$Totals,decreasing=TRUE),][1:Nentries,c(country.col,province.col,colsF)]
 		names(data.ordered)[1:3] <- c("Country.Region","Province.State","Totals")
 	
 		print(data.ordered)
 
-		# Average percentages...
-		Perc.col <- which(grepl("Perc",names(data)))
-		if (length(Perc.col)>0) {
-			header('-')
-			#print(data[,Perc.col])
-			header("",paste("Global Perc. Average: ",(mean(data[,Perc.col],na.rm=TRUE))) )
-		}
-		Perc.col.top <- which(grepl("Perc",names(data.ordered)))
-		if (length(Perc.col.top)>0) {
-			header("",paste("Global Perc. Average in top ",Nentries,": ",(mean(data.ordered[,Perc.col.top],na.rm=TRUE))) )		
-		}
-
+		# Report Average Percentages...
+		header('-')
+		report.Avgs(data,"Perc",descr="Global Perc. Average: ")
+		report.Avgs(data.ordered,"Perc",descr=paste("Global Perc. Average in top ",Nentries,": "))
 		header("=")
 
 		# graphics
