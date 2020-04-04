@@ -1,91 +1,96 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:40 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:14 
 ################################################################################ 
-  Total number of Countries/Regions affected:  181 
-  Total number of Cities/Provinces affected:  81 
+  Number of Countries/Regions reported:  181 
+  Number of Cities/Provinces reported:  81 
+  Unique number of geographical locations combined: 258 
 -------------------------------------------------------------------------------- 
-    Country.Region Province.State Totals GlobalPerc
-226             US                275586      25.15
-138          Italy                119827      10.93
-202          Spain                119199      10.88
-121        Germany                 91159       8.32
-63           China          Hubei  67802       6.19
-117         France                 64338       5.87
-134           Iran                 53183       4.85
-224 United Kingdom                 38168       3.48
-214         Turkey                 20921       1.91
-207    Switzerland                 19606       1.79
-24         Belgium                 16770       1.53
-170    Netherlands                 15723       1.43
-17         Austria                 11524       1.05
-144   Korea, South                 10062       0.92
-185       Portugal                  9886       0.90
+    Country.Region Province.State Totals GlobalPerc LastDayChange
+226             US                275586      25.15         32133
+138          Italy                119827      10.93          4585
+202          Spain                119199      10.88          7134
+121        Germany                 91159       8.32          6365
+63           China          Hubei  67802       6.19             0
+117         France                 64338       5.87          5233
+134           Iran                 53183       4.85          2715
+224 United Kingdom                 38168       3.48          4450
+214         Turkey                 20921       1.91          2786
+207    Switzerland                 19606       1.79           779
+24         Belgium                 16770       1.53          1422
+170    Netherlands                 15723       1.43          1026
+17         Austria                 11524       1.05           395
+144   Korea, South                 10062       0.92            86
+185       Portugal                  9886       0.90           852
 -------------------------------------------------------------------------------- 
-  Global Perc. Average:  0.387403100775194 
-  Global Perc. Average in top  15 :  5.68 
+  Global Perc. Average:  0.39 (sd: 2) 
+  Global Perc. Average in top  15 :  5.68 (sd: 6.43) 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:40 
+  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:14 
 ################################################################################ 
-  Total number of Countries/Regions affected:  181 
-  Total number of Cities/Provinces affected:  66 
+  Number of Countries/Regions reported:  181 
+  Number of Cities/Provinces reported:  66 
+  Unique number of geographical locations combined: 244 
 -------------------------------------------------------------------------------- 
-    Country.Region Province.State Totals
-54           China          Hubei  63612
-200          Spain                 30513
-113        Germany                 24575
-132          Italy                 19758
-128           Iran                 17935
-109         France                 14008
-226             US                  9707
-138   Korea, South                  6021
-205    Switzerland                  4846
-24         Belgium                  2872
-37          Canada                  2175
-17         Austria                  2022
-46           China      Guangdong   1368
-52           China          Henan   1251
-73           China       Zhejiang   1228
+    Country.Region Province.State Totals LastDayChange
+54           China          Hubei  63612           141
+200          Spain                 30513          3770
+113        Germany                 24575          2135
+132          Italy                 19758          1480
+128           Iran                 17935          1224
+109         France                 14008          1580
+226             US                  9707           706
+138   Korea, South                  6021           193
+205    Switzerland                  4846           833
+24         Belgium                  2872           377
+37          Canada                  2175           440
+17         Austria                  2022           273
+46           China      Guangdong   1368             3
+52           China          Henan   1251             0
+73           China       Zhejiang   1228             0
+-------------------------------------------------------------------------------- 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:40 
+  ##### TS-DEATHS Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:14 
 ################################################################################ 
-  Total number of Countries/Regions affected:  181 
-  Total number of Cities/Provinces affected:  81 
+  Number of Countries/Regions reported:  181 
+  Number of Cities/Provinces reported:  81 
+  Unique number of geographical locations combined: 258 
 -------------------------------------------------------------------------------- 
-    Country.Region Province.State Totals  Perc
-138          Italy                 14681 12.25
-202          Spain                 11198  9.39
-226             US                  7087  2.57
-117         France                  6507 10.11
-224 United Kingdom                  3605  9.45
-134           Iran                  3294  6.19
-63           China          Hubei   3203  4.72
-170    Netherlands                  1487  9.46
-121        Germany                  1275  1.40
-24         Belgium                  1143  6.82
-207    Switzerland                   591  3.01
-214         Turkey                   425  2.03
-29          Brazil                   359  3.96
-206         Sweden                   358  5.84
-185       Portugal                   246  2.49
+    Country.Region Province.State Totals  Perc LastDayChange
+138          Italy                 14681 12.25           766
+202          Spain                 11198  9.39           850
+226             US                  7087  2.57          1161
+117         France                  6507 10.11          1120
+224 United Kingdom                  3605  9.45           684
+134           Iran                  3294  6.19           134
+63           China          Hubei   3203  4.72             4
+170    Netherlands                  1487  9.46           148
+121        Germany                  1275  1.40           168
+24         Belgium                  1143  6.82           132
+207    Switzerland                   591  3.01            55
+214         Turkey                   425  2.03            69
+29          Brazil                   359  3.96            35
+206         Sweden                   358  5.84            50
+185       Portugal                   246  2.49            37
 -------------------------------------------------------------------------------- 
-  Global Perc. Average:  Inf 
-  Global Perc. Average in top  15 :  5.97933333333333 
+  Global Perc. Average:  Inf (sd: NaN) 
+  Global Perc. Average in top  15 :  5.98 (sd: 3.46) 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:40 
-################################################################################ 
-  Total number of Countries/Regions affected: 181 
-  Total number of Cities/Provinces affected: 136 
--------------------------------------------------------------------------------- 
+######################################################################################################################## 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:15 
+######################################################################################################################## 
+  Number of Countries/Regions reported: 181 
+  Number of Cities/Provinces reported: 136 
+  Unique number of geographical locations combined: 315 
+------------------------------------------------------------------------------------------------------------------------ 
      Country_Region Province_State Confirmed Deaths Perc.Confirmed Recovered Perc.Deaths Active Perc.Recovered
 2529          Italy                   119827  14681          10.93     19758       12.25  85388          16.49
 2599          Spain                   119199  11198          10.88     30513        9.39  77488          25.60
@@ -102,13 +107,14 @@
 2267             US       New York     12351     67           1.13         0        0.54      0           0.00
 1504             US       New York     12024     95           1.10         0        0.79      0           0.00
 2456        Austria                    11524    168           1.05      2022        1.46   9334          17.55
-================================================================================ 
-################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:41 
-################################################################################ 
-  Total number of Countries/Regions affected: 181 
-  Total number of Cities/Provinces affected: 136 
--------------------------------------------------------------------------------- 
+======================================================================================================================== 
+######################################################################################################################## 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:15 
+######################################################################################################################## 
+  Number of Countries/Regions reported: 181 
+  Number of Cities/Provinces reported: 136 
+  Unique number of geographical locations combined: 315 
+------------------------------------------------------------------------------------------------------------------------ 
      Country_Region Province_State Confirmed Deaths Perc.Confirmed Recovered Perc.Deaths Active Perc.Recovered
 2529          Italy                   119827  14681          10.93     19758       12.25  85388          16.49
 2599          Spain                   119199  11198          10.88     30513        9.39  77488          25.60
@@ -125,13 +131,14 @@
 2613         Turkey                    20921    425           1.91       484        2.03  20012           2.31
 2470         Brazil                     9056    359           0.83       127        3.96   8570           1.40
 2603         Sweden                     6131    358           0.56       205        5.84   5568           3.34
-================================================================================ 
-################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:41 
-################################################################################ 
-  Total number of Countries/Regions affected: 181 
-  Total number of Cities/Provinces affected: 136 
--------------------------------------------------------------------------------- 
+======================================================================================================================== 
+######################################################################################################################## 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:15 
+######################################################################################################################## 
+  Number of Countries/Regions reported: 181 
+  Number of Cities/Provinces reported: 136 
+  Unique number of geographical locations combined: 315 
+------------------------------------------------------------------------------------------------------------------------ 
      Country_Region Province_State Confirmed Deaths Perc.Confirmed Recovered Perc.Deaths Active Perc.Recovered
 2396          China          Hubei     67802   3203           6.19     63612        4.72    987          93.82
 2599          Spain                   119199  11198          10.88     30513        9.39  77488          25.60
@@ -148,13 +155,14 @@
 2388          China      Guangdong      1514      8           0.14      1368        0.53    138          90.36
 2394          China          Henan      1276     22           0.12      1251        1.72      3          98.04
 2447          China       Zhejiang      1260      1           0.11      1228        0.08     31          97.46
-================================================================================ 
-################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-03  ::  2020-04-04 10:33:41 
-################################################################################ 
-  Total number of Countries/Regions affected: 181 
-  Total number of Cities/Provinces affected: 136 
--------------------------------------------------------------------------------- 
+======================================================================================================================== 
+######################################################################################################################## 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-03  ::  2020-04-04 13:24:15 
+######################################################################################################################## 
+  Number of Countries/Regions reported: 181 
+  Number of Cities/Provinces reported: 136 
+  Unique number of geographical locations combined: 315 
+------------------------------------------------------------------------------------------------------------------------ 
      Country_Region Province_State Confirmed Deaths Perc.Confirmed Recovered Perc.Deaths Active Perc.Recovered
 2529          Italy                   119827  14681          10.93     19758       12.25  85388          16.49
 2599          Spain                   119199  11198          10.88     30513        9.39  77488          25.60
@@ -171,4 +179,4 @@
 2470         Brazil                     9056    359           0.83       127        3.96   8570           1.40
 2528         Israel                     7428     40           0.68       403        0.54   6985           5.43
 2603         Sweden                     6131    358           0.56       205        5.84   5568           3.34
-================================================================================ 
+======================================================================================================================== 
