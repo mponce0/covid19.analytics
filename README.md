@@ -116,15 +116,18 @@ and daily changes in the reported number of cases.
 #### Reports
 The `report.summary()` generates an overall report summarizing the different datasets.
 It can summarize the "Time Series" data (`"TS"`), the "aggregated" data (`"AGG"`) or both (`"ALL"`).
-It willdisplay the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
+It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
 
 In each cases ("TS" and/or "AGG") will present tables orderd by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
 
+The dates when the report is genreated and the date of the recorded data will be included at the beggining of each table.
+
 It will also compute the totals, averages, standard deviations and percentages of various quantities:
 * it will determine how many *unique* locations were processed within the dataset
 * it will compute the total number of cases per case
-* for the "Time Series" data it will show the delta (change or variation in the last day) 
+* for the "Time Series" data it will show the delta (change or variation in the last day), and when possible will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
+* for the "Aggregated" data, for each of the columns "Deaths"/"Recovered"/"Active", it will also compute the corresponding percentages next to it, computed as the ratio of the corresponding column divided by the "Confirmed" number of cases
 
 * The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
 * The "Global Perc. Average (SD: standard deviation)" is computed as the average (standard deviation) of the number of cases among all the records in the data
