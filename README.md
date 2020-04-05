@@ -272,6 +272,43 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
 
 A full example of this report for today can be seen <a href="man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
 
+In addition to this, the function will also generate some graphical outputs, including pie and bar charts representing the top regions in each category.
+
+
+#### Totals per Location & Growth Rate
+It is possible to dive deeper into a particular location by using the `tots.per.location()` and `growth.rate()` functions.
+Theses functions are capable of processing different types of data, as far as these are "Time Series" data.
+It can either focus in one category (eg. "TS-confirmed","TS-recovered","TS-deaths",) or all ("TS-all").
+When these functions detect different type of categories, it will process each separatedly.
+Similarly the functions can take multiple locations, ie. just one, several ones or even "all" the locations within the data.
+The locations can either be countries, regions, provinces or cities. If an specified location includes multiple entries, eg. a country that has several cities reported, the functions will group them and process all these regions as the location requested.
+
+
+##### Totals per Location
+This function will plot the number of cases as a function of time for the given locations and type of categories, in two plots: a log-scale scatter one a linear scale bar plot one.
+
+Additonally, the function will attempt to generate different fits to match the data:
+* an exponetial model using a Linear Regression method
+* a Poisson model using a General Linear Regression method
+* a Gamma model using a General Linear Regression method
+The function will plot and add the values of the coefficients for the models to the plots and display a summary of the results in screen.
+
+The function will return a list combining the results for the totals for the different locations as a function of time.
+
+
+##### Growth Rate
+The `growth.rate()` function allows to compute *daily changes* and the *growth rate* defined as the ratio of the daily changes between two consecutive dates.
+
+The `growth.rate()` shares all the features of the `tots.per.location()` function, i.e. can process the diferent types of cases and multiple locations.
+
+The graphical output will display two plots per location:
+* a scatter plot with the number of changes between consecutive dates as a function of time, both in linear scale (left vertical axis) and log-scale (right verical axis) combined
+* a barplot displaying the growth rate for the particular region as a function of time.
+
+When the function is run with mutliple locations or all the locations, the figures will be adjusted to display multiple plots in one figure.
+
+The function will return a list combining the results for the "changes per day" and the "growth rate" as a function of time.
+
 
 
 ### Experimental: Modelling the evolution of the Virus spread
