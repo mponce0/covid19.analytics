@@ -114,7 +114,7 @@ basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
 
 
-### Oveview of the Main Functions from the "covid19.analytics" Package
+### Overview of the Main Functions from the "covid19.analytics" Package
 <!--
  | Function  | description |
  | --------	 | ----------- |
@@ -210,7 +210,7 @@ It will display the top 10 entries in each category, or the number indicated in 
 In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
 
-The dates when the report is genreated and the date of the recorded data will be included at the beggining of each table.
+The dates when the report is generated and the date of the recorded data will be included at the beginning of each table.
 
 It will also compute the totals, averages, standard deviations and percentages of various quantities:
 * it will determine the number of *unique* locations processed within the dataset
@@ -218,7 +218,7 @@ It will also compute the totals, averages, standard deviations and percentages o
 
 * Percentages: percentages will computed as follow:
   - for the "Confirmed" cases, as the ratio between the corresponding number of cases and the total number of cases, i.e. a sort of *"global percentage"* indicating the percentage of infected cases wrt the rest of the world
-  - for the other categories, "Deaths"/"Recovered"/"Active", the percetange of a given category will computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
+  - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category will computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
  - it will show the *delta* (change or variation) in the last day, and when possible will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
@@ -236,7 +236,7 @@ Typical structure of a `summary.report()` output for the Time Series data:
   Number of Cities/Provinces reported:  82 
   Unique number of geographical locations combined: 259 
 -------------------------------------------------------------------------------- 
-  Worlwide  ts-confirmed  Totals: 1197405 
+  Worldwide  ts-confirmed  Totals: 1197405 
 -------------------------------------------------------------------------------- 
     Country.Region Province.State Totals GlobalPerc LastDayChange
 226             US                308850      25.79         33264
@@ -279,7 +279,7 @@ In addition to this, the function will also generate some graphical outputs, inc
 It is possible to dive deeper into a particular location by using the `tots.per.location()` and `growth.rate()` functions.
 Theses functions are capable of processing different types of data, as far as these are "Time Series" data.
 It can either focus in one category (eg. "TS-confirmed","TS-recovered","TS-deaths",) or all ("TS-all").
-When these functions detect different type of categories, it will process each separatedly.
+When these functions detect different type of categories, it will process each separately.
 Similarly the functions can take multiple locations, ie. just one, several ones or even "all" the locations within the data.
 The locations can either be countries, regions, provinces or cities. If an specified location includes multiple entries, eg. a country that has several cities reported, the functions will group them and process all these regions as the location requested.
 
@@ -287,8 +287,8 @@ The locations can either be countries, regions, provinces or cities. If an speci
 ##### Totals per Location
 This function will plot the number of cases as a function of time for the given locations and type of categories, in two plots: a log-scale scatter one a linear scale bar plot one.
 
-Additonally, the function will attempt to generate different fits to match the data:
-* an exponetial model using a Linear Regression method
+Additionally, the function will attempt to generate different fits to match the data:
+* an exponential model using a Linear Regression method
 * a Poisson model using a General Linear Regression method
 * a Gamma model using a General Linear Regression method
 The function will plot and add the values of the coefficients for the models to the plots and display a summary of the results in screen.
@@ -299,13 +299,13 @@ The function will return a list combining the results for the totals for the dif
 ##### Growth Rate
 The `growth.rate()` function allows to compute *daily changes* and the *growth rate* defined as the ratio of the daily changes between two consecutive dates.
 
-The `growth.rate()` shares all the features of the `tots.per.location()` function, i.e. can process the diferent types of cases and multiple locations.
+The `growth.rate()` shares all the features of the `tots.per.location()` function, i.e. can process the different types of cases and multiple locations.
 
 The graphical output will display two plots per location:
-* a scatter plot with the number of changes between consecutive dates as a function of time, both in linear scale (left vertical axis) and log-scale (right verical axis) combined
-* a barplot displaying the growth rate for the particular region as a function of time.
+* a scatter plot with the number of changes between consecutive dates as a function of time, both in linear scale (left vertical axis) and log-scale (right vertical axis) combined
+* a bar plot displaying the growth rate for the particular region as a function of time.
 
-When the function is run with mutliple locations or all the locations, the figures will be adjusted to display multiple plots in one figure.
+When the function is run with multiple locations or all the locations, the figures will be adjusted to display multiple plots in one figure.
 
 The function will return a list combining the results for the "changes per day" and the "growth rate" as a function of time.
 
