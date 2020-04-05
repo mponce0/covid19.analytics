@@ -216,9 +216,9 @@ It will also compute the totals, averages, standard deviations and percentages o
 * it will determine the number of *unique* locations processed within the dataset
 * it will compute the total number of cases per case
 
-* Percentages: percentages will computed as follow:
+* Percentages: percentages are computed as follow:
   - for the "Confirmed" cases, as the ratio between the corresponding number of cases and the total number of cases, i.e. a sort of *"global percentage"* indicating the percentage of infected cases wrt the rest of the world
-  - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category will computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
+  - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category is computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
  - it will show the *delta* (change or variation) in the last day, and when possible will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
@@ -279,13 +279,15 @@ In addition to this, the function will also generate some graphical outputs, inc
 It is possible to dive deeper into a particular location by using the `tots.per.location()` and `growth.rate()` functions.
 Theses functions are capable of processing different types of data, as far as these are "Time Series" data.
 It can either focus in one category (eg. "TS-confirmed","TS-recovered","TS-deaths",) or all ("TS-all").
-When these functions detect different type of categories, it will process each separately.
+When these functions detect different type of categories, each category will be processed separatedly.
 Similarly the functions can take multiple locations, ie. just one, several ones or even "all" the locations within the data.
 The locations can either be countries, regions, provinces or cities. If an specified location includes multiple entries, eg. a country that has several cities reported, the functions will group them and process all these regions as the location requested.
 
 
 ##### Totals per Location
 This function will plot the number of cases as a function of time for the given locations and type of categories, in two plots: a log-scale scatter one a linear scale bar plot one.
+
+When the function is run with multiple locations or all the locations, the figures will be adjusted to display multiple plots in one figure in a mosaic type layout.
 
 Additionally, the function will attempt to generate different fits to match the data:
 * an exponential model using a Linear Regression method
@@ -305,15 +307,27 @@ The graphical output will display two plots per location:
 * a scatter plot with the number of changes between consecutive dates as a function of time, both in linear scale (left vertical axis) and log-scale (right vertical axis) combined
 * a bar plot displaying the growth rate for the particular region as a function of time.
 
-When the function is run with multiple locations or all the locations, the figures will be adjusted to display multiple plots in one figure.
+When the function is run with multiple locations or all the locations, the figures will be adjusted to display multiple plots in one figure in a mosaic type layout.
+In addition to that, when there is more than one location the function will also generate two different styles of heatmaps comparing the changes per day and growth rate among the different locations (vertical axis) and time (horizontal axis).
 
 The function will return a list combining the results for the "changes per day" and the "growth rate" as a function of time.
 
+
+#### Plotting Totals
+The function `totals.plt()` will generate plots of the total number of cases as a function of time.
+It can be used for the total data or for an specific location.
+The function can generate static plots and/or interactive ones.
+
+
+#### Plotting Cases in the World
+The function `live.map()` will display the different cases in each corresponding location all around the world in an interactive map of the world.
+It can be used with time series data or aggregated data, aggregated data offers a much more detailed information about the geographical distribution.
 
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabilities.
 A preliminary prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Susceptible-Infected-Recovered*) ODE model using the actual data of the virus.
+
 
 
 ### Further Features
