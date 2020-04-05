@@ -328,6 +328,8 @@ It can be used with time series data or aggregated data, aggregated data offers 
 We are working in the development of *modelling* capabilities.
 A preliminary prototype has been included and can be accessed using the `generate.SIR.model` function, which implements a simple SIR (*Susceptible-Infected-Recovered*) ODE model using the actual data of the virus.
 
+This function will try to identify the data points where the onset of the epidemy began and consider the following data points to generate a proper guess for the two parameters describing the SIR ODE system.
+After that, it will solve the different equations and provide details about the solutions as well as plot them in a static and interactive plot.
 
 
 ### Further Features
