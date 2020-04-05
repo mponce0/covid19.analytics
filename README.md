@@ -204,10 +204,10 @@ and daily changes in the reported number of cases.
 
 #### Reports
 The `report.summary()` generates an overall report summarizing the different datasets.
-It can summarize the "Time Series" data (`"TS"`), the "aggregated" data (`"AGG"`) or both (`"ALL"`).
+It can summarize the "Time Series" data (`cases.to.process="TS"`), the "aggregated" data (`cases.to.process="AGG"`) or both (`cases.to.process="ALL"`).
 It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
 
-In each cases ("TS" and/or "AGG") will present tables orderd by the different cases included, i.e.
+In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
 
 The dates when the report is genreated and the date of the recorded data will be included at the beggining of each table.
@@ -266,7 +266,7 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
 .
 ```
 
-A full example of this report for today can be seen <a hred="man/figures/covid19-SummaryReport.txt>here</a> (updated twice a day, daily).
+A full example of this report for today can be seen <a href="man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
 
 
 
