@@ -113,6 +113,71 @@ In addition to the access and retrieval of the data, the package includes some
 basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
 
+#### Reports
+The `report.summary()` generates an overall report summarizing the different datasets.
+It can summarize the "Time Series" data (`"TS"`), the "aggregated" data (`"AGG"`) or both (`"ALL"`).
+It willdisplay the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
+
+In each cases ("TS" and/or "AGG") will present tables orderd by the different cases included, i.e.
+confirmed infected, deaths, recovered and active cases.
+
+It will also compute the totals, averages, standard deviations and percentages of various quantities:
+* it will determine how many *unique* locations were processed within the dataset
+* it will compute the total number of cases per case
+* for the "Time Series" data it will show the delta (change or variation in the last day) 
+
+* The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
+* The "Global Perc. Average (SD: standard deviation)" is computed as the average (standard deviation) of the number of cases among all the records in the data
+* The "Global Perc. Average (SD: standard deviation) in top X" is computed as the average (standard deviation)of the number of cases among the top *X* records
+
+
+Typical structure of a `summary.report()` output for the Time Series data:
+```
+############################################################################### 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-04  ::  2020-04-05 17:27:17 
+################################################################################ 
+  Number of Countries/Regions reported:  181 
+  Number of Cities/Provinces reported:  82 
+  Unique number of geographical locations combined: 259 
+-------------------------------------------------------------------------------- 
+  Worlwide  ts-confirmed  Totals: 1197405 
+-------------------------------------------------------------------------------- 
+    Country.Region Province.State Totals GlobalPerc LastDayChange
+226             US                308850      25.79         33264
+202          Spain                126168      10.54          6969
+138          Italy                124632      10.41          4805
+121        Germany                 96092       8.03          4933
+-------------------------------------------------------------------------------- 
+  Global Perc. Average:  0.39 (sd: 2.02) 
+  Global Perc. Average in top  10 :  7.98 (sd: 7) 
+-------------------------------------------------------------------------------- 
+.
+.
+.
+```
+
+Typical structure of a `summary.report()` output for the *Aggregated* data:
+```
+########################################################################################################################## 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-04  ::  2020-04-05 17:27:19 
+########################################################################################################################## 
+  Number of Countries/Regions reported: 181 
+  Number of Cities/Provinces reported: 137 
+  Unique number of geographical locations combined: 316 
+-------------------------------------------------------------------------------------------------------------------------- 
+     Country_Region Province_State Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
+2653          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
+2583          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
+2564        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
+.
+.
+.
+```
+```
+
+A full example of this report for today can be seen <a hred="man/figures/covid19-SummaryReport.txt>here</a> (updated twice a day, daily).
+
+
 
 ### Experimental: Modelling the evolution of the Virus spread
 We are working in the development of *modelling* capabilities.
