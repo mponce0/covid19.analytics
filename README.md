@@ -302,6 +302,8 @@ Additionally, the function will attempt to generate different fits to match the 
 * a Gamma model using a General Linear Regression method
 The function will plot and add the values of the coefficients for the models to the plots and display a summary of the results in screen.
 
+It is possible to instruct the function to draw a "confidence band" based on a *moving average*, so that the trend is also displayed including a region of higher confidence based on the mean value and standard deviation computed considering a time interval set to equally dividing the total range of time over 10 equally spaced intervals.
+
 The function will return a list combining the results for the totals for the different locations as a function of time.
 
 
