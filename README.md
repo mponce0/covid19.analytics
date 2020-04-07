@@ -672,6 +672,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 -->
 
 ### Dashboards
+* https://www.covidgraph.com
 <!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
 * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
 * https://resources-covid19canada.hub.arcgis.com/
