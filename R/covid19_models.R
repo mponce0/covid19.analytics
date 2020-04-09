@@ -299,7 +299,7 @@ plot.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName
 #' @param  interactiveFig  optional flag to activate interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
-#' @keywords internal
+#' @export
 #'
 #' @importFrom  graphics  matplot title legend points
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
