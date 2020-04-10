@@ -594,7 +594,7 @@ totals.plt(TS.data, c("Canada","Ontario","Italy","Uruguay"), with.totals=TRUE,on
 totals.plt(TS.data, "ALL", fileName="totals-all")
 ```
 
-<object data="man/figures/totals-all.html" width="80%" height="525">
+<object data="man/figures/totals-all.html" width="100%" height="600">
 </object>
 
 
