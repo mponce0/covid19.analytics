@@ -590,8 +590,8 @@ totals.plt(TS.data, c("Canada","Ontario"), with.totals=FALSE,one.plt.per.page=TR
 # totals for Ontario, Canada, Italy and Uruguay; including global totals with the linear and semi-log plots arranged one next to the other
 totals.plt(TS.data, c("Canada","Ontario","Italy","Uruguay"), with.totals=TRUE,one.plt.per.page=FALSE)
 
-# totals for all the locations reported on the dataset
-totals.plt(TS.data, "ALL", fileName="total-all.html")
+# totals for all the locations reported on the dataset, interactive plot will be saved as "totals-all.html"
+totals.plt(TS.data, "ALL", fileName="totals-all")
 ```
 
 <object data="man/figures/totals-all.html" width="80%" height="525">
