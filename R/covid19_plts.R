@@ -66,12 +66,14 @@
 
 
 
-totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
-			fileName=NULL) {
+totals.plt <- function(data0=NULL, geo.loc=NULL,
+			log.plt=TRUE,
+			interactive.fig=TRUE, fileName=NULL) {
 #' function to plot total number of cases per day for different groups
 #'
 #' @param  data0  time series dataset to process, default all the possible cases: 'confirmed' and 'deaths' for all countries/regions
 #' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
+#' @param  log.plt  include a log scale plot in the static plot
 #' @param  interactive.fig  swith to turn off/on an interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
@@ -90,6 +92,26 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 #'
 
         ############
+
+	static.plt <- function(x.dates,confirmed,recovered,deaths,active.cases) {
+
+		ymax <- max(c(confirmed,recovered,deaths,active.cases),na.rm=TRUE)
+
+                #par(new=TRUE,ann=FALSE)
+                plot(x.dates,confirmed, ylim=c(0,ymax), type='b', col='black',
+                        xlab='time', ylab='nbr of cases', main=geo.loc)
+                par(new=TRUE,ann=FALSE)
+                plot(x.dates[1:length(recovered)],recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
+                par(new=TRUE,ann=FALSE)
+                plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
+                par(new=TRUE,ann=FALSE)
+                plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwd=2, col='orange')
+
+	}
+
+
+	############
+
         add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
                         totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers', visible=vis)
                         totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers', visible=vis)
@@ -150,19 +172,31 @@ totals.plt <- function(data0=NULL, geo.loc=NULL, interactive.fig=TRUE,
 	x.dates <- as.Date(names(total.cases)[col1:colN])
 	ymax <- max(totals,na.rm=TRUE)
 
+
+	on.exit(old.par)
+        ### preserve user graphical env.
+        # save the state of par() before running the code
+        oldpar <- par(no.readonly = TRUE)
+        # restore the previous state after the fn is done, even if it fails, so the user environment is not altered
+        on.exit(par(oldpar))
+        #########
+
 	### STATIC PLOTS
-	plot(x.dates, totals, ylim=c(0,ymax),  type='l', lwd=3, col='darkred',
-		xlab='time', ylab='nbr of cases', main=geo.loc)
+	#plot(x.dates, totals, ylim=c(0,ymax),  type='l', lwd=3, col='darkred',
+	#	xlab='time', ylab='nbr of cases', main=geo.loc)
 
 	if (all.cases) {
-		par(new=TRUE,ann=FALSE)
-		plot(x.dates,confirmed, ylim=c(0,ymax), axes=FALSE, type='b', col='black')
-		par(new=TRUE,ann=FALSE)
-		plot(x.dates[1:length(recovered)],recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
-		par(new=TRUE,ann=FALSE)
-		plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
-		par(new=TRUE,ann=FALSE)
-		plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwd=2, col='red')
+		if (log.plt) par(mfrow=c(1,2))
+		# linear scale plot
+		static.plt(x.dates,confirmed,recovered,deaths,active.cases)
+
+		# add legends
+		legend("topleft", legend=c("Confirmed", "Recovered","Deaths","Active"),
+			col=c("black","blue","red","orange"), lty=1, lwd=2, cex=0.8, box.lty=0)
+
+		# log-scale plot
+		if (log.plt)
+			static.plt(x.dates,log1p(confirmed),log1p(recovered),log1p(deaths),log1p(active.cases))
 	}
 
 	### INTERACTIVE PLOTS
@@ -289,8 +323,8 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 	} else {
 		# check if time series data
 		if (chk.TS.data(data)) {
-			df <- data[,c(province.col,country.col,lat.col,long.col,Ncols)]
-			hover.txt <- paste(df[,1]," - ",df[,2],": ",df[,5]) 
+			df <- data[,c(province.col,country.col,lat.col,long.col,Ncols,Ncols-1)]
+			hover.txt <- paste(df[,1]," - ",df[,2],": ",df[,5],paste0("[",df[,5]-df[,6],"]") )
 			#szRef <- 0.05
 			recorded.date <- names(data)[Ncols]
 		} else {
