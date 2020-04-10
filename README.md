@@ -181,7 +181,7 @@ and daily changes in the reported number of cases.
  </tr>
   <tr>
    <td> <code>total.plts</code> </td>
-   <td> plots in a static and interactive plot total number of cases per day </td>
+   <td> plots in a static and interactive plot total number of cases per day, the user can specify multiple locations or global totoals </td>
    <td> static and interactive plot </td>
  </tr>
   <tr>
@@ -324,8 +324,8 @@ The function will return a list combining the results for the "changes per day" 
 
 #### Plotting Totals
 The function `totals.plt()` will generate plots of the total number of cases as a function of time.
-It can be used for the total data or for an specific location.
-The function can generate static plots and/or interactive ones.
+It can be used for the total data or for an specific or multiple locations.
+The function can generate static plots and/or interactive ones, as well, as linear and/or semi-log plots.
 
 
 #### Plotting Cases in the World
@@ -582,6 +582,21 @@ totals.plt(TS.data)
 ```
 <object data="man/figures/totals.html" width="80%" height="525">
 </object>
+
+```R
+# totals for Ontario and Canada, without displaying totals and one plot per page
+totals.plt(TS.data, c("Canada","Ontario"), with.totals=FALSE,one.plt.per.page=TRUE)
+
+# totals for Ontario, Canada, Italy and Uruguay; including global totals with the linear and semi-log plots arranged one next to the other
+totals.plt(TS.data, c("Canada","Ontario","Italy","Uruguay"), with.totals=TRUE,one.plt.per.page=FALSE)
+
+# totals for all the locations reported on the dataset
+totals.plt(TS.data, "ALL", fileName="total-all.html")
+```
+
+<object data="man/figures/totals-all.html" width="80%" height="525">
+</object>
+
 
 ```R
 # retrieve aggregated data
