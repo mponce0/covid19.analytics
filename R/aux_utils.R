@@ -67,9 +67,9 @@ select.per.loc <- function(data,geo.loc) {
 	Country.col <- pmatch("Country", names(data))
 	Province.col <- pmatch("Province", names(data))
 
-#geo.loc0<-geo.loc
-#cases.per.loc0 <- data.frame()
-#for (geo.loc in geo.loc0) {
+geo.loc0<-geo.loc
+cases.per.loc0 <- data.frame()
+for (geo.loc in geo.loc0) {
 	# check whether the locations are coutnries/regions or provinces/states
 	if (toupper(geo.loc) %in% toupper(data[,Country.col])) {
 		cases.per.loc <- data[toupper(data[,Country.col]) == toupper(geo.loc),]
@@ -78,9 +78,9 @@ select.per.loc <- function(data,geo.loc) {
 	} else if (toupper(geo.loc) == "ALL") {
 		cases.per.loc <- data
 	}
-#cases.per.loc0 <- rbind(cases.per.loc0,cases.per.loc)
-#}
-#return(cases.per.loc0)
+cases.per.loc0 <- rbind(cases.per.loc0,cases.per.loc)
+}
+return(cases.per.loc0)
 	#print(geo.loc)
 
 	return(cases.per.loc)
