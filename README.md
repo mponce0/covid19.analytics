@@ -198,7 +198,7 @@ and daily changes in the reported number of cases.
    <td> list containing the fits for the SIR model </td>
  </tr>
   <tr>
-   <td> <code>plot.SIR.model</code> </td>
+   <td> <code>plt.SIR.model</code> </td>
    <td> plot the results from the SIR model </td>
    <td> static and interactive plots </td>
  </tr>
@@ -644,7 +644,7 @@ generate.SIR.model(data,"Canada",tot.population=37590000)
 # modelling the spread for the whole world, storing the model and generating an interactive visualization
 world.SIR.model <- generate.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
 # plotting and visualizing the model
-plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
+plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
 ```
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
