@@ -667,6 +667,27 @@ Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
+### How to Cite this Package
+```R
+citation("covid19.analytics")
+
+To cite package ‘covid19.analytics’ in publications use:
+
+  Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
+  from the CoViD-19 Pandemic. R package version 1.0.
+  https://CRAN.R-project.org/package=covid19.analytics
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
+    author = {Marcelo Ponce},
+    year = {2020},
+    note = {R package version 1.0},
+    url = {https://CRAN.R-project.org/package=covid19.analytics},
+  }
+```
+
 
 ## Further Resources
 <p aling="center">
