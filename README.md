@@ -198,7 +198,7 @@ and daily changes in the reported number of cases.
    <td> list containing the fits for the SIR model </td>
  </tr>
   <tr>
-   <td> <code>plot.SIR.model</code> </td>
+   <td> <code>plt.SIR.model</code> </td>
    <td> plot the results from the SIR model </td>
    <td> static and interactive plots </td>
  </tr>
@@ -246,10 +246,10 @@ Typical structure of a `summary.report()` output for the Time Series data:
   Worldwide  ts-confirmed  Totals: 1197405 
 -------------------------------------------------------------------------------- 
     Country.Region Province.State Totals GlobalPerc LastDayChange
-226             US                308850      25.79         33264
-202          Spain                126168      10.54          6969
-138          Italy                124632      10.41          4805
-121        Germany                 96092       8.03          4933
+1             US                308850      25.79         33264
+2          Spain                126168      10.54          6969
+3          Italy                124632      10.41          4805
+4        Germany                 96092       8.03          4933
 -------------------------------------------------------------------------------- 
   Global Perc. Average:  0.39 (sd: 2.02) 
   Global Perc. Average in top  10 :  7.98 (sd: 7) 
@@ -269,15 +269,15 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
   Unique number of geographical locations combined: 316 
 -------------------------------------------------------------------------------------------------------------------------- 
      Country_Region Province_State Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-2653          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
-2583          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
-2564        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
+1          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
+2          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
+3        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
 .
 .
 .
 ```
 
-A full example of this report for today can be seen <a href="man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
+A full example of this report for today can be seen <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
 
 In addition to this, the function will also generate some graphical outputs, including pie and bar charts representing the top regions in each category.
 
@@ -420,7 +420,7 @@ report.summary()
 report.summary(saveReport=TRUE)
 ```
 
-<object data="man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="650px" height="500px">
+<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="650px" height="500px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf">
  <p>
   E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/tree/master/man/figures/covid19-SummaryReport.txt">here</a> 
@@ -644,7 +644,7 @@ generate.SIR.model(data,"Canada",tot.population=37590000)
 # modelling the spread for the whole world, storing the model and generating an interactive visualization
 world.SIR.model <- generate.SIR.model(data,"ALL", t0=1,t1=15, tot.population=7.8e9, staticPlt=FALSE)
 # plotting and visualizing the model
-plot.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
+plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.model")
 ```
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
