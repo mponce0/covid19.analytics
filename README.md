@@ -669,7 +669,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
 ### How to Cite this Package
 ```R
-citation("covid19.analytics")
+> citation("covid19.analytics")
 
 To cite package ‘covid19.analytics’ in publications use:
 
