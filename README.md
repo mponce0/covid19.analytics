@@ -246,10 +246,10 @@ Typical structure of a `summary.report()` output for the Time Series data:
   Worldwide  ts-confirmed  Totals: 1197405 
 -------------------------------------------------------------------------------- 
     Country.Region Province.State Totals GlobalPerc LastDayChange
-226             US                308850      25.79         33264
-202          Spain                126168      10.54          6969
-138          Italy                124632      10.41          4805
-121        Germany                 96092       8.03          4933
+1             US                308850      25.79         33264
+2          Spain                126168      10.54          6969
+3          Italy                124632      10.41          4805
+4        Germany                 96092       8.03          4933
 -------------------------------------------------------------------------------- 
   Global Perc. Average:  0.39 (sd: 2.02) 
   Global Perc. Average in top  10 :  7.98 (sd: 7) 
@@ -269,9 +269,9 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
   Unique number of geographical locations combined: 316 
 -------------------------------------------------------------------------------------------------------------------------- 
      Country_Region Province_State Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-2653          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
-2583          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
-2564        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
+1          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
+2          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
+3        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
 .
 .
 .
