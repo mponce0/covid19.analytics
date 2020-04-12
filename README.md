@@ -277,7 +277,7 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
 .
 ```
 
-A full example of this report for today can be seen <a href="man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
+A full example of this report for today can be seen <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
 
 In addition to this, the function will also generate some graphical outputs, including pie and bar charts representing the top regions in each category.
 
@@ -420,7 +420,7 @@ report.summary()
 report.summary(saveReport=TRUE)
 ```
 
-<object data="man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="650px" height="500px">
+<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="650px" height="500px">
  <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf">
  <p>
   E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/tree/master/man/figures/covid19-SummaryReport.txt">here</a> 

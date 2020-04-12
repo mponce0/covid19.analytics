@@ -1,4 +1,4 @@
-# "covid19" graphical functions
+# "covid19.analytics"  visualization and graphical functions
 #
 # M.Ponce
 
@@ -8,10 +8,17 @@
 ##### AUXILIARY FUNCTIONS FOR SETTING UP LOG-scale PULLDOWNS #####
 ##################################################################
 
-	log.sc.setup <- function(nbr.traces) {
+	log.sc.setup <- function(nbr.traces,tot.traces) {
 	#' aux fn to create a log-scale pulldown option in plotly plots
 	#' @param  nbr.traces  number of traces in order to set Ts/Fs
 	#' @keywords internal
+
+
+		#print(nbr.traces)
+		#print(tot.traces)
+		settings <- rep(c(rep(T,nbr.traces),rep(F,nbr.traces)),tot.traces)
+		#settings <- c(T,T,T,T, F,F,F,F, T,T,T,T, F,F,F,F, T,T,T,T, F,F,F,F)
+		#print(settings)
 
                 updatemenus = list(list(
                                 active = 0,
@@ -19,12 +26,21 @@
                                                 list(label = 'linear',
 
                                                         method = 'update',
-                                                        args = list(list(visible = c(rep(T,nbr.traces),rep(F,nbr.traces))), list(yaxis = list(type = 'linear')))
+                                                        args = list(	list(visible = settings),
+									list(yaxis = list(type = 'linear'))
+								)
                                                         ),
                                                 list(label = 'log',
                                                         method = 'update',
-                                                        args = list(list(visible = c(rep(F,nbr.traces),rep(T,nbr.traces))), list(yaxis = list(type = 'log'))))
-                                        )       )       )
+                                                        #args = list(list(visible = c(rep(F,nbr.traces),rep(T,nbr.traces))), list(yaxis = list(type = 'log'))))
+							args = list(	list(visible = !settings),
+									list(yaxis = list(type = 'log')) 
+										#xaxis=list(type='log'))
+								)
+							)
+						)
+					)
+				)
 
                 return(updatemenus)
         }
@@ -66,14 +82,16 @@
 
 
 
-totals.plt <- function(data0=NULL, geo.loc=NULL,
-			log.plt=TRUE,
+totals.plt <- function(data0=NULL, geo.loc0=NULL,
+			one.plt.per.page=FALSE, log.plt=TRUE, with.totals=FALSE,
 			interactive.fig=TRUE, fileName=NULL) {
 #' function to plot total number of cases per day for different groups
 #'
 #' @param  data0  time series dataset to process, default all the possible cases: 'confirmed' and 'deaths' for all countries/regions
-#' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
+#' @param  one.plt.per.page  boolean flag to have one plot per figure
+#' @param  geo.loc0  geographical location, country/region or province/state to restrict the analysis to
 #' @param  log.plt  include a log scale plot in the static plot
+#' @param  with.totals  a boolean flag to indicate whether the totals should be displayed with the records for the specific location
 #' @param  interactive.fig  swith to turn off/on an interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
@@ -93,55 +111,198 @@ totals.plt <- function(data0=NULL, geo.loc=NULL,
 
         ############
 
-	static.plt <- function(x.dates,confirmed,recovered,deaths,active.cases) {
+	agg.cases <- function(total.cases, col1,colN, geo.loc=NULL) {
 
-		ymax <- max(c(confirmed,recovered,deaths,active.cases),na.rm=TRUE)
+		if (!is.null(geo.loc)) {
+			total.cases <- select.per.loc(total.cases,geo.loc)
+		}
 
-                #par(new=TRUE,ann=FALSE)
-                plot(x.dates,confirmed, ylim=c(0,ymax), type='b', col='black',
-                        xlab='time', ylab='nbr of cases', main=geo.loc)
-                par(new=TRUE,ann=FALSE)
-                plot(x.dates[1:length(recovered)],recovered, ylim=c(0,ymax), axes=FALSE, type='b', col='blue')
-                par(new=TRUE,ann=FALSE)
-                plot(x.dates,deaths, ylim=c(0,ymax), axes=FALSE, type='b', col='red')
-                par(new=TRUE,ann=FALSE)
-                plot(x.dates,active.cases, ylim=c(0,ymax), axes=FALSE, type='l', lwd=2, col='orange')
+                confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
+                recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
+                deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
+                active.cases <- confirmed - (recovered+deaths)
 
+		return(list(confirmed=confirmed,recovered=recovered,deaths=deaths,active=active.cases))
 	}
 
 
 	############
 
-        add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, vis=TRUE) {
-                        totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers', visible=vis)
-                        totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers', visible=vis)
-                        totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers', visible=vis)
-                        totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines', visible=vis)
+	process.mult.cases <- function(total.cases, geo.loc, col1,colN, ymax=NA, with.totals,stroke=FALSE,new.plt=FALSE) {
+
+		if (length(geo.loc)>=1) {
+			#set.plt.canvas(geo.loc,ylayers=1,minBreaks=5)
+			if (!with.totals) {
+				if (is.na(ymax))
+					#ymax <- max(total.cases[,col1:colN],na.rm=TRUE)*1.5
+					ymax <- max(apply(total.cases[total.cases$status=="confirmed",col1:colN],MARGIN=2,sum),na.rm=TRUE)
+				legs <- TRUE
+			} else {
+				legs <- FALSE
+			}
+
+			par(new=TRUE)
+			if (new.plt) par(new=FALSE)
+			col.index <- 0
+			if (length(geo.loc) > 10) {
+				plt.title <- "Several entries..."
+			} else {
+				plt.title <- paste(geo.loc,collapse=' ')
+			}
+			for (geo.entry in geo.loc){
+				geoloc.cases <- select.per.loc(total.cases,geo.entry)
+				loc.confirmed <- apply(geoloc.cases[geoloc.cases$status=="confirmed" ,col1:colN], MARGIN=2,sum)
+				loc.recovered <- apply(geoloc.cases[geoloc.cases$status=="recovered",col1:colN], MARGIN=2,sum)
+				loc.deaths <- apply(geoloc.cases[geoloc.cases$status=="death",col1:colN], MARGIN=2,sum)
+				loc.active.cases <- loc.confirmed - (loc.recovered+loc.deaths)
+				if (with.totals) {
+					par(new=TRUE)
+				} else {
+					stroke <- FALSE
+				}
+				static.plt(x.dates,loc.confirmed,loc.recovered,loc.deaths,loc.active.cases, ymax=ymax, geo.loc=geo.entry, legs = legs,stroke=stroke,plt.title=plt.title, col.offset=col.index)
+				par(new=TRUE)
+				col.index <- col.index+1
+			}
+		}
+
+	}
+
+	############
+
+	static.plt <- function(x.dates,confirmed=NULL,recovered=NULL,deaths=NULL,active.cases=NULL,
+				ymin=NA,ymax=NA, geo.loc=NULL, legs=FALSE, stroke=TRUE, plt.title='',
+				col.offset=0) {
+	#'
+	#' @importFrom  grDevices  rgb
+
+
+		if (is.na(ymax))
+			ymax <- max(c(confirmed,recovered,deaths,active.cases),na.rm=TRUE)
+		if (is.na(ymin))
+			ymin <- 0
+
+		#if (is.null(geo.loc) | toupper(geo.loc)!="ALL" | length(geo.loc) > 1) {
+		if (!stroke) {
+			perc <- 65
+			alpha.level <- (100 - perc) * 255 / 100
+			lws <- 1
+			plt.type <- 'b'
+		} else {
+			alpha.level <- 255
+			lws <- .5
+			plt.type <- 'l'
+		}
+
+		#if (is.null(geo.loc)) {
+		#	plt.title <- ''	#'global'
+		#} else {
+		#	plt.title <- paste(geo.loc, collapse=" ")
+		#}
+
+
+		if (col.offset==0) {
+		colors <- c(rgb(0,0,0, maxColorValue=255, alpha=alpha.level),
+				rgb(0,0,255, maxColorValue=255, alpha=alpha.level),
+				rgb(255,0,0, maxColorValue=255, alpha=alpha.level),
+				rgb(255,165,0, maxColorValue=255, alpha=alpha.level))
+		} else {
+		#colors <- c("black","red","blue","orange")
+			colors <- ((4*col.offset)+1):(4*(col.offset+1))
+		}
+                #par(new=TRUE,ann=FALSE)
+                if (!is.null(confirmed))
+			plot(x.dates,confirmed, ylim=c(0,ymax),
+				type=plt.type, col=colors[1], cex=0.5, pch=20, lwd=lws,
+				xlab='time', ylab='nbr of cases', main=plt.title)
+
+		if (!is.null(recovered)) {
+			par(new=TRUE,ann=FALSE)
+			plot(x.dates[1:length(recovered)],recovered,
+				cex=0.5, pch=20, lwd=lws,
+				ylim=c(0,ymax), axes=FALSE, type=plt.type, col=colors[2])
+		}
+
+		if (!is.null(deaths)) {
+			par(new=TRUE,ann=FALSE)
+			plot(x.dates,deaths,
+				cex=0.5, pch=20, lwd=lws,
+				ylim=c(0,ymax), axes=FALSE, type=plt.type, col=colors[3])
+		}
+
+		if (!is.null(active.cases)) {
+			par(new=TRUE,ann=FALSE)
+			plot(x.dates,active.cases,
+				cex=0.5, pch=20, lwd=lws,
+				ylim=c(0,ymax), axes=FALSE, type=plt.type, col=colors[4])
+		}
+
+		# add legends
+		if (legs)
+                legend("topleft", legend=c("Confirmed", "Recovered","Deaths","Active"),
+                        col=c("black","blue","red","orange"), lty=1, lwd=2, pch=c(20,20,20,NA), cex=0.8, box.lty=0)
+
+		title(plt.title)
+		return(max(c(confirmed,recovered,deaths,active.cases), na.rm=TRUE))
+	}
+
+
+	############
+
+        add.traces <- function(totals.ifig, confirmed,recovered,deats,active,cases, style="lines+markers", vis=TRUE, geo.lab="") {
+                        totals.ifig <- totals.ifig %>% add_trace(y = confirmed, name=paste(geo.lab,"confirmed"), type='scatter', mode=style, visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = recovered, name=paste(geo.lab,"recovered"), type='scatter', mode=style, visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = deaths, name=paste(geo.lab,"deaths"), type='scatter', mode=style, visible=vis)
+                        totals.ifig <- totals.ifig %>% add_trace(y = active.cases, name=paste(geo.lab,"active cases"), type='scatter', mode=style, visible=vis)
 
                         return(totals.ifig)
         }
 
-        ############
+
+	###################################################################################E#
 
 
 	if (is.null(data0)) {
-		total.cases <- covid19.data("ts-ALL")
+		data <- covid19.data("ts-ALL")
 	} else {
-		total.cases <- data0
+		data <- data0
 	}
+	total.cases <- data
 
 	# check time series
 	chk.TS.data(total.cases,xtp=TRUE)
 
-	if (!is.null(geo.loc)) {
-		# check geographical location
-		geo.loc <- checkGeoLoc(total.cases,geo.loc)
-		total.cases <- select.per.loc(total.cases,geo.loc)
+	if (!is.null(geo.loc0)) {
+		if (toupper(geo.loc0) != "ALL") {
+		# attempt to have several locations processed at once...
+		#if (length(geo.loc) > 1 ) {
+		#	for (geo.entry in geo.loc) {
+		#		header('',paste("Processing ",geo.entry," ..."))
+		#		totals.plt(data0,geo.entry,log.plt,interactive.fig,fileName)
+		#	}
+		#	return()
+		#} else {
+			# check geographical location
+			geo.loc <- checkGeoLoc(total.cases,geo.loc0)
+			total.cases <- select.per.loc(total.cases,geo.loc)
+		#}
+		} else {
+			geo.loc <- checkGeoLoc(total.cases)
+                        total.cases <- select.per.loc(total.cases,geo.loc) 
+			if (!with.totals) {
+				#message("")
+				with.totals <- TRUE
+			}
+		}
+	} else {
+		# if geo.loc0 was NULL ==> Global Totals
+		geo.loc <- NULL
 	}
 
 	# remove NAs
 	total.cases <- na.omit(total.cases)
 
+	# specify range of data in TS data...
 	col1 <-5; colN <- ncol(total.cases)
 	# check whether is the whole dataset...
 	if (tolower("status") %in% colnames(total.cases)) {
@@ -155,25 +316,30 @@ totals.plt <- function(data0=NULL, geo.loc=NULL,
 			totals.per.cat <- c(totals.per.cat, c(categories[categ],apply(total.cases[total.cases$status==categ,col1:colN], MARGIN=2,sum) )  )
 		}
 		##
-		confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
-		recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
-		deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
-		active.cases <- confirmed - (recovered+deaths)
+		#confirmed <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
+		#recovered <- apply(total.cases[total.cases$status=="recovered",col1:colN], MARGIN=2,sum)
+		#deaths <- apply(total.cases[total.cases$status=="death",col1:colN], MARGIN=2,sum)
+		#active.cases <- confirmed - (recovered+deaths)
+		#aggs <- agg.cases(total.cases, col1,colN)
+		aggs <- agg.cases(data, col1,colN)
+		confirmed <- aggs$confirmed
+		recovered <- aggs$recovered
+		deaths <- aggs$deaths
+		active.cases <- aggs$active
 		###
 	} else {
 		all.cases <- FALSE
-		X.cases <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
-		active.cases <- X.cases
+		#X.cases <- apply(total.cases[total.cases$status=="confirmed",col1:colN], MARGIN=2,sum)
+		X.cases <- apply(total.cases[,col1:colN], MARGIN=2,sum)
 	}
 
 	# totals per column
-	totals <- apply(total.cases[,col1:colN], MARGIN=2,sum)
+	#totals <- apply(total.cases[,col1:colN], MARGIN=2,sum)
 
 	x.dates <- as.Date(names(total.cases)[col1:colN])
-	ymax <- max(totals,na.rm=TRUE)
+	#ymax <- max(totals,na.rm=TRUE)
+	ymax <- NA
 
-
-	on.exit(old.par)
         ### preserve user graphical env.
         # save the state of par() before running the code
         oldpar <- par(no.readonly = TRUE)
@@ -186,17 +352,41 @@ totals.plt <- function(data0=NULL, geo.loc=NULL,
 	#	xlab='time', ylab='nbr of cases', main=geo.loc)
 
 	if (all.cases) {
+		# set layout of plots
 		if (log.plt) par(mfrow=c(1,2))
+		if (one.plt.per.page) par(mfrow=c(1,1))
+
 		# linear scale plot
-		static.plt(x.dates,confirmed,recovered,deaths,active.cases)
+
+if ( is.null(geo.loc) || ((length(geo.loc) >=1 & with.totals) | (toupper(geo.loc0)=="ALL")) ) {
+		ymax <- static.plt(x.dates,confirmed,recovered,deaths,active.cases, legs=TRUE, stroke=FALSE)#, geo.loc=geo.loc0)
 
 		# add legends
-		legend("topleft", legend=c("Confirmed", "Recovered","Deaths","Active"),
-			col=c("black","blue","red","orange"), lty=1, lwd=2, cex=0.8, box.lty=0)
+		#legend("topleft", legend=c("Confirmed", "Recovered","Deaths","Active"),
+		#	col=c("black","blue","red","orange"), lty=1, lwd=2, pch=c(20,20,20,NA), cex=0.8, box.lty=0)
+n.plt <- FALSE
+} else { n.plt <- TRUE }
+
+		process.mult.cases(total.cases, geo.loc, col1,colN, ymax, with.totals,stroke=TRUE,new.plt=n.plt)
+
 
 		# log-scale plot
-		if (log.plt)
-			static.plt(x.dates,log1p(confirmed),log1p(recovered),log1p(deaths),log1p(active.cases))
+		if (log.plt) {
+			par(new=FALSE)
+#plot(x.dates,log1p(confirmed),type='n')
+#plot(0,0,'n',ann=FALSE)
+			if ( is.null(geo.loc) || ((length(geo.loc) >=1 & with.totals) | toupper(geo.loc) == "ALL") ) {
+			ymax <- static.plt(x.dates,log1p(confirmed),log1p(recovered),log1p(deaths),log1p(active.cases),stroke=FALSE)
+n.plt <- FALSE
+} else { n.plt <- TRUE }
+
+			log.total.cases <- total.cases
+			log.total.cases[,col1:colN] <- log1p(total.cases[,col1:colN])
+			process.mult.cases(log.total.cases, geo.loc, col1,colN, ymax, with.totals,stroke=TRUE,new.plt=n.plt)
+		}
+	} else {
+		plot(x.dates, X.cases, ylim=c(0,max(X.cases)),  type='l', lwd=3, col='darkred',
+			xlab='time', ylab='nbr of cases', main=geo.loc)
 	}
 
 	### INTERACTIVE PLOTS
@@ -205,31 +395,63 @@ totals.plt <- function(data0=NULL, geo.loc=NULL,
 		loadLibrary("plotly")
 
 		# define interactive figure/plot
-		totals.ifig <- plot_ly(total.cases, x = ~x.dates)	#colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
+###		totals.ifig <- plot_ly(total.cases, x = ~x.dates)	#colnames(total.cases[,col1:colN]))	#, type='scatter', mode='line+markers')
+		totals.ifig <- plot_ly(data, x = ~x.dates)
 		if (all.cases) {
 #			for (categ in categories) {
 #				fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
 #			}
-			totals.ifig <- totals.ifig %>% add_trace(y = ~confirmed, name="confirmed", type='scatter', mode='lines+markers')
-			totals.ifig <- totals.ifig %>% add_trace(y = ~recovered, name="recovered", type='scatter', mode='lines+markers')
-			totals.ifig <- totals.ifig %>% add_trace(y = ~deaths, name="deaths", type='scatter', mode='lines+markers')
-			totals.ifig <- totals.ifig %>% add_trace(y = ~active.cases, name="active cases", type='scatter', mode='lines')
+               aggs <- agg.cases(data, col1,colN)
+                confirmed <- aggs$confirmed
+                recovered <- aggs$recovered
+                deaths <- aggs$deaths
+                active.cases <- aggs$active
+
+			totals.ifig <- totals.ifig %>% add_trace(y = confirmed, name="Global confirmed", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = recovered, name="Global recovered", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = deaths, name="Global deaths", type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = active.cases, name="Global active cases", type='scatter', mode='lines+markers')
 			# extra traces for activating log-scale
-			totals.ifig <- add.traces(totals.ifig, confirmed,recovered,deaths,active.cases, vis=FALSE)
+			totals.ifig <- add.traces(totals.ifig, confirmed,recovered,deaths,active.cases, vis=FALSE,geo.lab="Global")
 			# log-scale menu based on nbr of traces...
-			updatemenues <- log.sc.setup(4)
+			#updatemenues <- log.sc.setup(4)
+			nbr.log.traces <- 4
+			nbr.sets <- 1
 		} else {
 			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
 			# extra traces for activating log-scale
 			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers', visible=F)
 			# log-scale menu based on nbr of traces...
-			updatemenues <- log.sc.setup(1)
+			#updatemenues <- log.sc.setup(1)
+			nbr.log.traces <- 1
+			nbr.sets <- 1
 		}
+
+		for (geo.entry in geo.loc) {
+                aggs <- agg.cases(data, col1,colN, geo.entry)
+                confirmed <- aggs$confirmed
+                recovered <- aggs$recovered
+                deaths <- aggs$deaths
+                active.cases <- aggs$active
+                        totals.ifig <- totals.ifig %>% add_trace(y = confirmed, name=paste(geo.entry,"confirmed"), type='scatter', mode="lines", line=list(width=1))
+                        totals.ifig <- totals.ifig %>% add_trace(y = recovered, name=paste(geo.entry,"recovered"), type='scatter', mode="lines", line=list(width=1))
+                        totals.ifig <- totals.ifig %>% add_trace(y = deaths, name=paste(geo.entry,"deaths"), type='scatter', mode="lines", line=list(width=1))
+                        totals.ifig <- totals.ifig %>% add_trace(y = active.cases, name=paste(geo.entry,"active cases"), type='scatter', mode="line", line=list(width=1))
+
+			totals.ifig <- add.traces(totals.ifig, confirmed,recovered,deaths,active.cases, vis=FALSE, style="lines",geo.lab=geo.entry)
+			nbr.log.traces <- nbr.log.traces + 4
+			nbr.sets <- nbr.sets + 1
+		}
+
+		# log-scale menu based on nbr of traces...
+		updatemenues <- log.sc.setup(nbr.log.traces/nbr.sets,nbr.sets)
 
 		# add a menu for switching log/linear scale
 		totals.ifig <- totals.ifig %>% layout(updatemenus=updatemenues)
 
-	
+		# add title
+		totals.ifig <- totals.ifig %>% layout(title=paste("covid19.analytics -- Totals ",geo.loc," / ",Sys.Date()))
+
 		# activate interactive figure
 		#print(totals.ifig)
 
@@ -242,7 +464,7 @@ totals.plt <- function(data0=NULL, geo.loc=NULL,
 		}
 	}
 
-	if (interactive.fig) return(totals.ifig)
+	if (interactive.fig) print(totals.ifig)
 	#return(totals.per.cat)
 }
 
@@ -299,9 +521,17 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 		for (sts in unique(data$status)) {
 			if (tolower(sts) == "death") {
 			# ie. deaths or recovered, hence we need to add them
-				df$total.deaths <- data[data$status==sts,(Ncols-1)]
+				if (nrow(data[data$status==sts,]) == nrow(data[data$status=='confirmed',]) ) {
+					df$total.deaths <- data[data$status==sts,(Ncols-1)]
+				} else {
+					df$total.deaths <- NA
+				}
 			} else if (tolower(sts) == "recovered") {
-				df$total.recover <- data[data$status==sts,(Ncols-1)]
+				if (nrow(data[data$status==sts,]) == nrow(data[data$status=='confirmed',]) ) { 
+					df$total.recover <- data[data$status==sts,(Ncols-1)]
+				} else {
+					df$total.recover <- NA
+				}
 			} else {
 				df$total.confirmed <- data[data$status == sts, (Ncols-1)]
 			}
@@ -550,7 +780,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 
 
 	# force displaying the figure
-	#print(fig)
+	print(fig)
 
 	if (!is.null(fileName)) {
 		FileName <- paste0(fileName,".html")
@@ -559,11 +789,11 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 		htmlwidgets::saveWidget(as_widget(fig), FileName)
 	}
 
-	if (TRUE) {
-		return(fig)
-	} else {
-		return(df)
-	}
+	#if (TRUE) {
+	#	return(fig)
+	#} else {
+		return(invisible(df))
+	#}
 }
 
 

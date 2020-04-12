@@ -1,1 +1,2 @@
+April 2020:  A couple of bugs fixed, affecting the growth.rate() and plot.SIR.model() fns; few more features added to report.summary() and totals.plt() _ ver 1.0.1
 March 2020:  Includes data access, basic analysis and interactive plotting functions _ ver 1.0
