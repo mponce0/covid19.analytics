@@ -282,16 +282,16 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 
 	# display plots if requested
 	if (staticPlt | interactiveFig)
-		plot.SIR.model(SIR.model,geo.loc, interactiveFig)
+		plt.SIR.model(SIR.model,geo.loc, interactiveFig)
 
-
+	#class(SIR.model) <- "SIR.model"
 	return(SIR.model)
 }
 
 #######################################################################
 #######################################################################
 
-plot.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=NULL) {
+plt.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=NULL) {
 #' function to plot the results from the SIR model fn
 #'
 #' @param  SIR.model model resulting from the generate.SIR.model() fn
@@ -299,7 +299,7 @@ plot.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName
 #' @param  interactiveFig  optional flag to activate interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
-#' @export
+#' @export plt.SIR.model 
 #'
 #' @importFrom  graphics  matplot title legend points
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
