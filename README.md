@@ -683,7 +683,7 @@ A BibTeX entry for LaTeX users is
     title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
     author = {Marcelo Ponce},
     year = {2020},
-    note = {R package version 1.0},
+    note = {R package version 1.0.1},
     url = {https://CRAN.R-project.org/package=covid19.analytics},
   }
 ```
