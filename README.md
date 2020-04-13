@@ -259,6 +259,25 @@ Typical structure of a `summary.report()` output for the Time Series data:
   Global Perc. Average:  0.38 (sd: 2.13) 
   Global Perc. Average in top  10 :  7.85 (sd: 8.18) 
 -------------------------------------------------------------------------------- 
+
+******************************************************************************** 
+********************************  OVERALL SUMMARY******************************** 
+******************************************************************************** 
+  ****  Time Series TOTS **** 
+  	 ts-confirmed	 ts-deaths	 ts-recovered 
+  	 1846679	      114091	    421722 
+               			6.18% 		   22.84% 
+  ****  Time Series AVGS **** 
+  	 ts-confirmed	 ts-deaths	 ts-recovered 
+  	 6995	         432.16	    1686.89 
+  			             6.18% 		   24.12% 
+  ****  Time Series SDS **** 
+  	 ts-confirmed	 ts-deaths	 ts-recovered 
+  	 39320.05	     2399.5	    8088.55 
+  			             6.1% 		    20.57% 
+
+ * Statistical estimators computed considering 250 independent reported entries 
+******************************************************************************** 
 ```
 
 Typical structure of a `summary.report()` output for the *Aggregated* data:
@@ -279,7 +298,19 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
 .
 .
 .
+=================================================================================================================================
+  	 Confirmed	 Deaths	  Recovered 	Active 
+  Totals 
+  	 1846680  	 114090	  421722    	1310868 
+  Average 
+  	 617.83	    38.17.  	141.09    	438.56 
+  Standard Deviation 
+  	 6426.31	   613.69	  2381.22 	  4272.19 
+  
+ * Statistical estimators computed considering 2989 independent reported entries
 ```
+
+In both cases an overall summary of the reported cases is presented by the end, displaying totals, average and standard devitation of the computed quantities.
 
 A full example of this report for today can be seen <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
 
