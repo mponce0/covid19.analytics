@@ -228,7 +228,8 @@ It will also compute the totals, averages, standard deviations and percentages o
   - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category is computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
- - it will show the *delta* (change or variation) in the last day, and when possible will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
+ - it will show the *delta* (change or variation) in the last day, daily changes day before that (t-2), three days ago (t-3), a week ago (t-7), two weeks ago (t-14) and a month ago (t-30)
+ - when possible, it will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
  - The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
  - The *"Global Perc. Average (SD: standard deviation)"* is computed as the average (standard deviation) of the number of cases among all the records in the data
  - The *"Global Perc. Average (SD: standard deviation) in top X"* is computed as the average (standard deviation) of the number of cases among the top *X* records
@@ -236,42 +237,45 @@ It will also compute the totals, averages, standard deviations and percentages o
 
 Typical structure of a `summary.report()` output for the Time Series data:
 ```
-############################################################################### 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-04  ::  2020-04-05 17:27:17 
 ################################################################################ 
-  Number of Countries/Regions reported:  181 
-  Number of Cities/Provinces reported:  82 
-  Unique number of geographical locations combined: 259 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-12  ::  2020-04-13 12:02:27 
+################################################################################ 
+  Number of Countries/Regions reported:  185 
+  Number of Cities/Provinces reported:  83 
+  Unique number of geographical locations combined: 264 
 -------------------------------------------------------------------------------- 
-  Worldwide  ts-confirmed  Totals: 1197405 
+  Worldwide  ts-confirmed  Totals: 1846679 
 -------------------------------------------------------------------------------- 
-    Country.Region Province.State Totals GlobalPerc LastDayChange
-1             US                308850      25.79         33264
-2          Spain                126168      10.54          6969
-3          Italy                124632      10.41          4805
-4        Germany                 96092       8.03          4933
--------------------------------------------------------------------------------- 
-  Global Perc. Average:  0.39 (sd: 2.02) 
-  Global Perc. Average in top  10 :  7.98 (sd: 7) 
--------------------------------------------------------------------------------- 
+   Country.Region Province.State Totals GlobalPerc LastDayChange   t-2   t-3   t-7  t-14 t-30
+1              US                555313      30.07         28917 29861 35098 29595 20922  548
+2           Spain                166831       9.03          3804  4754  5051  5029  7846 1159
+3           Italy                156363       8.47          4092  4694  3951  3599  4050 3497
+4          France                132591       7.18          2937  4785  7120  5171  4376  808
+5         Germany                127854       6.92          2946  2737  3990  3251  4790  910
 .
 .
 .
+-------------------------------------------------------------------------------- 
+  Global Perc. Average:  0.38 (sd: 2.13) 
+  Global Perc. Average in top  10 :  7.85 (sd: 8.18) 
+-------------------------------------------------------------------------------- 
 ```
 
 Typical structure of a `summary.report()` output for the *Aggregated* data:
 ```
-########################################################################################################################## 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-04  ::  2020-04-05 17:27:19 
-########################################################################################################################## 
-  Number of Countries/Regions reported: 181 
-  Number of Cities/Provinces reported: 137 
-  Unique number of geographical locations combined: 316 
--------------------------------------------------------------------------------------------------------------------------- 
-     Country_Region Province_State Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1          Spain                   126168          10.54  11947        9.47     34219          27.12  80002       63.41
-2          Italy                   124632          10.41  15362       12.33     20996          16.85  88274       70.83
-3        Germany                    96092           8.03   1444        1.50     26400          27.47  68248       71.02
+################################################################################################################################# 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-12  ::  2020-04-13 12:02:29 
+################################################################################################################################# 
+  Number of Countries/Regions reported: 185 
+  Number of Cities/Provinces reported: 138 
+  Unique number of geographical locations combined: 2989 
+--------------------------------------------------------------------------------------------------------------------------------- 
+                      Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
+1                        Spain    166831           9.03  17209       10.32     62391          37.40  87231       52.29
+2                        Italy    156363           8.47  19899       12.73     34211          21.88 102253       65.39
+3                       France    132591           7.18  14393       10.86     27186          20.50  91012       68.64
+4                      Germany    127854           6.92   3022        2.36     60300          47.16  64532       50.47
+5  New York City, New York, US    103208           5.59   6898        6.68         0           0.00  96310       93.32
 .
 .
 .
