@@ -674,7 +674,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 To cite package ‘covid19.analytics’ in publications use:
 
   Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
-  from the CoViD-19 Pandemic. R package version 1.0.
+  from the CoViD-19 Pandemic. R package version 1.0.1.
   https://CRAN.R-project.org/package=covid19.analytics
 
 A BibTeX entry for LaTeX users is
