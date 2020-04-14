@@ -15,47 +15,63 @@ integrity.check <- function(data, datasetName="", recommend=TRUE) {
 #' @param  recommend  optional flag to recommend further actions
 #'
 
-	# check that the data contain columns for Province.State/Country.Region
-	cty.col <- pmatch("Country",names(data))
-	prov.col <- pmatch("Province",names(data))
+	chck.cols <- function(col.names,cols) {
 
-	critical.err <- "This could mean that the data structure has changed but it is a CRITICAL iissue, please contact the developer"
+		critical.err <- FALSE
+
+		for (i in cols) {
+			x.col <- pmatch(i, col.names)
+			if (is.na(x.col)) {
+				warning("CRITICAL: Could not find in the data a column for ", i)
+				critical.err <- TRUE
+			}
+		}
+
+		# conclusion...
+		if (critical.err) {
+			critical.err.msg <- "This could mean that the data structure has changed but it is a CRITICAL issue, please contact the developer"
+			stop(critical.err.msg)
+		} else {
+			message("No critical issues have been found.")
+		}
+
+	}
+
+	#########
 
 	message(" >>> checking data integrity...")
 
-	if (is.na(cty.col))
-		stop("Could not find in the data a column for Country/Region",'\n',
-			critical.err)
+	# define critical columns to check for
+	critical.cols <- c("Country","Province","Lat","Long")
+	# check that the data contain columns for the criitical cols defined above
+	chck.cols(names(data), critical.cols)
 
-	if(is.na(prov.col))
-		stop("Could not find in the data a column for Province/City",'\n',
-			crititcal.err)
-
-	# conclusion
-	msg <- paste("No critical issues have been found.",'\n')
-	# recommendation...
+	# wrapup msg - recommendation...
 	if (recommend)
-		msg <- paste(msg, "Try also check for data consistency, using the consistency.check() function")
-
-	# wrap-up message
-	message(msg)
+		message("Try also to check for data consistency, using the consistency.check() function")
 }
 
 #######################################################################
 
-consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="") {
+consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", details=TRUE) {
 #' function that determines whether there are consistency issues within the data, such as, anomalies in the cumulative quantities of the data as reported by JHU/CCSEGIS
 #'
 #' @param  data  dataset to analyze
 #' @param  n0  column where the cumulative data begins
 #' @param  nf  column where the cumulative data ends
 #' @param  datasetName  optional argument to display the name of the dataset
+#' @param  details  optional argument to specify whether to show details about the records where inconsistencies were detected
 #'
 
 	message(" >>> checking data consistency...")
 
 	# check tha the data is TS...
 	if (chk.TS.data(data)) {
+
+		# check if 'status' is in a column, ie. combined TS data
+		sts.col <- pmatch("status",tolower(names(data)))
+		if (!is.na(sts.col))
+			nf <- sts.col - 1
 
 		inconsis <- data.frame()
 
@@ -71,7 +87,7 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="") {
 
 		if (nrow(inconsis) > 0) {
 			warning("Inconsistency in ",datasetName," data detected -- the following ",nrow(inconsis)," records show inconsistencies in the data...", immediate. = TRUE)
-			print(inconsis)
+			if (details) print(inconsis)
 		}
 	} else {
 		message("This function applies to TimeSeries data only")
@@ -96,3 +112,6 @@ data.checks <- function(data,n0=5,nf=ncol(data), datasetName="") {
 	consistency.check(data, n0,nf,datasetName)
 
 }
+
+#######################################################################
+
