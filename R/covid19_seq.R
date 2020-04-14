@@ -1,4 +1,4 @@
-# module for reading covid19 RNA sequence
+# module for reading covid19.analytics RNA sequence
 #
 # M.Ponce
 

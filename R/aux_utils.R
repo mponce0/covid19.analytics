@@ -1,4 +1,4 @@
-# Auxiliary fns of the covid19 package
+# Auxiliary fns of the covid19.analytics package
 #
 # M.Ponce
 
