@@ -757,11 +757,19 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 				main=substr(report.title,ceiling(nchar(report.title)/2),nchar(report.title)) )
 		}
 	}
+
+	# run integrity and consistency checks...
+	chcks <- capture.output(data.checks(data))
+	print(chcks)
 	}
 
 	##### PROCESS "AGREGATED" DATA  #######
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="AGG") ) {
-		process.agg.cases(covid19.data("aggregated"), Nentries, graphical.output)
+		agg.data <- covid19.data("aggregated")
+		process.agg.cases(agg.data, Nentries, graphical.output)
+
+		# report integrity and consistency checks in the data
+		data.checks(agg.data)
 	}
 
 
