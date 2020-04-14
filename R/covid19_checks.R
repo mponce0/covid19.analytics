@@ -43,7 +43,7 @@ integrity.check <- function(data, datasetName="", recommend=TRUE) {
 
 #######################################################################
 
-consistency.check <- function(data, n0=5,nf=ncol(x), datasetName="") {
+consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="") {
 #' function that determines whether there are consistency issues within the data, such as, anomalies in the cumulative quantities of the data as reported by JHU/CCSEGIS
 #'
 #' @param  data  dataset to analyze
@@ -81,7 +81,7 @@ consistency.check <- function(data, n0=5,nf=ncol(x), datasetName="") {
 
 #######################################################################
 
-data.checks <- function(data,n0=5,nf=ncol(x), datasetName="") {
+data.checks <- function(data,n0=5,nf=ncol(data), datasetName="") {
 #' function to check for data integrity and data consistency
 #' @param  data  dataset to analyze
 #' @param  n0  column where the cumulative data begins
