@@ -1,4 +1,4 @@
-# Analysis fns of the covid19 package
+# Analysis fns of the covid19.analytics package
 #
 # M.Ponce
 
@@ -400,7 +400,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
                 province.col <- pmatch("Province", names(data))
                 header('',paste("Number of Countries/Regions reported: ",length(unique(data[,country.col]))) )
                 header('',paste("Number of Cities/Provinces reported: ",length(unique(data[,province.col]))) )
-                header('',paste0("Unique number of geographical locations combined: ",nrow(unique(data[,c(country.col,province.col)]))))
+                header('',paste0("Unique number of distinct geographical locations combined: ",nrow(unique(data[,c(country.col,province.col)]))))
                 header("-", total.len=scr.len)
 
 		if (length(colN)==1) {
@@ -517,7 +517,7 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
 		header('',paste0("Number of Countries/Regions reported: ",length(unique(data[,country.col]))))
 		header('',paste0("Number of Cities/Provinces reported: ",length(unique(data[,province.col]))))
-		header('',paste0("Unique number of geographical locations combined: ",
+		header('',paste0("Unique number of distinct geographical locations combined: ",
 				length(unique(unlist(data[,combKey.col])))
 				#nrow(unique(data[,c(country.col,province.col)]))
 				) )
@@ -550,6 +550,7 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 		#original.cols <- c(country.col,province.col,combKey.col)
 		data.ordered <- data[order(data[,i],decreasing=TRUE),][1:upto.record,c(original.cols, custom.list)]
 		#names(data.ordered) <- c("Country.Region","Province.State", cases)
+		names(data.ordered)[1] <- "Location"
 		row.names(data.ordered) <- 1:upto.record
 
                 print(data.ordered)
@@ -559,7 +560,8 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 		target.col <- col.names[i]
 		ord.cty.col <- pmatch("Country",names(data.ordered))
 		ord.prv.col <- pmatch("Province",names(data.ordered))
-		ord.combKey.col <- pmatch("Combined",names(data.ordered))
+		##ord.combKey.col <- pmatch("Combined",names(data.ordered))
+		ord.combKey.col <- which("Location"==names(data.ordered))
 
                 # graphics
                 if (graphical.output) {
