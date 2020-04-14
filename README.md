@@ -111,6 +111,28 @@ dynamical situation with respect to data availability and integrity.
 <!------- TABLE ------>
 
 
+### Data Integrity and Consistency Checks
+Due to the ongoing rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
+For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165).
+
+When this occurs, it happens at the level of the origin of the dataset, in our case, the one obtained from the JHU/CCESGIS repository [1].
+In order to make the user aware of this, we implemented two consistency and integrity check functions:
+
+* `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, anomalies in the cumulative quantities of the data
+
+* `integrity.check()`, this determines whether there are integrity issues within the datasets or changes to the structure of the data
+
+Alternatively we provide a `data.checks()` function that will run both functions on an specied dataset.
+
+#### Data Intregrity
+It is highly unlikely that you would face a situation where the internal structure of the data, or its actual integrity may be compromised but if you think that this is the case or the `integrity.check()` function reports this, please we urgue you to contact the developer of this package (https://github.com/mponce0/covid19.analytics/issues).
+
+#### Data Consistency
+Data consistency issues and/or anomalies in the data have been reported several times, see https://github.com/CSSEGISandData/COVID-19/issues/.
+This are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
+Having said that, we believe that the user should be aware of these situations and we recommed using the `consistency.check()` function to verify the dataset you will be working with.
+
+
 ### covid19-Sequencing data
 The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [2].
 
@@ -158,7 +180,25 @@ and daily changes in the reported number of cases.
   <td> obtain covid19's genomic sequencing data from NCBI [2] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
+   <tr>
+   <th colspan="3"> <b>Data Control</b> </th>
+  </tr>
   <tr>
+    <td> <code>data.checks</code> </td>
+    <td> run integrity and consistency checks on a given dataset </td>
+    <td> diagnostics about the dataset integrity and consistency </td>
+  </tr>
+  <tr>
+    <td> <code>consistency.check</code> </td>
+    <td> run consistency checks on a given dataset </td>
+    <td> diagnostics about the dataset consistency </td>
+  </tr>
+  <tr>
+    <td> <code>integrity.check</code> </td>
+    <td> run integrity checks on a given dataset </td>
+    <td> diagnostics about the dataset integrity </td>
+  </tr>
+ <tr>
    <th colspan="3"> <b>Analysis</b> </th>
   </tr>
   <tr>
