@@ -181,7 +181,7 @@ and daily changes in the reported number of cases.
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
-   <th colspan="3"> <b>Data Control</b> </th>
+   <th colspan="3"> <b>Data Quality Assesment</b> </th>
   </tr>
   <tr>
     <td> <code>data.checks</code> </td>
