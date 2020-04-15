@@ -1,7 +1,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:20 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:24 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  83 
@@ -33,7 +33,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### TS-DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:24 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  83 
@@ -65,7 +65,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:25 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  68 
@@ -92,124 +92,9 @@
 -------------------------------------------------------------------------------- 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
-  [1] "                  Province.State                   Country.Region" "1                                                     Afghanistan"
-  [3] "2                                                         Albania" "3                                                         Algeria"
-  [5] "4                                                         Andorra" "5                                                          Angola"
-  [7] "6                                             Antigua and Barbuda" "7                                                       Argentina"
-  [9] "8                                                         Armenia" "9   Australian Capital Territory                        Australia"
- [11] "10               New South Wales                        Australia" "11            Northern Territory                        Australia"
- [13] "12                    Queensland                        Australia" "13               South Australia                        Australia"
- [15] "14                      Tasmania                        Australia" "15                      Victoria                        Australia"
- [17] "16             Western Australia                        Australia" "17                                                        Austria"
- [19] "18                                                     Azerbaijan" "19                                                        Bahamas"
- [21] "20                                                        Bahrain" "21                                                     Bangladesh"
- [23] "22                                                       Barbados" "23                                                        Belarus"
- [25] "24                                                        Belgium" "26                                                          Benin"
- [27] "27                                                         Bhutan" "28                                                        Bolivia"
- [29] "29                                         Bosnia and Herzegovina" "30                                                         Brazil"
- [31] "31                                                         Brunei" "32                                                       Bulgaria"
- [33] "33                                                   Burkina Faso" "34                                                     Cabo Verde"
- [35] "35                                                       Cambodia" "36                                                       Cameroon"
- [37] "37                                                         Canada" "38                                       Central African Republic"
- [39] "39                                                           Chad" "40                                                          Chile"
- [41] "41                         Anhui                            China" "42                       Beijing                            China"
- [43] "43                     Chongqing                            China" "44                        Fujian                            China"
- [45] "45                         Gansu                            China" "46                     Guangdong                            China"
- [47] "47                       Guangxi                            China" "48                       Guizhou                            China"
- [49] "49                        Hainan                            China" "50                         Hebei                            China"
- [51] "51                  Heilongjiang                            China" "52                         Henan                            China"
- [53] "53                     Hong Kong                            China" "54                         Hubei                            China"
- [55] "55                         Hunan                            China" "56                Inner Mongolia                            China"
- [57] "57                       Jiangsu                            China" "58                       Jiangxi                            China"
- [59] "59                         Jilin                            China" "60                      Liaoning                            China"
- [61] "61                         Macau                            China" "62                       Ningxia                            China"
- [63] "63                       Qinghai                            China" "64                       Shaanxi                            China"
- [65] "65                      Shandong                            China" "66                      Shanghai                            China"
- [67] "67                        Shanxi                            China" "68                       Sichuan                            China"
- [69] "69                       Tianjin                            China" "70                         Tibet                            China"
- [71] "71                      Xinjiang                            China" "72                        Yunnan                            China"
- [73] "73                      Zhejiang                            China" "74                                                       Colombia"
- [75] "75                                            Congo (Brazzaville)" "76                                               Congo (Kinshasa)"
- [77] "77                                                     Costa Rica" "78                                                  Cote d'Ivoire"
- [79] "79                                                        Croatia" "80                                               Diamond Princess"
- [81] "81                                                           Cuba" "82                                                         Cyprus"
- [83] "83                                                        Czechia" "84                 Faroe Islands                          Denmark"
- [85] "85                     Greenland                          Denmark" "86                                                        Denmark"
- [87] "87                                                       Djibouti" "88                                                       Dominica"
- [89] "89                                             Dominican Republic" "90                                                        Ecuador"
- [91] "91                                                          Egypt" "92                                                    El Salvador"
- [93] "93                                              Equatorial Guinea" "95                                                        Estonia"
- [95] "96                                                       Eswatini" "97                                                       Ethiopia"
- [97] "99                                                        Finland" "100                French Guiana                           France"
- [99] "102                   Guadeloupe                           France" "103                   Martinique                           France"
-[101] "104                      Mayotte                           France" "105                New Caledonia                           France"
-[103] "106                      Reunion                           France" "107             Saint Barthelemy                           France"
-[105] "108                    St Martin                           France" "109                                                        France"
-[107] "110                                                         Gabon" "111                                                        Gambia"
-[109] "112                                                       Georgia" "113                                                       Germany"
-[111] "114                                                         Ghana" "116                                                        Greece"
-[113] "117                                                     Guatemala" "118                                                        Guinea"
-[115] "120                                                        Guyana" "121                                                         Haiti"
-[117] "122                                                      Holy See" "123                                                      Honduras"
-[119] "124                                                       Hungary" "125                                                       Iceland"
-[121] "126                                                         India" "127                                                     Indonesia"
-[123] "128                                                          Iran" "129                                                          Iraq"
-[125] "130                                                       Ireland" "131                                                        Israel"
-[127] "132                                                         Italy" "133                                                       Jamaica"
-[129] "134                                                         Japan" "135                                                        Jordan"
-[131] "136                                                    Kazakhstan" "137                                                         Kenya"
-[133] "138                                                  Korea, South" "139                                                        Kuwait"
-[135] "140                                                    Kyrgyzstan" "141                                                        Latvia"
-[137] "142                                                       Lebanon" "143                                                       Liberia"
-[139] "144                                                         Libya" "145                                                 Liechtenstein"
-[141] "146                                                     Lithuania" "147                                                    Luxembourg"
-[143] "148                                                    Madagascar" "149                                                      Malaysia"
-[145] "150                                                      Maldives" "151                                                          Mali"
-[147] "152                                                         Malta" "153                                                    Mauritania"
-[149] "154                                                     Mauritius" "155                                                        Mexico"
-[151] "156                                                       Moldova" "157                                                        Monaco"
-[153] "158                                                      Mongolia" "159                                                    Montenegro"
-[155] "160                                                       Morocco" "161                                                    Mozambique"
-[157] "162                                                       Namibia" "163                                                         Nepal"
-[159] "164                        Aruba                      Netherlands" "165                      Curacao                      Netherlands"
-[161] "166                 Sint Maarten                      Netherlands" "167                                                   Netherlands"
-[163] "168                                                   New Zealand" "169                                                     Nicaragua"
-[165] "170                                                         Niger" "171                                                       Nigeria"
-[167] "172                                               North Macedonia" "173                                                        Norway"
-[169] "174                                                          Oman" "175                                                      Pakistan"
-[171] "176                                                        Panama" "178                                                      Paraguay"
-[173] "179                                                          Peru" "180                                                   Philippines"
-[175] "181                                                        Poland" "182                                                      Portugal"
-[177] "183                                                         Qatar" "184                                                       Romania"
-[179] "185                                                        Russia" "186                                                        Rwanda"
-[181] "188                                                   Saint Lucia" "189                              Saint Vincent and the Grenadines"
-[183] "190                                                    San Marino" "191                                                  Saudi Arabia"
-[185] "192                                                       Senegal" "193                                                        Serbia"
-[187] "195                                                     Singapore" "196                                                      Slovakia"
-[189] "197                                                      Slovenia" "198                                                       Somalia"
-[191] "199                                                  South Africa" "200                                                         Spain"
-[193] "201                                                     Sri Lanka" "202                                                         Sudan"
-[195] "203                                                      Suriname" "204                                                        Sweden"
-[197] "205                                                   Switzerland" "206                                                         Syria"
-[199] "207                                                       Taiwan*" "208                                                      Tanzania"
-[201] "209                                                      Thailand" "210                                                   Timor-Leste"
-[203] "211                                                          Togo" "212                                           Trinidad and Tobago"
-[205] "213                                                       Tunisia" "214                                                        Turkey"
-[207] "215                                                        Uganda" "216                                                       Ukraine"
-[209] "217                                          United Arab Emirates" "218                      Bermuda                   United Kingdom"
-[211] "219               Cayman Islands                   United Kingdom" "220              Channel Islands                   United Kingdom"
-[213] "221                    Gibraltar                   United Kingdom" "222                  Isle of Man                   United Kingdom"
-[215] "223                   Montserrat                   United Kingdom" "224                                                United Kingdom"
-[217] "225                                                       Uruguay" "226                                                            US"
-[219] "227                                                    Uzbekistan" "228                                                     Venezuela"
-[221] "229                                                       Vietnam" "230                                                        Zambia"
-[223] "232                                            West Bank and Gaza" "233                                                          Laos"
-[225] "234                                                        Kosovo" "235                                                         Burma"
-[227] "236                     Anguilla                   United Kingdom" "237       British Virgin Islands                   United Kingdom"
-[229] "245  Falkland Islands (Malvinas)                   United Kingdom"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:25 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
@@ -233,7 +118,7 @@
 15       Suffolk, New York, US     22691           1.15    608        2.68         0           0.00  22083       97.32
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:25 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
@@ -257,7 +142,7 @@
 15        Nassau, New York, US     25250           1.28   1001        3.96         0           0.00  24249       96.04
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:25 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
@@ -281,7 +166,7 @@
 15              Peru     10303           0.52    230        2.23      2869          27.85   7204       69.92
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:41:25 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
