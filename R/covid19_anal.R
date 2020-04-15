@@ -653,7 +653,11 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 	# save report to a file
 	if (saveReport) {
 			fileName <- paste0("covid19-SummaryReport_",Sys.Date(),".txt")
-			sink(file=fileName,split=TRUE)
+			# sink the output to the file and console (split=T) and include messages and warnings too
+			sink(file=fileName,split=TRUE) #,type = "message")
+			#file.out <- file(fileName, open = "wt")
+			#sink(file.out, type = "message")
+			#sink(file.out, split=TRUE)
 	}
 
 	##### PROCESS TIME SERIES DATA ######
@@ -668,6 +672,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 	for (i in cases) {
 		# read data
 		data <- covid19.data(i)
+
+		# run integrity and consistency checks...
+		data.checks(data,datasetName=i,details=FALSE)
 
 		# if Nentries is set to 0, will consider *all* entries
 		if (Nentries==0) Nentriex <- nrow(data)
@@ -758,9 +765,6 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		}
 	}
 
-	# run integrity and consistency checks...
-	chcks <- capture.output(data.checks(data))
-	print(chcks)
 	}
 
 	##### PROCESS "AGREGATED" DATA  #######
@@ -769,7 +773,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 		process.agg.cases(agg.data, Nentries, graphical.output)
 
 		# report integrity and consistency checks in the data
-		data.checks(agg.data)
+		integrity.check(agg.data,recommend=FALSE)
 	}
 
 
