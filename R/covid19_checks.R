@@ -80,13 +80,13 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", details=
 			deltas <- diff(num.data)
 			inconsistencies <- deltas < 0
 
-			if (sum(inconsistencies) > 0) 
+			if (sum(inconsistencies, na.rm=TRUE) > 0) 
 				inconsis <- rbind(inconsis, data[i,c(1,2)])
 
 		}
 
 		if (nrow(inconsis) > 0) {
-			warning("Inconsistency in ",datasetName," data detected -- the following ",nrow(inconsis)," records show inconsistencies in the data...", immediate. = TRUE)
+			warning("Inconsistency in ",datasetName," data detected -- ",nrow(inconsis)," records (out of ",nrow(data),") show inconsistencies in the data...", immediate. = TRUE)
 			if (details) print(inconsis)
 		}
 	} else {
@@ -97,19 +97,20 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", details=
 
 #######################################################################
 
-data.checks <- function(data,n0=5,nf=ncol(data), datasetName="") {
+data.checks <- function(data,n0=5,nf=ncol(data), datasetName="", details=TRUE) {
 #' function to check for data integrity and data consistency
 #' @param  data  dataset to analyze
 #' @param  n0  column where the cumulative data begins
 #' @param  nf  column where the cumulative data ends
 #' @param  datasetName  optional argument to display the name of the dataset
+#' @param  details  optional argument to specify whether to show details about the records where inconsistencies were detected
 #'
 
 	# check for integrity
 	integrity.check(data, datasetName, recommend=FALSE)
 
 	# check for consistency
-	consistency.check(data, n0,nf,datasetName)
+	consistency.check(data, n0,nf,datasetName, details)
 
 }
 
