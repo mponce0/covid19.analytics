@@ -256,6 +256,7 @@ and daily changes in the reported number of cases.
 The `report.summary()` generates an overall report summarizing the different datasets.
 It can summarize the "Time Series" data (`cases.to.process="TS"`), the "aggregated" data (`cases.to.process="AGG"`) or both (`cases.to.process="ALL"`).
 It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
+The function can also target an specific geographical location using the `geo.loc` argument.
 
 In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
@@ -508,6 +509,15 @@ report.summary(saveReport=TRUE)
  </p>
  </embed>
 </object>
+
+```R
+# summary report for an specific location with default number of entries
+report.summary(geo.loc="Canada")
+
+# summary report for an specific location with top 5
+report.summary(Nentries=5, geo.loc="Canada")
+```
+
 
 
 #### Totals per Country/Region/Province
