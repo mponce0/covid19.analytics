@@ -1,319 +1,204 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:20 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:40 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  83 
   Unique number of distinct geographical locations combined: 264 
 -------------------------------------------------------------------------------- 
-  Worldwide  ts-confirmed  Totals: 1976191 
+  Worldwide  ts-confirmed  Totals: 2317758 
 -------------------------------------------------------------------------------- 
    Country.Region Province.State Totals GlobalPerc LastDayChange   t-2   t-3   t-7  t-14 t-30
-1              US                607670      30.75         27051 25306 28917 32829 25200 1133
-2           Spain                172541       8.73          2442  3268  3804  6278  8195 2144
-3           Italy                162488       8.22          2972  3153  4092  3836  4782 3233
-4         Germany                131359       6.65          1287  2218  2946  5633  6064 1477
-5          France                130253       6.59         -6526  4188  2937  3881  4861 2134
-6  United Kingdom                 93873       4.75          5252  4342  5288  5491  4324  403
-7            Iran                 74877       3.79          1574  1617  1657  1997  2988 1053
-8           China          Hubei  67803       3.43             0     0     0     0     1    4
-9          Turkey                 65111       3.29          4062  4093  4789  4117  2148   12
-10        Belgium                 31119       1.57           530   942  1629  1209  1189  172
-11    Netherlands                 27419       1.39           868   964  1174   969  1019  278
-12    Switzerland                 25936       1.31           248   273   308  1027  1163    0
-13         Brazil                 25262       1.28          1832  1238  1465  2136  1119   38
-14         Russia                 21102       1.07          2774  2558  2186  1175   440   27
-15       Portugal                 17448       0.88           514   349   598   699   808   86
+1              US                732197      31.59         32491 31905 31451 28917 28219 5526
+2           Spain                191726       8.27           887  5891  7304  3804  5478 2447
+3           Italy                175925       7.59          3491  3493  3786  4092  4316 5986
+4          France                147969       6.38             0  2009 12490 26843  1873 1741
+5         Germany                143342       6.18          1945  3699  2945  2946  4031 4528
+6  United Kingdom                114217       4.93          5525  5599  4617  5288  5903 1294
+7          Turkey                 82329       3.55          3783  4353  4801  4789  3135  167
+8            Iran                 80868       3.49          1374  1499  1606  1657  2483 1237
+9           China          Hubei  68128       2.94             0   325     0     0     0    0
+10        Belgium                 37183       1.60          1045  1329  1236  1629  1260  462
+11         Russia                 36793       1.59          4785  4070  3448  2186   658   54
+12         Brazil                 36658       1.58          2976  3257  2105  1465   770  172
+13    Netherlands                 31589       1.36          1140  1235  1061  1174  1224  534
+14    Switzerland                 27404       1.18           326   346   396   308   595 1219
+15       Portugal                 19685       0.85           663   181   750   598   754  235
 -------------------------------------------------------------------------------- 
-  Global Perc. Average:  0.38 (sd: 2.15) 
-  Global Perc. Average in top  15 :  5.58 (sd: 7.46) 
+  Global Perc. Average:  0.38 (sd: 2.17) 
+  Global Perc. Average in top  15 :  5.54 (sd: 7.62) 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### TS-DEATHS Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  83 
   Unique number of distinct geographical locations combined: 264 
 -------------------------------------------------------------------------------- 
-  Worldwide  ts-deaths  Totals: 125984 
+  Worldwide  ts-deaths  Totals: 159509 
 -------------------------------------------------------------------------------- 
    Country.Region Province.State Totals  Perc LastDayChange  t-2  t-3  t-7 t-14 t-30
-1              US                 25832  4.25          2303 1509 1557 1973  884   22
-2           Italy                 21067 12.97           602  566  431  542  727  349
-3           Spain                 18056 10.46           300  547  603  747  923   53
-4          France                 15729 12.08           762  574  561  541  509   57
-5  United Kingdom                 12107 12.90           778  717  737  938  563   34
-6            Iran                  4683  6.25            98  111  117  121  138  129
-7         Belgium                  4157 13.36           254  303  254  205  123    1
-8         Germany                  3294  2.51           100  172  286  333  145    6
-9           China          Hubei   3221  4.75             0    2    0    1    6   14
-10    Netherlands                  2945 10.74           122   86   94  147  134    4
-11         Brazil                  1532  6.06           204  105   99  133   39    0
-12         Turkey                  1403  2.15           107   98   97   87   63    0
-13    Switzerland                  1174  4.53            36   32   70   74   55    0
-14         Sweden                  1033  9.03           114   20   12   96   59    3
-15       Portugal                   567  3.25            32   31   34   35   27    0
+1              US                 38664  5.28          1891 3857 4591 1557 1212   44
+2           Italy                 23227 13.20           482  575  525  431  525  627
+3           Spain                 20043 10.45            41  687  607  603  694  213
+4          France                 19323 13.06           642  761  753  561  518  207
+5  United Kingdom                 15464 13.54           888  847  861  737  621   40
+6         Belgium                  5453 14.67           290  306  417  254  164   16
+7            Iran                  5031  6.22            73   89   92  117  151  149
+8           China          Hubei   4512  6.62             0 1290    0    0    3    3
+9         Germany                  4459  3.11           107  300  248  286  140   23
+10    Netherlands                  3601 11.40           142  144  181   94  115   30
+11         Brazil                  2354  6.42           213  217  188   99   41    5
+12         Turkey                  1890  2.30           121  126  125   97   73    1
+13         Sweden                  1511 10.93           111   67  130   12   28    5
+14    Switzerland                  1368  4.99            41   46   42   70   49   13
+15         Canada         Quebec    688  3.93             0   58  143   39   14    0
 -------------------------------------------------------------------------------- 
-  Global Perc. Average:  3.61 (sd: 7.23) 
-  Global Perc. Average in top  15 :  7.69 (sd: 4.12) 
+  Global Perc. Average:  3.63 (sd: 7.21) 
+  Global Perc. Average in top  15 :  8.41 (sd: 4.21) 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### TS-RECOVERED Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ################################################################################ 
   Number of Countries/Regions reported:  185 
   Number of Cities/Provinces reported:  68 
   Unique number of distinct geographical locations combined: 250 
 -------------------------------------------------------------------------------- 
-  Worldwide  ts-recovered  Totals: 474261 
+  Worldwide  ts-recovered  Totals: 592319 
 -------------------------------------------------------------------------------- 
-   Country.Region Province.State Totals LastDayChange   t-2  t-3   t-7 t-14 t-30
-1         Germany                 68200          3900  4000 2900 10219 2600   21
-2           Spain                 67504          2777  2336 3282  4813 3388   13
-3           China          Hubei  64363            25    57   17    69  173  854
-4            Iran                 48129          2146  2089 1947  2773  817    0
-5              US                 47763          4281 10494 1718  1796 1450    5
-6           Italy                 37130          1695  1224 1677  2099 1118  414
-7          France                 28805          1087   532  795  1917 1490    0
-8     Switzerland                 13700             0  1000  600  1096 1144    0
-9          Canada                  8210           452   635  534   363 -268    1
-10        Austria                  7633           290   356  383   466  341    0
-11   Korea, South                  7534            87    79  125    82  159  627
-12        Belgium                  6868           161   244  477   524  436    0
-13         Turkey                  4799           842   511  481   264   90    0
-14         Brazil                  3046          2873     0    0     0    0    1
-15           Peru                  2869           227   844   59    32    0    0
+   Country.Region Province.State Totals LastDayChange  t-2  t-3  t-7 t-14 t-30
+1         Germany                 85400          2286 6114 4400 2900 2300   67
+2           Spain                 74797             0    0 3944 3282 3861  481
+3              US                 64840          6295 3842 2607 1718 2796   26
+4           China          Hubei  63494             7 -948   33   17  183  700
+5            Iran                 55987          1923 1835 2296 1947    0 1035
+6           Italy                 44927          2200 2563 2072 1677  819    0
+7          France                 35983          1563 1608 1857  795  745    0
+8     Switzerland                 17100           700  500  500  600    0    0
+9          Brazil                 14026             0    0    0    0    0    0
+10         Canada                 10964           419  847  732  534  435    0
+11         Turkey                 10453          1822 1542 1415  481  256    0
+12        Austria                 10214           510  718  888  383  491    0
+13        Belgium                  8348           387  399  455  477  504  -30
+14   Korea, South                  7937           108   72  141  125  138    0
+15           Peru                  6684           143  421 3012   59   75    0
 -------------------------------------------------------------------------------- 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
-  [1] "                  Province.State                   Country.Region" "1                                                     Afghanistan"
-  [3] "2                                                         Albania" "3                                                         Algeria"
-  [5] "4                                                         Andorra" "5                                                          Angola"
-  [7] "6                                             Antigua and Barbuda" "7                                                       Argentina"
-  [9] "8                                                         Armenia" "9   Australian Capital Territory                        Australia"
- [11] "10               New South Wales                        Australia" "11            Northern Territory                        Australia"
- [13] "12                    Queensland                        Australia" "13               South Australia                        Australia"
- [15] "14                      Tasmania                        Australia" "15                      Victoria                        Australia"
- [17] "16             Western Australia                        Australia" "17                                                        Austria"
- [19] "18                                                     Azerbaijan" "19                                                        Bahamas"
- [21] "20                                                        Bahrain" "21                                                     Bangladesh"
- [23] "22                                                       Barbados" "23                                                        Belarus"
- [25] "24                                                        Belgium" "26                                                          Benin"
- [27] "27                                                         Bhutan" "28                                                        Bolivia"
- [29] "29                                         Bosnia and Herzegovina" "30                                                         Brazil"
- [31] "31                                                         Brunei" "32                                                       Bulgaria"
- [33] "33                                                   Burkina Faso" "34                                                     Cabo Verde"
- [35] "35                                                       Cambodia" "36                                                       Cameroon"
- [37] "37                                                         Canada" "38                                       Central African Republic"
- [39] "39                                                           Chad" "40                                                          Chile"
- [41] "41                         Anhui                            China" "42                       Beijing                            China"
- [43] "43                     Chongqing                            China" "44                        Fujian                            China"
- [45] "45                         Gansu                            China" "46                     Guangdong                            China"
- [47] "47                       Guangxi                            China" "48                       Guizhou                            China"
- [49] "49                        Hainan                            China" "50                         Hebei                            China"
- [51] "51                  Heilongjiang                            China" "52                         Henan                            China"
- [53] "53                     Hong Kong                            China" "54                         Hubei                            China"
- [55] "55                         Hunan                            China" "56                Inner Mongolia                            China"
- [57] "57                       Jiangsu                            China" "58                       Jiangxi                            China"
- [59] "59                         Jilin                            China" "60                      Liaoning                            China"
- [61] "61                         Macau                            China" "62                       Ningxia                            China"
- [63] "63                       Qinghai                            China" "64                       Shaanxi                            China"
- [65] "65                      Shandong                            China" "66                      Shanghai                            China"
- [67] "67                        Shanxi                            China" "68                       Sichuan                            China"
- [69] "69                       Tianjin                            China" "70                         Tibet                            China"
- [71] "71                      Xinjiang                            China" "72                        Yunnan                            China"
- [73] "73                      Zhejiang                            China" "74                                                       Colombia"
- [75] "75                                            Congo (Brazzaville)" "76                                               Congo (Kinshasa)"
- [77] "77                                                     Costa Rica" "78                                                  Cote d'Ivoire"
- [79] "79                                                        Croatia" "80                                               Diamond Princess"
- [81] "81                                                           Cuba" "82                                                         Cyprus"
- [83] "83                                                        Czechia" "84                 Faroe Islands                          Denmark"
- [85] "85                     Greenland                          Denmark" "86                                                        Denmark"
- [87] "87                                                       Djibouti" "88                                                       Dominica"
- [89] "89                                             Dominican Republic" "90                                                        Ecuador"
- [91] "91                                                          Egypt" "92                                                    El Salvador"
- [93] "93                                              Equatorial Guinea" "95                                                        Estonia"
- [95] "96                                                       Eswatini" "97                                                       Ethiopia"
- [97] "99                                                        Finland" "100                French Guiana                           France"
- [99] "102                   Guadeloupe                           France" "103                   Martinique                           France"
-[101] "104                      Mayotte                           France" "105                New Caledonia                           France"
-[103] "106                      Reunion                           France" "107             Saint Barthelemy                           France"
-[105] "108                    St Martin                           France" "109                                                        France"
-[107] "110                                                         Gabon" "111                                                        Gambia"
-[109] "112                                                       Georgia" "113                                                       Germany"
-[111] "114                                                         Ghana" "116                                                        Greece"
-[113] "117                                                     Guatemala" "118                                                        Guinea"
-[115] "120                                                        Guyana" "121                                                         Haiti"
-[117] "122                                                      Holy See" "123                                                      Honduras"
-[119] "124                                                       Hungary" "125                                                       Iceland"
-[121] "126                                                         India" "127                                                     Indonesia"
-[123] "128                                                          Iran" "129                                                          Iraq"
-[125] "130                                                       Ireland" "131                                                        Israel"
-[127] "132                                                         Italy" "133                                                       Jamaica"
-[129] "134                                                         Japan" "135                                                        Jordan"
-[131] "136                                                    Kazakhstan" "137                                                         Kenya"
-[133] "138                                                  Korea, South" "139                                                        Kuwait"
-[135] "140                                                    Kyrgyzstan" "141                                                        Latvia"
-[137] "142                                                       Lebanon" "143                                                       Liberia"
-[139] "144                                                         Libya" "145                                                 Liechtenstein"
-[141] "146                                                     Lithuania" "147                                                    Luxembourg"
-[143] "148                                                    Madagascar" "149                                                      Malaysia"
-[145] "150                                                      Maldives" "151                                                          Mali"
-[147] "152                                                         Malta" "153                                                    Mauritania"
-[149] "154                                                     Mauritius" "155                                                        Mexico"
-[151] "156                                                       Moldova" "157                                                        Monaco"
-[153] "158                                                      Mongolia" "159                                                    Montenegro"
-[155] "160                                                       Morocco" "161                                                    Mozambique"
-[157] "162                                                       Namibia" "163                                                         Nepal"
-[159] "164                        Aruba                      Netherlands" "165                      Curacao                      Netherlands"
-[161] "166                 Sint Maarten                      Netherlands" "167                                                   Netherlands"
-[163] "168                                                   New Zealand" "169                                                     Nicaragua"
-[165] "170                                                         Niger" "171                                                       Nigeria"
-[167] "172                                               North Macedonia" "173                                                        Norway"
-[169] "174                                                          Oman" "175                                                      Pakistan"
-[171] "176                                                        Panama" "178                                                      Paraguay"
-[173] "179                                                          Peru" "180                                                   Philippines"
-[175] "181                                                        Poland" "182                                                      Portugal"
-[177] "183                                                         Qatar" "184                                                       Romania"
-[179] "185                                                        Russia" "186                                                        Rwanda"
-[181] "188                                                   Saint Lucia" "189                              Saint Vincent and the Grenadines"
-[183] "190                                                    San Marino" "191                                                  Saudi Arabia"
-[185] "192                                                       Senegal" "193                                                        Serbia"
-[187] "195                                                     Singapore" "196                                                      Slovakia"
-[189] "197                                                      Slovenia" "198                                                       Somalia"
-[191] "199                                                  South Africa" "200                                                         Spain"
-[193] "201                                                     Sri Lanka" "202                                                         Sudan"
-[195] "203                                                      Suriname" "204                                                        Sweden"
-[197] "205                                                   Switzerland" "206                                                         Syria"
-[199] "207                                                       Taiwan*" "208                                                      Tanzania"
-[201] "209                                                      Thailand" "210                                                   Timor-Leste"
-[203] "211                                                          Togo" "212                                           Trinidad and Tobago"
-[205] "213                                                       Tunisia" "214                                                        Turkey"
-[207] "215                                                        Uganda" "216                                                       Ukraine"
-[209] "217                                          United Arab Emirates" "218                      Bermuda                   United Kingdom"
-[211] "219               Cayman Islands                   United Kingdom" "220              Channel Islands                   United Kingdom"
-[213] "221                    Gibraltar                   United Kingdom" "222                  Isle of Man                   United Kingdom"
-[215] "223                   Montserrat                   United Kingdom" "224                                                United Kingdom"
-[217] "225                                                       Uruguay" "226                                                            US"
-[219] "227                                                    Uzbekistan" "228                                                     Venezuela"
-[221] "229                                                       Vietnam" "230                                                        Zambia"
-[223] "232                                            West Bank and Gaza" "233                                                          Laos"
-[225] "234                                                        Kosovo" "235                                                         Burma"
-[227] "236                     Anguilla                   United Kingdom" "237       British Virgin Islands                   United Kingdom"
-[229] "245  Falkland Islands (Malvinas)                   United Kingdom"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
-  Unique number of distinct geographical locations combined: 3014 
+  Unique number of distinct geographical locations combined: 3053 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                       Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1                        Spain    172541           8.73  18056       10.46     67504          39.12  86981       50.41
-2                        Italy    162488           8.22  21067       12.97     37130          22.85 104291       64.18
-3                      Germany    131359           6.65   3294        2.51     68200          51.92  59865       45.57
-4                       France    130253           6.59  15729       12.08     28805          22.11  85719       65.81
-5  New York City, New York, US    110465           5.59   7905        7.16         0           0.00 102560       92.84
-6               United Kingdom     93873           4.75  12107       12.90         0           0.00  81766       87.10
-7                         Iran     74877           3.79   4683        6.25     48129          64.28  22065       29.47
-8                 Hubei, China     67803           3.43   3221        4.75     64363          94.93    219        0.32
-9                       Turkey     65111           3.29   1403        2.15      4799           7.37  58909       90.47
-10                     Belgium     31119           1.57   4157       13.36      6868          22.07  20094       64.57
-11                 Netherlands     27419           1.39   2945       10.74       250           0.91  24224       88.35
-12                 Switzerland     25936           1.31   1174        4.53     13700          52.82  11062       42.65
-13                      Brazil     25262           1.28   1532        6.06      3046          12.06  20684       81.88
-14        Nassau, New York, US     25250           1.28   1001        3.96         0           0.00  24249       96.04
-15       Suffolk, New York, US     22691           1.15    608        2.68         0           0.00  22083       97.32
+1                        Spain    191726           8.27  20043       10.45     74797          39.01  96886       50.53
+2                        Italy    175925           7.59  23227       13.20     44927          25.54 107771       61.26
+3                       France    147969           6.38  19323       13.06     35983          24.32  92663       62.62
+4                      Germany    143342           6.18   4459        3.11     85400          59.58  53483       37.31
+5  New York City, New York, US    135572           5.85  13202        9.74         0           0.00 122370       90.26
+6               United Kingdom    114217           4.93  15464       13.54         0           0.00  98753       86.46
+7                       Turkey     82329           3.55   1890        2.30     10453          12.70  69986       85.01
+8                         Iran     80868           3.49   5031        6.22     55987          69.23  19850       24.55
+9                 Hubei, China     68128           2.94   4512        6.62     63494          93.20    122        0.18
+10                     Belgium     37183           1.60   5453       14.67      8348          22.45  23382       62.88
+11                      Russia     36793           1.59    313        0.85      3057           8.31  33423       90.84
+12                      Brazil     36658           1.58   2354        6.42     14026          38.26  20278       55.32
+13                 Netherlands     31589           1.36   3601       11.40       250           0.79  27738       87.81
+14        Nassau, New York, US     29180           1.26   1109        3.80         0           0.00  28071       96.20
+15                 Switzerland     27404           1.18   1368        4.99     17100          62.40   8936       32.61
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
-  Unique number of distinct geographical locations combined: 3014 
+  Unique number of distinct geographical locations combined: 3053 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                       Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1                        Italy    162488           8.22  21067       12.97     37130          22.85 104291       64.18
-2                        Spain    172541           8.73  18056       10.46     67504          39.12  86981       50.41
-3                       France    130253           6.59  15729       12.08     28805          22.11  85719       65.81
-4               United Kingdom     93873           4.75  12107       12.90         0           0.00  81766       87.10
-5  New York City, New York, US    110465           5.59   7905        7.16         0           0.00 102560       92.84
-6                         Iran     74877           3.79   4683        6.25     48129          64.28  22065       29.47
-7                      Belgium     31119           1.57   4157       13.36      6868          22.07  20094       64.57
-8                      Germany    131359           6.65   3294        2.51     68200          51.92  59865       45.57
-9                 Hubei, China     67803           3.43   3221        4.75     64363          94.93    219        0.32
-10                 Netherlands     27419           1.39   2945       10.74       250           0.91  24224       88.35
-11                      Brazil     25262           1.28   1532        6.06      3046          12.06  20684       81.88
-12                      Turkey     65111           3.29   1403        2.15      4799           7.37  58909       90.47
-13                 Switzerland     25936           1.31   1174        4.53     13700          52.82  11062       42.65
-14                      Sweden     11445           0.58   1033        9.03       381           3.33  10031       87.65
-15        Nassau, New York, US     25250           1.28   1001        3.96         0           0.00  24249       96.04
+1                        Italy    175925           7.59  23227       13.20     44927          25.54 107771       61.26
+2                        Spain    191726           8.27  20043       10.45     74797          39.01  96886       50.53
+3                       France    147969           6.38  19323       13.06     35983          24.32  92663       62.62
+4               United Kingdom    114217           4.93  15464       13.54         0           0.00  98753       86.46
+5  New York City, New York, US    135572           5.85  13202        9.74         0           0.00 122370       90.26
+6                      Belgium     37183           1.60   5453       14.67      8348          22.45  23382       62.88
+7                         Iran     80868           3.49   5031        6.22     55987          69.23  19850       24.55
+8                 Hubei, China     68128           2.94   4512        6.62     63494          93.20    122        0.18
+9                      Germany    143342           6.18   4459        3.11     85400          59.58  53483       37.31
+10                 Netherlands     31589           1.36   3601       11.40       250           0.79  27738       87.81
+11                      Brazil     36658           1.58   2354        6.42     14026          38.26  20278       55.32
+12                      Turkey     82329           3.55   1890        2.30     10453          12.70  69986       85.01
+13                      Sweden     13822           0.60   1511       10.93       550           3.98  11761       85.09
+14                 Switzerland     27404           1.18   1368        4.99     17100          62.40   8936       32.61
+15        Nassau, New York, US     29180           1.26   1109        3.80         0           0.00  28071       96.20
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
-  Unique number of distinct geographical locations combined: 3014 
+  Unique number of distinct geographical locations combined: 3053 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
             Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1            Germany    131359           6.65   3294        2.51     68200          51.92  59865       45.57
-2              Spain    172541           8.73  18056       10.46     67504          39.12  86981       50.41
-3       Hubei, China     67803           3.43   3221        4.75     64363          94.93    219        0.32
-4               Iran     74877           3.79   4683        6.25     48129          64.28  22065       29.47
-5      Recovered, US         0           0.00      0         NaN     47763            Inf -47763        -Inf
-6              Italy    162488           8.22  21067       12.97     37130          22.85 104291       64.18
-7             France    130253           6.59  15729       12.08     28805          22.11  85719       65.81
-8        Switzerland     25936           1.31   1174        4.53     13700          52.82  11062       42.65
-9  Recovered, Canada         0           0.00      0         NaN      8210            Inf  -8210        -Inf
-10           Austria     14226           0.72    384        2.70      7633          53.66   6209       43.65
-11      Korea, South     10564           0.53    222        2.10      7534          71.32   2808       26.58
-12           Belgium     31119           1.57   4157       13.36      6868          22.07  20094       64.57
-13            Turkey     65111           3.29   1403        2.15      4799           7.37  58909       90.47
-14            Brazil     25262           1.28   1532        6.06      3046          12.06  20684       81.88
-15              Peru     10303           0.52    230        2.23      2869          27.85   7204       69.92
+1            Germany    143342           6.18   4459        3.11     85400          59.58  53483       37.31
+2              Spain    191726           8.27  20043       10.45     74797          39.01  96886       50.53
+3      Recovered, US         0           0.00      0         NaN     64840            Inf -64840        -Inf
+4       Hubei, China     68128           2.94   4512        6.62     63494          93.20    122        0.18
+5               Iran     80868           3.49   5031        6.22     55987          69.23  19850       24.55
+6              Italy    175925           7.59  23227       13.20     44927          25.54 107771       61.26
+7             France    147969           6.38  19323       13.06     35983          24.32  92663       62.62
+8        Switzerland     27404           1.18   1368        4.99     17100          62.40   8936       32.61
+9             Brazil     36658           1.58   2354        6.42     14026          38.26  20278       55.32
+10 Recovered, Canada         0           0.00      0         NaN     10964            Inf -10964        -Inf
+11            Turkey     82329           3.55   1890        2.30     10453          12.70  69986       85.01
+12           Austria     14671           0.63    443        3.02     10214          69.62   4014       27.36
+13           Belgium     37183           1.60   5453       14.67      8348          22.45  23382       62.88
+14      Korea, South     10653           0.46    232        2.18      7937          74.50   2484       23.32
+15              Peru     14420           0.62    348        2.41      6684          46.35   7388       51.23
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-14  ::  2020-04-15 10:28:21 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-04-18  ::  2020-04-19 13:01:41 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 185 
   Number of Cities/Provinces reported: 138 
-  Unique number of distinct geographical locations combined: 3014 
+  Unique number of distinct geographical locations combined: 3053 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                       Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1                        Italy    162488           8.22  21067       12.97     37130          22.85 104291       64.18
-2  New York City, New York, US    110465           5.59   7905        7.16         0           0.00 102560       92.84
-3                        Spain    172541           8.73  18056       10.46     67504          39.12  86981       50.41
-4                       France    130253           6.59  15729       12.08     28805          22.11  85719       65.81
-5               United Kingdom     93873           4.75  12107       12.90         0           0.00  81766       87.10
-6                      Germany    131359           6.65   3294        2.51     68200          51.92  59865       45.57
-7                       Turkey     65111           3.29   1403        2.15      4799           7.37  58909       90.47
-8         Nassau, New York, US     25250           1.28   1001        3.96         0           0.00  24249       96.04
-9                  Netherlands     27419           1.39   2945       10.74       250           0.91  24224       88.35
-10       Suffolk, New York, US     22691           1.15    608        2.68         0           0.00  22083       97.32
-11                        Iran     74877           3.79   4683        6.25     48129          64.28  22065       29.47
-12                      Brazil     25262           1.28   1532        6.06      3046          12.06  20684       81.88
-13                     Belgium     31119           1.57   4157       13.36      6868          22.07  20094       64.57
-14   Westchester, New York, US     20191           1.02    596        2.95         0           0.00  19595       97.05
-15                      Russia     21102           1.07    170        0.81      1694           8.03  19238       91.17
+1  New York City, New York, US    135572           5.85  13202        9.74         0           0.00 122370       90.26
+2                        Italy    175925           7.59  23227       13.20     44927          25.54 107771       61.26
+3               United Kingdom    114217           4.93  15464       13.54         0           0.00  98753       86.46
+4                        Spain    191726           8.27  20043       10.45     74797          39.01  96886       50.53
+5                       France    147969           6.38  19323       13.06     35983          24.32  92663       62.62
+6                       Turkey     82329           3.55   1890        2.30     10453          12.70  69986       85.01
+7                      Germany    143342           6.18   4459        3.11     85400          59.58  53483       37.31
+8                       Russia     36793           1.59    313        0.85      3057           8.31  33423       90.84
+9         Nassau, New York, US     29180           1.26   1109        3.80         0           0.00  28071       96.20
+10                 Netherlands     31589           1.36   3601       11.40       250           0.79  27738       87.81
+11       Suffolk, New York, US     26143           1.13    693        2.65         0           0.00  25450       97.35
+12                     Belgium     37183           1.60   5453       14.67      8348          22.45  23382       62.88
+13   Westchester, New York, US     23179           1.00    668        2.88         0           0.00  22511       97.12
+14                      Brazil     36658           1.58   2354        6.42     14026          38.26  20278       55.32
+15                        Iran     80868           3.49   5031        6.22     55987          69.23  19850       24.55
 ============================================================================================================================================ 
   	 Confirmed	Deaths	Recovered	Active 
   Totals 
-  	 1976192	125985	474261	1375946 
+  	 2317759	159510	592319	1565930 
   Average 
-  	 655.67	41.8	157.35	456.52 
+  	 759.17	52.25	194.01	512.92 
   Standard Deviation 
-  	 6658.85	657.92	2614.84	4414.33 
+  	 7496.11	779.57	3060.05	4962.92 
   
 
- * Statistical estimators computed considering 3014 independent reported entries 
+ * Statistical estimators computed considering 3053 independent reported entries 
  
 
 ******************************************************************************** 
@@ -321,16 +206,16 @@
 ******************************************************************************** 
   ****  Time Series TOTS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 1976191	125984	474261 
-  			6.38% 		24% 
+  	 2317758	159509	592319 
+  			6.88% 		25.56% 
   ****  Time Series AVGS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 7485.57	477.21	1897.04 
-  			6.38% 		25.34% 
+  	 8779.39	604.2	2369.28 
+  			6.88% 		26.99% 
   ****  Time Series SDS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 42450.8	2651.75	8911.88 
-  			6.25% 		20.99% 
+  	 50329.62	3421.1	10468.95 
+  			6.8% 		20.8% 
   
 
  * Statistical estimators computed considering 250 independent reported entries 
