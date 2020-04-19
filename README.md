@@ -16,9 +16,9 @@ investigate these datasets.
 The goal of this package is to make the latest data promptly available
 to researchers and the scientific community.
 
-<!--<object data="man/figures/livemap.html" width="105%" height="525"></object>-->
+<object data="man/figures/livemap.html" width="105%" height="525"></object>
 <!--<object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html" width="105%" height="525">-->
-<object data="https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html" width="105%" height="525">
+<!--<object data="https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html" width="105%" height="525">-->
 </object>
 
 ### Data Accessibility
@@ -501,10 +501,10 @@ report.summary()
 report.summary(saveReport=TRUE)
 ```
 
-<object data="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.pdf" type="application/pdf" width="100%" height="500px">
- <embed src="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.pdf">
+<object data="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="100%" height="500px">
+ <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf">
  <p> 
-  E.g. today's report is available <a href="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.txt">here</a> 
+  E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt">here</a> 
  </p>
  </embed>
 </object>
@@ -675,7 +675,7 @@ totals.plt(TS.data, c("Canada","Ontario","Italy","Uruguay"), with.totals=TRUE,on
 totals.plt(TS.data, "ALL", fileName="totals-all")
 ```
 
-<object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/totals.html" width="100%" height="600">
+<object data="https://raw.githubusercontent.com/mponce0/covid19.analytics/master/man/figures/totals.html" width="100%" height="600">
 </object>
 
 
