@@ -121,7 +121,7 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 	} else {
 		for (geo.ind in geo.loc) {
 			if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions) & !(toupper(geo.ind) == "ALL") ) {
-				warning(paste("Unrecognized region: ",geo.loc," will skip it!"))
+				warning(paste("Unrecognized region: ",geo.ind," will skip it!"))
 			} else {
 				geo.locs <- c(geo.locs,geo.ind)
 			}
