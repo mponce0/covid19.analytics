@@ -456,8 +456,10 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 			#header('-')
 		}
 
-		if (!is.na(totEntries))
-			header('',paste('\n\n',"* Statistical estimators computed considering",totEntries,"independent reported entries"))
+		if (length(totEntries)>1 || !is.na(totEntries))
+			header('',paste('\n\n',"* Statistical estimators computed considering",
+					paste(totEntries,collapse="/"),
+					"independent reported entries per case-type"))
 
 		header('*')
 	}
@@ -681,6 +683,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 	cases <- c("ts-confirmed","ts-deaths","ts-recovered")	#, "aggregated")
 
 	TS.totals <- list(tots=c(),avgs=c(),sds=c())
+	n0 <- c()
 	for (i in cases) {
 		# read data
 		data <- covid19.data(i)
@@ -709,6 +712,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 		TS.totals$tots <- c(TS.totals$tots, sum(data[,colN],na.rm=TRUE))
 		TS.totals$avgs <- c(TS.totals$avgs, mean(data[,colN],na.rm=TRUE))
 		TS.totals$sds <-  c(TS.totals$sds , sd(data[,colN],na.rm=TRUE))
+		n0 <- c(n0,nrow(data))
 
 		# indentify country and province columns
 		country.col <- pmatch("Country", names(data))
@@ -806,7 +810,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 		report.title <- "Time Series Worldwide"
 	}
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="TS") ) {
-	        report.Totals(cases,TS.totals, preTitle=report.title,nrow(data))
+	        report.Totals(cases,TS.totals, preTitle=report.title,n0)	#nrow(data))
 	}
 
 	if (saveReport) {
