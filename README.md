@@ -516,6 +516,9 @@ report.summary(geo.loc="Canada")
 
 # summary report for an specific location with top 5
 report.summary(Nentries=5, geo.loc="Canada")
+
+# it can combine several locations
+report.summary(Nentries=30, geo.loc=c("Canada","US","Italy","Uruguay","Argentina"))
 ```
 
 
