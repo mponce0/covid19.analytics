@@ -464,7 +464,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 
 #############################################################################
 #############################################################################
-process.agg.cases <- function(data, Nentries, graphical.output) {
+process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
 
 	#######
 
@@ -504,6 +504,16 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 
 	# if Nentries i set to 0, will consider *all* entries                
 	if (Nentries==0) Nentries <- nRecords
+
+
+	# allowing to report by selected location
+	if (!is.null(geo.loc)) {
+		# check the location indicated
+		geo.loc <- checkGeoLoc(data,geo.loc)
+		data <- select.per.loc(data,geo.loc)
+		Nentries <- min(Nentries,nrow(data))
+	}
+	###
 
 	cases <- c("Confirmed","Deaths","Recovered","Active")
 	for (i in col.cases) {
@@ -605,11 +615,13 @@ process.agg.cases <- function(data, Nentries, graphical.output) {
 #########################################################################
 
 
-report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output=TRUE, saveReport=FALSE) {
+report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
+				graphical.output=TRUE, saveReport=FALSE) {
 #' function to summarize the current situation, will download the latest data and summarize the top provinces/cities per case 
 #'
 #' @param  cases.to.process  which data to process: "TS" --time series--, "AGG" --aggregated-- or "ALL" --time series and aggregated--
 #' @param  Nentries  number of top cases to display
+#' @param  geo.loc  geographical location to process
 #' @param  graphical.output  flag to deactivate graphical output
 #' @param  saveReport  flag to indicate whether the report should be saved in a file
 #'
@@ -678,6 +690,16 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 
 		# if Nentries is set to 0, will consider *all* entries
 		if (Nentries==0) Nentriex <- nrow(data)
+
+		# reporting only for geo.loc indicated
+		if (!is.null(geo.loc)) {
+			# check the location indicated
+			geo.loc <- checkGeoLoc(data,geo.loc)
+			# selecting data and updating entries
+			data <- select.per.loc(data,geo.loc)
+			Nentriex <- min(Nentriex,nrow(data))
+		}
+		###
 
 		colN <- ncol(data)
 		nRecords <- nrow(data)
@@ -770,7 +792,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 	##### PROCESS "AGREGATED" DATA  #######
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="AGG") ) {
 		agg.data <- covid19.data("aggregated")
-		process.agg.cases(agg.data, Nentries, graphical.output)
+		process.agg.cases(agg.data, Nentries, geo.loc=geo.loc, graphical.output)
 
 		# report integrity and consistency checks in the data
 		integrity.check(agg.data,recommend=FALSE)
@@ -778,8 +800,13 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, graphical.output
 
 
 	#### OVERALL SUMMARY
+	if (!is.null(geo.loc)) {
+		report.title <- paste("Time Series ",geo.loc)
+	} else {
+		report.title <- "Time Series Worldwide"
+	}
 	if ( (toupper(cases.to.process)=="ALL") | (toupper(cases.to.process)=="TS") ) {
-	        report.Totals(cases,TS.totals, preTitle="Time Series",nrow(data))
+	        report.Totals(cases,TS.totals, preTitle=report.title,nrow(data))
 	}
 
 	if (saveReport) {
