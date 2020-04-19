@@ -16,7 +16,8 @@ investigate these datasets.
 The goal of this package is to make the latest data promptly available
 to researchers and the scientific community.
 
-<object data="man/figures/livemap.html" width="105%" height="525"></object>
+<!--<object data="man/figures/livemap.html" width="105%" height="525"></object>-->
+<object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html" width="105%" height="525"></object>
 
 ### Data Accessibility
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
@@ -352,7 +353,10 @@ Typical structure of a `summary.report()` output for the *Aggregated* data:
 
 In both cases an overall summary of the reported cases is presented by the end, displaying totals, average and standard devitation of the computed quantities.
 
-A full example of this report for today can be seen <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt" target="_blank">here</a> (updated twice a day, daily).
+A full example of this report for today can be seen 
+<!-- <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt" target="_blank">here</a> -->
+<a href="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.txt" target="_blank">here</a>
+(updated twice a day, daily).
 
 In addition to this, the function will also generate some graphical outputs, including pie and bar charts representing the top regions in each category.
 
@@ -495,10 +499,10 @@ report.summary()
 report.summary(saveReport=TRUE)
 ```
 
-<object data="man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="100%" height="500px">
- <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf">
- <p>
-  E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/tree/master/man/figures/covid19-SummaryReport.txt">here</a> 
+<object data="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.pdf" type="application/pdf" width="100%" height="500px">
+ <embed src="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.pdf">
+ <p> 
+  E.g. today's report is available <a href="https://github.com/mponce0/covid19.reports/blob/master/reports/covid19-SummaryReport.txt">here</a> 
  </p>
  </embed>
 </object>
@@ -669,7 +673,7 @@ totals.plt(TS.data, c("Canada","Ontario","Italy","Uruguay"), with.totals=TRUE,on
 totals.plt(TS.data, "ALL", fileName="totals-all")
 ```
 
-<object data="man/figures/totals-all.html" width="100%" height="600">
+<object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/totals.html" width="100%" height="600">
 </object>
 
 
