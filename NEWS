@@ -1,3 +1,3 @@
-April 2020:  Added integrity and consistency check fns --integrity.check/consistency.check/data.check--, added geo.loc argument for report.summary() fn.
+April 2020:  Added integrity and consistency check fns --integrity.check/consistency.check/data.checks--, added geo.loc argument for report.summary() fn _ ver 1.X.Y
 April 2020:  A couple of bugs fixed, affecting the growth.rate() and plot.SIR.model() fns; few more features added to report.summary() and totals.plt() _ ver 1.0.1
 March 2020:  Includes data access, basic analysis and interactive plotting functions _ ver 1.0
