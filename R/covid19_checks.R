@@ -73,22 +73,32 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", details=
 		if (!is.na(sts.col))
 			nf <- sts.col - 1
 
-		inconsis <- data.frame()
+		inconsis.I <- data.frame()
+		inconsis.II <- data.frame()
 
 		for (i in 1:nrow(data)) {
 			num.data <- as.numeric(data[i, n0:nf])
 			deltas <- diff(num.data)
-			inconsistencies <- deltas < 0
+			# Inconsistencies Type I: negative values
+			inconsistency.type.I <- num.data < 0
+			# Inconsistencies Type I: decreasing cumulative values
+			inconsistency.type.II <- deltas < 0
 
-			if (sum(inconsistencies, na.rm=TRUE) > 0) 
-				inconsis <- rbind(inconsis, data[i,c(1,2)])
+			if (sum(inconsistency.type.I, na.rm=TRUE) > 0) 
+				inconsis.I <- rbind(inconsis.I, data[i,c(1,2)])
 
+			if (sum(inconsistency.type.II, na.rm=TRUE) > 0)
+				inconsis.II <- rbind(inconsis.II, data[i,c(1,2)])
 		}
+		inconsistencies <- list(type.I=inconsis.I, type.II=inconsis.II)
 
-		if (nrow(inconsis) > 0) {
-			warning("Inconsistency in ",datasetName," data detected -- ",nrow(inconsis)," records (out of ",nrow(data),") show inconsistencies in the data...", immediate. = TRUE)
-			if (details) print(inconsis)
+		for (i in seq_along(inconsistencies)) {
+			if (nrow(inconsistencies[[i]]) > 0) {
+				warning("Inconsistency of ",names(inconsistencies)[i] ," in ",datasetName," data detected -- ",nrow(inconsistencies[[i]])," records (out of ",nrow(data),") show inconsistencies in the data...", immediate. = TRUE)
+				if (details) print(inconsistencies[[i]])
+			}
 		}
+		
 	} else {
 		message("This function applies to TimeSeries data only")
 	}
