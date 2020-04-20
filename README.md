@@ -115,13 +115,16 @@ dynamical situation with respect to data availability and integrity.
 
 
 ### Data Integrity and Consistency Checks
-Due to the ongoing rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
-For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165).
+Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
+
+For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **type II"**.
+
+Some negative values have been reported as well in the data, which also is not possible or valid; we call this inconsistency of **type "I"**.
 
 When this occurs, it happens at the level of the origin of the dataset, in our case, the one obtained from the JHU/CCESGIS repository [1].
-In order to make the user aware of this, we implemented two consistency and integrity check functions:
+In order to make the user aware of this, we implemented two consistency and integrity checking functions:
 
-* `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, anomalies in the cumulative quantities of the data
+* `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, negative reported value (inconsistency of "type I") or anomalies in the cumulative quantities of the data (inconsistency of "type II")
 
 * `integrity.check()`, this determines whether there are integrity issues within the datasets or changes to the structure of the data
 
@@ -132,7 +135,7 @@ It is highly unlikely that you would face a situation where the internal structu
 
 #### Data Consistency
 Data consistency issues and/or anomalies in the data have been reported several times, see https://github.com/CSSEGISandData/COVID-19/issues/.
-This are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
+These are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
 Having said that, we believe that the user should be aware of these situations and we recommed using the `consistency.check()` function to verify the dataset you will be working with.
 
 
