@@ -258,7 +258,7 @@ It can summarize the "Time Series" data (`cases.to.process="TS"`), the "aggregat
 It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
 
 The function can also target specific geographical location(s) using the `geo.loc` argument.
-When a geographical location is indicated, the report will incldue an addiitonal "Rel.Perc" column for the confirmed cases indicating the *relative* percentage among the locations indicated.
+When a geographical location is indicated, the report will include an additional "Rel.Perc" column for the confirmed cases indicating the *relative* percentage among the locations indicated.
 Similarly the totals displayed at the end of the report will be for the selected locations.
 
 In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
@@ -272,6 +272,7 @@ It will also compute the totals, averages, standard deviations and percentages o
 
 * Percentages: percentages are computed as follow:
   - for the "Confirmed" cases, as the ratio between the corresponding number of cases and the total number of cases, i.e. a sort of *"global percentage"* indicating the percentage of infected cases wrt the rest of the world
+  
   - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category is computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
