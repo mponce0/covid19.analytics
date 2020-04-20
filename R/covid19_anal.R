@@ -389,7 +389,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
 
         ######################
 
-        intro.header <- function(i, data,colN,country.col,province.col, scr.len=80) {
+        intro.header <- function(i, data,colN,country.col,province.col, geo.loc=NULL, scr.len=80) {
 
                 header("#", total.len=scr.len)
                 report.title <- paste(toupper(i),"Cases  -- Data dated: ",names(data)[colN]," :: ",as.character(Sys.time()))
@@ -404,7 +404,12 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="") {
                 header("-", total.len=scr.len)
 
 		if (length(colN)==1) {
-			header('',paste("Worldwide ",i," Totals:", sum(data[,colN],na.rm=TRUE)))
+			if (is.null(geo.loc)) {
+				locn <-"Worldwide" 
+			} else {
+				locn <- "For selected locations"
+			}
+			header('',paste(locn,i," Totals:", sum(data[,colN],na.rm=TRUE)))
 			#header('',paste(Nentries," Top Totals:", sum(data[,colN],na.rm=TRUE)))
 			header('-', total.len=scr.len)
 		} else {
@@ -507,6 +512,7 @@ process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
 	# if Nentries i set to 0, will consider *all* entries                
 	if (Nentries==0) Nentries <- nRecords
 
+	data0 <- data
 
 	# allowing to report by selected location
 	if (!is.null(geo.loc)) {
@@ -546,7 +552,10 @@ process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
 			if (j != col.conf) {
 				data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/data[,col.conf])*100,2)
 			} else {
-				 data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/sum(data[,col.conf]))*100,2)
+				# Global Perc.
+				data[,paste0("Perc.",col.names[j])]  <- round((data[,j]/sum(data0[,col.conf]))*100,2)
+				# Relative Perc.
+				#data[,paste0("Rel.Perc.",col.names[j])]  <- round((data[,j]/sum(data[,col.conf]))*100,2)
 			}
 			cols.perc <- c(cols.perc,ncol(data))
 		}
@@ -582,7 +591,9 @@ process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
                         color.scheme <- heat.colors(Nentries)   #topo.colors(Nentries)
                                         #terrain.colors(Nentries)       #rainbow(Nentries)
 
-                        pie(na.omit(data.ordered[,target.col]),
+			filter.data <- na.omit(data.ordered[data.ordered[,target.col]>0,target.col])
+                        #pie(na.omit(data.ordered[,target.col]),
+			pie(filter.data,
                                 labels=legends,
                                 main=substr(report.title,1,floor(nchar(report.title)/2)),
                                 col=color.scheme )
@@ -694,6 +705,13 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 		# if Nentries is set to 0, will consider *all* entries
 		if (Nentries==0) Nentriex <- nrow(data)
 
+                colN <- ncol(data)
+                nRecords <- nrow(data)
+#               if (grepl("aggregated",i))      col.Tgt <-
+
+                # get total Global for confirmed cases
+		total.global <- sum(data[,colN],na.rm=TRUE)
+
 		# reporting only for geo.loc indicated
 		if (!is.null(geo.loc)) {
 			# check the location indicated
@@ -706,12 +724,13 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 		colN <- ncol(data)
 		nRecords <- nrow(data)
-#		if (grepl("aggregated",i))	col.Tgt <-
 
-		# get totals per case
-		TS.totals$tots <- c(TS.totals$tots, sum(data[,colN],na.rm=TRUE))
-		TS.totals$avgs <- c(TS.totals$avgs, mean(data[,colN],na.rm=TRUE))
-		TS.totals$sds <-  c(TS.totals$sds , sd(data[,colN],na.rm=TRUE))
+                # get totals per case
+                TS.totals$tots <- c(TS.totals$tots, sum(data[,colN],na.rm=TRUE))
+                TS.totals$avgs <- c(TS.totals$avgs, mean(data[,colN],na.rm=TRUE))
+                TS.totals$sds <-  c(TS.totals$sds , sd(data[,colN],na.rm=TRUE))
+                ###
+
 		n0 <- c(n0,nrow(data))
 
 		# indentify country and province columns
@@ -719,7 +738,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 		province.col <- pmatch("Province", names(data))
 
 		# display 'header'
-		report.title <- intro.header(i, data,colN,country.col,province.col)
+		report.title <- intro.header(i, data,colN,country.col,province.col, geo.loc)
 
 		# Totals per countries/cities
 		#data$Totals <- apply(data[,col1:colN],MARGIN=1,sum)
@@ -730,7 +749,11 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 			geo.list <- data[,c(country.col,province.col)]
                         total.cases <- data[,colN]
 			colsF <- (colN+1):(colN+8)
-			total.global <- sum(total.cases)
+			total.rel <- sum(total.cases)
+			if (!is.null(geo.loc)) {
+				data$RelPerc <- round((total.cases/total.rel)*100,2)
+				colsF <- (colN+1):(colN+9)
+			}
 			data$GlobalPerc <- round((total.cases/total.global)*100,2)
 		} else {
 			# check that the countries/regions match in order to compute percentages...
@@ -763,8 +786,8 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 		# Report Average Percentages...
 		header('-')
-		report.Avgs(data,"Perc",descr="Global Perc. Average: ")
-		report.Avgs(data.ordered,"Perc",descr=paste("Global Perc. Average in top ",Nentriex,": "))
+		report.Avgs(data,"GlobalPerc",descr="Global Perc. Average: ")
+		report.Avgs(data.ordered,"GlobalPerc",descr=paste("Global Perc. Average in top ",Nentriex,": "))
 		header('-')
 
 		header("=")
@@ -777,8 +800,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 			par(mfrow=c(1,2))
 			#par(mfrow=c(1,1))
-
-			pie(na.omit(data.ordered$Totals),
+			pie(na.omit(data.ordered$Totals[data.ordered$Totals>0]),
 				labels=legends,
 				main=substr(report.title,1,floor(nchar(report.title)/2)),
 				col=color.scheme )
@@ -805,7 +827,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 	#### OVERALL SUMMARY
 	if (!is.null(geo.loc)) {
-		report.title <- paste("Time Series ",geo.loc)
+		report.title <- paste("Time Series ",paste(geo.loc,collapse=','))
 	} else {
 		report.title <- "Time Series Worldwide"
 	}
