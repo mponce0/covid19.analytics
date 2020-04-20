@@ -256,7 +256,10 @@ and daily changes in the reported number of cases.
 The `report.summary()` generates an overall report summarizing the different datasets.
 It can summarize the "Time Series" data (`cases.to.process="TS"`), the "aggregated" data (`cases.to.process="AGG"`) or both (`cases.to.process="ALL"`).
 It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
-The function can also target an specific geographical location using the `geo.loc` argument.
+
+The function can also target specific geographical location(s) using the `geo.loc` argument.
+When a geographical location is indicated, the report will incldue an addiitonal "Rel.Perc" column for the confirmed cases indicating the *relative* percentage among the locations indicated.
+Similarly the totals displayed at the end of the report will be for the selected locations.
 
 In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
