@@ -1,3 +1,11 @@
+
+# Main data acquisition fns of the covid19.analytics package
+#
+# M.Ponce
+
+
+#######################################################################
+
 covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 #' function to read "live" data as reported by JHU's CCSE repository
 #'
@@ -79,6 +87,9 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
                 covid19.ts <- rbind( covid19.conf[,c(1:min.cols, ncol.conf)],
 					covid19.death[,c(1:min.cols, ncol.death)],
 					covid19.recov[,c(1:min.cols, ncol.recov)] )
+
+		# check consitency of the data
+		#consistency.check(covid19.ts,datasetName="combined Time Series", details=FALSE)
 
 		return(covid19.ts)
 	}
@@ -212,6 +223,10 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 				"Range of dates on data: ",t0,"--",tf,
 				" | Nbr of records: ",nrow(covid19.cases))
 			header('-')
+
+			# check consstency of the data
+			#consistency.check(covid19.ts,datasetName=case,details=FALSE)
+			#data.checks(covid19.cases)
 		}
 
 		if (debrief) {
@@ -219,6 +234,9 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 			print(head(covid19.cases))
 			print(names(covid19.cases))
 		}
+
+		# check integrity of the data
+		#consistency.check(covid19.ts,dataset="combined Time Series")
 
 		return(covid19.cases)
 		},
