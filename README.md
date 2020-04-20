@@ -272,15 +272,16 @@ It will also compute the totals, averages, standard deviations and percentages o
 
 * Percentages: percentages are computed as follow:
   - for the "Confirmed" cases, as the ratio between the corresponding number of cases and the total number of cases, i.e. a sort of *"global percentage"* indicating the percentage of infected cases wrt the rest of the world
+  - for "Confirmed" cases, when geographical locations are specified, a *"Relative percentage"* is given as the ratio of the confirmed cases over the total of the selected locations
   
   - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category is computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
- - it will show the *delta* (change or variation) in the last day, daily changes day before that (t-2), three days ago (t-3), a week ago (t-7), two weeks ago (t-14) and a month ago (t-30)
- - when possible, it will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
- - The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
- - The *"Global Perc. Average (SD: standard deviation)"* is computed as the average (standard deviation) of the number of cases among all the records in the data
- - The *"Global Perc. Average (SD: standard deviation) in top X"* is computed as the average (standard deviation) of the number of cases among the top *X* records
+  - it will show the *delta* (change or variation) in the last day, daily changes day before that (t-2), three days ago (t-3), a week ago (t-7), two weeks ago (t-14) and a month ago (t-30)
+  - when possible, it will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
+  - The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
+  - The *"Global Perc. Average (SD: standard deviation)"* is computed as the average (standard deviation) of the number of cases among all the records in the data
+  - The *"Global Perc. Average (SD: standard deviation) in top X"* is computed as the average (standard deviation) of the number of cases among the top *X* records
 
 
 Typical structure of a `summary.report()` output for the Time Series data:
