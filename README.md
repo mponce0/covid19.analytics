@@ -115,13 +115,16 @@ dynamical situation with respect to data availability and integrity.
 
 
 ### Data Integrity and Consistency Checks
-Due to the ongoing rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
-For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165).
+Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
+
+For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
+
+Some negative values have been reported as well in the data, which also is not possible or valid; we call this inconsistency of **"type I"**.
 
 When this occurs, it happens at the level of the origin of the dataset, in our case, the one obtained from the JHU/CCESGIS repository [1].
-In order to make the user aware of this, we implemented two consistency and integrity check functions:
+In order to make the user aware of this, we implemented two consistency and integrity checking functions:
 
-* `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, anomalies in the cumulative quantities of the data
+* `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, negative reported value (inconsistency of "type I") or anomalies in the cumulative quantities of the data (inconsistency of "type II")
 
 * `integrity.check()`, this determines whether there are integrity issues within the datasets or changes to the structure of the data
 
@@ -132,7 +135,7 @@ It is highly unlikely that you would face a situation where the internal structu
 
 #### Data Consistency
 Data consistency issues and/or anomalies in the data have been reported several times, see https://github.com/CSSEGISandData/COVID-19/issues/.
-This are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
+These are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
 Having said that, we believe that the user should be aware of these situations and we recommed using the `consistency.check()` function to verify the dataset you will be working with.
 
 
@@ -257,6 +260,10 @@ The `report.summary()` generates an overall report summarizing the different dat
 It can summarize the "Time Series" data (`cases.to.process="TS"`), the "aggregated" data (`cases.to.process="AGG"`) or both (`cases.to.process="ALL"`).
 It will display the top 10 entries in each category, or the number indicated in the `Nentries` argument, for displaying all the records set `Nentries=0`.
 
+The function can also target specific geographical location(s) using the `geo.loc` argument.
+When a geographical location is indicated, the report will include an additional "Rel.Perc" column for the confirmed cases indicating the *relative* percentage among the locations indicated.
+Similarly the totals displayed at the end of the report will be for the selected locations.
+
 In each case ("TS" or/and "AGG") will present tables ordered by the different cases included, i.e.
 confirmed infected, deaths, recovered and active cases.
 
@@ -268,14 +275,16 @@ It will also compute the totals, averages, standard deviations and percentages o
 
 * Percentages: percentages are computed as follow:
   - for the "Confirmed" cases, as the ratio between the corresponding number of cases and the total number of cases, i.e. a sort of *"global percentage"* indicating the percentage of infected cases wrt the rest of the world
+  - for "Confirmed" cases, when geographical locations are specified, a *"Relative percentage"* is given as the ratio of the confirmed cases over the total of the selected locations
+  
   - for the other categories, "Deaths"/"Recovered"/"Active", the percentage of a given category is computed as the ratio between the number of cases in the corresponding category divided by the "Confirmed" number of cases, i.e. a *relative percentage* with respect to the number of confirmed infected cases in the given region
 
 * For "Time Series" data:
- - it will show the *delta* (change or variation) in the last day, daily changes day before that (t-2), three days ago (t-3), a week ago (t-7), two weeks ago (t-14) and a month ago (t-30)
- - when possible, it will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
- - The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
- - The *"Global Perc. Average (SD: standard deviation)"* is computed as the average (standard deviation) of the number of cases among all the records in the data
- - The *"Global Perc. Average (SD: standard deviation) in top X"* is computed as the average (standard deviation) of the number of cases among the top *X* records
+  - it will show the *delta* (change or variation) in the last day, daily changes day before that (t-2), three days ago (t-3), a week ago (t-7), two weeks ago (t-14) and a month ago (t-30)
+  - when possible, it will also display the percentage of "Recovered" and "Deaths" with respect to the "Confirmed" number of cases
+  - The column "GlobalPerc" is computed as the ratio between the number of cases for a given country over the total of cases reported
+  - The *"Global Perc. Average (SD: standard deviation)"* is computed as the average (standard deviation) of the number of cases among all the records in the data
+  - The *"Global Perc. Average (SD: standard deviation) in top X"* is computed as the average (standard deviation) of the number of cases among the top *X* records
 
 
 Typical structure of a `summary.report()` output for the Time Series data:
@@ -508,6 +517,18 @@ report.summary(saveReport=TRUE)
  </p>
  </embed>
 </object>
+
+```R
+# summary report for an specific location with default number of entries
+report.summary(geo.loc="Canada")
+
+# summary report for an specific location with top 5
+report.summary(Nentries=5, geo.loc="Canada")
+
+# it can combine several locations
+report.summary(Nentries=30, geo.loc=c("Canada","US","Italy","Uruguay","Argentina"))
+```
+
 
 
 #### Totals per Country/Region/Province
