@@ -17,11 +17,13 @@ The goal of this package is to make the latest data promptly available
 to researchers and the scientific community.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
+<!--
 .
 <object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html" width="105%" height="525"></object>
 .
 <object data="https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html" width="105%" height="525">
 </object>
+-->
 
 
 ### Data Accessibility
