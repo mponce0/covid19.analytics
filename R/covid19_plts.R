@@ -472,16 +472,20 @@ n.plt <- FALSE
 
 ##################################################################################
 
-live.map <- function(data=covid19.data(), projctn='orthographic', title="",
+live.map <- function(data=covid19.data(),
+			select.projctn=TRUE, projctn='orthographic',
+			title="", no.legend=FALSE,
 			szRef=0.2,
 			fileName=NULL) {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
+#' @param  select.projctn  argument to activate or deactivate the pulldown menu for selecting the type of projection
 #' @param  projctn  initial type of map-projection to use, possible values are:
 #' "equirectangular" | "mercator" | "orthographic" | "natural earth" | "kavrayskiy7" | "miller" | "robinson" | "eckert4" | "azimuthal equal area" | "azimuthal equidistant" | "conic equal area" | "conic conformal" | "conic equidistant" | "gnomonic" | "stereographic" | "mollweide" | "hammer" | "transverse mercator" | "albers usa" | "winkel tripel" | "aitoff" | "sinusoidal" 
 #' @param  title  a string with a title to add to the plot
 #' @param  szRef  numerical value to use as reference, to scale up the size of the bubbles in the map, from 0 to 1 (smmaller value --> larger bubbles)
+#' @param  no.legend  parameter to turn off or on the legend on the right with the list of countries
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #'
 #' @export
@@ -673,6 +677,7 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 		cties.long <- c(cties.long, mean(df[df$Country.Region==i,"Long"]) )
 	}
 
+	## Set names of the cities on the map
 	fig <- fig %>% add_trace(type="scattergeo", # view all scattergeo properties here: https://plot.ly/r/reference/#scattergeo
 				lon = cties.long, lat = cties.lat, text = cties, mode="text",
 				textposition = 'top right',
@@ -681,9 +686,10 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 				showlegend = TRUE, name="Countries Names",
 				visible = TRUE
 				)
+	###
 
-
-	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",recorded.date), geo=g)
+	fig <- fig %>% layout(title = paste("covid19 ",title," - cases up to",recorded.date), geo=g,
+				showlegend=!no.legend)
 
 
 	###### MENUES ... aka "buttons" in plotly #######
@@ -750,7 +756,9 @@ live.map <- function(data=covid19.data(), projctn='orthographic', title="",
 
 	# set pull down menues and buttons
 
-	fig <- fig %>% layout(
+	# menu for projection selection
+	if (select.projctn)
+		fig <- fig %>% layout(
 			updatemenus = list(
 					list(active = 1, x = 0, y = 0.8, buttons=all_buttons)
 					#list(active = -1, x = 0, y = 0.2, buttons=scale.buttons)
