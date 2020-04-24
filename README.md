@@ -130,7 +130,7 @@ dynamical situation with respect to data availability and integrity.
 
 
 ### Data Structure
-The *TimeSeries* data , is defined in a quite precise manner, with a given set of fields or columns,
+The *TimeSeries* data is organized in an specific manner with a given set of fields or columns,
 which resmebles the following structure:
 
 <table>
@@ -139,7 +139,8 @@ which resmebles the following structure:
  </tr>
 </table>
 
-If you have data structured in data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing TimeSeries data will work with your data.
+If you have data structured in a data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing *TimeSerie*s data will work with your data.
+In this way it is possible to add new data sets to the ones that can be loaded using the repositories predefined in this package and extend the analysis capabilities to these new datasets.
 
 
 ### Data Integrity and Consistency Checks
