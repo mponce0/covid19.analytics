@@ -216,8 +216,14 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 
 		if (tolower(case) != 'aggregated') {
 			# US cases are reported with additonal fields
-			if (grep("us",tolower(case))) 
-				covid19.cases <- covid19.cases[,-c(1:4,5,6,11)]
+			if (grepl("us",tolower(case))) {
+				cty.col <- pmatch("Country",names(covid19.cases))
+				prov.col <- pmatch("Prov",names(covid19.cases))
+				lat.col <- pmatch("Lat",names(covid19.cases))
+				long.col <- pmatch("Long",names(covid19.cases))
+				dates.col <-which(grepl("X",names(covid19.cases)))
+				covid19.cases <- covid19.cases[,c(cty.col,prov.col,lat.col,long.col,dates.col)]
+			}
 
 			#restructure the column names for the dates
 			beginning.dates <- 5
