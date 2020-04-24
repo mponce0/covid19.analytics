@@ -145,6 +145,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 
 	possible.cases <- c("aggregated",
 				"ts-confirmed","ts-deaths", "ts-recovered", "ts-ALL",
+				"ts-confirmed-us","ts-deaths-us",
 				"ts-dep-confirmed","ts-dep-deaths","ts-dep-recovered",
 				"ALL")
 	if (! tolower(case) %in% possible.cases) 
@@ -156,10 +157,13 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 	cases <- switch(tolower(case),
 			# aggregated data
 			'aggregated'   = paste0(AGG.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
-			# time series cases
+			# GLOBAL TimeSeries cases
 			'ts-confirmed' = paste0(TS.repo,"time_series_covid19_confirmed_global.csv"),
 			'ts-deaths'    = paste0(TS.repo,"time_series_covid19_deaths_global.csv"),
 			'ts-recovered' = paste0(TS.repo,"time_series_covid19_recovered_global.csv"),
+			# US TimeSeries cases
+                        'ts-confirmed-us' = paste0(TS.repo,"time_series_covid19_confirmed_US.csv"),
+                        'ts-deaths-us'    = paste0(TS.repo,"time_series_covid19_deaths_US.csv"),
 			# depricated time series
 			'ts-dep-confirmed' = paste0(TS.repo,"time_series_19-covid-Confirmed.csv"),
 			'ts-dep-deaths'    = paste0(TS.repo,"time_series_19-covid-Deaths.csv"),
@@ -184,7 +188,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
 			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
 			'aggregated'   = system.file("extdata","03-27-2020.csv", package=covid19.pckg, mustWork = TRUE),
-                        # time series cases
+                        # GLOBAL TimeSeries cases
                         # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
                         # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
 			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg, mustWork = TRUE),
@@ -211,12 +215,16 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 		covid19.cases <- read.csv(cases.URL, header=TRUE)
 
 		if (tolower(case) != 'aggregated') {
+			# US cases are reported with additonal fields
+			if (grep("us",tolower(case))) 
+				covid19.cases <- covid19.cases[,-c(1:4,5,6,11)]
+
 			#restructure the column names for the dates
 			beginning.dates <- 5
 			ending.dates <- length(covid19.cases)
 			names(covid19.cases)[beginning.dates:ending.dates] <- as.character(as.Date(substr(names(covid19.cases)[beginning.dates:ending.dates],2,9),format='%m.%d.%y'))
 
-			t0 <- names(covid19.cases)[5]
+			t0 <- names(covid19.cases)[beginning.dates]
 			tf <- names(covid19.cases)[ncol(covid19.cases)]
 
 			message("Data retrieved on ",Sys.time()," || ",
@@ -224,7 +232,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE) {
 				" | Nbr of records: ",nrow(covid19.cases))
 			header('-')
 
-			# check consstency of the data
+			# check consistency of the data
 			#consistency.check(covid19.ts,datasetName=case,details=FALSE)
 			#data.checks(covid19.cases)
 		}
