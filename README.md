@@ -56,7 +56,9 @@ dynamical situation with respect to data availability and integrity.
  | `ts-deaths`    |  time series data of fatal cases |
  | `ts-recovered` |  time series data of recovered cases |
  | `ts-ALL`       |  all time series data combined |
- **Deprecated data formats**
+ | `ts-confirmed-us` |  time series data of confirmed cases for the US |
+ | `ts-deaths-us`    |  time series data of fatal cases for the US |
+**Deprecated data formats**
  | `ts-dep-confirmed` | time series data of confirmed cases as originally reported (deprecated) |
  | `ts-dep-deaths`    | time series data of deaths as originally reported (deprecated) |
  | `ts-dep-recovered` | time series data of recovered cases as originally reported (deprecated)|
@@ -93,6 +95,14 @@ dynamical situation with respect to data availability and integrity.
     <td> <code>ts-ALL</code> </td>
     <td> all time series data combined </td>
   </tr>
+   <tr>
+    <td> <code>ts-confirmed-us</code> </td>
+    <td> time series data of confirmed cases for the US </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-deaths-us</code> </td>
+    <td> time series data of fatal cases for the US </td> 
+  </tr>
   <tr>
     <th colspan="2"> <b>Deprecated data formats</b> </th>
   </tr>
@@ -117,6 +127,17 @@ dynamical situation with respect to data availability and integrity.
  </tr>
 </table>
 <!------- TABLE ------>
+
+
+### Data Structure
+The *TimeSeries* data , is defined in a quite precise manner, with a given set of fields or columns,
+which resmebles the following structure:
+
+<code>
+    "Province.State"  "Country.Region"  "Lat"  "Long"  "...seq of dates..." 
+</code>
+
+If you have data structured in data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing TimeSeries data will work with your data.
 
 
 ### Data Integrity and Consistency Checks
