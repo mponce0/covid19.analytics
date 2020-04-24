@@ -130,14 +130,21 @@ dynamical situation with respect to data availability and integrity.
 
 
 ### Data Structure
-The *TimeSeries* data , is defined in a quite precise manner, with a given set of fields or columns,
+The *TimeSeries* data is organized in an specific manner with a given set of fields or columns,
 which resmebles the following structure:
 
-<code>
-    "Province.State"  "Country.Region"  "Lat"  "Long"  "...seq of dates..." 
-</code>
+<table>
+ <tr>
+  <td>"Province.State"</td>  <td>"Country.Region"</td>  <td>"Lat"</td>  <td>"Long"</td>  <td>...</td><td>seq of dates</td><td>...</td> 
+ </tr>
+</table>
 
-If you have data structured in data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing TimeSeries data will work with your data.
+#### Using your own data and/or importing new data sets
+If you have data structured in a data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing *TimeSerie*s data will work with your data.
+In this way it is possible to add new data sets to the ones that can be loaded using the repositories predefined in this package and extend the analysis capabilities to these new datasets.
+
+Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
+
 
 
 ### Data Integrity and Consistency Checks
