@@ -133,9 +133,11 @@ dynamical situation with respect to data availability and integrity.
 The *TimeSeries* data , is defined in a quite precise manner, with a given set of fields or columns,
 which resmebles the following structure:
 
-<code>
-    "Province.State"  "Country.Region"  "Lat"  "Long"  "...seq of dates..." 
-</code>
+<table>
+ <tr>
+  <td>"Province.State"</td>  <td>"Country.Region"</td>  <td>"Lat"</td>  <td>"Long"</td>  <td>...</td><td>seq of dates</td><td>...</td> 
+ </tr>
+</table>
 
 If you have data structured in data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing TimeSeries data will work with your data.
 
