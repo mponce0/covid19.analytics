@@ -129,6 +129,17 @@ dynamical situation with respect to data availability and integrity.
 <!------- TABLE ------>
 
 
+### Data Structure
+The *TimeSeries* data , is defined in a quite precise manner, with a given set of fields or columns,
+which resmebles the following structure:
+
+<code>
+    "Province.State"  "Country.Region"  "Lat"  "Long"  "...seq of dates..." 
+</code>
+
+If you have data structured in data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing TimeSeries data will work with your data.
+
+
 ### Data Integrity and Consistency Checks
 Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
