@@ -180,7 +180,7 @@ Having said that, we believe that the user should be aware of these situations a
 
 
 ### covid19-Sequencing data
-The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [2].
+The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
 
 
 ### Analytical & Graphical Indicators
