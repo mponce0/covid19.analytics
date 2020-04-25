@@ -131,7 +131,6 @@ dynamical situation with respect to data availability and integrity.
     <td> <code>ts-deaths-US</code> </td>
     <td> time series data of fatal cases for the US detailed per state </td> 
   </tr>
-  <tr>
 </table>
 <!------- TABLE ------>
 
@@ -146,12 +145,12 @@ which resmebles the following structure:
  </tr>
 </table>
 
-<b> Using your own data and/or importing new data sets </b>
+
+#### Using your own data and/or importing new data sets
 If you have data structured in a data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing *TimeSerie*s data will work with your data.
 In this way it is possible to add new data sets to the ones that can be loaded using the repositories predefined in this package and extend the analysis capabilities to these new datasets.
 
 Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
-
 
 
 ### Data Integrity and Consistency Checks
