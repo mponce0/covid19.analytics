@@ -223,7 +223,18 @@ and daily changes in the reported number of cases.
     <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
- <tr>
+   <tr>
+    <td> <code>covid19.Toronto.data</code> </td>
+    <td> obtain live* data for covid19 cases in the city of Torono, ON Canada, from the City of Toronto reports [2] </td>
+    <td> return dataframe/list with the collected data </td>
+  </tr>
+   <tr>
+    <td> <code>covid19.US.data</code> </td>
+    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> return dataframe with the collected data </td>
+  </tr>
+
+<tr>
   <td> <code>covid19.genomic.data</code> </td>
   <td> obtain covid19's genomic sequencing data from NCBI [2] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
