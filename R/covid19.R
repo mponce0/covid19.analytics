@@ -374,6 +374,7 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
         } else {
                 # use local data
 		covid19.pckg <- 'covid19.analytics'
+print(covid19.pckg)
                 message("Data being read from *local* repo in the '",covid19.pckg,"' package")
                 header('~')
                 Tor.xlsx.file <- system.file("extdata","covid19_Toronto.xlsx", package=covid19.pckg, mustWork = TRUE)
