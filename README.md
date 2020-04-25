@@ -95,22 +95,6 @@ dynamical situation with respect to data availability and integrity.
     <td> <code>ts-ALL</code> </td>
     <td> all time series data combined </td>
   </tr>
-   <tr>
-    <th colspan="2"> Time Series data for <i>specific locations</i> </th>
-  </tr>
-   <tr>
-    <td> <code>ts-Toronto</code> </td>
-    <td> time series data of confirmed cases for the city of Toronto, ON - Canada </td> 
-  </tr>
-  <tr>
-    <td> <code>ts-confirmed-us</code> </td>
-    <td> time series data of confirmed cases for the US detailed per state </td> 
-  </tr>
-  <tr>
-    <td> <code>ts-deaths-us</code> </td>
-    <td> time series data of fatal cases for the US detailed per state </td> 
-  </tr>
-  <tr>
     <th colspan="2"> <b>Deprecated data formats</b> </th>
   </tr>
   <tr>
@@ -132,6 +116,24 @@ dynamical situation with respect to data availability and integrity.
   <td> <code>ALL</code> </td>
   <td> all of the above </td>
  </tr>
+<!--~-->
+   <tr>
+    <th colspan="2"> Time Series data for <i>specific locations</i> </th>
+  </tr>
+   <tr>
+    <td> <code>ts-Toronto</code> </td>
+    <td> time series data of confirmed cases for the city of Toronto, ON - Canada </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-confirmed-US</code> </td>
+    <td> time series data of confirmed cases for the US detailed per state </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-deaths-US</code> </td>
+    <td> time series data of fatal cases for the US detailed per state </td> 
+  </tr>
+  <tr>
+<!--~-->
 </table>
 <!------- TABLE ------>
 
