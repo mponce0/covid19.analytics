@@ -116,7 +116,6 @@ dynamical situation with respect to data availability and integrity.
   <td> <code>ALL</code> </td>
   <td> all of the above </td>
  </tr>
-<!--~-->
    <tr>
     <th colspan="2"> Time Series data for <i>specific locations</i> </th>
   </tr>
@@ -133,7 +132,6 @@ dynamical situation with respect to data availability and integrity.
     <td> time series data of fatal cases for the US detailed per state </td> 
   </tr>
   <tr>
-<!--~-->
 </table>
 <!------- TABLE ------>
 
