@@ -374,7 +374,6 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
         } else {
                 # use local data
 		covid19.pckg <- 'covid19.analytics'
-print(covid19.pckg)
                 message("Data being read from *local* repo in the '",covid19.pckg,"' package")
                 header('~')
                 Tor.xlsx.file <- system.file("extdata","covid19_Toronto.xlsx.csv", package=covid19.pckg, mustWork = TRUE)
@@ -385,8 +384,8 @@ print(covid19.pckg)
 		# read data
 		toronto <- read_excel(Tor.xlsx.file,sheet=7)
 
-		# clean-up after reading dile
-		file.remove(Tor.xlsx.file)
+		# clean-up after reading the file only if it isn't the local repo
+		if (!local.data) file.remove(Tor.xlsx.file)
 	} else {
 		if (!local.data) {
 			warning("Could not access data from 'City of Toronto' source, attempting to reach local repo")
