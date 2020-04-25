@@ -415,9 +415,10 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 
 
 # wrapper function around the covid19.data() function
-covid19.US.data <- function(debrief=FALSE) {
+covid19.US.data <- function(local.data=FALSE,debrief=FALSE) {
 #' function to read the TimeSeries US detailed data
 #'
+#' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
 #'
 #' @return  TimeSeries dataframe with data for the US
@@ -426,10 +427,10 @@ covid19.US.data <- function(debrief=FALSE) {
 #'
 
 	# read confirmed cases
-	US.conf <- covid19.data("ts-confirmed-US")
+	US.conf <- covid19.data("ts-confirmed-US",local.data)
 
 	# read deaths cases
-	US.deaths <- covid19.data("ts-deaths-US")
+	US.deaths <- covid19.data("ts-deaths-US",local.data)
 
 	# combine cases
 	US.cases <- rbind(US.conf,US.deaths)
