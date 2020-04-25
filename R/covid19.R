@@ -262,7 +262,9 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE)
 			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg, mustWork = TRUE),
 			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv", package=covid19.pckg, mustWork = TRUE),
 			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv", package=covid19.pckg, mustWork = TRUE),
-
+			# US TimeSeries cases
+			'ts-confirmed-us' =  system.file("extdata","time_series_covid19_confirmed_US.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-deaths-us'    =  system.file("extdata","time_series_covid19_deaths_US.csv", package=covid19.pckg, mustWork = TRUE),
                         # depricated time series
                         # 'ts-dep-confirmed' = paste0(LOCAL.repo,"time_series_19-covid-Confirmed.csv"),
                         # 'ts-dep-deaths'    = paste0(LOCAL.repo,"time_series_19-covid-Deaths.csv"),
