@@ -355,18 +355,25 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 #'
 #' @export
 #'
+	loadLibrary("readxl")
 
+	# identify source of the data
+	if (!local.data) {
+		# Google drive URL, with "City of Toronto" data
+		city.of.Toronto.data <- "https://drive.google.com/uc?export=download&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
+		# temporary file to retrieve data
+		Tor.xlsx.file <- file.path(tempdir(), "covid19-toronto.xslx")
 
-	library(readxl)
+		# save excel file
+		download.file(city.of.Toronto.data, destfile=Tor.xlsx.file)
+        } else {
+                # use local data
+		covid19.pckg <- 'covid19.analytics'
+                message("Data being read from *local* repo in the '",covid19.pckg,"' package")
+                header('~')
+                Tor.xlsx.file <- system.file("extdata","toronto.xlsx", package=covid19.pckg, mustWork = TRUE)
+        }
 
-	# Google drive URL, with "City of Toronto" data
-	city.of.Toronto.data <- "https://drive.google.com/uc?export=download&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
-
-	# temporary file to retrieve data
-	Tor.xlsx.file <- file.path(tempdir(), "covid19-toronto.xslx")
-
-	# save excel file
-	download.file(city.of.Toronto.data, destfile=Tor.xlsx.file)
 
 	if (file.exists(Tor.xlsx.file)) {
 		# read data
@@ -375,7 +382,12 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		# clean-up after reading dile
 		file.remove(Tor.xlsx.file)
 	} else {
-		stop("An error occurred accessing the data for the City of Toronto")
+		if (!local.data) {
+			warning("Could not access data from 'City of Toronto' source, attempting to reach local repo")
+			toronto <- covid19.Toronto.data(data.fmt=data.fmt,local.data=TRUE,debrief=debrief)
+		} else {
+			stop("An error occurred accessing the data for the City of Toronto")
+		}
 	}
 
 	# Convert into TS format
