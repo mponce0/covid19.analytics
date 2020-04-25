@@ -95,7 +95,8 @@ dynamical situation with respect to data availability and integrity.
     <td> <code>ts-ALL</code> </td>
     <td> all time series data combined </td>
   </tr>
-    <th colspan="2"> <b>Deprecated data formats</b> </th>
+  <tr>
+     <th colspan="2"> <b>Deprecated data formats</b> </th>
   </tr>
   <tr>
    <td> <code>ts-dep-confirmed</code> </td>
