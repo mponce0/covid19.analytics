@@ -353,6 +353,9 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 #'
 #' @return  a dataframe (or a list in the case of "original") with the latest data reported for the city of Toronto, ON - Canada
 #'
+#' @importFrom  utils  download.file
+#' @importFrom  readxl  read_excel
+#'
 #' @export
 #'
 	loadLibrary("readxl")
