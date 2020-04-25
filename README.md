@@ -96,7 +96,7 @@ dynamical situation with respect to data availability and integrity.
     <td> all time series data combined </td>
   </tr>
    <tr>
-    <th colspan="2"> <b>Time Series data for specific locations</b> </th>
+    <th colspan="2"> Time Series data for <i>specific locations</i> </th>
   </tr>
    <tr>
     <td> <code>ts-Toronto</code> </td>
