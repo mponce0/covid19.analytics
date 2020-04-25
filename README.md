@@ -95,15 +95,6 @@ dynamical situation with respect to data availability and integrity.
     <td> <code>ts-ALL</code> </td>
     <td> all time series data combined </td>
   </tr>
-   <tr>
-    <td> <code>ts-confirmed-us</code> </td>
-    <td> time series data of confirmed cases for the US detailed per state </td> 
-  </tr>
-  <tr>
-    <td> <code>ts-deaths-us</code> </td>
-    <td> time series data of fatal cases for the US detailed per state </td> 
-  </tr>
-  <tr>
     <th colspan="2"> <b>Deprecated data formats</b> </th>
   </tr>
   <tr>
@@ -125,6 +116,24 @@ dynamical situation with respect to data availability and integrity.
   <td> <code>ALL</code> </td>
   <td> all of the above </td>
  </tr>
+<!--~-->
+   <tr>
+    <th colspan="2"> Time Series data for <i>specific locations</i> </th>
+  </tr>
+   <tr>
+    <td> <code>ts-Toronto</code> </td>
+    <td> time series data of confirmed cases for the city of Toronto, ON - Canada </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-confirmed-US</code> </td>
+    <td> time series data of confirmed cases for the US detailed per state </td> 
+  </tr>
+  <tr>
+    <td> <code>ts-deaths-US</code> </td>
+    <td> time series data of fatal cases for the US detailed per state </td> 
+  </tr>
+  <tr>
+<!--~-->
 </table>
 <!------- TABLE ------>
 
@@ -214,9 +223,20 @@ and daily changes in the reported number of cases.
     <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
- <tr>
+   <tr>
+    <td> <code>covid19.Toronto.data</code> </td>
+    <td> obtain live* data for covid19 cases in the city of Torono, ON Canada, from the City of Toronto reports [2] </td>
+    <td> return dataframe/list with the collected data </td>
+  </tr>
+   <tr>
+    <td> <code>covid19.US.data</code> </td>
+    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> return dataframe with the collected data </td>
+  </tr>
+
+<tr>
   <td> <code>covid19.genomic.data</code> </td>
-  <td> obtain covid19's genomic sequencing data from NCBI [2] </td>
+  <td> obtain covid19's genomic sequencing data from NCBI [3] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
@@ -792,7 +812,10 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
-[2] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+[2] COVID-19: Status of Cases in Toronto -- City of Toronto
+https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+
+[3] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
