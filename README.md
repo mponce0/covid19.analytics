@@ -96,6 +96,13 @@ dynamical situation with respect to data availability and integrity.
     <td> all time series data combined </td>
   </tr>
    <tr>
+    <th colspan="2"> <b>Time Series data for specific locations</b> </th>
+  </tr>
+   <tr>
+    <td> <code>ts-Toronto</code> </td>
+    <td> time series data of confirmed cases for the city of Toronto, ON - Canada </td> 
+  </tr>
+  <tr>
     <td> <code>ts-confirmed-us</code> </td>
     <td> time series data of confirmed cases for the US detailed per state </td> 
   </tr>
