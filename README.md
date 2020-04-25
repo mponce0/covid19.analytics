@@ -138,7 +138,7 @@ dynamical situation with respect to data availability and integrity.
 
 ### Data Structure
 The *TimeSeries* data is organized in an specific manner with a given set of fields or columns,
-which resmebles the following structure:
+which resembles the following structure:
 
 <table>
  <tr>
@@ -148,16 +148,16 @@ which resmebles the following structure:
 
 
 #### Using your own data and/or importing new data sets
-If you have data structured in a data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing *TimeSerie*s data will work with your data.
+If you have data structured in a data.frame organized as described above, then most of the functions provided by the "covid19.analytics" package for analyzing *TimeSeries* data will work with your data.
 In this way it is possible to add new data sets to the ones that can be loaded using the repositories predefined in this package and extend the analysis capabilities to these new datasets.
 
 Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
 
 
 ### Data Integrity and Consistency Checks
-Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "incosistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
+Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
-For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuosly increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
+For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuously increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
 
 Some negative values have been reported as well in the data, which also is not possible or valid; we call this inconsistency of **"type I"**.
 
@@ -168,15 +168,15 @@ In order to make the user aware of this, we implemented two consistency and inte
 
 * `integrity.check()`, this determines whether there are integrity issues within the datasets or changes to the structure of the data
 
-Alternatively we provide a `data.checks()` function that will run both functions on an specied dataset.
+Alternatively we provide a `data.checks()` function that will run both functions on an specified dataset.
 
-#### Data Intregrity
-It is highly unlikely that you would face a situation where the internal structure of the data, or its actual integrity may be compromised but if you think that this is the case or the `integrity.check()` function reports this, please we urgue you to contact the developer of this package (https://github.com/mponce0/covid19.analytics/issues).
+#### Data Integrity
+It is highly unlikely that you would face a situation where the internal structure of the data, or its actual integrity may be compromised but if you think that this is the case or the `integrity.check()` function reports this, please we urge you to contact the developer of this package (https://github.com/mponce0/covid19.analytics/issues).
 
 #### Data Consistency
 Data consistency issues and/or anomalies in the data have been reported several times, see https://github.com/CSSEGISandData/COVID-19/issues/.
 These are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
-Having said that, we believe that the user should be aware of these situations and we recommed using the `consistency.check()` function to verify the dataset you will be working with.
+Having said that, we believe that the user should be aware of these situations and we recommend using the `consistency.check()` function to verify the dataset you will be working with.
 
 
 ### covid19-Sequencing data
@@ -223,7 +223,7 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Torono, ON Canada, from the City of Toronto reports [2] </td>
+    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [2] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
