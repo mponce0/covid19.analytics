@@ -259,7 +259,7 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
         }
 
 
-	###################################################################################E#
+	####################################################################################
 
 
 	if (is.null(data0)) {
@@ -305,7 +305,7 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
 	# specify range of data in TS data...
 	col1 <-5; colN <- ncol(total.cases)
 	# check whether is the whole dataset...
-	if (tolower("status") %in% colnames(total.cases)) {
+	if ("status" %in% tolower(colnames(total.cases))) {
 		all.cases <- TRUE
 		colN <- colN-1
 
@@ -390,7 +390,7 @@ n.plt <- FALSE
 	}
 
 	### INTERACTIVE PLOTS
-	if (interactive.fig) {
+	if (interactive.fig) { 
 		# load/check plotly
 		loadLibrary("plotly")
 
@@ -418,9 +418,9 @@ n.plt <- FALSE
 			nbr.log.traces <- 4
 			nbr.sets <- 1
 		} else {
-			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers')
+			totals.ifig <- totals.ifig %>% add_trace(y = ~X.cases, name=geo.loc, type='scatter', mode='lines+markers')
 			# extra traces for activating log-scale
-			totals.ifig <- totals.ifig %>% add_trace(y = ~totals, name=geo.loc, type='scatter', mode='lines+markers', visible=F)
+			totals.ifig <- totals.ifig %>% add_trace(y = ~X.cases, name=geo.loc, type='scatter', mode='lines+markers', visible=F)
 			# log-scale menu based on nbr of traces...
 			#updatemenues <- log.sc.setup(1)
 			nbr.log.traces <- 1
@@ -807,6 +807,14 @@ live.map <- function(data=covid19.data(),
 
 
 ##################################################################################
+
+
+
+
+
+##################################################################################
+
+
 
 time.series <- function(data) {
 
