@@ -286,6 +286,11 @@ and daily changes in the reported number of cases.
    <td> plots in a static and interactive plot total number of cases per day, the user can specify multiple locations or global totoals </td>
    <td> static and interactive plot </td>
  </tr>
+   <tr>
+   <td> <code>itrend</code> </td>
+   <td> generates an interactive plot of daily changes vs total changes in a log-log plot, for the indicated regions </td>
+   <td> interactive plot </td>
+ </tr>
   <tr>
    <td> <code>live.map</code> </td>
    <td> generates an interactive map displaying cases around the world </td>
