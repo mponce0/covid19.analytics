@@ -274,6 +274,11 @@ and daily changes in the reported number of cases.
    <td> static plots: data + models (linear,Poisson,Exp), mosaic and histograms when more than one location are selected </td>
   </tr>
   <tr>
+   <td> <code>single.trend</code> <br> <code>mtrends</code> </td>
+   <td> visualize different indicators of the "trends" in daily changes for a single or mutliple locations </td>
+   <td> compose of static plots: total number of cases vs time, daily changes vs total changes in different representations</td>
+  </tr>
+ <tr>
    <th colspan="3">Graphics and Visualization</th>
  </tr>
   <tr>
