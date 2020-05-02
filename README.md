@@ -286,6 +286,11 @@ and daily changes in the reported number of cases.
    <td> plots in a static and interactive plot total number of cases per day, the user can specify multiple locations or global totoals </td>
    <td> static and interactive plot </td>
  </tr>
+   <tr>
+   <td> <code>itrends</code> </td>
+   <td> generates an interactive plot of daily changes vs total changes in a log-log plot, for the indicated regions </td>
+   <td> interactive plot </td>
+ </tr>
   <tr>
    <td> <code>live.map</code> </td>
    <td> generates an interactive map displaying cases around the world </td>
@@ -748,6 +753,36 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
   <img src="man/figures/heatmap-changes.pdf" width="22.5%" />
   <img src="man/figures/heatmap-growthRate.pdf" width="22.5%" />
 </p>
+
+
+#### Trends
+```R
+# single location trend, in this case using data from the City of Tornto
+tor.data <- covid19.Toronto.data()
+single.trend(tor.data) 
+
+# or data from the province of Ontario
+ts.data <- covid19.data("ts-confirmed")
+ont.data <- ts.data[ ts.data$Province.State == "Ontario",]
+single.trend(ont.data)
+
+# or from Italy
+single.trend(ts.data[ ts.data$Country.Region=="Italy",])
+
+
+# multiple locations
+ts.data <- covid19.data("ts-confirmed")
+mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
+
+# interactive plot of trends
+# for all locations and all type of cases
+itrends(covid19.data("ts-ALL"),geo.loc="ALL")
+```
+
+<p>
+  <img src="man/figures/trendTor.pdf" width="50%" />
+</p>
+
 
 
 #### Visualization Tools
