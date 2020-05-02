@@ -255,7 +255,7 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE)
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
 			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
-			'aggregated'   = system.file("extdata","03-27-2020.csv", package=covid19.pckg, mustWork = TRUE),
+			'aggregated'   = system.file("extdata","05-01-2020.csv", package=covid19.pckg, mustWork = TRUE),
                         # GLOBAL TimeSeries cases
                         # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
                         # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
@@ -367,7 +367,8 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		# Google drive URL, with "City of Toronto" data
 		city.of.Toronto.data <- "https://drive.google.com/uc?export=download&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
 		# temporary file to retrieve data
-		Tor.xlsx.file <- file.path(tempdir(), "covid19-toronto.xslx")
+		Tor.xlsx.file <- normalizePath(file.path(tempdir(), "covid19-toronto.xslx"))
+		header('',paste("Accessing file from...",Tor.xlsx.file))
 
 		# save excel file
 		download.file(city.of.Toronto.data, destfile=Tor.xlsx.file)
