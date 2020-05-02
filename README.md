@@ -781,7 +781,7 @@ itrends(covid19.data("ts-ALL"),geo.loc="ALL")
 
 <p>
   <img src="man/figures/trendTor.pdf" width="50%" />
-  <object data="man/figures/livemap.html" width="50%" height="525"></object>
+  <object data="man/figures/itrends_ex.html" width="50%" height="525"></object>
 </p>
 
 
