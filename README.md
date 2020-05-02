@@ -287,7 +287,7 @@ and daily changes in the reported number of cases.
    <td> static and interactive plot </td>
  </tr>
    <tr>
-   <td> <code>itrend</code> </td>
+   <td> <code>itrends</code> </td>
    <td> generates an interactive plot of daily changes vs total changes in a log-log plot, for the indicated regions </td>
    <td> interactive plot </td>
  </tr>
@@ -773,6 +773,10 @@ single.trend(ts.data[ ts.data$Country.Region=="Italy",])
 # multiple locations
 ts.data <- covid19.data("ts-confirmed")
 mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
+
+# interactive plot of trends
+# for all locations and all type of cases
+itrends(covid19.data("ts-ALL"),geo.loc="ALL")
 ```
 
 <p>
