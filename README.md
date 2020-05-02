@@ -750,6 +750,32 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
 </p>
 
 
+#### Trends
+```R
+# single location trend, in this case using data from the City of Tornto
+tor.data <- covid19.Toronto.data()
+single.trend(tor.data) 
+
+# or data from the province of Ontario
+ts.data <- covid19.data("ts-confirmed")
+ont.data <- ts.data[ ts.data$Province.State == "Ontario",]
+single.trend(ont.data)
+
+# or from Italy
+single.trend(ts.data[ ts.data$Country.Region=="Italy",])
+
+
+# multiple locations
+ts.data <- covid19.data("ts-confirmed")
+mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
+```
+
+<p>
+  <img src="man/figures/trendTor.pdf" width="50%" />
+</p>
+
+
+
 #### Visualization Tools
 ```R
 # retrieve time series data
