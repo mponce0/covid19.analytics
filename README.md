@@ -780,8 +780,8 @@ itrends(covid19.data("ts-ALL"),geo.loc="ALL")
 ```
 
 <p>
-  <img src="man/figures/trendTor.pdf" width="45%" />
-  <object data="man/figures/itrends_ex.html" width="45%" height="525"></object>
+  <img src="man/figures/trendTor.pdf" width="40%" />
+  <object data="man/figures/itrends_ex.html" width="57.5%" height="525"></object>
 </p>
 
 
