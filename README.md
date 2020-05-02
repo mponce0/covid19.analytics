@@ -777,10 +777,14 @@ mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
 # interactive plot of trends
 # for all locations and all type of cases
 itrends(covid19.data("ts-ALL"),geo.loc="ALL")
+
+# or just for confirmed cases and some specific locations, saving the result in an HTML file named "itrends_ex.html"
+itrends(covid19.data("ts-confirmed"), geo.loc=c("Uruguay","Argentina","Ontario","US","Italy","Hubei"), fileName="itrends_ex")
 ```
 
 <p>
-  <img src="man/figures/trendTor.pdf" width="50%" />
+  <img src="man/figures/trendTor.pdf" width="40%" />
+  <object data="man/figures/itrends_ex.html" width="58.5%" height="525"></object>
 </p>
 
 
