@@ -1,8 +1,11 @@
-April 2020:  Several new features _ ver.1.X.Y
+May 2020:  Several new features _ ver 1.1
 		- added integrity and consistency check fns --integrity.check/consistency.check/data.checks--
 		- added "geo.loc" argument for report.summary() fn
 		- added a couple of additional arguments to allow for customization of live.map()
-		- added new options to retrieve US specific TimeSeries datasets: "ts-confirmed-us" and "ts-deaths-us"
+		- added new options and function to retrieve US specific TimeSeries datasets: "ts-confirmed-us" and "ts-deaths-us" & covid19.US.data()
+		- added new option and function to retrieve "Toronto" data: "ts-Toronto" & covid19.Toronto.data()
+		- added more protection to growth.rate() and confidence bands drawing, to avoid failing plots with missing or inconsistency data
+		- added trend functions: single.trend(), mtrends() and itrends()
 
 April 2020:  A couple of bugs fixed, affecting the growth.rate() and plot.SIR.model() fns; few more features added to report.summary() and totals.plt() _ ver 1.0.1
 
