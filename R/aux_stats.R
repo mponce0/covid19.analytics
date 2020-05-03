@@ -72,11 +72,24 @@ confBand <- function(x,y, x0,x1,y0,y1, windowsNbr=10, period=ceiling(length(y)/w
                 if (filling){
                         xprime <- c(x,rev(x))
                         yprime <- c((ym+(ysd/2)),rev(ym-(ysd/2)))
-                        if(sum(is.na(yprime))>0)
-                                yprime[which(is.na(yprime))] <- yprime[min(which(is.na(yprime))-1)]
-                        graphics::polygon(xprime,yprime, col=grDevices::rgb(0.5,0.5,0.5, .25), border=NA)
-                }
-        }
+
+			yprime.NAs <- sum(is.na(yprime))
+
+			#print(yprime.NAs); print(yprime)
+			#print(which(is.na(yprime)))
+			#print(min(which(is.na(yprime))-0))
+
+			# check that there is actual numerical data available... othewise skip it...
+			if (yprime.NAs < length(yprime)) {
+				if(yprime.NAs > 0)
+					yprime[which(is.na(yprime))] <- yprime[min(which(!is.na(yprime))-0)]
+
+				graphics::polygon(xprime,yprime, col=grDevices::rgb(0.5,0.5,0.5, .25), border=NA)
+			}
+		}
+
+		return(invisible(ym)) 
+       }
 
 #######################################################################
 

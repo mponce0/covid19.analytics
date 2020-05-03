@@ -274,12 +274,22 @@ and daily changes in the reported number of cases.
    <td> static plots: data + models (linear,Poisson,Exp), mosaic and histograms when more than one location are selected </td>
   </tr>
   <tr>
+   <td> <code>single.trend</code> <br> <code>mtrends</code> </td>
+   <td> visualize different indicators of the "trends" in daily changes for a single or mutliple locations </td>
+   <td> compose of static plots: total number of cases vs time, daily changes vs total changes in different representations</td>
+  </tr>
+ <tr>
    <th colspan="3">Graphics and Visualization</th>
  </tr>
   <tr>
    <td> <code>total.plts</code> </td>
    <td> plots in a static and interactive plot total number of cases per day, the user can specify multiple locations or global totoals </td>
    <td> static and interactive plot </td>
+ </tr>
+   <tr>
+   <td> <code>itrends</code> </td>
+   <td> generates an interactive plot of daily changes vs total changes in a log-log plot, for the indicated regions </td>
+   <td> interactive plot </td>
  </tr>
   <tr>
    <td> <code>live.map</code> </td>
@@ -461,6 +471,26 @@ When the function is run with multiple locations or all the locations, the figur
 In addition to that, when there is more than one location the function will also generate two different styles of heatmaps comparing the changes per day and growth rate among the different locations (vertical axis) and time (horizontal axis).
 
 The function will return a list combining the results for the "changes per day" and the "growth rate" as a function of time.
+
+
+#### Trends in Daily Changes
+We provide three different functions to visualize the *trends* in daily changes of reported cases from time series data.
+
+* <code>single.trend</code>, allows to inspect one single location, this could be used with the worldwide data sliced by the corresponding location, the Toronto data or the user's own data formatted as "Time Series" data.
+
+* <code>mtrends</code>, similar to single.trend function, but accepts multiple or single locations generating one plot per location requested
+
+* <code>itrends</code>, function to generate an interactive plot of the trend in daily changes representing changes in number of cases vs total number of cases in log-scale using **splines** techniques to smooth the abrupt variations in the data
+
+
+The first two functions will generate "static" plots in a compose with different insets:
+- the main plot represents daily changes as a function of time
+- the inset figures in the top, from left to right:
+   - total number of cases (in linear and semi-log scales),
+   - changes in number of cases vs total number of cases
+   - changes in number of cases vs total number of cases in log-scale
+- the second row of insets, represent the "growth rate" (as defined above) and the "normalized" growth rate defined as the growth rate divided by the maximum growth rate reported for this location
+
 
 
 #### Plotting Totals
@@ -723,6 +753,40 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
   <img src="man/figures/heatmap-changes.pdf" width="22.5%" />
   <img src="man/figures/heatmap-growthRate.pdf" width="22.5%" />
 </p>
+
+
+#### Trends
+```R
+# single location trend, in this case using data from the City of Tornto
+tor.data <- covid19.Toronto.data()
+single.trend(tor.data) 
+
+# or data from the province of Ontario
+ts.data <- covid19.data("ts-confirmed")
+ont.data <- ts.data[ ts.data$Province.State == "Ontario",]
+single.trend(ont.data)
+
+# or from Italy
+single.trend(ts.data[ ts.data$Country.Region=="Italy",])
+
+
+# multiple locations
+ts.data <- covid19.data("ts-confirmed")
+mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
+
+# interactive plot of trends
+# for all locations and all type of cases
+itrends(covid19.data("ts-ALL"),geo.loc="ALL")
+
+# or just for confirmed cases and some specific locations, saving the result in an HTML file named "itrends_ex.html"
+itrends(covid19.data("ts-confirmed"), geo.loc=c("Uruguay","Argentina","Ontario","US","Italy","Hubei"), fileName="itrends_ex")
+```
+
+<p>
+  <img src="man/figures/trendTor.pdf" width="40%" />
+  <object data="man/figures/itrends_ex.html" width="58.5%" height="525"></object>
+</p>
+
 
 
 #### Visualization Tools
