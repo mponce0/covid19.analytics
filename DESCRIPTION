@@ -19,5 +19,5 @@ Suggests:
 License: GPL (>=2)
 URL: https://mponce0.github.io/covid19.analytics/
 BugReports: https://github.com/mponce0/covid19.analytics/issues
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr

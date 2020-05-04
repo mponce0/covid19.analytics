@@ -852,7 +852,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 
 single.trend <- function(ts.data, confBnd=TRUE, info="") {
-#' function to visualize different indicators for time series data
+#' function to visualize different indicators for trends in daily changes of cases reported as time series data
 #' 
 #' @param  ts.data  time series data
 #' @param  confBnd  optional argument to remove the drawing of a confidence band
@@ -864,8 +864,10 @@ single.trend <- function(ts.data, confBnd=TRUE, info="") {
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' tor.data <- covid19.Toronto.data()
 #' single.trend(tor.data) 
+#' }
 #'
 #' ts.data <- covid19.data("ts-confirmed")
 #' ont.data <- ts.data[ ts.data$Province.State == "Ontario",]
@@ -985,7 +987,7 @@ single.trend <- function(ts.data, confBnd=TRUE, info="") {
 #############################################################################
 
 mtrends <- function(data, geo.loc=NULL, confBnd=TRUE, info="") {
-#' function to obtain trends in Time Series data per location
+#' function to visualize different indicators for trends in daily changes of cases reported as time series data, for mutliple (or single) locations
 #'
 #' @param  data  data.frame with *time series* data from covid19
 #' @param  geo.loc  list of locations
@@ -995,6 +997,10 @@ mtrends <- function(data, geo.loc=NULL, confBnd=TRUE, info="") {
 #' @export
 #'
 #' @importFrom  graphics   barplot par plot abline axis 
+#'
+#' @examples
+#' ts.data <- covid19.data("ts-confirmed")
+#' mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy"))
 #'
 
         # check that the data is time series
