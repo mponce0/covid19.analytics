@@ -366,8 +366,8 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 	if (!local.data) {
 		# Google drive URL, with "City of Toronto" data
 		city.of.Toronto.data <- "https://drive.google.com/uc?export=download&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
-		# temporary file to retrieve data
-		Tor.xlsx.file <- normalizePath(file.path(tempdir(), "covid19-toronto.xslx"))
+		# temporary file to retrieve data, does not exist yet ==> mustwork=FALSE to avoid warning message
+		Tor.xlsx.file <- normalizePath(file.path(tempdir(), "covid19-toronto.xslx"), mustWork=FALSE)
 		header('',paste("Accessing file from...",Tor.xlsx.file))
 
 		# save excel file
@@ -396,16 +396,43 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		}
 	}
 
+	## NEW -- cases identified in 3 categories: deaths, active, resolved
+	# identify columns
+	cat.col <- 2
+	date.col <- 1
+	nbr.col <- 3
+
+	# filter categories
+	categs <- unique(toronto[[cat.col]])
+	# sort them alphabetically
+	categs <- sort(categs)
+
+	# break into different categories
+	data.per.categ <- split(toronto, toronto[[cat.col]])
+
+	x <- data.frame()
 	# Convert into TS format
+	for (i in categs) {
+		reported.dates <- rev(as.Date(data.per.categ[[i]][[date.col]]))
+		x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+	}
 
-	reported.dates <- rev(as.Date(toronto[[1]]))
-	reported.cases <- rev(toronto[[2]])
+	# add category
+	x <- cbind(x, categs)
 
-	tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832),
-					rbind(as.integer(reported.cases)) )
+	## OLD WAY!!!! ###
+	#reported.dates <- rev(as.Date(toronto[[date.col]]))
+	#reported.cases <- rev(toronto[[nbr.col]])
+	#
+	#tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832),
+	#				rbind(as.integer(reported.cases)) )
+	##################
+
+	tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832), x)
 
 	names(tor.data) <- c("Country.Region","Province.City","Lat","Long",
-				as.character(reported.dates))
+				as.character(reported.dates),
+				"status")
 
 	# debrief...
 	debriefing(tor.data,debrief)
