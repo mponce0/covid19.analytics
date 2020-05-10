@@ -1,3 +1,7 @@
+May 2020:  XXXX _ ver 1.1.1
+		- covid19.Toronto.data(): can return original data as reported by the vity in google-docs in a list format
+		- covid19.Toronto.data(): improved reading of Toronto data to protect possible variations in the reported data
+
 May 2020:  Several new features _ ver 1.1
 		- added integrity and consistency check fns --integrity.check/consistency.check/data.checks--
 		- added "geo.loc" argument for report.summary() fn
