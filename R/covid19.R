@@ -382,8 +382,11 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 
 
 	if (file.exists(Tor.xlsx.file)) {
+		# identify corresponding sheet
+		tgt.sheet <- pmatch("Cumulative",excel_sheets(Tor.xlsx.file))
+
 		# read data
-		toronto <- read_excel(Tor.xlsx.file,sheet=7)
+		toronto <- read_excel(Tor.xlsx.file,sheet=tgt.sheet)
 
 		# clean-up after reading the file only if it isn't the local repo
 		if (!local.data) file.remove(Tor.xlsx.file)
