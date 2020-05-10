@@ -22,3 +22,11 @@ echo "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covi
 dailyReport=${JHUurl}/${AGGdomain}/`date -v-1d +"%m-%d-%Y"`".csv"
 echo $dailyReport
 curl -L -O $dailyReport
+
+
+### City of Toronto data -- google drive
+#https://drive.google.com/file/d/1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY/view?usp=sharing
+FILEID="1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
+FILENAME="covid19_Toronto.xlsx"	#"City.of.Toronto.xlsx"
+#wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O FILENAME
+curl -L "https://docs.google.com/uc?export=download&id=$FILEID" > $FILENAME
