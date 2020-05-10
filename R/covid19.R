@@ -382,11 +382,24 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 
 
 	if (file.exists(Tor.xlsx.file)) {
-		# identify corresponding sheet
-		tgt.sheet <- pmatch("Cumulative",excel_sheets(Tor.xlsx.file))
+		# obtain names of sheets
+		lst.sheets <- excel_sheets(Tor.xlsx.file)
+
+		# if only "TS" identify corresponding sheet
+		tgt.sheet <- pmatch("Cumulative",lst.sheets)
 
 		# read data
-		toronto <- read_excel(Tor.xlsx.file,sheet=tgt.sheet)
+		if (toupper(data.fmt)=="TS") {
+			header('',"Reading TimeSeries data...")
+			toronto <- read_excel(Tor.xlsx.file,sheet=tgt.sheet)
+		} else {
+			header('',"Collecting all data reported...")
+			toronto <- list()
+			# iterate on each sheet...
+			for (sht in lst.sheets) {
+				toronto[[sht]] <- read_excel(Tor.xlsx.file,sheet=sht)
+			}
+		}
 
 		# clean-up after reading the file only if it isn't the local repo
 		if (!local.data) file.remove(Tor.xlsx.file)
@@ -399,43 +412,50 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		}
 	}
 
-	## NEW -- cases identified in 3 categories: deaths, active, resolved
-	# identify columns
-	cat.col <- 2
-	date.col <- 1
-	nbr.col <- 3
 
-	# filter categories
-	categs <- unique(toronto[[cat.col]])
-	# sort them alphabetically
-	categs <- sort(categs)
+	if (toupper(data.fmt)=="TS") {
+		## NEW -- cases identified in 3 categories: deaths, active, resolved
+		# identify columns
+		cat.col <- 2
+		date.col <- 1
+		nbr.col <- 3
 
-	# break into different categories
-	data.per.categ <- split(toronto, toronto[[cat.col]])
+		# filter categories
+		categs <- unique(toronto[[cat.col]])
+		# sort them alphabetically
+		categs <- sort(categs)
 
-	x <- data.frame()
-	# Convert into TS format
-	for (i in categs) {
-		reported.dates <- rev(as.Date(data.per.categ[[i]][[date.col]]))
-		x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+		# break into different categories
+		data.per.categ <- split(toronto, toronto[[cat.col]])
+
+		x <- data.frame()
+		# Convert into TS format
+		for (i in categs) {
+			reported.dates <- rev(as.Date(data.per.categ[[i]][[date.col]]))
+			x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+		}
+
+		# add category
+		x <- cbind(x, categs)
+
+		## OLD WAY!!!! ###
+		#reported.dates <- rev(as.Date(toronto[[date.col]]))
+		#reported.cases <- rev(toronto[[nbr.col]])
+		#
+		#tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832),
+		#				rbind(as.integer(reported.cases)) )
+		##################
+
+		tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832), x)
+
+		names(tor.data) <- c("Country.Region","Province.City","Lat","Long",
+					as.character(reported.dates),
+					"status")
+	} else {
+		# ALL DATA
+		tor.data <- toronto
+		print(names(tor.data))
 	}
-
-	# add category
-	x <- cbind(x, categs)
-
-	## OLD WAY!!!! ###
-	#reported.dates <- rev(as.Date(toronto[[date.col]]))
-	#reported.cases <- rev(toronto[[nbr.col]])
-	#
-	#tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832),
-	#				rbind(as.integer(reported.cases)) )
-	##################
-
-	tor.data <- cbind(data.frame("Canada","Toronto, ON",43.6532,79.3832), x)
-
-	names(tor.data) <- c("Country.Region","Province.City","Lat","Long",
-				as.character(reported.dates),
-				"status")
 
 	# debrief...
 	debriefing(tor.data,debrief)
