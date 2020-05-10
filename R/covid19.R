@@ -349,14 +349,14 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 #' as reported by the City of Toronto
 #'	https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
 #'
-#' @param  data.fmt  "TS" for TimeSeries or "original"
+#' @param  data.fmt  "TS" for TimeSeries of cumulative cases or "original" for the data as reported in the google-document with multiple sheets
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
 #'
 #' @return  a dataframe (or a list in the case of "original") with the latest data reported for the city of Toronto, ON - Canada
 #'
 #' @importFrom  utils  download.file
-#' @importFrom  readxl  read_excel
+#' @importFrom  readxl  excel_sheets read_excel
 #'
 #' @export
 #'
