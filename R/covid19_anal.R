@@ -866,7 +866,7 @@ single.trend <- function(ts.data, confBnd=TRUE, info="") {
 #' @examples
 #' \donttest{
 #' tor.data <- covid19.Toronto.data()
-#' single.trend(tor.data) 
+#' single.trend(tor.data[tor.data$status=="Active Cases",]) 
 #' }
 #'
 #' ts.data <- covid19.data("ts-confirmed")
