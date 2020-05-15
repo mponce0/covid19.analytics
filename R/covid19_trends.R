@@ -7,13 +7,14 @@
 
 ##################################################################################
 
-itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL) {
+itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL, interactive.display=TRUE) {
 #' function to visualize trends in daily changes in time series data interactively
 #'
 #' @param  ts.data  time series dataset to process
 #' @param  geo.loc  geographical location, country/region or province/state to restrict the analysis to
 #' @param  with.totals  a boolean flag to indicate whether the global totals should be displayed with the records for the specific location
 #' @param  fileName  file where to save the HTML version of the interactive figure
+#' @param  interactive.display  boolean flag to indicate whether the interactive plot will be displayed (pushed) to your browser
 #'
 #' @export
 #'
@@ -227,7 +228,7 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
                         htmlwidgets::saveWidget(as_widget(trends.ifig), FileName)
                 }
 
-        print(trends.ifig)
+        if (interactive.display) print(trends.ifig)
 }
 
 
