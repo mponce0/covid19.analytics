@@ -1,6 +1,8 @@
 May 2020:  XXXX _ ver 1.1.1
-		- covid19.Toronto.data(): can return original data as reported by the vity in google-docs in a list format
+		- covid19.Toronto.data(): can return original data as reported by the city in google-docs in a list format
 		- covid19.Toronto.data(): improved reading of Toronto data to protect possible variations in the reported data
+		- added new argument 'interactive.display' for functions that generate interactive figures, eg. live.map(), totals.plt(), plt.SIR.model(); for turning on/off the display of the figure
+
 
 May 2020:  Several new features _ ver 1.1
 		- added integrity and consistency check fns --integrity.check/consistency.check/data.checks--
@@ -11,6 +13,8 @@ May 2020:  Several new features _ ver 1.1
 		- added more protection to growth.rate() and confidence bands drawing, to avoid failing plots with missing or inconsistency data
 		- added trend functions: single.trend(), mtrends() and itrends()
 
+
 April 2020:  A couple of bugs fixed, affecting the growth.rate() and plot.SIR.model() fns; few more features added to report.summary() and totals.plt() _ ver 1.0.1
+
 
 March 2020:  Includes data access, basic analysis and interactive plotting functions _ ver 1.0
