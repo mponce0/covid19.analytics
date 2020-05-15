@@ -790,7 +790,7 @@ live.map <- function(data=covid19.data(),
 
 
 	# force displaying the figure
-	if (interactiveDisplay) print(fig)
+	if (interactive.display) print(fig)
 
 	if (!is.null(fileName)) {
 		FileName <- paste0(fileName,".html")
