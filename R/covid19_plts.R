@@ -84,7 +84,7 @@
 
 totals.plt <- function(data0=NULL, geo.loc0=NULL,
 			one.plt.per.page=FALSE, log.plt=TRUE, with.totals=FALSE,
-			interactive.fig=TRUE, fileName=NULL) {
+			interactive.fig=TRUE, fileName=NULL, interactive.display=TRUE) {
 #' function to plot total number of cases per day for different groups
 #'
 #' @param  data0  time series dataset to process, default all the possible cases: 'confirmed' and 'deaths' for all countries/regions
@@ -92,8 +92,9 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
 #' @param  geo.loc0  geographical location, country/region or province/state to restrict the analysis to
 #' @param  log.plt  include a log scale plot in the static plot
 #' @param  with.totals  a boolean flag to indicate whether the totals should be displayed with the records for the specific location
-#' @param  interactive.fig  swith to turn off/on an interactive plot
+#' @param  interactive.fig  switch to turn off/on an interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
+#' @param  interactive.display  boolean argument for enabling or not displaying the interactive figure
 #'
 #' @export
 #'
@@ -464,7 +465,7 @@ n.plt <- FALSE
 		}
 	}
 
-	if (interactive.fig) print(totals.ifig)
+	if (interactive.display) print(totals.ifig)
 	#return(totals.per.cat)
 }
 
@@ -476,7 +477,7 @@ live.map <- function(data=covid19.data(),
 			select.projctn=TRUE, projctn='orthographic',
 			title="", no.legend=FALSE,
 			szRef=0.2,
-			fileName=NULL) {
+			fileName=NULL, interactive.display=TRUE) {
 #' function to map cases in an interactive map
 #'
 #' @param  data  data to be used
@@ -487,6 +488,7 @@ live.map <- function(data=covid19.data(),
 #' @param  szRef  numerical value to use as reference, to scale up the size of the bubbles in the map, from 0 to 1 (smmaller value --> larger bubbles)
 #' @param  no.legend  parameter to turn off or on the legend on the right with the list of countries
 #' @param  fileName  file where to save the HTML version of the interactive figure
+#' @param  interactive.display  boolean argument for enabling or not displaying the figure
 #'
 #' @export
 #'
@@ -788,7 +790,7 @@ live.map <- function(data=covid19.data(),
 
 
 	# force displaying the figure
-	print(fig)
+	if (interactiveDisplay) print(fig)
 
 	if (!is.null(fileName)) {
 		FileName <- paste0(fileName,".html")

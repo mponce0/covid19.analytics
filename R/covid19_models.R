@@ -291,13 +291,15 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #######################################################################
 #######################################################################
 
-plt.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=NULL) {
+plt.SIR.model <- function(SIR.model, geo.loc="",
+				interactiveFig=FALSE, fileName=NULL, interactive.display=TRUE) {
 #' function to plot the results from the SIR model fn
 #'
 #' @param  SIR.model model resulting from the generate.SIR.model() fn
 #' @param  geo.loc  optional string to specify geographical location
 #' @param  interactiveFig  optional flag to activate interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
+#' @param  interactive.display  boolean flag to indicate whether the interactive plot will be displayed (pushed) to your browser
 #'
 #' @export plt.SIR.model 
 #'
@@ -368,7 +370,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="", interactiveFig=FALSE, fileName=
 
 
                 # activate interactive figure
-                print(model.ifig)
+		if (interactive.display) print(model.ifig)
 
 
 		if (!is.null(fileName)) {
