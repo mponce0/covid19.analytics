@@ -94,6 +94,7 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
         } else {
                 # if geo.loc0 was NULL ==> Global Totals
                 geo.loc <- NULL
+		total.cases <- ts.data
         }
 
 
@@ -139,6 +140,7 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
 
                 # define interactive figure/plot
                 trends.ifig <- plot_ly(total.cases)#, x = ~x.var)
+if(with.totals){
                 if (all.cases) {
 #                       for (categ in categories) {
 #                               fig <- fig %>% add_trace(y = ~categ, name="confirmed", mode='line+markers')
@@ -148,6 +150,7 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
                 recovered <- aggs$recovered
                 deaths <- aggs$deaths
                 active.cases <- aggs$active
+		maxXglobal <- max(log1p(aggs))
 
 			trends.ifig <- add.traces(trends.ifig, confirmed,recovered,deaths,active.cases, wdt=1, geo.lab="Global")
                         # extra traces for activating log-scale
@@ -157,9 +160,12 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
                         nbr.log.traces <- 4
                         nbr.sets <- 1
                 } else {
-			my.X <- as.numeric(log1p(X.cases[-length(X.cases)]))
-			my.Y <- as.numeric(log1p(diff(X.cases, lag=dlag)))
-			hover.txt <- paste("Global \n",names(X.cases[-length(X.cases)])," - ",X.cases[-length(X.cases)])
+			# need to compute total globals
+			agg.cases <- apply(ts.data[,col1:colN], MARGIN=2,sum)
+			my.X <- as.numeric(log1p(agg.cases[-length(agg.cases)]))
+			my.Y <- as.numeric(log1p(diff(agg.cases, lag=dlag)))
+			maxXglobal <- max(my.X)
+			hover.txt <- paste("Global \n",names(agg.cases[-length(agg.cases)])," - ",agg.cases[-length(agg.cases)])
                         trends.ifig <- trends.ifig %>% add_trace(x=my.X, y=my.Y,  type='scatter', mode='lines', line=list(shape = "spline", width=2),
 									name="Global", hoverinfo="text", text=hover.txt )
                         # extra traces for activating log-scale
@@ -169,6 +175,10 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
                         nbr.log.traces <- 1
                         nbr.sets <- 1
                 }
+} else {
+	nbr.log.traces <- 1
+	nbr.sets <- 1
+}
 
 		if (all.cases) {
 			for (geo.entry in geo.loc) {
@@ -200,10 +210,12 @@ itrends <- function(ts.data=NULL, geo.loc=NULL, with.totals=FALSE, fileName=NULL
 
 		# add line x=y
 		x.values <- apply(total.cases[,col1:colN],MARGIN=2,sum)
-		my.X <- log1p(as.numeric(x.values[-length(x.values)]))
-		my.Y <- log1p(diff(as.numeric(x.values,lag=dlag)))
+		#my.X <- log1p(as.numeric(x.values[-length(x.values)]))
+		#my.Y <- log1p(diff(as.numeric(x.values,lag=dlag)))
+		#my.X <- 0:maxXglobal
+		#print(my.X)
 		hover.txt <- paste(names(x.values[-length(x.values)])," - ",x.values[-length(x.values)])
-		trends.ifig <- trends.ifig %>% add_trace(x=my.Y, y=my.Y,  type='scatter', mode='lines',
+		trends.ifig <- trends.ifig %>% add_trace(x=my.X, y=my.X,  type='scatter', mode='lines',
 							line=list(width=4, color = 'rgba(0,100,80,0.2)'),
 							hoverinfo="text", text=hover.txt,
 							showlegend = FALSE)
