@@ -150,7 +150,7 @@ if(with.totals){
                 recovered <- aggs$recovered
                 deaths <- aggs$deaths
                 active.cases <- aggs$active
-		maxXglobal <- max(log1p(aggs))
+		#maxXglobal <- log1p(max(sapply(aggs,max)))
 
 			trends.ifig <- add.traces(trends.ifig, confirmed,recovered,deaths,active.cases, wdt=1, geo.lab="Global")
                         # extra traces for activating log-scale
@@ -210,7 +210,7 @@ if(with.totals){
 
 		# add line x=y
 		x.values <- apply(total.cases[,col1:colN],MARGIN=2,sum)
-		#my.X <- log1p(as.numeric(x.values[-length(x.values)]))
+		my.X <- log1p(as.numeric(x.values[-length(x.values)]))
 		#my.Y <- log1p(diff(as.numeric(x.values,lag=dlag)))
 		#my.X <- 0:maxXglobal
 		#print(my.X)
