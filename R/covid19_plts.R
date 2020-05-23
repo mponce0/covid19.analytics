@@ -465,8 +465,15 @@ n.plt <- FALSE
 		}
 	}
 
-	if (interactive.display) print(totals.ifig)
-	#return(totals.per.cat)
+	if (interactive.display) {
+		# show interactive plot
+		print(totals.ifig)
+		# and return DF
+		return(invisible(totals.per.cat))
+	} else {
+		# return interactive plot
+		return(totals.ifig)
+	}
 }
 
 
@@ -800,7 +807,7 @@ live.map <- function(data=covid19.data(),
 	}
 
 	#if (TRUE) {
-	#	return(fig)
+		return(fig)
 	#} else {
 		return(invisible(df))
 	#}

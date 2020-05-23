@@ -372,6 +372,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
                 # activate interactive figure
 		if (interactive.display) print(model.ifig)
 
+return(model.ifig)
 
 		if (!is.null(fileName)) {
 			FileName <- paste0(fileName,".html")

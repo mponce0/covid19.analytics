@@ -240,7 +240,11 @@ if(with.totals){
                         htmlwidgets::saveWidget(as_widget(trends.ifig), FileName)
                 }
 
-        if (interactive.display) print(trends.ifig)
+        if (interactive.display) {
+		print(trends.ifig)
+	} else {
+		return(trends.ifig)
+	}
 }
 
 
