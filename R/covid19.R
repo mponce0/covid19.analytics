@@ -386,7 +386,8 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		lst.sheets <- excel_sheets(Tor.xlsx.file)
 
 		# if only "TS" identify corresponding sheet
-		tgt.sheet <- pmatch("Cumulative",lst.sheets)
+		key.wrd <- "Cumulative Cases by Reported"
+		tgt.sheet <- pmatch(key.wrd,lst.sheets)
 
 		# read data
 		if (toupper(data.fmt)=="TS") {
