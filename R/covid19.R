@@ -432,7 +432,7 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		x <- data.frame()
 		# Convert into TS format
 		for (i in categs) {
-			reported.dates <- rev(as.Date(data.per.categ[[i]][[date.col]]))
+			reported.dates <- rev(unique(as.Date(data.per.categ[[i]][[date.col]])))
 			x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
 		}
 
