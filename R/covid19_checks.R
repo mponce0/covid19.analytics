@@ -14,6 +14,7 @@ integrity.check <- function(data, datasetName="", recommend=TRUE) {
 #' @param  datasetName  optional argument to display the name of the dataset
 #' @param  recommend  optional flag to recommend further actions
 #'
+#' @export
 
 	chck.cols <- function(col.names,cols) {
 
@@ -62,6 +63,7 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", details=
 #' @param  datasetName  optional argument to display the name of the dataset
 #' @param  details  optional argument to specify whether to show details about the records where inconsistencies were detected
 #'
+#' @export
 
 	message(" >>> checking data consistency...")
 
@@ -115,6 +117,7 @@ data.checks <- function(data,n0=5,nf=ncol(data), datasetName="", details=TRUE) {
 #' @param  datasetName  optional argument to display the name of the dataset
 #' @param  details  optional argument to specify whether to show details about the records where inconsistencies were detected
 #'
+#' @export
 
 	# check for integrity
 	integrity.check(data, datasetName, recommend=FALSE)
