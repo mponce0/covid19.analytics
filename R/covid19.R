@@ -426,6 +426,11 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 		# sort them alphabetically
 		categs <- sort(categs)
 
+		# check for inconsistencies in data, ie. missing categories
+		if (length(categs) != 3) {
+			stop("There supppose to be at least three categories/status within the data!\n This may represent some inconsistency with the datasets please contact the author of the package.")
+		}
+
 		# break into different categories
 		data.per.categ <- split(toronto, toronto[[cat.col]])
 
