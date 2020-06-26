@@ -531,7 +531,7 @@ To obtain the development version you can get it from the github repository, i.e
 # need devtools for installing from the github repo
 install.packages("devtools")
 
-# install bioC.logs
+# install covid19.analytics from github
 devtools::install_github("mponce0/covid19.analytics")
 ```
 
