@@ -344,7 +344,7 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE)
 ###########################################################################
 
 
-covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
+covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, OLD.fmt=FALSE) {
 #' function to import data from the city of Toronto, ON - Canada
 #' as reported by the City of Toronto
 #'	https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
@@ -352,6 +352,7 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 #' @param  data.fmt  "TS" for TimeSeries of cumulative cases or "original" for the data as reported in the google-document with multiple sheets
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
+#' @param  OLD.fmt  boolean flag to specify if the data is being read in an old format
 #'
 #' @return  a dataframe (or a list in the case of "original") with the latest data reported for the city of Toronto, ON - Canada
 #'
@@ -415,30 +416,49 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE) {
 
 
 	if (toupper(data.fmt)=="TS") {
-		## NEW -- cases identified in 3 categories: deaths, active, resolved
-		# identify columns
-		cat.col <- 2
-		date.col <- 1
-		nbr.col <- 3
+		## PREVIOUS FORMAT -- cases identified in 3 categories: deaths, active, resolved
+		if (OLD.fmt) {
+			# identify columns
+			cat.col <- 2
+			date.col <- 1
+			nbr.col <- 3
 
-		# filter categories
-		categs <- unique(toronto[[cat.col]])
-		# sort them alphabetically
-		categs <- sort(categs)
+			# filter categories
+			categs <- unique(toronto[[cat.col]])
+			# sort them alphabetically
+			categs <- sort(categs)
 
-		# check for inconsistencies in data, ie. missing categories
-		if (length(categs) != 3) {
-			stop("There supppose to be at least three categories/status within the data!\n This may represent some inconsistency with the datasets please contact the author of the package.")
-		}
+			# check for inconsistencies in data, ie. missing categories
+			if (length(categs) != 3) {
+				stop("There supppose to be at least three categories/status within the data!\n This may represent some inconsistency with the datasets please contact the author of the package.")
+			}
 
-		# break into different categories
-		data.per.categ <- split(toronto, toronto[[cat.col]])
+			# break into different categories
+			data.per.categ <- split(toronto, toronto[[cat.col]])
 
-		x <- data.frame()
-		# Convert into TS format
-		for (i in categs) {
-			reported.dates <- rev(unique(as.Date(data.per.categ[[i]][[date.col]])))
-			x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+			# Convert into TS format
+			x <- data.frame()
+			for (i in categs) {
+				reported.dates <- rev(unique(as.Date(data.per.categ[[i]][[date.col]])))
+				x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+			}
+		###########
+		} else {
+		###########
+			date.col <- 1
+			categs <- names(toronto[2:4])
+
+			# get the dates...
+			reported.dates <- rev(unique(as.Date(toronto[,date.col][[1]])))
+
+			x <- data.frame()
+			# Convert into TS format
+			for (i in categs) {
+				#reported.dates <- rev(unique(as.Date(data.per.categ[[i]][[date.col]])))
+				#x <- rbind(x,rev(data.per.categ[[i]][[nbr.col]]))
+				data.per.categ <- toronto[,i]
+				x <- rbind(x,rev(data.per.categ[[1]]))
+			}
 		}
 
 		# add category
