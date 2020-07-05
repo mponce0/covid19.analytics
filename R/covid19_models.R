@@ -366,7 +366,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 
 		length(Infected) <- length(fit[,1])
 
-		loc.data <- cbind(Infected,fit[,1:4], Force=fit[,3]*SIR.model$params$beta)
+		loc.data <- cbind(Infected,fit[,1:4], Force=(fit[,3]*SIR.model$params$beta) )
 		#print(loc.data)
 
 		#model.ifig <- model.ifig %>% add_trace(y = ~Infected, name="Actual data", type='scatter', mode='markers', visible=TRUE)
