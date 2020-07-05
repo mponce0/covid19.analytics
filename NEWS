@@ -1,8 +1,11 @@
 May 2020:  XXXX _ ver 1.1.1
+		- added tests cases
+		- geneate.SIR.model()/plt.SIR.model(): added plotting of time derivatives and "force of infection"
+		- covid19.Toronto.data(): updated to handle new format of the data, 3 categories in columns
 		- covid19.Toronto.data(): can return original data as reported by the city in google-docs in a list format
 		- covid19.Toronto.data(): improved reading of Toronto data to protect possible variations in the reported data
 		- added new argument 'interactive.display' for functions that generate interactive figures, eg. live.map(), totals.plt(), plt.SIR.model(), itrends(); for turning on/off the display of the figure
-		- fixed a few bugs in itrends: failing when not arguments or only one geo.locn. were specified
+		- fixed a few bugs in itrends: failing when not arguments or only one geo.locn, were specified
 		- fixed data integrity functions not being exported
 
 May 2020:  Several new features _ ver 1.1

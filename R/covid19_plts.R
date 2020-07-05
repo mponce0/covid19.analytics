@@ -68,10 +68,12 @@
         add.N.traces <- function(i.fig, traces, tr.names=rep("",length(traces)), vis=TRUE) {
 
 			tr.x <- traces[,2]
-                        i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,3], name=tr.names[2], type='scatter', mode='lines+markers', visible=vis)
-			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,4], name=tr.names[3], type='scatter', mode='lines+markers', visible=vis)
-			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,5], name=tr.names[4], type='scatter', mode='lines+markers', visible=vis)
-			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,1], name=tr.names[1], type='scatter', mode='markers', visible=vis)
+                        i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,3], name=tr.names[3-1], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,4], name=tr.names[4-1], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,5], name=tr.names[5-1], type='scatter', mode='lines+markers', visible=vis)
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,1], name=tr.names[2-1], type='scatter', mode='markers', visible=vis)
+			# for adding the FORCE...
+			i.fig <- i.fig %>% add_trace(x=~tr.x, y = ~traces[,6], name=tr.names[6-1], type='scatter', mode='lines', visible=vis)
 
 			return(i.fig)
         }

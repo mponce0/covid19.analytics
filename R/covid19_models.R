@@ -278,7 +278,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	header("=")
 
 	# group fit and data in an object to be returned
-	SIR.model <- list(Infected=Infected, model=fit)
+	SIR.model <- list(Infected=Infected, model=fit, params=list(beta=Opt_par["beta"],gamma=Opt_par["gamma"],R0=R0))
 
 	# display plots if requested
 	if (staticPlt | interactiveFig)
@@ -292,7 +292,8 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #######################################################################
 
 plt.SIR.model <- function(SIR.model, geo.loc="",
-				interactiveFig=FALSE, fileName=NULL, interactive.display=TRUE) {
+				interactiveFig=FALSE, fileName=NULL, interactive.display=TRUE,
+				add.extras=TRUE) {
 #' function to plot the results from the SIR model fn
 #'
 #' @param  SIR.model model resulting from the generate.SIR.model() fn
@@ -300,6 +301,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 #' @param  interactiveFig  optional flag to activate interactive plot
 #' @param  fileName  file where to save the HTML version of the interactive figure
 #' @param  interactive.display  boolean flag to indicate whether the interactive plot will be displayed (pushed) to your browser
+#' @param  add.extras  boolean flag to add extra indicators, such as, the "force of infection" and time derivatives
 #'
 #' @export plt.SIR.model 
 #'
@@ -325,14 +327,19 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 
         par(mfrow = c(2, 2))
         plot(Day, Infected, type ="b")
+	if (add.extras) lines(Day[-1],diff(Infected), lty=2)
         plot(Day, Infected, log = "y")
         abline(lm(log10(Infected) ~ Day))
+	if (add.extras) lines(Day[-1],log10(diff(Infected)), lty=2)
+
         title(paste("Confirmed Cases 2019-nCoV:",toupper(geo.loc)), outer = TRUE, line = -2)
 
         col <- c("blue","red","green")
 
         matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col)
+	if (add.extras) matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col)
         matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col, log = "y")
+	if (add.extras) matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col, log="y")
         ## Warning in xy.coords(x, y, xlabel, ylabel, log = log): 1 y value <= 0
         ## omitted from logarithmic plot
 
@@ -340,6 +347,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
         legend("bottomright", c("Susceptible", "Infected", "Recovered"), lty = 1, lwd = 2, col = col, inset = 0.05)
         title(paste("SIR model 2019-nCoV:", toupper(geo.loc)), outer = TRUE, line = -22)
         #axis.Date(1,as.Date(names(data)[colOffset:ncol(data)]))
+
 
         ### INTERACTIVE PLOTS
         if (interactiveFig) {
@@ -351,28 +359,45 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 
 		length(Infected) <- length(fit[,1])
 
-		loc.data <- cbind(Infected,fit[,1:4])
+		loc.data <- cbind(Infected,fit[,1:4], Force=fit[,3]*SIR.model$params$beta)
 		#print(loc.data)
 
 		#model.ifig <- model.ifig %>% add_trace(y = ~Infected, name="Actual data", type='scatter', mode='markers', visible=TRUE)
 		# add traces
-		model.ifig <- add.N.traces(model.ifig,loc.data, c("data","Susceptible", "Infected", "Recovered"), vis=TRUE)
+		model.ifig <- add.N.traces(model.ifig,loc.data, c("data","Susceptible", "Infected", "Recovered","Force"), vis=TRUE)
 
 		# extra traces for activating log-scale
-		model.ifig <- add.N.traces(model.ifig, log10(loc.data), c("data","Susceptible", "Infected", "Recovered"), vis=FALSE)
-                        
+		model.ifig <- add.N.traces(model.ifig, log10(loc.data), c("data","Susceptible", "Infected", "Recovered", "Force"), vis=FALSE)
+
 		# log-scale menu based on nbr of traces...
                         
-		updatemenues <- log.sc.setup(4)
+		updatemenues <- log.sc.setup(5)
 
                 # add a menu for switching log/linear scale
                 model.ifig <- model.ifig %>% layout(updatemenus=updatemenues)
 
+		### DERIVS ###
+		derivs <- cbind(time=fit$time[-1],as.data.frame(lapply(fit[,2:4],diff)) ,force=diff(loc.data$Force))
+		#print(str(derivs))
+		derivs.ifig <- plot_ly(data=derivs, x=time)
+		derivs.data <- cbind(diff(Infected),derivs)
+		#print(str(derivs.data))
+		derivs.ifig <- add.N.traces(derivs.ifig, derivs.data, c("Deriv.data","Deriv.Susceptible", "Deriv.Infected", "Deriv.Recovered","Deriv.Force"), vis=TRUE)
+		derivs.ifig <- add.N.traces(derivs.ifig, log10(derivs.data), c("Deriv.data","Deriv.Susceptible", "Deriv.Infected", "Deriv.Recovered","Deriv.Force"), vis=FALSE)
+		updatemenues <- log.sc.setup(5)
+		derivs.ifig <- derivs.ifig %>% layout(updatemenus=updatemenues)
+		###
+		ifigs <- subplot(list(model.ifig, derivs.ifig), nrows = 2, shareX = TRUE, titleX = TRUE)
+		#print(ifigs)
 
-                # activate interactive figure
-		if (interactive.display) print(model.ifig)
 
-return(model.ifig)
+		# activate interactive figure
+		if (interactive.display) {
+			print(model.ifig)
+			print(ifigs)
+		}
+
+		return(model.ifig)
 
 		if (!is.null(fileName)) {
 			FileName <- paste0(fileName,".html")
