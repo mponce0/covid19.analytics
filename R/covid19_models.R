@@ -307,7 +307,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 #' @export plt.SIR.model
 #'
 #' @importFrom  graphics  matplot matlines title legend points
-#' @importFrom  plotly  plot_ly %>% add_trace as_widget
+#' @importFrom  plotly  plot_ly %>% add_trace as_widget subplot
 #' @importFrom  htmlwidgets  saveWidget
 #'
 
