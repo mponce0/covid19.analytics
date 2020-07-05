@@ -304,9 +304,9 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 #' @param  interactive.display  boolean flag to indicate whether the interactive plot will be displayed (pushed) to your browser
 #' @param  add.extras  boolean flag to add extra indicators, such as, the "force of infection" and time derivatives
 #'
-#' @export plt.SIR.model 
+#' @export plt.SIR.model
 #'
-#' @importFrom  graphics  matplot title legend points
+#' @importFrom  graphics  matplot matlines title legend points
 #' @importFrom  plotly  plot_ly %>% add_trace as_widget
 #' @importFrom  htmlwidgets  saveWidget
 #'
@@ -386,7 +386,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 		### DERIVS ###
 		derivs <- cbind(time=fit$time[-1],as.data.frame(lapply(fit[,2:4],diff)) ,force=diff(loc.data$Force))
 		#print(str(derivs))
-		derivs.ifig <- plot_ly(data=derivs, x=time)
+		derivs.ifig <- plot_ly(data=derivs, x=derivs$time)
 		derivs.data <- cbind(diff(Infected),derivs)
 		#print(str(derivs.data))
 		derivs.ifig <- add.N.traces(derivs.ifig, derivs.data, c("Deriv.data","Deriv.Susceptible", "Deriv.Infected", "Deriv.Recovered","Deriv.Force"), vis=TRUE)
@@ -404,13 +404,19 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 			print(ifigs)
 		}
 
-		return(model.ifig)
+		#return(model.ifig)
 
 		if (!is.null(fileName)) {
 			FileName <- paste0(fileName,".html")
 			# informing where the plot is going to be saved
 			message("Saving interactive plot in ", FileName)
 			htmlwidgets::saveWidget(as_widget(model.ifig), FileName)
+		}
+
+		if (add.extras) {
+			return(ifigs)
+		} else {
+			return(model.ifig)
 		}
 	}
 }
