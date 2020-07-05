@@ -255,7 +255,7 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE)
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
 			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
-			'aggregated'   = system.file("extdata","05-01-2020.csv", package=covid19.pckg, mustWork = TRUE),
+			'aggregated'   = system.file("extdata","07-05-2020.csv", package=covid19.pckg, mustWork = TRUE),
                         # GLOBAL TimeSeries cases
                         # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
                         # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
