@@ -283,7 +283,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 
 	# display plots if requested
 	if (staticPlt | interactiveFig)
-		plt.SIR.model(SIR.model,geo.loc, interactiveFig)
+		plt.SIR.model(SIR.model,geo.loc, interactiveFig, add.extras=add.extras)
 
 	#class(SIR.model) <- "SIR.model"
 	return(SIR.model)
