@@ -99,7 +99,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 				tfinal=90,
 				fatality.rate = 0.02,
 				tot.population=1400000000,
-				staticPlt=TRUE, interactiveFig=FALSE) {
+				staticPlt=TRUE, interactiveFig=FALSE, add.extras=FALSE) {
 #' function to generate a simple SIR (Susceptible-Infected-Recovered) model based on the actual data of the coivd19 cases
 #'
 #' @param  data  time series dataset to consider
@@ -112,6 +112,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' @param  tot.population  total population of the country/region
 #' @param  staticPlt  optional flag to activate/deactive plotting of the data and the SIR model generated
 #' @param  interactiveFig  optional flag to activate/deactive the generation of an interactive plot of the data and the SIR model generated
+#' @param  add.extras  boolean flag to add extra indicators, such as, the "force of infection" and time derivatives
 #'
 #' @importFrom  stats  optim setNames
 #' @importFrom  deSolve  ode
@@ -123,7 +124,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 #' generate.SIR.model(data,"Hubei", t0=1,t1=15)
 #' generate.SIR.model(data,"Germany",tot.population=83149300)
 #' generate.SIR.model(data,"Uruguay", tot.population=3500000)
-#' generate.SIR.model(data,"Canada", tot.population=37590000)
+#' generate.SIR.model(data,"Canada", tot.population=37590000, add.extras=TRUE)
 #'
 
 	# DISCLAIMER // EXPERIMENTAL FEATURES
