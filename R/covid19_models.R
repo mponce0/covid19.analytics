@@ -338,9 +338,15 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
         col <- c("blue","red","green")
 
         matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col)
-	if (add.extras) matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col)
+	if (add.extras) {
+			matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col)
+			matlines(fit$time, fit[,3]**SIR.model$params$beta, type = "l", lwd = 0.75, lty = 6, col = "purple")
+	}
         matplot(fit$time, fit[ , 2:4], type = "l", xlab = "Day", ylab = "Number of subjects", lwd = 2, lty = 1, col = col, log = "y")
-	if (add.extras) matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col, log="y")
+	if (add.extras) {
+		matlines(fit$time[-1], sapply(fit[ , 2:4],diff), type = "l", lwd = 1, lty = 2, col = col, log="y")
+		matlines(fit$time, fit[,3]**SIR.model$params$beta, type = "l", lwd = 0.75, lty = 6, col = "purple", log="y")
+	}
         ## Warning in xy.coords(x, y, xlabel, ylabel, log = log): 1 y value <= 0
         ## omitted from logarithmic plot
 
