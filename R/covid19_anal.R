@@ -366,7 +366,12 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="", staticPlt=TRUE, 
 		}
 
 		if (nrow(total.gr.per.day) > 1) {
-			mst.tgt <- (as.matrix(total.gr.per.day[,2:length(gr.rate)]))
+			mat.tgt <- (as.matrix(total.gr.per.day[,2:length(gr.rate)]))
+			#mat.tgt <-  mat.tgt[,which(unlist(lapply(mat.tgt, function(x) !all(is.na(x)))))]
+			#mat.tgt <-  mat.tgt[,which(unlist(lapply(mat.tgt, function(x) !all(is.nan(x)))))]
+			# deal with NA/nan/... setting to 0
+			mat.tgt[is.na(mat.tgt)] <- 0
+
 			heatmap.2(mat.tgt,
 				dendrogram="none", trace='none',
 				col=bluered, labRow=geo.loc,
