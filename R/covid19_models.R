@@ -267,7 +267,7 @@ generate.SIR.model <- function(data=NULL, geo.loc="Hubei",
 	# height of pandemic
 	max.I <- max(fit$I)
 	max.I.time <- fit$time[fit$I==max.I]
-	header("",paste("Max of infecteded:", round(max.I,2), " (",round((max.I/tot.population)*100,2),"%)"))
+	header("",paste("Max nbr of infected:", round(max.I,2), " (",round((max.I/tot.population)*100,2),"%)"))
 	#print(fit[fit$I == max(fit$I), "I", drop = FALSE]) 
 
 
