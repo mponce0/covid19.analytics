@@ -1,4 +1,6 @@
-May 2020:  XXXX _ ver 1.1.1
+
+Jul 2020:  Several new features and bugs fixes _ ver 1.1.1
+		- added new geographical categories to select data per continents, implemented via geographicalRegions() fn
 		- added tests cases
 		- geneate.SIR.model()/plt.SIR.model(): added plotting of time derivatives and "force of infection"
 		- covid19.Toronto.data(): updated to handle new format of the data, 3 categories in columns
@@ -7,6 +9,7 @@ May 2020:  XXXX _ ver 1.1.1
 		- added new argument 'interactive.display' for functions that generate interactive figures, eg. live.map(), totals.plt(), plt.SIR.model(), itrends(); for turning on/off the display of the figure
 		- fixed a few bugs in itrends: failing when not arguments or only one geo.locn, were specified
 		- fixed data integrity functions not being exported
+
 
 May 2020:  Several new features _ ver 1.1
 		- added integrity and consistency check fns --integrity.check/consistency.check/data.checks--

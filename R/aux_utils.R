@@ -88,6 +88,7 @@ return(cases.per.loc0)
 
 #######################################################################
 
+
 checkGeoLoc <- function(data, geo.loc=NULL) {
 #' function to check the geographical location 
 #'
@@ -98,6 +99,12 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 #'
 #' @keywords internal
 #'
+
+
+#########################
+	# obtain defns of geographical regions
+	regions <- geographicalRegions()
+#########################
 
 	col.names <- names(data)
 	#print(col.names)
@@ -120,10 +127,20 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 		geo.loc <- countries.regions
 	} else {
 		for (geo.ind in geo.loc) {
-			if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions) & !(toupper(geo.ind) == "ALL") ) {
-				warning(paste("Unrecognized region: ",geo.ind," will skip it!"))
+			# process pre-defined regions, eg. continents
+			# remove possible spaces, eg 'South America' --> "SOUTHAMERICA"
+			tgt <- gsub(" ","",toupper(geo.ind))
+			print(tgt); #print(names(regions))
+			if ( sum(tgt %in% names(regions)) != 0 ) {
+				#print(regions[tgt])
+				geo.locs <- c(geo.locs, checkGeoLoc(data,regions[tgt]) )
 			} else {
-				geo.locs <- c(geo.locs,geo.ind)
+				# individual entries, ie. countries
+				if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions) & !(toupper(geo.ind) == "ALL") ) {
+					warning(paste("Unrecognized region: ",geo.ind," will skip it!"))
+				} else {
+					geo.locs <- c(geo.locs,geo.ind)
+				}
 			}
 		}
 
@@ -138,7 +155,7 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 		}
 	}
 
-	return(toupper(geo.loc))
+	return(toupper(unique(geo.loc)))
 }
 
 
