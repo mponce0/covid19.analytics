@@ -16,6 +16,7 @@ Suggests:
     knitr,
     devtools,
     roxygen2,
+    markdown,
     testthat
 License: GPL (>=2)
 URL: https://mponce0.github.io/covid19.analytics/

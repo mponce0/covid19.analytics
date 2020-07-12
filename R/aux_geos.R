@@ -2,8 +2,16 @@
 # covi19.analytics
 # M.Ponce
 
-geographicalRegions <- function() {
-
+geographicalRegions <- function(cont=NULL) {
+#'
+#' function to define continents and its constituent countries
+#'
+#' @param  cont  optional argumetn, to specify a particular continent; if no argument is given then it returns all the continents and countries for each
+#'
+#' @return  list with the composition of continents
+#'
+#' @export
+#'
 
 	processCtryLst <- function(lst) {
 
@@ -255,6 +263,15 @@ Vanuatu")
         regions <- list(SOUTHAMERICA=SouthAmerica, NORTHAMERICA=NorthAmerica, CENTRALAMERICA=CentralAmerica, AMERICA=America,
 			EUROPE=Europe, ASIA=Asia, OCEANIA=Oceania)
 
-        return(regions)
-
+	if (is.null(cont)) {
+        	return(regions)
+	} else {
+		kcont <- gsub(" ","",toupper(cont))
+		if (kcont %in% names(regions)) {
+			return(regions[kcont])
+		} else {
+			warning("Continent ",cont," not found!",'\n',
+				"Possible options are: ", paste(names(regions),collapse=' ') )
+		}
+	}
 }
