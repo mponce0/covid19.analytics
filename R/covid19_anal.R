@@ -692,8 +692,13 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 #' # displaying top 10s
 #' report.summary()
 #'
+#' \dontrun{
 #' # get the top 20
-#' report.summary(Nentries=20)
+#' report.summary(Nentries=20,graphical.output=FALSE)
+#'
+#' # specify a location
+#' report.summary(geo.loc="NorthAmerica")
+#' }
 #'
 
 	# reassign Nentries to Nentriex
