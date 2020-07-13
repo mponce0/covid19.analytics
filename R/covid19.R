@@ -372,7 +372,12 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 		header('',paste("Accessing file from...",Tor.xlsx.file))
 
 		# save excel file
-		download.file(city.of.Toronto.data, destfile=Tor.xlsx.file)
+		#if (capabilities('libcurl')) {
+		#	dwnld.method <- 'libcurl'
+		#} else {
+		#	stop("curl/libcurl; needed to download data from internet")
+		#}
+		download.file(city.of.Toronto.data, destfile=Tor.xlsx.file, mode = 'wb' )	#method=dwnld.method)
         } else {
                 # use local data
 		covid19.pckg <- 'covid19.analytics'
@@ -383,8 +388,13 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 
 
 	if (file.exists(Tor.xlsx.file)) {
+		###~~~~~~
+		#print(Tor.xlsx.file)
+		###~~~~~~
 		# obtain names of sheets
 		lst.sheets <- excel_sheets(Tor.xlsx.file)
+
+		#print(lst.sheets)
 
 		# if only "TS" identify corresponding sheet
 		key.wrd <- "Cumulative Cases by Reported"
