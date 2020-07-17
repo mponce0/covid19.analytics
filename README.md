@@ -759,7 +759,7 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
 ```R
 # single location trend, in this case using data from the City of Tornto
 tor.data <- covid19.Toronto.data()
-single.trend(tor.data) 
+single.trend(tor.data[tor.data$status=="Active Cases",])
 
 # or data from the province of Ontario
 ts.data <- covid19.data("ts-confirmed")
@@ -774,12 +774,19 @@ single.trend(ts.data[ ts.data$Country.Region=="Italy",])
 ts.data <- covid19.data("ts-confirmed")
 mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
 
+# multiple cases
+single.trend(tor.data)
+
+
 # interactive plot of trends
 # for all locations and all type of cases
 itrends(covid19.data("ts-ALL"),geo.loc="ALL")
 
 # or just for confirmed cases and some specific locations, saving the result in an HTML file named "itrends_ex.html"
 itrends(covid19.data("ts-confirmed"), geo.loc=c("Uruguay","Argentina","Ontario","US","Italy","Hubei"), fileName="itrends_ex")
+
+# interactive trend for Toronto cases
+itrends(tor.data[,-ncol(tor.data)])
 ```
 
 <p>
