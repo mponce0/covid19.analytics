@@ -424,16 +424,24 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 #######################################################################
 
 
-swipe_R0 <- function(data=NULL, geo.loc="Hubei",
+sweep_R0 <- function(data=NULL, geo.loc="Hubei",
 		t0_range=15:20,
 			t1=NULL, deltaT=NULL,
 			tfinal=90,
 			fatality.rate = 0.02,
 			tot.population=1400000000) {
 
-#' function to swipe and generate values of R0
+#' function to perform a sweep of models and generate values of R0
 #'
-# @keywords export
+#' @keywords export
+#'
+#' @example
+#'
+#' params_sweep <- sweep_R0(data=covid19.data("TS-confirmed"),geo.loc="France", t0_range=15:25)
+#' # R0s
+#' R0s <- unlist(params_sweep["R0",])
+#' plot(R0s, type='b')
+#'
 
         wrapperFn <- function(t0) {
         # wrapper fn to generate.SIR.model
@@ -441,7 +449,7 @@ swipe_R0 <- function(data=NULL, geo.loc="Hubei",
                 #m1 <- generate.SIR.model(data,geo.loc,t0,t1,deltaT=20 ,fatality.rate,tot.population,
                 #       staticPlt=FALSE,interactiveFig=FALSE, add.extras=FALSE)
                 m1 <- generate.SIR.model (data=data, geo.loc=geo.loc, t0, deltaT=20, interactiveFig=FALSE, staticPlt=FALSE)
-                return(m1)
+                return(m1$params)
         }
 
 
