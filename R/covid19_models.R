@@ -423,3 +423,35 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 
 #######################################################################
 
+
+swipe_R0 <- function(data=NULL, geo.loc="Hubei",
+		t0_range=15:20,
+			t1=NULL, deltaT=NULL,
+			tfinal=90,
+			fatality.rate = 0.02,
+			tot.population=1400000000) {
+
+#' function to swipe and generate values of R0
+#'
+# @keywords export
+
+        wrapperFn <- function(t0) {
+        # wrapper fn to generate.SIR.model
+
+                #m1 <- generate.SIR.model(data,geo.loc,t0,t1,deltaT=20 ,fatality.rate,tot.population,
+                #       staticPlt=FALSE,interactiveFig=FALSE, add.extras=FALSE)
+                m1 <- generate.SIR.model (data=data, geo.loc=geo.loc, t0, deltaT=20, interactiveFig=FALSE, staticPlt=FALSE)
+                return(m1)
+        }
+
+
+        models <- sapply(t0_range,wrapperFn)
+        #models <- mapply(generate.SIR.model, data,geo.loc,t0_range,t1,deltaT,tfinal,
+        #                       fatality.rate, tot.population,
+        #                       interactiveFig=FALSE, staticPlt=FALSE)
+
+        return(models)
+}
+
+#######################################################################
+
