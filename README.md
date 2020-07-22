@@ -759,7 +759,7 @@ growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario
 ```R
 # single location trend, in this case using data from the City of Tornto
 tor.data <- covid19.Toronto.data()
-single.trend(tor.data) 
+single.trend(tor.data[tor.data$status=="Active Cases",])
 
 # or data from the province of Ontario
 ts.data <- covid19.data("ts-confirmed")
@@ -774,12 +774,19 @@ single.trend(ts.data[ ts.data$Country.Region=="Italy",])
 ts.data <- covid19.data("ts-confirmed")
 mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
 
+# multiple cases
+single.trend(tor.data)
+
+
 # interactive plot of trends
 # for all locations and all type of cases
 itrends(covid19.data("ts-ALL"),geo.loc="ALL")
 
 # or just for confirmed cases and some specific locations, saving the result in an HTML file named "itrends_ex.html"
 itrends(covid19.data("ts-confirmed"), geo.loc=c("Uruguay","Argentina","Ontario","US","Italy","Hubei"), fileName="itrends_ex")
+
+# interactive trend for Toronto cases
+itrends(tor.data[,-ncol(tor.data)])
 ```
 
 <p>
@@ -894,7 +901,7 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 To cite package ‘covid19.analytics’ in publications use:
 
   Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
-  from the CoViD-19 Pandemic. R package version 1.1.
+  from the CoViD-19 Pandemic. R package version 1.1.1.
   https://CRAN.R-project.org/package=covid19.analytics
 
 A BibTeX entry for LaTeX users is
@@ -903,7 +910,7 @@ A BibTeX entry for LaTeX users is
     title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
     author = {Marcelo Ponce},
     year = {2020},
-    note = {R package version 1.1},
+    note = {R package version 1.1.1},
     url = {https://CRAN.R-project.org/package=covid19.analytics},
   }
 ```
