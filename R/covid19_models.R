@@ -435,12 +435,29 @@ sweep_R0 <- function(data=NULL, geo.loc="Hubei",
 #'
 #' @keywords export
 #'
-#' @example
+#' @examples
 #'
-#' params_sweep <- sweep_R0(data=covid19.data("TS-confirmed"),geo.loc="France", t0_range=15:25)
+#' #TS read data
+#' TS.data <- covid19.data("TS-confirmed")
+#' #select a location of interest, eg. France
+#' # France has many entries, just pick "la France"
+#' France.data <- TS.data[ (TS.data$Country.Region == "France") & (TS.data$Province.State == ""),]
+#' # sweep values of R0 based on range of dates to consider for the model
+#' ranges <- 15:20
+#' params_sweep <- sweep_R0(data=FR.data,geo.loc="France", t0_range=ranges)
 #' # R0s
 #' R0s <- unlist(params_sweep["R0",])
+#' # nbr of infected cases
+#' FR.infs<- preProcessingData(FR.data,"France")
+#' # average per range
+#' # define ranges
+#' lst.ranges <- lapply(ranges, function(x) x:(x+deltaT))
+#' # compute averages
+#' avg.FR.infs <- lapply(lst.ranges, function(x) mean(FRf[x]))
+#' # plots
 #' plot(R0s, type='b')
+#' # plot vs average number of infected cases
+#' plot(avg.FR.infs, R0s, type='b')
 #'
 
         wrapperFn <- function(t0) {
