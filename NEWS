@@ -1,5 +1,5 @@
 Jul 2020:
-	- Adding a new function, swipe_R0 for generating a range of values for R0 based on the starting date t0 to consider for the SIR model
+	- Adding a new function, sweep.SIR.models for generating a range of values for R0 based on the starting date t0 to consider for the SIR model
 
 Jul 2020:  Several new features and bugs fixes _ ver 1.1.1
 		- added new geographical categories to select data per continents, implemented via geographicalRegions() fn

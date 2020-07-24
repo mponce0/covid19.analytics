@@ -424,7 +424,7 @@ plt.SIR.model <- function(SIR.model, geo.loc="",
 #######################################################################
 
 
-sweep_R0 <- function(data=NULL, geo.loc="Hubei",
+sweep.SIR.models <- function(data=NULL, geo.loc="Hubei",
 		t0_range=15:20,
 			t1=NULL, deltaT=NULL,
 			tfinal=90,
@@ -433,27 +433,27 @@ sweep_R0 <- function(data=NULL, geo.loc="Hubei",
 
 #' function to perform a sweep of models and generate values of R0
 #'
-#' @keywords export
+#' @export
 #'
 #' @examples
-#'
-#' #TS read data
+#' # read TimeSeries data
 #' TS.data <- covid19.data("TS-confirmed")
-#' #select a location of interest, eg. France
+#' # select a location of interest, eg. France
 #' # France has many entries, just pick "la France"
 #' France.data <- TS.data[ (TS.data$Country.Region == "France") & (TS.data$Province.State == ""),]
 #' # sweep values of R0 based on range of dates to consider for the model
 #' ranges <- 15:20
-#' params_sweep <- sweep_R0(data=FR.data,geo.loc="France", t0_range=ranges)
-#' # R0s
+#' deltaT <- 20
+#' params_sweep <- sweep.SIR.models(data=France.data,geo.loc="France", t0_range=ranges, deltaT=deltaT)
+#' # obtain the R0 values from the parameters
 #' R0s <- unlist(params_sweep["R0",])
 #' # nbr of infected cases
-#' FR.infs<- preProcessingData(FR.data,"France")
+#' FR.infs<- preProcessingData(France.data,"France")
 #' # average per range
 #' # define ranges
 #' lst.ranges <- lapply(ranges, function(x) x:(x+deltaT))
 #' # compute averages
-#' avg.FR.infs <- lapply(lst.ranges, function(x) mean(FRf[x]))
+#' avg.FR.infs <- lapply(lst.ranges, function(x) mean(FR.infs[x]))
 #' # plots
 #' plot(R0s, type='b')
 #' # plot vs average number of infected cases

@@ -194,7 +194,8 @@ preProcessingData <- function(data0,geo.loc){
 #' @param  data0  data set
 #' @param  geo.loc  geopgraphical location, can be a country, region, province or city
 #'
-#' @keywords internal
+#' #@keywords internal
+#' @export
 #'
 
         # define first column of data
