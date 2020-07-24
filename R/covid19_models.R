@@ -430,8 +430,17 @@ sweep.SIR.models <- function(data=NULL, geo.loc="Hubei",
 			tfinal=90,
 			fatality.rate = 0.02,
 			tot.population=1400000000) {
-
+#'
 #' function to perform a sweep of models and generate values of R0
+#'
+#' @param  data  time series dataset to consider
+#' @param  geo.loc  country/region to analyze
+#' @param  t0_range  range of initial date for data consideration
+#' @param  t1  final period of time for data consideration
+#' @param  deltaT interval period of time from t0, ie. number of days to consider since t0
+#' @param  tfinal  total number of days
+#' @param  fatality.rate  rate of causality, deafault value of 2 percent
+#' @param  tot.population  total population of the country/region
 #'
 #' @export
 #'
