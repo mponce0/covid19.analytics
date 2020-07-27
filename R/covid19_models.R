@@ -474,7 +474,9 @@ sweep.SIR.models <- function(data=NULL, geo.loc="Hubei",
 
                 #m1 <- generate.SIR.model(data,geo.loc,t0,t1,deltaT=20 ,fatality.rate,tot.population,
                 #       staticPlt=FALSE,interactiveFig=FALSE, add.extras=FALSE)
-                m1 <- generate.SIR.model (data=data, geo.loc=geo.loc, t0, deltaT=20, interactiveFig=FALSE, staticPlt=FALSE)
+                m1 <- generate.SIR.model (data=data, geo.loc=geo.loc, t0, t1=t1, deltaT=deltaT, tfinal=tfinal,
+						fatality.rate=fatality.rate, tot.population=tot.population,
+						interactiveFig=FALSE, staticPlt=FALSE)
                 return(m1$params)
         }
 
