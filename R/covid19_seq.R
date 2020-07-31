@@ -2,7 +2,7 @@
 #
 # M.Ponce
 
-covid19.genomic.data <- function(graphics.ON=TRUE) {
+X.covid19.genomic.data <- function(graphics.ON=TRUE) {
 #' function to obtain sequencing data grom NCBI
 #' Reference:  https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 #' 
