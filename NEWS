@@ -1,4 +1,5 @@
-Jul 2020:
+Jul 2020:	Several new features added _ ver 1.2
+	- New genomic functions supporting the retrieval of nucleotides, proteins, FASTA and phylogenetic tree from NCBI.
 	- Adding a new function, sweep.SIR.models for generating a series of models based on a range for the starting date t0
 
 

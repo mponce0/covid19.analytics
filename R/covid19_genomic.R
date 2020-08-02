@@ -41,12 +41,13 @@ badOption <- function(arg) {
 
 
 #############################################################################
+#############################################################################
 
 
 covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE) {
 #' main master (wrapper) function to obtain different types of genomic data for the SARS-CoV-2 virus
 #'
-#' @param  type  type of data to retrieve, options are: 'genome', 'genomic', 'fasta', 'nucleotide', 'protein', 'tree'
+#' @param  type  type of data to retrieve, options are: 'genome', 'genomic', 'fasta', 'nucleotide', 'protein', 'ptree'
 #' @param  src  source of the data: "livedata", "repo" or "local"
 #' @param  graphics.ON  boolean option for display associated graphics
 #'
@@ -68,6 +69,7 @@ covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE
 		# get the fasta data
 		c19.fasta <- c19.fasta.data(src)
 		return(c19.fasta)
+	#########
 	} else if (tolower(type)=='nucleotide') {
 		#### >>>>> **NOT** WORKING <<<<<<<<<<<
 		# get nucleotides data
@@ -78,14 +80,27 @@ covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE
 		# get proteins data
 		c19.prots.data <- c19.NPs.data(src=src,DB='protein')
 		return(c19.prots.data)
-	} else if (tolower(type)=='tree') {
+	#########
+	} else if (tolower(type)=='nucleotide-fasta') {
+		c19.fasta.data <- c19.NP_fasta.data(src=src,target='nucleotide')
+		return(c19.fasta.data)
+	} else if (tolower(type)=='protein-fasta') {
+		c19.fasta.data <- c19.NP_fasta.data(src=src,target='protein')
+		return(c19.fasta.data)
+	} else if (tolower(type)=='codingregion-fasta') {
+		c19.fasta.data <- c19.NP_fasta.data(src=src,target='codingRegion')
+		return(c19.fasta.data)
+	#########
+	} else if (tolower(type)=='ptree') {
 		# >>> WORKING!!!
 		# get the phylogenetic tree
-		c19.ptree <- c19.tree.data(src=src)
+		c19.ptree <- c19.ptree.data(src=src)
 		return(c19.ptree)
+	#########
 	} else {
-		warning("Unrecongized option! Valid options are: 'genome', 'genomic', 'fasta', 'nucleotide', 'protein', 'tree'")
+		warning("Unrecongized option! Valid options are: 'genome', 'genomic', 'fasta', 'nucleotide', 'protein', 'ptree'")
 	}
+	#########
 }
 
 
@@ -150,7 +165,7 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 			},
 			# error
 			error = function(e){
-				covid19.seq <- errorHandling.Msg(e,src)
+					errorHandling.Msg(e,src)
 			}
 		)
 
@@ -160,7 +175,7 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 		fileRDS <- normalizePath(file.path(tempdir(), fileRDSname), mustWork=FALSE)
 		tryCatch({
 				download.file("https://github.com/mponce0/covid19analytics.datasets/raw/master/genomics.data/NC_045512.2.rds",fileRDS)
-				load(fileRDS)
+				c19data <- load(fileRDS)
 			},
                         # warning
                         warning = function(cond) {
@@ -176,7 +191,7 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 		fileRDS <- paste0(target,".rds")
 		fileRDS <- system.file("extdata",fileRDS, package=covid19.pckg, mustWork = TRUE)
 		if (file.exists(fileRDS)) {
-			load(fileRDS)
+			c19data <- load(fileRDS)
 		} else {
 			stop("Error: ",fileRDS," not found!")
 		}
@@ -294,7 +309,8 @@ c19.fasta.data <- function(src='livedata') {
 
 ######
 
-c19.tree.data <- function(src='livedata') {
+
+c19.ptree.data <- function(src='livedata') {
 #' function to obtain "Tree of complete SARS-CoV-2 Sequences as obtained from NCBI"
 #'
 #' @param  src  argument to indicate where the data is being retrieved from
@@ -329,15 +345,17 @@ c19.tree.data <- function(src='livedata') {
         if ( src=='livedata' ) {
 		tryCatch({
 			#treeURL <- "https://www.ncbi.nlm.nih.gov/projects/treeview/ncfetch.cgi?key=NCID_1_6668093_130.14.22.93_9105_1596057400_2120854399_0MetA0___S_NC_TreeView_PROD_F_1&fmt=text/plain&filename="
-			#	    #https://www.ncbi.nlm.nih.gov/projects/treeview/ncfetch.cgi?key=NCID_1_7796085_130.14.22.93_9105_1596148318_79646198_0MetA0___S_NC_TreeView_PROD_F_1&fmt=text/plain&filename=tree.nwk
+			#	"https://www.ncbi.nlm.nih.gov/projects/treeview/ncfetch.cgi?key=NCID_1_7796085_130.14.22.93_9105_1596148318_79646198_0MetA0___S_NC_TreeView_PROD_F_1&fmt=text/plain&filename=tree.nwk"
+			#	"https://www.ncbi.nlm.nih.gov/projects/treeview/ncfetch.cgi?key=NCID_1_9994809_130.14.18.4_9105_1596398515_81911838_0MetA0___S_NC_TreeView_PROD_F_1&fmt=text/plain&filename=tree.nwk"
 			#tree.file.name <- "tree.nwk"
 			treeURL <- "https://github.com/mponce0/covid19analytics.datasets/raw/master/genomics.data/"
-			tree.file.name <- "cv19tree.rds"
+			tree.file.name <- "cv19tree.nwk"
 			cv19treeloc <- getFile(treeURL,tree.file.name)
-			if (file.exists(tree.file.name)) {
-print(tree.file.name)
-				cv19tree <- ape::read.tree(tree.file.name)
+			if (file.exists(cv19treeloc)) {
+				cv19tree <- read.tree(cv19treeloc)
 				return(cv19tree)
+				#treename <- load(cv19treeloc)
+				#return(eval(parse(text = treename)))
 			} else {
 				stop("Problem downloading tree file from NCBI")
 			}
@@ -356,7 +374,6 @@ print(tree.file.name)
                         treeURL <- "https://github.com/mponce0/covid19analytics.datasets/raw/master/genomics.data/"
                         tree.file.name <- "cv19tree.rds"
                         cv19treeloc <- getFile(treeURL,tree.file.name)
-			
                         },
                         # warning
                         warning = function(cond) {
@@ -382,11 +399,11 @@ print(tree.file.name)
 
         ##
         if (src=='livedata') {
-                e_cv19tree <-  c19.tree.data(src='repo')
+                e_cv19tree <-  c19.ptree.data(src='repo')
         }
         #
         if (src=='repo') {
-                e_cv19tree <- c19.tree.data(src='local')
+                e_cv19tree <- c19.ptree.data(src='local')
         }
         #
         if ("e_cv19tree" %in% ls()) return(e_cv19tree)
@@ -622,6 +639,52 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 	}
 }
 
+
+############
+
+c19.NP_fasta.data <- function(src='repo', target='nucleotide' ) {
+#' function to obtain FASTA seqs for nucleotides or proteins from SARS-CoV-2
+#'
+#' @param  src  origin for the data source: "livedata" OR "repo"
+#' @param  target  "nucleotide", "protein" or "codingRegion"
+#'
+#' @export
+#'
+        if (target=='nucleotide') {
+                file.tgt <- "sequences-nucleotides-fasta.rds"
+        } else if (target=='protein') {
+                file.tgt <- "sequences-proteins-fasta.rds"
+        } else if (target=='codingRegion') {
+		stop("codingRegion not currently avaialble...")
+	} else {
+                stop("Only 'nucleotide', 'protein' or 'codingRegion' are valid target options")
+        }
+
+        if (src=='livedata') {
+                #message("Retrieving ",target," data from NCBI servers, this will retrieve the latest dataset but may take longer times...")
+                #target <- avecRentrez(DB=target, max.nr.recs=max.nr.recs)
+                #return(target)
+		message("not available, please use 'repo' isntead")
+        } else if (src=='repo') {
+                URL <- "https://raw.githubusercontent.com/mponce0/covid19analytics.datasets/master/genomics.data/"
+                message("Retriving ",target," data from *backup repo*, this may not include the latest updated data")
+                symLink <- readLines(paste0(URL,file.tgt), warn=FALSE)
+                nfile <- getFile(URL,symLink)
+                if (file.exists(nfile)) {
+			#loadLibrary("ape")
+                        #target <- read.FASTA(nfile)
+			target <- load(nfile)
+			return(eval(parse(text = target)))
+                } else {
+                        stop(nfile, "NOT Found!")
+                }
+        } else if (src=='local') {
+                message("FASTA files are too large to be stored with the package locally, please use instead the 'repo' src")
+        } else {
+                badOption(src)
+        }
+
+}
 
 ############
 
