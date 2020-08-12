@@ -44,12 +44,13 @@ badOption <- function(arg) {
 #############################################################################
 
 
-covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE) {
+covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE, accOnly=TRUE) {
 #' main master (wrapper) function to obtain different types of genomic data for the SARS-CoV-2 virus
 #'
 #' @param  type  type of data to retrieve, options are: 'genome', 'genomic', 'fasta', 'nucleotide', 'protein', 'ptree'
 #' @param  src  source of the data: "livedata", "repo" or "local"
 #' @param  graphics.ON  boolean option for display associated graphics
+#' @param  accOnly  boolean indicator for getting only accession codes or whole records
 #'
 #' @export
 #'
@@ -73,12 +74,12 @@ covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE
 	} else if (tolower(type)=='nucleotide') {
 		#### >>>>> **NOT** WORKING <<<<<<<<<<<
 		# get nucleotides data
-		c19.nucs.data <- c19.NPs.data(src=src,DB='nucleotide')
+		c19.nucs.data <- c19.NPs.data(src=src,DB='nucleotide', accOnly=accOnly)
 		return(c19.nucs.data)
 	} else if (tolower(type)=='protein') {
 		#### >>>>> **NOT** WORKING <<<<<<<<<<<
 		# get proteins data
-		c19.prots.data <- c19.NPs.data(src=src,DB='protein')
+		c19.prots.data <- c19.NPs.data(src=src,DB='protein', accOnly=accOnly)
 		return(c19.prots.data)
 	#########
 	} else if (tolower(type)=='nucleotide-fasta') {
@@ -413,13 +414,14 @@ c19.ptree.data <- function(src='livedata') {
 
 ######
 
-c19.genomic.data <- function(src='livedata') {
+c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 #' function to obtain genomic data from SARS-CoV-2019
 #'
 #' @param  src  argument to indicate what sources are going to be used for retrieving the data: "livedata", "repo" or "local"
 #'		'livedata' will access NCBI servers to acquire the latest possible data, this may incur in significant longer times
 #'	      'repo' will access an updated replica of the data from a github repository (faster but not necessarily upto the latest udpates)
 #'	      'local' will access previously archived records within teh package (fastest but not updated)
+#' @param  accOnly  boolean indicator for getting only accession codes or whole records
 #'
 #' @return a list containing reference genome, annotation data, nucleotides, proteins and list of SRA runs
 #'
@@ -524,8 +526,8 @@ c19.genomic.data <- function(src='livedata') {
 		
 
 	###  NUCLEOTIDES  &  PROTEINS
-	nucleotides <- c19.NPs.data(src=src,DB='nucleotide')
-	proteins <- c19.NPs.data(src=src,DB='protein')
+	nucleotides <- c19.NPs.data(src=src,DB='nucleotide', accOnly=accOnly)
+	proteins <- c19.NPs.data(src=src,DB='protein', accOnly=accOnly)
 
 
 	return(list(	genome=gen_data,		# working
@@ -550,12 +552,13 @@ c19.genomic.data <- function(src='livedata') {
 #       }
 #       lst.nucs <- nuc.ids[[1]]
 
-c19.NPs.data <- function(src='livedata', DB='nucleotide', max.nr.recs=NULL ) {
+c19.NPs.data <- function(src='livedata', DB='nucleotide', max.nr.recs=NULL, accOnly=TRUE ) {
 #' function to obtain data for nucleotides or proteins from SARS-CoV-2
 #'
 #' @param  src  origin for the data source: "livedata", "repo", "local"
 #' @param  DB  database
 #' @param  max.nr.recs  maximun number of records to retrieve, there are limitations in the fns and server sides
+#' @param  accOnly  boolean indicator for getting only accession codes or whole records
 #'
 #' @export
 #'
@@ -573,7 +576,7 @@ c19.NPs.data <- function(src='livedata', DB='nucleotide', max.nr.recs=NULL ) {
                 message("Retrieving ",DB," data from NCBI servers, this will retrieve the latest dataset but may take longer times...")
 #                lst.nucs <- avecRentrez(DB='nucleotide',max.nr.recs=50000)
 #                proteins <- avecRentrez(DB='protein',max.nr.recs=150000)
-		target <- avecRentrez(DB=DB, max.nr.recs=max.nr.recs)
+		target <- avecRentrez(DB=DB, max.nr.recs=max.nr.recs, accOnly=accOnly)
 		return(target)
         } else if (src=='repo') {
 		URL <- "https://raw.githubusercontent.com/mponce0/covid19analytics.datasets/master/genomics.data/"
@@ -689,12 +692,13 @@ c19.NP_fasta.data <- function(src='repo', target='nucleotide' ) {
 ############
 
 
-avecRentrez <- function(DB="nucleotide", max.nr.recs=20000, chunkSize=100) {
+avecRentrez <- function(DB="nucleotide", max.nr.recs=20000, chunkSize=100, accOnly=TRUE) {
 #' function to query NCBI database servers using the "rentrex" library
 #'
 #' @param  DB  database
 #' @param  max.nr.recs  maximun number of records to retrieve, there are limitations in the fns and server sides
 #' @param  chunkSize  number of records to retrieve at once
+#' @param  accOnly  boolean indicator for getting only accession codes or whole records
 #'
 #' @keywords internal
 #'
@@ -731,8 +735,13 @@ avecRentrez <- function(DB="nucleotide", max.nr.recs=20000, chunkSize=100) {
 		#cat(paste(round((j/res$count)*100,0),"%"))
 		rec.range <- j:min(j+chunkSize,res$count)
 		#print(rec.range)
+
 		recs <- entrez_summary(db='nucleotide', id=res$ids[rec.range])
-		nuc.ids <- c(nuc.ids, extract_from_esummary(recs,"caption"))
+		if (accOnly) {
+			nuc.ids <- c(nuc.ids, extract_from_esummary(recs,"caption"))
+		} else {
+			nuc.ids <- c(nuc.ids, recs)
+		}
 	}
 	close(pbar)
 
