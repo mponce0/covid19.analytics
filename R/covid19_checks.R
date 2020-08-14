@@ -64,7 +64,7 @@ integrity.check <- function(data, datasetName="", disclose=FALSE, recommend=TRUE
 
 			if  ( sum(condn, na.rm=TRUE) !=0 ) {
 				warning("number of 'active+recovered+deaths' cases does NOT match the number of 'confirmed' cases!",'\n',
-					'\t',"on ", length(which(condn))," entries -- ", which(condn), '\n',
+					'\t',"on ", length(which(condn))," entries -- ", paste(which(condn),collapse=' '), '\n',
 					'\t ||  ',paste(colnames(data),collapse='  '),'\n',
 					"  ", paste(which(condn),collapse=' '), ' || ', paste(data[which(condn),],collapse='  '))
 				disclose.entries <- c(disclose.entries, which(condn))
@@ -197,7 +197,7 @@ nullify.data <- function(data,stringent=FALSE) {
 
 	orig.recs <- nrow(data)
 	# aggregated data-type
-	susp.entries <- integrity.check(data, datasetName, disclose=TRUE, recommend=FALSE)
+	susp.entries <- integrity.check(data, disclose=TRUE, recommend=FALSE)
 
 	susp.recs <- length(susp.entries)
 	if (susp.recs > 0) {
