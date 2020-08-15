@@ -97,13 +97,18 @@ estimateRRs <- function(data=NULL, geo.loc=NULL, period=NULL, graphics.ON=TRUE, 
 		#rtn <- rtn[[1]][[-1]]
 	} else {
 
+
+	# determine rolling mean using the window *period*
 	rrs.m <- mrollingRates(data, geo.loc, fn=mean, period=period)
 	fat.rate <- as.numeric(rrs.m[2,]/rrs.m[1,])*100
 	rec.rate <- as.numeric(rrs.m[3,]/rrs.m[1,])*100
+
+	# rolling rate using period=NULL => usual mean value
 	cnst.m <- mrollingRates(data, geo.loc, fn=mean, period=NULL)
 	cnst.fat.rate <- as.numeric(cnst.m[2,]/cnst.m[1,])*100
 	cnst.rec.rate <- as.numeric(cnst.m[3,]/cnst.m[1,])*100
 
+	# derermine rolling sd using the window-period
 	rrs.sd <- mrollingRates(data, geo.loc, fn=sd, period=period)
 	fat.sd <- as.numeric(rrs.sd[2,]/rrs.sd[1,])
 	rec.sd <- as.numeric(rrs.sd[3,]/rrs.sd[1,])
@@ -135,10 +140,12 @@ estimateRRs <- function(data=NULL, geo.loc=NULL, period=NULL, graphics.ON=TRUE, 
 		lines(xrange,cnst.rec.rate, lty='dashed', col='blue')
 	}
 
+	# combine results into returning object
 	rtn <- list(RollingRateEstimates=rrs.m,
 			FatalityRate=fat.rate,
 			RecoveryRate=rec.rate)
 	}
+
 
 	return(rtn)
 }
