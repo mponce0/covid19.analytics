@@ -749,7 +749,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 		data <- covid19.data(i)
 
 		# run integrity and consistency checks...
-		data.checks(data,datasetName=i,details=FALSE)
+		data.checks(data,datasetName=i,details=FALSE,disclose=FALSE)
 
 		# if Nentries is set to 0, will consider *all* entries
 		if (Nentries==0) Nentriex <- nrow(data)
