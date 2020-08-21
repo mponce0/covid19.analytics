@@ -164,12 +164,13 @@ consistency.check <- function(data, n0=5,nf=ncol(data), datasetName="", disclose
 
 #######################################################################
 
-data.checks <- function(data,n0=5,nf=ncol(data), datasetName="", details=TRUE) {
+data.checks <- function(data,n0=5,nf=ncol(data), datasetName="", details=TRUE, disclose=FALSE) {
 #' function to check for data integrity and data consistency
 #' @param  data  dataset to analyze
 #' @param  n0  column where the cumulative data begins
 #' @param  nf  column where the cumulative data ends
 #' @param  datasetName  optional argument to display the name of the dataset
+#' @param  disclose  boolean flag to indicate whether index of problematic entries are returned
 #' @param  details  optional argument to specify whether to show details about the records where inconsistencies were detected
 #'
 #' @export
@@ -178,7 +179,7 @@ data.checks <- function(data,n0=5,nf=ncol(data), datasetName="", details=TRUE) {
 	integrity.check(data, datasetName, recommend=FALSE)
 
 	# check for consistency
-	consistency.check(data, n0,nf,datasetName, details)
+	consistency.check(data, n0,nf,datasetName, details=details,disclose=disclose)
 
 }
 
