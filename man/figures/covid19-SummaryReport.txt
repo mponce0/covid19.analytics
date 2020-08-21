@@ -1,51 +1,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
-                  Province.State      Country.Region
-6                                Antigua and Barbuda
-9   Australian Capital Territory           Australia
-10               New South Wales           Australia
-11            Northern Territory           Australia
-12                    Queensland           Australia
-13               South Australia           Australia
-16             Western Australia           Australia
-26                                             Benin
-40                       Alberta              Canada
-42              Diamond Princess              Canada
-44                      Manitoba              Canada
-46     Newfoundland and Labrador              Canada
-49                       Ontario              Canada
-64                       Guizhou               China
-74                       Jiangxi               China
-107                                          Ecuador
-116                                          Finland
-122                New Caledonia              France
-123                      Reunion              France
-124             Saint Barthelemy              France
-127                                           France
-138                                           Guyana
-141                                         Honduras
-150                                            Italy
-153                                           Jordan
-167                                        Lithuania
-170                                       Madagascar
-175                                            Malta
-177                                        Mauritius
-186                                            Nepal
-192                                      New Zealand
-194                                            Niger
-201                                 Papua New Guinea
-206                                         Portugal
-214                                       San Marino
-227                                            Spain
-234                                          Taiwan*
-244                                           Uganda
-253                    Gibraltar      United Kingdom
-256     Turks and Caicos Islands      United Kingdom
-258                                          Uruguay
-264                                            Yemen
-266                                         Zimbabwe
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2020-08-20  ::  2020-08-21 13:02:21 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2020-08-20  ::  2020-08-21 19:09:47 
 ################################################################################ 
   Number of Countries/Regions reported:  188 
   Number of Cities/Provinces reported:  82 
@@ -76,43 +32,8 @@
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
-          Province.State   Country.Region
-12            Queensland        Australia
-17                                Austria
-40               Alberta           Canada
-49               Ontario           Canada
-50  Prince Edward Island           Canada
-51                Quebec           Canada
-97                                   Cuba
-98                                 Cyprus
-99                                Czechia
-102                               Denmark
-112                               Estonia
-116                               Finland
-121              Mayotte           France
-127                                France
-131                               Germany
-143                               Iceland
-144                                 India
-148                               Ireland
-150                                 Italy
-152                                 Japan
-154                            Kazakhstan
-165                                 Libya
-166                         Liechtenstein
-168                            Luxembourg
-191                           Netherlands
-201                      Papua New Guinea
-204                           Philippines
-218                                Serbia
-222                              Slovakia
-227                                 Spain
-231                                Sweden
-251      Channel Islands   United Kingdom
-260                             Venezuela
-261                               Vietnam
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2020-08-20  ::  2020-08-21 13:02:21 
+  ##### TS-DEATHS Cases  -- Data dated:  2020-08-20  ::  2020-08-21 19:09:48 
 ################################################################################ 
   Number of Countries/Regions reported:  188 
   Number of Cities/Provinces reported:  82 
@@ -141,77 +62,8 @@
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
-                  Province.State      Country.Region
-3                                            Algeria
-4                                            Andorra
-9   Australian Capital Territory           Australia
-10               New South Wales           Australia
-11            Northern Territory           Australia
-12                    Queensland           Australia
-16             Western Australia           Australia
-17                                           Austria
-18                                        Azerbaijan
-19                                           Bahamas
-23                                           Belarus
-24                                           Belgium
-26                                             Benin
-38                                          Cambodia
-39                                          Cameroon
-40                                            Canada
-50                       Guangxi               China
-51                       Guizhou               China
-52                        Hainan               China
-54                  Heilongjiang               China
-56                     Hong Kong               China
-57                         Hubei               China
-60                       Jiangsu               China
-61                       Jiangxi               China
-65                       Ningxia               China
-69                      Shanghai               China
-70                        Shanxi               China
-82                                     Cote d'Ivoire
-90                                  Diamond Princess
-95                                             Egypt
-99                                           Estonia
-101                                         Ethiopia
-103                                          Finland
-114                                           France
-119                                            Ghana
-120                                           Greece
-126                                            Haiti
-128                                         Honduras
-130                                          Iceland
-137                                            Italy
-139                                            Japan
-140                                           Jordan
-141                                       Kazakhstan
-143                                     Korea, South
-147                                             Laos
-148                                           Latvia
-152                                            Libya
-153                                    Liechtenstein
-154                                        Lithuania
-162                                            Malta
-165                                           Mexico
-177                 Sint Maarten         Netherlands
-186                                         Pakistan
-190                                             Peru
-192                                           Poland
-205                                           Serbia
-209                                         Slovakia
-215                                        Sri Lanka
-222                                       Tajikistan
-227                              Trinidad and Tobago
-230                                               US
-231                                           Uganda
-238              Channel Islands      United Kingdom
-244                                   United Kingdom
-245                                          Uruguay
-248                                          Vietnam
-249                               West Bank and Gaza
-251                                            Yemen
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2020-08-20  ::  2020-08-21 13:02:22 
+  ##### TS-RECOVERED Cases  -- Data dated:  2020-08-20  ::  2020-08-21 19:09:48 
 ################################################################################ 
   Number of Countries/Regions reported:  188 
   Number of Cities/Provinces reported:  68 
@@ -240,7 +92,7 @@
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-08-21  ::  2020-08-21 13:02:22 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2020-08-21  ::  2020-08-21 19:09:48 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 188 
   Number of Cities/Provinces reported: 563 
@@ -264,7 +116,7 @@
 15                  Turkey    254520           1.12   6058        2.38    234797          92.25  13665        5.37
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-08-21  ::  2020-08-21 13:02:22 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2020-08-21  ::  2020-08-21 19:09:48 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 188 
   Number of Cities/Provinces reported: 563 
@@ -288,7 +140,7 @@
 15        Metropolitana, Chile    267924           1.18   8219        3.07    254908          95.14   4797        1.79
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-08-21  ::  2020-08-21 13:02:22 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2020-08-21  ::  2020-08-21 19:09:48 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 188 
   Number of Cities/Provinces reported: 563 
@@ -312,7 +164,7 @@
 15 Rio de Janeiro, Brazil    205916           0.91  15074        7.32    184641          89.67     6201        3.01
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-08-21  ::  2020-08-21 13:02:22 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2020-08-21  ::  2020-08-21 19:09:48 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 188 
   Number of Cities/Provinces reported: 563 
