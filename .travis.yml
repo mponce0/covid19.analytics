@@ -1,4 +1,9 @@
 language: R
 cache: packages
 
+os:
+  - linux
+  - osx
+  - windows
+
 warnings_are_errors: false
