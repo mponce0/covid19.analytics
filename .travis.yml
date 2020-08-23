@@ -1,4 +1,9 @@
 language: R
+R:
+  - oldrel
+  - release
+  - devel
+  
 cache: packages
 
 os:
