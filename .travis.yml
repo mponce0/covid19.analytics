@@ -1,17 +1,27 @@
 language: R
 R:
-  - oldrel
+#  - oldrel
   - release
-  - devel
+#  - devel
   
 cache: packages
 
 os:
   - linux
   - osx
+#  - windows
 
 install:
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
 
 warnings_are_errors: false
+
+
+# for codecov
+r_packages:
+  - covr
+
+# only report coverage after build is successful
+after_success:
+  - Rscript -e 'covr::codecov()'
