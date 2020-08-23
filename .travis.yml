@@ -6,4 +6,8 @@ os:
   - osx
   - windows
 
+install:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
+
 warnings_are_errors: false
