@@ -392,13 +392,13 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 		download.file(city.of.Toronto.data, destfile=Tor.xlsx.file, mode = 'wb' )	#method=dwnld.method)
         } else {
                 # use local data
-		covid19.pckg <- 'covid19.analytics'
-		if (!acknowledge) {
-  		message("Data being read from *local* repo in the '",covid19.pckg,"' package")
-      header('~')
-		}
-    Tor.xlsx.file <- system.file("extdata","covid19_Toronto.xlsx", package=covid19.pckg, mustWork = TRUE)
-        }
+  		covid19.pckg <- 'covid19.analytics'
+  		if (!acknowledge) {
+    		message("Data being read from *local* repo in the '",covid19.pckg,"' package")
+        header('~')
+  		}
+      Tor.xlsx.file <- system.file("extdata","covid19_Toronto.xlsx", package=covid19.pckg, mustWork = TRUE)
+    }
 
 
 	if (file.exists(Tor.xlsx.file)) {
@@ -525,6 +525,7 @@ covid19.US.data <- function(local.data=FALSE,debrief=FALSE,acknowledge=FALSE) {
 #'
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the date is coming from.  If FALSE, display data acquisition messages.
 #'
 #' @return  TimeSeries dataframe with data for the US
 #'
