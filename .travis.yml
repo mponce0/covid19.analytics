@@ -25,3 +25,10 @@ r_packages:
 # only report coverage after build is successful
 after_success:
   - Rscript -e 'covr::codecov()'
+
+
+# emails
+notifications:
+  email:
+    on_success: change
+    on_failure: change
