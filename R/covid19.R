@@ -24,7 +24,7 @@ covid19.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE, ack
 #'      "ts-Toronto"       :  data for the City of Toronto, ON - Canada
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
-#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the date is coming from.  If FALSE, display data acquisition messages.
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the data is coming from.  If FALSE, display data acquisition messages.
 #'
 #' @return  a dataframe (or a list in the case of "ALL") with the daily worlwide indicated type of data per country/region/city
 #'
@@ -85,7 +85,7 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE,
 #'	"Toronto"	:  data for the City of Toronto, ON - Canada
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
-#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the date is coming from.  If FALSE, display data acquisition messages.
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the data is coming from.  If FALSE, display data acquisition messages.
 #'
 #' @return  a dataframe (or a list in the case of "ALL") with the daily worlwide indicated type of data per country/region/city
 #'
@@ -362,7 +362,7 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
 #' @param  OLD.fmt  boolean flag to specify if the data is being read in an old format
-#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the date is coming from.  If FALSE, display data acquisition messages.
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the data is coming from.  If FALSE, display data acquisition messages.
 #'
 #' @return  a dataframe (or a list in the case of "original") with the latest data reported for the city of Toronto, ON - Canada
 #'
@@ -525,7 +525,7 @@ covid19.US.data <- function(local.data=FALSE,debrief=FALSE,acknowledge=FALSE) {
 #'
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
 #' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
-#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the date is coming from.  If FALSE, display data acquisition messages.
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the data is coming from.  If FALSE, display data acquisition messages.
 #'
 #' @return  TimeSeries dataframe with data for the US
 #'
