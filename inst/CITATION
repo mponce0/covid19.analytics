@@ -9,11 +9,11 @@ citEntry(entry = "Article",
 #  volume       = "40",
 #  number       = "3",
 #  pages        = "1--25",
-  url          = "https://arxiv.org/abs/2009.01091.",
+  url          = "https://arxiv.org/abs/2009.01091",
 
   textVersion  =
   paste("Marcelo Ponce, Amit Sandhel (2020).",
         "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic.",
         #"Journal of Statistical Software, 40(3), 1-25.",
-        "URL https://arxiv.org/abs/2009.01091.")
+        "URL https://arxiv.org/abs/2009.01091")
 )
