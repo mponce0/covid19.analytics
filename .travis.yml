@@ -22,8 +22,9 @@ r_packages:
   - devtools
 
 before_install:
-  - R -e 'devtools::install_deps(dep = T)'
-  #- Rscript -e 'install.packages("knitr")'
+  #- R -e 'devtools::install_deps(dep = T)'
+  - Rscript -e "install.packages(c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap'))"
+  
 
 
 install:
