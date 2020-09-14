@@ -4,7 +4,7 @@ R:
   - release
 #  - devel
   
-#cache: packages
+cache: packages
 
 os:
   - linux
@@ -14,6 +14,8 @@ os:
 install:
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
+  - Rscript -e 'install.packages("knitr")'
+
 
 warnings_are_errors: false
 
