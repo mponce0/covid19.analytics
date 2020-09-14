@@ -21,6 +21,11 @@ r_packages:
   - knitr
 
 
+before_install:
+  #- R -e 'devtools::install_deps(dep = T)'
+  - Rscript -e 'install.packages("knitr")'
+
+
 install:
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
