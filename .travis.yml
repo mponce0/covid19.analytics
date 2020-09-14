@@ -20,6 +20,12 @@ r_packages:
   - covr
   - knitr
   - devtools
+  - knitr
+  - devtools
+  - roxygen2
+  - markdown
+  - testthat
+
 
 before_install:
   #- R -e 'devtools::install_deps(dep = T)'
