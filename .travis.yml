@@ -4,7 +4,7 @@ R:
   - release
 #  - devel
   
-cache: packages
+#cache: packages
 
 os:
   - linux
