@@ -12,19 +12,21 @@ os:
 #  - windows
 
 
-install:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
-  #- R -e 'devtools::install_deps(dep = T)'
-  - Rscript -e 'install.packages("knitr")'
-
-
 warnings_are_errors: false
 
 
 # for codecov
 r_packages:
   - covr
+  - knitr
+
+
+install:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
+  #- R -e 'devtools::install_deps(dep = T)'
+  #- Rscript -e 'install.packages("knitr")'
+
 
 # only report coverage after build is successful
 after_success:
