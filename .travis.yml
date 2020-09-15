@@ -1,19 +1,16 @@
 language: R
 R:
-#  - oldrel
+  - oldrel
   - release
-#  - devel
+  - devel
   
 cache: packages
 
 os:
   - linux
   - osx
-#  - windows
+  #- windows  # Windows appears to be currently unsuported in TravisCI
 
-install:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
 
 warnings_are_errors: false
 
@@ -21,10 +18,29 @@ warnings_are_errors: false
 # for codecov
 r_packages:
   - covr
+  - knitr
+  - devtools
+  - knitr
+  - devtools
+  - roxygen2
+  - markdown
+  - testthat
+
+
+before_install:
+  #- R -e 'devtools::install_deps(dep = T)'
+  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
+
+
+install:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
+
+
 
 # only report coverage after build is successful
 after_success:
-  - Rscript -e 'covr::codecov()'
+  #- Rscript -e 'covr::codecov()'
 
 
 # emails
