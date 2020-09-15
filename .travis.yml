@@ -9,7 +9,7 @@ cache: packages
 os:
   - linux
   - osx
-#  - windows
+  - windows
 
 
 warnings_are_errors: false
@@ -40,7 +40,7 @@ install:
 
 # only report coverage after build is successful
 after_success:
-  - Rscript -e 'covr::codecov()'
+  #- Rscript -e 'covr::codecov()'
 
 
 # emails
