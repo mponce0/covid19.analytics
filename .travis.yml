@@ -1,15 +1,15 @@
 language: R
 R:
-#  - oldrel
+  - oldrel
   - release
-#  - devel
+  - devel
   
 cache: packages
 
 os:
   - linux
   - osx
-  - windows
+  #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
 warnings_are_errors: false
