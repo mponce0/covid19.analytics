@@ -17,7 +17,8 @@ covid19dashboard <- function(locn=NULL) {
 #' @export
 #'
 #' @importFrom  shiny  h1 h2 h3 h4 h5 hr br tags HTML NS
-#' @importFrom  shiny  selectInput checkboxInput numericInput sliderInput fluidRow column radioButtons downloadButton downloadHandler icon tabPanel conditionalPanel verbatimTextOutput renderText
+#' @importFrom  shiny  selectInput checkboxInput numericInput sliderInput fluidRow column
+#' @importFrom  shiny  radioButtons downloadButton downloadHandler icon tabPanel conditionalPanel verbatimTextOutput renderText
 #' @importFrom  shiny  reactive callModule shinyApp
 #' @importFrom  shinydashboard  renderValueBox
 #' @importFrom  shinydashboard  sidebarMenu valueBox valueBoxOutput
@@ -26,7 +27,7 @@ covid19dashboard <- function(locn=NULL) {
 #' @importFrom  plotly  renderPlotly plotlyOutput
 #' @importFrom  DT  dataTableOutput renderDataTable
 #' @importFrom  collapsibleTree  collapsibleTreeOutput collapsibleTreeSummary renderCollapsibleTree
-#'
+#
 
 
 #######
@@ -53,7 +54,7 @@ loadLibrary('colorspace')
 ########
 
 capitalize <- function(txt) {
-#' function to capitalize words
+# function to capitalize words
 
   # break text into words
   words <- strsplit(txt, " ")[[1]]
@@ -69,7 +70,7 @@ capitalize <- function(txt) {
 }
 
 CapitTxt <- function(txt) {
-#' function to capitalize words from a sentence
+# function to capitalize words from a sentence
 
 	return(sapply(txt, capitalize))
 }
