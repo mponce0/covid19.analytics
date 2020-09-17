@@ -773,6 +773,7 @@ torontoServer <- function(input, output, session, result) {
 ppeServer <- function(input, output, session, result) {
 #'
 #' @importFrom  stats  lag
+#' @importFrom  dplyr  mutate first
 
 	#function to get the number of projected days user selected
 	projdays <- reactive({
