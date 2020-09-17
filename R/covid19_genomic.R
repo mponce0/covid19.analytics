@@ -527,7 +527,7 @@ c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 		ann.data <- read.gff(ann.file)
 	} else {
 		warning("File not found: ",ann.file)
-		red.devel.ver(fileRDS, force=FALSE)
+		red.devel.ver(ann.file, force=FALSE)
 	}
 
 
@@ -543,7 +543,11 @@ c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 		# https://ftp-trace.ncbi.nlm.nih.gov/sra/reports/AccList/Coronaviridae_runs.csv
 		########
 		sra_info <- readLines(paste0(sra_URL,"/","README.txt"))
-		sra_runs <- read.csv(paste0(sra_URL,"/","Coronaviridae_runs.csv"))
+		if (src !=  'local') {
+			sra_runs <- read.csv(paste0(sra_URL,"/","Coronaviridae_runs.csv"))
+		} else {
+			load(paste0(sra_URL,"/","Coronaviridae_runs.csv",'.rds'))
+		}
 	} else {
 		badOption(src)
 	}
