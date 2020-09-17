@@ -13,7 +13,7 @@ Imports:
     htmlwidgets,
     deSolve,
     gplots, pheatmap,
-    shiny, shinydashboard, shinycssloaders, DT, collapsibleTree
+    shiny, shinydashboard, shinycssloaders, DT, dplyr, collapsibleTree
 Suggests:
     knitr,
     devtools,
