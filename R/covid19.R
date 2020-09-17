@@ -260,23 +260,23 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE,
                         # aggregated data
                         # 'aggregated'   = paste0(LOCAL.repo,format(Sys.Date()-1,format="%m-%d-%Y"),".csv"),
 			# 'aggregated'   = paste0(LOCAL.repo,"03-24-2020.csv"),
-			'aggregated'   = system.file("extdata","09-15-2020.csv", package=covid19.pckg, mustWork = TRUE),
+			'aggregated'   = system.file("extdata","09-15-2020.csv.RDS", package=covid19.pckg, mustWork = TRUE),
                         # GLOBAL TimeSeries cases
                         # 'ts-confirmed' = paste0(LOCAL.repo,"time_series_covid19_confirmed_global.csv"),
                         # 'ts-deaths'    = paste0(LOCAL.repo,"time_series_covid19_deaths_global.csv"),
-			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv", package=covid19.pckg, mustWork = TRUE),
-			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv", package=covid19.pckg, mustWork = TRUE),
-			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-confirmed' =  system.file("extdata","time_series_covid19_confirmed_global.csv.RDS", package=covid19.pckg, mustWork = TRUE),
+			'ts-deaths'    =  system.file("extdata","time_series_covid19_deaths_global.csv.RDS", package=covid19.pckg, mustWork = TRUE),
+			'ts-recovered' =  system.file("extdata","time_series_covid19_recovered_global.csv.RDS", package=covid19.pckg, mustWork = TRUE),
 			# US TimeSeries cases
-			'ts-confirmed-us' =  system.file("extdata","time_series_covid19_confirmed_US.csv", package=covid19.pckg, mustWork = TRUE),
-			'ts-deaths-us'    =  system.file("extdata","time_series_covid19_deaths_US.csv", package=covid19.pckg, mustWork = TRUE),
+			'ts-confirmed-us' =  system.file("extdata","time_series_covid19_confirmed_US.csv.RDS", package=covid19.pckg, mustWork = TRUE),
+			'ts-deaths-us'    =  system.file("extdata","time_series_covid19_deaths_US.csv.RDS", package=covid19.pckg, mustWork = TRUE),
                         # depricated time series
                         # 'ts-dep-confirmed' = paste0(LOCAL.repo,"time_series_19-covid-Confirmed.csv"),
                         # 'ts-dep-deaths'    = paste0(LOCAL.repo,"time_series_19-covid-Deaths.csv"),
                         # 'ts-dep-recovered' = paste0(LOCAL.repo,"time_series_19-covid-Recovered.csv")
-			'ts-dep-confirmed' = system.file("extdata","time_series_19-covid-Confirmed.csv", package=covid19.pckg, mustWork = TRUE),
-			'ts-dep-deaths'    = system.file("extdata","time_series_19-covid-Deaths.csv", package=covid19.pckg, mustWork = TRUE),
-			'ts-dep-recovered' = system.file("extdata","time_series_19-covid-Recovered.csv", package=covid19.pckg, mustWork = TRUE)
+			'ts-dep-confirmed' = system.file("extdata","time_series_19-covid-Confirmed.csv.RDS", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-deaths'    = system.file("extdata","time_series_19-covid-Deaths.csv.RDS", package=covid19.pckg, mustWork = TRUE),
+			'ts-dep-recovered' = system.file("extdata","time_series_19-covid-Recovered.csv.RDS", package=covid19.pckg, mustWork = TRUE)
                 )
 
 		cases.URL <- cases
@@ -288,8 +288,13 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE,
 
 	# Attempt to protect against bad internet conenction or misspelled package name
 	tryCatch( {
-		# read data from the URL
-		covid19.cases <- read.csv(cases.URL, header=TRUE)
+		if (!local.data) {
+			# read data from the URL
+			covid19.cases <- read.csv(cases.URL, header=TRUE)
+		} else {
+			# will read data from LOCAL data, using RDS
+			load(cases.URL)
+		}
 
 		if (tolower(case) != 'aggregated') {
 			# US cases are reported with additional fields
