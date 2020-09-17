@@ -939,7 +939,7 @@ A BibTeX entry for LaTeX users is
 -->
 
 ### Dashboards
-* https://www.covidgraph.com
+* https://covidgraph.com
 <!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
 * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
 * https://resources-covid19canada.hub.arcgis.com/
