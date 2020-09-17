@@ -108,6 +108,26 @@ covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE
 ##################
 
 
+red.devel.ver <- function(fileRDS, force=TRUE) {
+#' function to redirect users to install devel version from github
+#' @param  fileRDS  missing data file
+#' @param  force  boolean flag to force stoping the code
+#'
+
+	message("Missing file", fileRDS)
+
+	message("Please install the developemnt version of the package to access the local datasets!")
+	message('You will need the "devtools" package -- install it using \t install.packages("devtools")')
+	message('Then the develoment version of the covid19.analytics package can be installed using the following command',
+		'\n', '\t  devtools::install_github("mponce0/covid19.analytics")')
+
+	if (force) stop("Error: ",fileRDS," not found!")
+}
+
+
+##################
+
+
 c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 #' function to obtain sequencing data grom NCBI
 #' Reference:  https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
@@ -194,7 +214,8 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 		if (file.exists(fileRDS)) {
 			c19data <- load(fileRDS)
 		} else {
-			stop("Error: ",fileRDS," not found!")
+			red.devel.ver(fileRDS, force=TRUE)
+			#stop("Error: ",fileRDS," not found!")
 		}
 	} else {
 		badOption(src)
@@ -396,6 +417,8 @@ c19.ptree.data <- function(src='livedata') {
 		load(cv19treeloc)
 
 		if ("cv19tree" %in% ls()) return(cv19tree)
+	} else {
+		red.devel.ver(cv19treeloc, force=TRUE)
 	}
 
         ##
@@ -504,6 +527,7 @@ c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 		ann.data <- read.gff(ann.file)
 	} else {
 		warning("File not found: ",ann.file)
+		red.devel.ver(fileRDS, force=FALSE)
 	}
 
 
@@ -619,6 +643,7 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 			nucleotides <- proteins <- NULL
                         load(tgt.file)        # laod  'nucleotides' --or-- 'proteins'
                 } else {
+			red.devel.ver(file.tgt, force=FALSE)
                         stop(DB," file: ", file.tgt," -- ",tgt.file," -- missing!")
                 }
                 #lst.nucs <- nucleotides
