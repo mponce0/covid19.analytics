@@ -616,6 +616,7 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 ####################################
                 tgt.file <- system.file("extdata",file.tgt, package='covid19.analytics',mustWork=TRUE)
                 if (file.exists(tgt.file)) {
+			nucleotides <- proteins <- NULL
                         load(tgt.file)        # laod  'nucleotides' --or-- 'proteins'
                 } else {
                         stop(DB," file: ", file.tgt," -- ",tgt.file," -- missing!")
@@ -634,9 +635,17 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 	}
 
 	if (DB=='nucleotide') {
-		return(nucleotides)
+		if ('nucleotides'%in%ls() & !is.null(nucleotides)) {
+			return(nucleotides)
+		} else {
+			stop("Error: something went wrong reading the nucleotides data")
+		}
 	} else if (DB=='protein') {
-		return(proteins)
+		if ('proteins' %in% ls() & !is.null(proteins)) {
+			return(proteins)
+		} else {
+			stop("Error: something went wrong reading the proteins data")
+		}
 	} else {
 		warning("Unrecognized option")
 	}
