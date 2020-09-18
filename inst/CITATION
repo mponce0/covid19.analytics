@@ -1,0 +1,19 @@
+citHeader("To cite covid19.analytics in publications use:")
+
+citEntry(entry = "Article",
+  title        = "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic",
+  author       = personList(as.person("Marcelo Ponce"),
+                   as.person("Amit Sandhel")),
+  journal      = "pre-print",
+  year         = "2020",
+#  volume       = "40",
+#  number       = "3",
+#  pages        = "1--25",
+  url          = "https://arxiv.org/abs/2009.01091",
+
+  textVersion  =
+  paste("Marcelo Ponce, Amit Sandhel (2020).",
+        "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic.",
+        #"Journal of Statistical Software, 40(3), 1-25.",
+        "URL https://arxiv.org/abs/2009.01091")
+)
