@@ -11,7 +11,7 @@
 
 
 <!-------------  TOC  ----------------->
-# Table of contents
+# Table of Contents
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
