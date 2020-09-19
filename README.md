@@ -13,16 +13,11 @@
 <!-------------  TOC  ----------------->
 # Table of contents
 1. [Introduction](#introduction)
-
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
-    
 3. [Installation](#installation)
-
 4. [Examples](#examples)
-
 5. [Media & Press](#media)
-
 6. [References and Citation](#references)
     1. [Citating covid19.analytics](#citation)
 <!-------------  TOC  ----------------->
