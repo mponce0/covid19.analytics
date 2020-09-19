@@ -9,7 +9,26 @@
 <!-- badges: end -->
 
 
-## Introduction
+
+<!-------------  TOC  ----------------->
+# Table of contents
+1. [Introduction](#introduction)
+
+2. [covid19.analytics Main Features](#packageFeatures)
+    1. [Data Accessibility](#dataaccess)
+    
+3. [Installation](#installation)
+
+4. [Examples](#examples)
+
+5. [Media & Press](#media)
+
+6. [References and Citation](#references)
+    1. [Citating covid19.analytics](#citation)
+<!-------------  TOC  ----------------->
+
+
+## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
 JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
@@ -28,7 +47,9 @@ to researchers and the scientific community.
 -->
 
 
-### Data Accessibility
+## covid19.analytics Main Features  <a name="packageFeatures"></a>
+
+### Data Accessibility <a name="dataaccess"></a>
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in the following modalities:
 * "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
@@ -520,7 +541,7 @@ in particular modelling and predictive capabilities.
 
 
 
-## Installation
+## Installation  <a name="installation"></a>
 For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
@@ -544,7 +565,7 @@ library(covid19.analytics)
 ```
 
 
-## Examples
+## Examples  <a name="examples"></a>
 
 ### Reading data
 ```R
@@ -876,7 +897,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
 
-## References
+
+## Media and Press <a name="media"></a>
+
+
+## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
@@ -896,24 +921,29 @@ Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
-### How to Cite this Package
+### How to Cite this Package  <a name="citation"></a>
+If you are using this package please cite our main publication about the covid19.analytics package:
+
+https://arxiv.org/abs/2009.01091
+
+You can also ask for this citation information in R:
 ```R
 > citation("covid19.analytics")
 
-To cite package ‘covid19.analytics’ in publications use:
+To cite covid19.analytics in publications use:
 
-  Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
-  from the CoViD-19 Pandemic. R package version 1.1.1.
-  https://CRAN.R-project.org/package=covid19.analytics
+  Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
+  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
+  Pandemic. URL https://arxiv.org/abs/2009.01091
 
 A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
-    author = {Marcelo Ponce},
+  @Article{,
+    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
+    author = {Marcelo Ponce and Amit Sandhel},
+    journal = {pre-print},
     year = {2020},
-    note = {R package version 1.1.1},
-    url = {https://CRAN.R-project.org/package=covid19.analytics},
+    url = {https://arxiv.org/abs/2009.01091},
   }
 ```
 
