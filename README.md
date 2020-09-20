@@ -13,11 +13,12 @@
 <!-------------  TOC  ----------------->
 # Table of Contents
 <details>
-    <summary>Show/Hide</summary>
+    <summary>TOC Show/Hide</summary>
     
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
+    2. [Data Intregrity and Checks](#dataintegrity)
 3. [Installation](#installation)
 4. [Examples](#examples)
 5. [Media & Press](#media)
@@ -177,7 +178,7 @@ In this way it is possible to add new data sets to the ones that can be loaded u
 Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
 
 
-### Data Integrity and Consistency Checks
+### Data Integrity and Consistency Checks <a name="dataintegrity></a>
 Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
 For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuously increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
