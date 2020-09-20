@@ -11,8 +11,7 @@
 
 
 <!-------------  TOC  ----------------->
-# Table of Contents
-<details>
+# Table of Contents <details>
     <summary>Click to Expand/Collapse</summary>
 
 1. [Introduction](#introduction)
