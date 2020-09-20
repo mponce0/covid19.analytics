@@ -30,6 +30,10 @@
 <!-------------  TOC  ----------------->
 
 
+<div><object data="file.txt"></object></div>
+
+
+
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
