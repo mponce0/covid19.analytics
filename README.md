@@ -927,6 +927,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 ## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
+<details>
+    <summary>Click to Exapand/Collapse</summary>
+
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
@@ -943,6 +946,9 @@ Complexity of the Basic Reproduction Number (R0).
 Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
+</details>
+
 
 ### How to Cite this Package  <a name="citation"></a>
 If you are using this package please cite our main publication about the covid19.analytics package:
