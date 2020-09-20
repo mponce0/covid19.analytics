@@ -13,7 +13,7 @@
 <!-------------  TOC  ----------------->
 # Table of Contents
 <details>
-    <summary> (click to expand) </summary>
+    <summary>Show/Hide</summary>
     
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
