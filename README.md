@@ -11,8 +11,9 @@
 
 
 <!-------------  TOC  ----------------->
-# Table of Contents <details>
-    <summary>Click to Expand/Collapse</summary>
+# Table of Contents
+<details>
+    <summary>## Click to Expand/Collapse</summary>
 
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
