@@ -14,18 +14,17 @@
 # Table of Contents
 <details>
     <summary>TOC Show/Hide</summary>
-    
+
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
-    * [Data Accessibility](#dataaccess)
-    * [Data Structure](#datastructure)
-    * [Data Intregrity and Checks](#dataintegrity)
+    1. [Data Accessibility](#dataaccess)
+    2. [Data Structure](#datastructure)
+    3. [Data Intregrity and Checks](#dataintegrity)
 3. [Installation](#installation)
 4. [Examples](#examples)
 5. [Media & Press](#media)
 6. [References and Citation](#references)
     1. [Citating covid19.analytics](#citation)
-
 </details>
 <!-------------  TOC  ----------------->
 
@@ -47,6 +46,8 @@ to researchers and the scientific community.
 <object data="https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html" width="105%" height="525">
 </object>
 -->
+
+The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
