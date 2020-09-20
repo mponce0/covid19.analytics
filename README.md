@@ -217,7 +217,6 @@ Having said that, we believe that the user should be aware of these situations a
 #### covid19-Sequencing data
 The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
 
-</details>
 
 
 ### Analytical & Graphical Indicators
@@ -558,9 +557,13 @@ in particular modelling and predictive capabilities.
 
 </details>
 
+</details>
 
 
 ## Installation  <a name="installation"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
@@ -582,6 +585,7 @@ For using the package, either the stable or development version, just load it us
 # load "covid19.analytics"
 library(covid19.analytics)
 ```
+</details>
 
 
 ## Examples  <a name="examples"></a>
