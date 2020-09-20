@@ -20,11 +20,12 @@
     1. [Data Accessibility](#dataaccess)
     2. [Data Structure](#datastructure)
     3. [Data Intregrity and Checks](#dataintegrity)
+    4. [Genomics Data](#genomicsdata)
 3. [Installation](#installation)
 4. [Examples](#examples)
 5. [Media & Press](#media)
 6. [References and Citation](#references)
-    1. [Citating covid19.analytics](#citation)
+    1. [Citing covid19.analytics](#citation)
 </details>
 <!-------------  TOC  ----------------->
 
@@ -205,8 +206,11 @@ These are claimed, in most of the cases, to be missreported data and usually are
 Having said that, we believe that the user should be aware of these situations and we recommend using the `consistency.check()` function to verify the dataset you will be working with.
 
 
-### covid19-Sequencing data
+
+### Genomics Data <a name="genomicsdata"></a>
+#### covid19-Sequencing data
 The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
+
 
 
 ### Analytical & Graphical Indicators
