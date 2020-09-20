@@ -928,7 +928,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
 <details>
-    <summary>Click to Exapand/Collapse</summary>
+    <summary>Click to Expand/Collapse</summary>
 
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
