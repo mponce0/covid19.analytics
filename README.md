@@ -9,7 +9,28 @@
 <!-- badges: end -->
 
 
-## Introduction
+
+<!-------------  TOC  ----------------->
+# Table of Contents
+<details>
+    <summary>TOC Show/Hide</summary>
+
+1. [Introduction](#introduction)
+2. [covid19.analytics Main Features](#packageFeatures)
+    1. [Data Accessibility](#dataaccess)
+    2. [Data Structure](#datastructure)
+    3. [Data Intregrity and Checks](#dataintegrity)
+    4. [Genomics Data](#genomicsdata)
+3. [Installation](#installation)
+4. [Examples](#examples)
+5. [Media & Press](#media)
+6. [References and Citation](#references)
+    1. [Citing covid19.analytics](#citation)
+</details>
+<!-------------  TOC  ----------------->
+
+
+## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
 JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
@@ -27,8 +48,12 @@ to researchers and the scientific community.
 </object>
 -->
 
+The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
-### Data Accessibility
+
+## covid19.analytics Main Features  <a name="packageFeatures"></a>
+
+### Data Accessibility <a name="dataaccess"></a>
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in the following modalities:
 * "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
@@ -138,7 +163,7 @@ dynamical situation with respect to data availability and integrity.
 <!------- TABLE ------>
 
 
-### Data Structure
+### Data Structure <a name="datastructure"></a>
 The *TimeSeries* data is organized in an specific manner with a given set of fields or columns,
 which resembles the following structure:
 
@@ -156,7 +181,7 @@ In this way it is possible to add new data sets to the ones that can be loaded u
 Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
 
 
-### Data Integrity and Consistency Checks
+### Data Integrity and Consistency Checks <a name="dataintegrity"></a>
 Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
 For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuously increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
@@ -181,8 +206,11 @@ These are claimed, in most of the cases, to be missreported data and usually are
 Having said that, we believe that the user should be aware of these situations and we recommend using the `consistency.check()` function to verify the dataset you will be working with.
 
 
-### covid19-Sequencing data
+
+### Genomics Data <a name="genomicsdata"></a>
+#### covid19-Sequencing data
 The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
+
 
 
 ### Analytical & Graphical Indicators
@@ -520,7 +548,7 @@ in particular modelling and predictive capabilities.
 
 
 
-## Installation
+## Installation  <a name="installation"></a>
 For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
@@ -544,7 +572,7 @@ library(covid19.analytics)
 ```
 
 
-## Examples
+## Examples  <a name="examples"></a>
 
 ### Reading data
 ```R
@@ -876,7 +904,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
 
-## References
+
+## Media and Press <a name="media"></a>
+
+
+## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
@@ -896,24 +928,29 @@ Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
-### How to Cite this Package
+### How to Cite this Package  <a name="citation"></a>
+If you are using this package please cite our main publication about the covid19.analytics package:
+
+https://arxiv.org/abs/2009.01091
+
+You can also ask for this citation information in R:
 ```R
 > citation("covid19.analytics")
 
-To cite package ‘covid19.analytics’ in publications use:
+To cite covid19.analytics in publications use:
 
-  Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
-  from the CoViD-19 Pandemic. R package version 1.1.1.
-  https://CRAN.R-project.org/package=covid19.analytics
+  Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
+  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
+  Pandemic. URL https://arxiv.org/abs/2009.01091
 
 A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
-    author = {Marcelo Ponce},
+  @Article{,
+    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
+    author = {Marcelo Ponce and Amit Sandhel},
+    journal = {pre-print},
     year = {2020},
-    note = {R package version 1.1.1},
-    url = {https://CRAN.R-project.org/package=covid19.analytics},
+    url = {https://arxiv.org/abs/2009.01091},
   }
 ```
 
