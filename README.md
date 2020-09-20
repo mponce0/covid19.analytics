@@ -13,7 +13,7 @@
 <!-------------  TOC  ----------------->
 # Table of Contents
 <details>
-    <summary>TOC Show/Hide</summary>
+    <summary>Click to Expand/Collapse</summary>
 
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
@@ -28,6 +28,10 @@
     1. [Citing covid19.analytics](#citation)
 </details>
 <!-------------  TOC  ----------------->
+
+
+<div><object data=".travis.yml"></object></div>
+
 
 
 ## Introduction <a name="introduction"></a>
@@ -52,6 +56,8 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 ### Data Accessibility <a name="dataaccess"></a>
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
@@ -214,6 +220,9 @@ The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequen
 
 
 ### Analytical & Graphical Indicators
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 In addition to the access and retrieval of the data, the package includes some
 basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
@@ -546,9 +555,15 @@ After that, it will solve the different equations and provide details about the 
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
 
+</details>
+
+</details>
 
 
 ## Installation  <a name="installation"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
@@ -570,9 +585,13 @@ For using the package, either the stable or development version, just load it us
 # load "covid19.analytics"
 library(covid19.analytics)
 ```
+</details>
 
 
 ## Examples  <a name="examples"></a>
+
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 ### Reading data
 ```R
@@ -903,6 +922,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
+</details>
 
 
 ## Media and Press <a name="media"></a>
@@ -910,6 +930,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 ## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
+
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
@@ -927,6 +950,9 @@ Complexity of the Basic Reproduction Number (R0).
 Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
+</details>
+
 
 ### How to Cite this Package  <a name="citation"></a>
 If you are using this package please cite our main publication about the covid19.analytics package:
@@ -962,6 +988,8 @@ A BibTeX entry for LaTeX users is
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
 
+<details>
+    <summary>Click to Exapand/Collapse</summary>
 
 ### More R Resources
 * The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
@@ -987,3 +1015,4 @@ A BibTeX entry for LaTeX users is
 * https://coronavirus.jhu.edu/data/new-cases
 <!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
 
+</details>
