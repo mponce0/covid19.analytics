@@ -13,7 +13,7 @@
 <!-------------  TOC  ----------------->
 # Table of Contents
 <details>
-    <summary>Click to Exapnad/Collapse</summary>
+    <summary>Click to Exapand/Collapse</summary>
 
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
@@ -57,7 +57,7 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
 <details>
-    <summary>Click to Exapnad/Collapse</summary>
+    <summary>Click to Exapand/Collapse</summary>
 
 ### Data Accessibility <a name="dataaccess"></a>
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
@@ -221,6 +221,9 @@ The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequen
 
 
 ### Analytical & Graphical Indicators
+<details>
+    <summary>Click to Exapand/Collapse</summary>
+
 In addition to the access and retrieval of the data, the package includes some
 basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
@@ -552,6 +555,8 @@ After that, it will solve the different equations and provide details about the 
 ### Further Features
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
+
+</details>
 
 
 
