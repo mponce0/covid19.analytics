@@ -8,6 +8,23 @@
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
 <!-- badges: end -->
 
+# Table of Contents
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
+1. [Introduction](#introduction)
+2. [covid19.analytics Main Features](#packageFeatures)
+    1. [Data Accessibility](#dataaccess)
+    2. [Data Structure](#datastructure)
+    3. [Data Intregrity and Checks](#dataintegrity)
+    4. [Genomics Data](#genomicsdata)
+3. [Installation](#installation)
+4. [Examples](#examples)
+5. [Media & Press](#media)
+6. [References and Citation](#references)
+    1. [Citing covid19.analytics](#citation)
+</details>
+<!-------------  TOC  ----------------->
 
 ## Introduction
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
