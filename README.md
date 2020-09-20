@@ -586,6 +586,9 @@ library(covid19.analytics)
 
 ## Examples  <a name="examples"></a>
 
+<details>
+    <summary>Click to Exapand/Collapse</summary>
+
 ### Reading data
 ```R
 # obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *aggregated* data
@@ -915,6 +918,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
+</details>
 
 
 ## Media and Press <a name="media"></a>
