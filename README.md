@@ -13,7 +13,7 @@
 <!-------------  TOC  ----------------->
 # Table of Contents
 <details>
-    <summary>TOC Show/Hide</summary>
+    <summary>Click to Exapnad/Collapse</summary>
 
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
@@ -56,6 +56,8 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
+<details>
+    <summary>Click to Exapnad/Collapse</summary>
 
 ### Data Accessibility <a name="dataaccess"></a>
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
@@ -215,6 +217,7 @@ Having said that, we believe that the user should be aware of these situations a
 #### covid19-Sequencing data
 The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
 
+</details>
 
 
 ### Analytical & Graphical Indicators
