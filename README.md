@@ -927,6 +927,37 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 ## Media and Press <a name="media"></a>
 
+### in the news
+# Compute Ontario, Compute Canada
+	* https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
+
+	* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
+
+	* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+
+
+# The Bulletin Brief -- UofT
+	* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+
+# UofT Libraries
+	* https://mdl.library.utoronto.ca/covid-19/data
+
+
+
+### used in ...
+# CoronaWhy datasets
+	* http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
+
+# RECON: R Epidemics Consortium - COVID19 Challenge
+	* https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
+
+# Dashboards
+	* https://shiny.cliffweaver.com/covid/
+	* https://shiny.cliffweaver.com/covid/#section-about
+
+	* https://covid19analytics.scinet.utoronto.ca
+
+
 
 ## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
