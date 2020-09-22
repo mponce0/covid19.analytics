@@ -928,34 +928,34 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 ## Media and Press <a name="media"></a>
 
 ### in the news
-# Compute Ontario, Compute Canada
-	* https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
+#### Compute Ontario, Compute Canada
+	 https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
 
-	* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
+	 https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
 
-	* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+	 https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
 
 
-# The Bulletin Brief -- UofT
+#### The Bulletin Brief -- UofT
 	* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 
-# UofT Libraries
-	* https://mdl.library.utoronto.ca/covid-19/data
+#### UofT Libraries
+	 https://mdl.library.utoronto.ca/covid-19/data
 
 
 
 ### used in ...
-# CoronaWhy datasets
-	* http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
+#### RECON: R Epidemics Consortium - COVID19 Challenge
+	https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
 
-# RECON: R Epidemics Consortium - COVID19 Challenge
-	* https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
+#### CoronaWhy datasets
+	http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
 
-# Dashboards
-	* https://shiny.cliffweaver.com/covid/
-	* https://shiny.cliffweaver.com/covid/#section-about
+#### Dashboards
+	https://shiny.cliffweaver.com/covid/
+	https://shiny.cliffweaver.com/covid/#section-about
 
-	* https://covid19analytics.scinet.utoronto.ca
+	https://covid19analytics.scinet.utoronto.ca
 
 
 
@@ -1013,14 +1013,14 @@ A BibTeX entry for LaTeX users is
 
 
 ## Further Resources
+<details>
+    <summary>Click to Exapand/Collapse</summary>
+
 <p aling="center">
  <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
  <br>
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
-
-<details>
-    <summary>Click to Exapand/Collapse</summary>
 
 ### More R Resources
 * The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
