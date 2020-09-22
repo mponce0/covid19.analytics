@@ -929,33 +929,31 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 ### in the news
 #### Compute Ontario, Compute Canada
-	 https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
-
-	 https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
-
-	 https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+* https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
+* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
+* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
 
 
 #### The Bulletin Brief -- UofT
-	* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 
 #### UofT Libraries
-	 https://mdl.library.utoronto.ca/covid-19/data
+* https://mdl.library.utoronto.ca/covid-19/data
 
 
 
 ### used in ...
 #### RECON: R Epidemics Consortium - COVID19 Challenge
-	https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
+* https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
 
 #### CoronaWhy datasets
-	http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
+* http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
 
 #### Dashboards
-	https://shiny.cliffweaver.com/covid/
-	https://shiny.cliffweaver.com/covid/#section-about
+* https://shiny.cliffweaver.com/covid/
+* https://shiny.cliffweaver.com/covid/#section-about
 
-	https://covid19analytics.scinet.utoronto.ca
+* https://covid19analytics.scinet.utoronto.ca
 
 
 
