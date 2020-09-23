@@ -440,6 +440,14 @@ and daily changes in the reported number of cases.
    <td> generate multiple SIR models by varying parameters used to select the actual data </td>
    <td> list containing the values  parameters, $\beta, \gamma$ and $R_0$ </td>
  </tr>
+  <tr>
+   <th colspan="3">Auxiliary functions</th>
+ </tr>
+  <tr>
+   <td> <code>geographicalRegions</code> </td>
+   <td> determines which countries compose a given continent </td>
+   <td> list of countries </td>
+ </tr>
 </table>
 <!------- TABLE ------>
 
