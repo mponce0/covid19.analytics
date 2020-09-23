@@ -343,7 +343,7 @@ and daily changes in the reported number of cases.
   </tr>
 
 <tr>
-  <td> <code>covid19.genomic.data</code> </td>
+  <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
   <td> obtain covid19's genomic sequencing data from NCBI [3] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
@@ -364,6 +364,11 @@ and daily changes in the reported number of cases.
     <td> <code>integrity.check</code> </td>
     <td> run integrity checks on a given dataset </td>
     <td> diagnostics about the dataset integrity </td>
+  </tr>
+  <tr>
+    <td> <code>nullify.data</code> </td>
+    <td> remove inconsistent/incomplete entries in the original datasets </td>
+    <td> original dataset (dataframe) without "suspicious" entries </td>
   </tr>
  <tr>
    <th colspan="3"> <b>Analysis</b> </th>
