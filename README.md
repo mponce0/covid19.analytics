@@ -672,6 +672,7 @@ model.
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
 
+Please contact us if you think of a functionality or feature that could be useful to add.
 </details>
 
 </details>
