@@ -211,11 +211,59 @@ Data consistency issues and/or anomalies in the data have been reported several 
 These are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
 Having said that, we believe that the user should be aware of these situations and we recommend using the `consistency.check()` function to verify the dataset you will be working with.
 
+#### Nullifying Spurious Data
+In order to deal with the different scenarios arising from incomplete, inconsistent
+or missreported data, we provide the `nullify.data()` function, which will
+remove any potential entry in the data that can be suspected of these incongruencies.
+In addition ot that, the function accepts an optional argument `stringent=TRUE`,
+which will also prune any incomplete cases (e.g. with NAs present).
 
 
 ### Genomics Data <a name="genomicsdata"></a>
-#### covid19-Sequencing data
-The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
+That's why the covid19.analytics package provides access to a good number of the genomics
+data currently available.
+
+The `covid19.genomic.data()` function allows users to obtain the CoViD19's
+genomics data from NCBI's databases [3].
+The type of genomics data accessible from the package is described in
+the following table.
+
+<table>
+ <tr>
+  <td>type</td>  <td>description</td>  <td>source</td>
+ </tr>
+ <tr>
+     <td>genomic</td>
+     <td>a composite list containing different indicators and elements of the SARS-CoV-2 genomic information</td>
+     <td>https://www.ncbi.nlm.nih.gov/sars-cov-2/</td>
+ </tr>
+ <tr>
+     <td>genome</td>
+     <td>genetic composition of the reference sequence of the SARS-CoV-2 from GenBank</td>
+     <td>https://www.ncbi.nlm.nih.gov/nuccore/NC_045512</td>
+ </tr>
+ <tr>
+     <td>fasta</td>
+     <td>genetic composition of the reference sequence of the SARS-CoV-2 from a fasta file</td>
+     <td>https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=fasta</td>
+ </tr>
+ <tr>
+     <td>ptree</td>
+     <td>phylogenetic tree as produced by NCBI data servers</td>
+     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/precomptree</td>
+ </tr>
+ <tr>
+     <td>nucleotide / protein</td>
+     <td>list and composition of nucleotides/proteins from the SARS-CoV-2 virus</td>
+     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td>
+ </tr>
+ <tr>
+     <td>nucleotide-fasta / protein-fasta</td>
+     <td>FASTA sequences files for nucleotides, proteins and coding regions</td>
+     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td>
+ </tr>
+</table>
+
 
 
 
