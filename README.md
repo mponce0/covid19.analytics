@@ -446,6 +446,8 @@ and daily changes in the reported number of cases.
 
 
 ### Details and Specifications of the Analytical & Visualization Functions
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 #### Reports
 The `report.summary()` generates an overall report summarizing the different datasets.
@@ -655,6 +657,7 @@ One could even use this in combination to other resampling or Monte Carlo
 techniques to estimate statistical variability of the parameters from the
 model.
 
+</details>
 
 
 ### Further Features
