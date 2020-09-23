@@ -55,11 +55,16 @@ to researchers and the scientific community.
 The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
 
+
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+
 ### Data Accessibility <a name="dataaccess"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in the following modalities:
 * "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
@@ -287,7 +292,7 @@ latest updates
         -- same as using `src='local'`.
 
 
-
+</details>
 
 
 ### Analytical & Graphical Indicators
