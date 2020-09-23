@@ -265,6 +265,29 @@ the following table.
 </table>
 
 
+Although the package attempts to provide the latest available genomic data, there are
+a few important details and differences with respect to the reported cases data.
+For starting, the amount of genomic information available is way larger than
+the data reporting the number of cases which adds some additional constraints
+when retrieving this data.
+In addition to that, the hosting servers for the genomic databases impose
+certain limits on the rate and amounts of downloads.
+
+In order to mitigate these factors, the covid19.analytics package employs a couple of
+different strategies as summarized below:
+* most of the data will be attempted to be retrieved live from NCBI databases
+        -- same as using `src='livedata'`
+* if that is not possible, the package keeps a local version of
+some of the largest datasets (i.e. genomes, nucleotides and proteins) which
+might not be up-to-date
+        -- same as using `src='repo'`.
+* the package will attempt to obtain the data from a mirror server
+with the datasets updated on a regular basis but not necessarily with the
+latest updates
+        -- same as using `src='local'`.
+
+
+
 
 
 ### Analytical & Graphical Indicators
