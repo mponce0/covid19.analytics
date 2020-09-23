@@ -701,6 +701,10 @@ library(covid19.analytics)
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+Further examples and details about the covid19.analytics package are provided in our manuscript,
+https://arxiv.org/abs/2009.01091 .
+
+
 ### Reading data
 ```R
 # obtain all the records combined for "confirmed", "deaths" and "recovered" cases -- *aggregated* data
