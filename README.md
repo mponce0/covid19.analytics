@@ -680,7 +680,6 @@ library(covid19.analytics)
 
 
 ## Examples  <a name="examples"></a>
-
 <details>
     <summary>Click to Expand/Collapse</summary>
 
