@@ -18,9 +18,10 @@
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
-    2. [Data Structure](#datastructure)
-    3. [Data Intregrity and Checks](#dataintegrity)
-    4. [Genomics Data](#genomicsdata)
+        1. [Data Structure](#datastructure)
+        2. [Data Intregrity and Checks](#dataintegrity)
+        3. [Genomics Data](#genomicsdata)
+    2. [Analytical & Graphical Indicators](#functionalities)
 3. [Installation](#installation)
 4. [Examples](#examples)
 5. [Media & Press](#media)
@@ -295,7 +296,7 @@ latest updates
 </details>
 
 
-### Analytical & Graphical Indicators
+### Analytical & Graphical Indicators <a name="functionalities"></a>
 <details>
     <summary>Click to Expand/Collapse</summary>
 
