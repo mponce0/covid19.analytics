@@ -393,7 +393,12 @@ and daily changes in the reported number of cases.
    <td> visualize different indicators of the "trends" in daily changes for a single or mutliple locations </td>
    <td> compose of static plots: total number of cases vs time, daily changes vs total changes in different representations</td>
   </tr>
- <tr>
+  <tr>
+   <td> <code>estimateRRs</code> </td>
+   <td> compute estimates for fatality and recovery rates on a rolling-window interval </td>
+   <td> list with values for the estimates (mean and sd) of reported cases and recovery and fatality rates </td>
+  </tr>
+<tr>
    <th colspan="3">Graphics and Visualization</th>
  </tr>
   <tr>
@@ -423,6 +428,11 @@ and daily changes in the reported number of cases.
    <td> <code>plt.SIR.model</code> </td>
    <td> plot the results from the SIR model </td>
    <td> static and interactive plots </td>
+ </tr>
+  <tr>
+   <td> <code>sweep.SIR.model</code> </td>
+   <td> generate multiple SIR models by varying parameters used to select the actual data </td>
+   <td> list containing the values  parameters, $\beta, \gamma$ and $R_0$ </td>
  </tr>
 </table>
 <!------- TABLE ------>
