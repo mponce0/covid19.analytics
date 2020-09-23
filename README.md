@@ -261,12 +261,14 @@ the following table.
  <tr>
      <td>nucleotide / protein</td>
      <td>list and composition of nucleotides/proteins from the SARS-CoV-2 virus</td>
-     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td>
+     <!-- <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td> -->
+     <td> https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/ </td>
  </tr>
  <tr>
      <td>nucleotide-fasta / protein-fasta</td>
      <td>FASTA sequences files for nucleotides, proteins and coding regions</td>
-     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td>
+     <!-- <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td> -->
+     <td> https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/ </td>
  </tr>
 </table>
 
