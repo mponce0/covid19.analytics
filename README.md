@@ -641,6 +641,20 @@ A preliminary prototype has been included and can be accessed using the `generat
 This function will try to identify the data points where the onset of the epidemy began and consider the following data points to generate a proper guess for the two parameters describing the SIR ODE system.
 After that, it will solve the different equations and provide details about the solutions as well as plot them in a static and interactive plot.
 
+#### Sweeping models...
+For exploring the parameter space of the SIR model, it is possible to produce a
+series of models by varying the conditions, i.e. range of dates considered for
+optimizing the parameters of the SIR equation, which will effectively *sweep*
+a range for the parameters $\beta, \gamma$ and $R_0$.
+This is implemented in the function `sweep.SIR.models()`, which takes a
+range of dates to be used as starting points for the number of cases used to
+feed into the `generate.SIR.model()` producing as many models as different
+ranges of dates are indicated.
+One could even use this in combination to other resampling or Monte Carlo
+techniques to estimate statistical variability of the parameters from the
+model.
+
+
 
 ### Further Features
 We will continue working on adding and developing new features to the package,
