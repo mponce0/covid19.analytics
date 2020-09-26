@@ -61,10 +61,10 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
+<!--
 <details>
     <summary>Click to Expand/Collapse</summary>
-
-
+-->
 ### Data Accessibility <a name="dataaccess"></a>
 <details>
     <summary>Click to Expand/Collapse</summary>
@@ -680,7 +680,8 @@ in particular modelling and predictive capabilities.
 Please contact us if you think of a functionality or feature that could be useful to add.
 </details>
 
-</details>
+<!-- </details> -->
+
 
 
 ## Installation  <a name="installation"></a>
