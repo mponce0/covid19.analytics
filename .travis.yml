@@ -12,6 +12,13 @@ os:
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
+# Will need to exclude R-devel on MacOS
+matrix:
+  exclude:
+  - os: osx
+    r: devel
+
+
 warnings_are_errors: false
 
 
@@ -27,9 +34,9 @@ r_packages:
 #  - testthat
 
 
-before_install:
-  #- R -e 'devtools::install_deps(dep = T)'
-  #- Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
+#before_install:
+#  #- R -e 'devtools::install_deps(dep = T)'
+#  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
 
 
 #install:
