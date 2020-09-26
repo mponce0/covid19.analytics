@@ -1,9 +1,15 @@
-Aug 2020:  Several new features added _ ver 1.2
+Sept 2020:  Several new features added _ ver 2
+		- New dashboard interface, via covid19Explorer fn
+		- local data restructured to be stored in RDS format instead of CVS
+		- local fasta genomics data, only available on development version due to CRAN restrictions in packages' size
+
+Aug. 2020:  Several new features added _ ver 1.2
 		- New genomic functions supporting the retrieval of nucleotides, proteins, FASTA and phylogenetic tree from NCBI.
 		- Adding a new function, sweep.SIR.models for generating a series of models based on a range for the starting date t0
 		- Added more checks for integrity/consistency checks: critical columns, quantifiable columns, etc.
 		- Added a nullify.data fn, for removing inconsistent/incomplete entries in the data
 		- Added a new estimateRRs fn, for computing rolling estimates for fatality and recovery rates
+
 
 Jul 2020:  Several new features and bugs fixes _ ver 1.1.1
 		- added new geographical categories to select data per continents, implemented via geographicalRegions() fn
