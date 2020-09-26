@@ -130,13 +130,15 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 			# process pre-defined regions, eg. continents
 			# remove possible spaces, eg 'South America' --> "SOUTHAMERICA"
 			tgt <- gsub(" ","",toupper(geo.ind))
-			print(tgt); #print(names(regions))
+			#print(tgt); #print(names(regions))
 			if ( sum(tgt %in% names(regions)) != 0 ) {
 				#print(regions[tgt])
 				geo.locs <- c(geo.locs, checkGeoLoc(data,regions[tgt]) )
 			} else {
 				# individual entries, ie. countries
-				if (!(toupper(geo.ind) %in% provinces.states) & !(toupper(geo.ind) %in% countries.regions) & !(toupper(geo.ind) == "ALL") ) {
+				if ( sum(toupper(geo.ind) %in% provinces.states)==0	&
+				     sum(toupper(geo.ind) %in% countries.regions)==0	&&
+				     !(toupper(geo.ind) == "ALL") ) {
 					warning(paste("Unrecognized region: ",geo.ind," will skip it!"))
 				} else {
 					geo.locs <- c(geo.locs,geo.ind)
