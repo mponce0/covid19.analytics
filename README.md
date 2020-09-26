@@ -6,8 +6,7 @@
 [![Downloads](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
-[![codecov](https://codecov.io/github/mponce0/covid19.analytics/branch/master/graphs/badge.svg)](https://codecov.io/github/mponce0/covid19.analytics)
-[![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graph/badge.svg?token=PwBmHxpqot)](undefined)
+[![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graphs/badge.svg)](https://codecov.io/github/mponce0/covid19.analytics)
 <!-- badges: end -->
 
 
