@@ -8,6 +8,9 @@
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
 <!-- badges: end -->
 
+
+
+<!-------------  TOC  ----------------->
 # Table of Contents
 <details>
     <summary>Click to Expand/Collapse</summary>
@@ -15,9 +18,10 @@
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
-    2. [Data Structure](#datastructure)
-    3. [Data Intregrity and Checks](#dataintegrity)
-    4. [Genomics Data](#genomicsdata)
+        1. [Data Structure](#datastructure)
+        2. [Data Intregrity and Checks](#dataintegrity)
+        3. [Genomics Data](#genomicsdata)
+    2. [Analytical & Graphical Indicators](#functionalities)
 3. [Installation](#installation)
 4. [Examples](#examples)
 5. [Media & Press](#media)
@@ -26,7 +30,12 @@
 </details>
 <!-------------  TOC  ----------------->
 
-## Introduction
+
+<div><object data=".travis.yml"></object></div>
+
+
+
+## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
 JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
@@ -44,8 +53,19 @@ to researchers and the scientific community.
 </object>
 -->
 
+The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
-### Data Accessibility
+
+
+## covid19.analytics Main Features  <a name="packageFeatures"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
+
+### Data Accessibility <a name="dataaccess"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
 from the JHU's CCSE repository, in the following modalities:
 * "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
@@ -155,7 +175,7 @@ dynamical situation with respect to data availability and integrity.
 <!------- TABLE ------>
 
 
-### Data Structure
+### Data Structure <a name="datastructure"></a>
 The *TimeSeries* data is organized in an specific manner with a given set of fields or columns,
 which resembles the following structure:
 
@@ -173,7 +193,7 @@ In this way it is possible to add new data sets to the ones that can be loaded u
 Be sure also to check the compatibility of these datasets using the `Data Integrity and Consistency Checks` functions described in the following section.
 
 
-### Data Integrity and Consistency Checks
+### Data Integrity and Consistency Checks <a name="dataintegrity"></a>
 Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
 For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuously increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
@@ -197,12 +217,91 @@ Data consistency issues and/or anomalies in the data have been reported several 
 These are claimed, in most of the cases, to be missreported data and usually are just an insignificant number of the total cases.
 Having said that, we believe that the user should be aware of these situations and we recommend using the `consistency.check()` function to verify the dataset you will be working with.
 
+#### Nullifying Spurious Data
+In order to deal with the different scenarios arising from incomplete, inconsistent
+or missreported data, we provide the `nullify.data()` function, which will
+remove any potential entry in the data that can be suspected of these incongruencies.
+In addition ot that, the function accepts an optional argument `stringent=TRUE`,
+which will also prune any incomplete cases (e.g. with NAs present).
 
-### covid19-Sequencing data
-The `covid19.genomic.data()` allows users to obtain the covid19's genomic sequencing data from NCBI [3].
+
+### Genomics Data <a name="genomicsdata"></a>
+That's why the covid19.analytics package provides access to a good number of the genomics
+data currently available.
+
+The `covid19.genomic.data()` function allows users to obtain the CoViD19's
+genomics data from NCBI's databases [3].
+The type of genomics data accessible from the package is described in
+the following table.
+
+<table>
+ <tr>
+  <td>type</td>  <td>description</td>  <td>source</td>
+ </tr>
+ <tr>
+     <td>genomic</td>
+     <td>a composite list containing different indicators and elements of the SARS-CoV-2 genomic information</td>
+     <td>https://www.ncbi.nlm.nih.gov/sars-cov-2/</td>
+ </tr>
+ <tr>
+     <td>genome</td>
+     <td>genetic composition of the reference sequence of the SARS-CoV-2 from GenBank</td>
+     <td>https://www.ncbi.nlm.nih.gov/nuccore/NC_045512</td>
+ </tr>
+ <tr>
+     <td>fasta</td>
+     <td>genetic composition of the reference sequence of the SARS-CoV-2 from a fasta file</td>
+     <td>https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=fasta</td>
+ </tr>
+ <tr>
+     <td>ptree</td>
+     <td>phylogenetic tree as produced by NCBI data servers</td>
+     <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/precomptree</td>
+ </tr>
+ <tr>
+     <td>nucleotide / protein</td>
+     <td>list and composition of nucleotides/proteins from the SARS-CoV-2 virus</td>
+     <!-- <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td> -->
+     <td> https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/ </td>
+ </tr>
+ <tr>
+     <td>nucleotide-fasta / protein-fasta</td>
+     <td>FASTA sequences files for nucleotides, proteins and coding regions</td>
+     <!-- <td>https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Genome&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049</td> -->
+     <td> https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/ </td>
+ </tr>
+</table>
 
 
-### Analytical & Graphical Indicators
+Although the package attempts to provide the latest available genomic data, there are
+a few important details and differences with respect to the reported cases data.
+For starting, the amount of genomic information available is way larger than
+the data reporting the number of cases which adds some additional constraints
+when retrieving this data.
+In addition to that, the hosting servers for the genomic databases impose
+certain limits on the rate and amounts of downloads.
+
+In order to mitigate these factors, the covid19.analytics package employs a couple of
+different strategies as summarized below:
+* most of the data will be attempted to be retrieved live from NCBI databases
+        -- same as using `src='livedata'`
+* if that is not possible, the package keeps a local version of
+some of the largest datasets (i.e. genomes, nucleotides and proteins) which
+might not be up-to-date
+        -- same as using `src='repo'`.
+* the package will attempt to obtain the data from a mirror server
+with the datasets updated on a regular basis but not necessarily with the
+latest updates
+        -- same as using `src='local'`.
+
+
+</details>
+
+
+### Analytical & Graphical Indicators <a name="functionalities"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 In addition to the access and retrieval of the data, the package includes some
 basics functions to estimate totals per regions/country/cities, growth rates
 and daily changes in the reported number of cases.
@@ -252,7 +351,7 @@ and daily changes in the reported number of cases.
   </tr>
 
 <tr>
-  <td> <code>covid19.genomic.data</code> </td>
+  <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
   <td> obtain covid19's genomic sequencing data from NCBI [3] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
@@ -273,6 +372,11 @@ and daily changes in the reported number of cases.
     <td> <code>integrity.check</code> </td>
     <td> run integrity checks on a given dataset </td>
     <td> diagnostics about the dataset integrity </td>
+  </tr>
+  <tr>
+    <td> <code>nullify.data</code> </td>
+    <td> remove inconsistent/incomplete entries in the original datasets </td>
+    <td> original dataset (dataframe) without "suspicious" entries </td>
   </tr>
  <tr>
    <th colspan="3"> <b>Analysis</b> </th>
@@ -297,7 +401,12 @@ and daily changes in the reported number of cases.
    <td> visualize different indicators of the "trends" in daily changes for a single or mutliple locations </td>
    <td> compose of static plots: total number of cases vs time, daily changes vs total changes in different representations</td>
   </tr>
- <tr>
+  <tr>
+   <td> <code>estimateRRs</code> </td>
+   <td> compute estimates for fatality and recovery rates on a rolling-window interval </td>
+   <td> list with values for the estimates (mean and sd) of reported cases and recovery and fatality rates </td>
+  </tr>
+<tr>
    <th colspan="3">Graphics and Visualization</th>
  </tr>
   <tr>
@@ -328,12 +437,27 @@ and daily changes in the reported number of cases.
    <td> plot the results from the SIR model </td>
    <td> static and interactive plots </td>
  </tr>
+  <tr>
+   <td> <code>sweep.SIR.model</code> </td>
+   <td> generate multiple SIR models by varying parameters used to select the actual data </td>
+   <td> list containing the values  parameters, $\beta, \gamma$ and $R_0$ </td>
+ </tr>
+  <tr>
+   <th colspan="3">Auxiliary functions</th>
+ </tr>
+  <tr>
+   <td> <code>geographicalRegions</code> </td>
+   <td> determines which countries compose a given continent </td>
+   <td> list of countries </td>
+ </tr>
 </table>
 <!------- TABLE ------>
 
 
 
 ### Details and Specifications of the Analytical & Visualization Functions
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 #### Reports
 The `report.summary()` generates an overall report summarizing the different datasets.
@@ -530,14 +654,36 @@ A preliminary prototype has been included and can be accessed using the `generat
 This function will try to identify the data points where the onset of the epidemy began and consider the following data points to generate a proper guess for the two parameters describing the SIR ODE system.
 After that, it will solve the different equations and provide details about the solutions as well as plot them in a static and interactive plot.
 
+#### Sweeping models...
+For exploring the parameter space of the SIR model, it is possible to produce a
+series of models by varying the conditions, i.e. range of dates considered for
+optimizing the parameters of the SIR equation, which will effectively *sweep*
+a range for the parameters $\beta, \gamma$ and $R_0$.
+This is implemented in the function `sweep.SIR.models()`, which takes a
+range of dates to be used as starting points for the number of cases used to
+feed into the `generate.SIR.model()` producing as many models as different
+ranges of dates are indicated.
+One could even use this in combination to other resampling or Monte Carlo
+techniques to estimate statistical variability of the parameters from the
+model.
+
+</details>
+
 
 ### Further Features
 We will continue working on adding and developing new features to the package,
 in particular modelling and predictive capabilities.
 
+Please contact us if you think of a functionality or feature that could be useful to add.
+</details>
+
+</details>
 
 
-## Installation
+## Installation  <a name="installation"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 For using the "covi19.analytics" package, first you will need to install it.
 
 The stable version can be downloaded from the CRAN repository:
@@ -559,9 +705,16 @@ For using the package, either the stable or development version, just load it us
 # load "covid19.analytics"
 library(covid19.analytics)
 ```
+</details>
 
 
-## Examples
+## Examples  <a name="examples"></a>
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
+Further examples and details about the covid19.analytics package are provided in our manuscript,
+https://arxiv.org/abs/2009.01091 .
+
 
 ### Reading data
 ```R
@@ -892,9 +1045,46 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 <object data="man/figures/world.SIR.model.html" width="105%" height="525"></object>
 
+</details>
 
-## References
+
+## Media and Press <a name="media"></a>
+
+### in the news
+#### Compute Ontario, Compute Canada
+* https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
+* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
+* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+
+
+#### The Bulletin Brief -- UofT
+* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+
+#### UofT Libraries
+* https://mdl.library.utoronto.ca/covid-19/data
+
+
+
+### used in ...
+#### RECON: R Epidemics Consortium - COVID19 Challenge
+* https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
+
+#### CoronaWhy datasets
+* http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
+
+#### Dashboards
+* https://shiny.cliffweaver.com/covid/
+* https://shiny.cliffweaver.com/covid/#section-about
+
+* https://covid19analytics.scinet.utoronto.ca
+
+
+
+## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
+
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 [1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
@@ -913,35 +1103,45 @@ Emerg Infect Dis. 2019;25(1):1-4.
 https://dx.doi.org/10.3201/eid2501.171901
 https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
-### How to Cite this Package
+</details>
+
+
+### How to Cite this Package  <a name="citation"></a>
+If you are using this package please cite our main publication about the covid19.analytics package:
+
+https://arxiv.org/abs/2009.01091
+
+You can also ask for this citation information in R:
 ```R
 > citation("covid19.analytics")
 
-To cite package ‘covid19.analytics’ in publications use:
+To cite covid19.analytics in publications use:
 
-  Marcelo Ponce (2020). covid19.analytics: Load and Analyze Live Data
-  from the CoViD-19 Pandemic. R package version 1.1.1.
-  https://CRAN.R-project.org/package=covid19.analytics
+  Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
+  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
+  Pandemic. URL https://arxiv.org/abs/2009.01091
 
 A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {covid19.analytics: Load and Analyze Live Data from the CoViD-19 Pandemic},
-    author = {Marcelo Ponce},
+  @Article{,
+    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
+    author = {Marcelo Ponce and Amit Sandhel},
+    journal = {pre-print},
     year = {2020},
-    note = {R package version 1.1.1},
-    url = {https://CRAN.R-project.org/package=covid19.analytics},
+    url = {https://arxiv.org/abs/2009.01091},
   }
 ```
 
 
 ## Further Resources
+<details>
+    <summary>Click to Exapand/Collapse</summary>
+
 <p aling="center">
  <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
  <br>
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
-
 
 ### More R Resources
 * The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
@@ -956,7 +1156,7 @@ A BibTeX entry for LaTeX users is
 -->
 
 ### Dashboards
-* https://www.covidgraph.com
+* https://covidgraph.com
 <!-- * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/ -->
 * https://ici.radio-canada.ca/info/2020/coronavirus-covid-19-pandemie-cas-carte-maladie-symptomes-propagation/index-en.html
 * https://resources-covid19canada.hub.arcgis.com/
@@ -967,3 +1167,4 @@ A BibTeX entry for LaTeX users is
 * https://coronavirus.jhu.edu/data/new-cases
 <!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
 
+</details>
