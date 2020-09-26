@@ -1,4 +1,4 @@
-# Modelling fns of the covid19 package
+# Modelling fns part of the covid19.analytics package
 #
 # M.Ponce
 

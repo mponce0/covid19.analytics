@@ -85,9 +85,12 @@ estimateRRs <- function(data=NULL, geo.loc=NULL, period=NULL, graphics.ON=TRUE, 
 #' @export
 #'
 #' @examples
+#' # the following examples take longer than 10 sec, and triggers CRAN checks
+#' \dontrun{
 #' estimateRRs(covid19.data("TS-all"), geo.loc='Peru', period=7)
 #' estimateRRs(covid19.data("TS-all"),
 #'		geo.loc=c('Peru','Argentina','Uruguay','US','Spain','Japan'), period=7)
+#' }
 #'
 	if (length(geo.loc) > 1) {
 		rtn <- list()
