@@ -352,12 +352,44 @@ covid19.JHU.data <- function(case='aggregated', local.data=FALSE, debrief=FALSE,
 	# will load data from local source
 	return( covid19.data(case,local.data=TRUE) )
 	}
+                # debriefing...
+                debriefing(covid19.cases,debrief)
+}
+
+
+###########################################################################
+                
+
+XXXcovid19.Toronto.data <- function(origin="OD", data.fmt="TS",local.data=FALSE,debrief=FALSE, OLD.fmt=FALSE, acknowledge=FALSE) {
+#' function to import data from the city of Toronto, ON - Canada
+#' as reported by the City of Toronto OR Open Data Toronto
+#'
+#' @param  origin  select between the "City of Toronto" ('city') OR "Open Data Toronto" ('OD')
+#' @param  data.fmt  "TS" for TimeSeries of cumulative cases or "original" for the data as reported in the google-document with multiple sheets
+#' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
+#' @param  debrief  boolean specifying whether information about the read data is going to be displayed in screen
+#' @param  OLD.fmt  boolean flag to specify if the data is being read in an old format
+#' @param  acknowledge  boolean flag to indicate that the user acknowledges where the data is coming from.  If FALSE, display data acquisition messages.
+#'
+#' @return  a dataframe (or a list in the case of "original") with the latest data reported for the city of Toronto, ON - Canada
+#'
+#' @export
+#'
+
+	if (origin=="city") {
+		# from the CIty of Toronto
+		covid19.Toronto.data(data.fmt=data.fmt,local.data=local.data,debrief=debrief, OLD.fmt=OLD.fmt, acknowledge=acknowledge)
+	} else {
+		# will push all other request to Open Data Toronto
+		covid19.Toronto_OD.data(data.fmt=data.fmt,local.data=local.data,debrief=debrief, OLD.fmt=OLD.fmt, acknowledge=acknowledge)
+	}
 
 }
 
+
 ###########################################################################
 
-
+#covid19.Toronto_city.data
 covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, OLD.fmt=FALSE, acknowledge=FALSE) {
 #' function to import data from the city of Toronto, ON - Canada
 #' as reported by the City of Toronto
@@ -418,17 +450,29 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 		# if only "TS" identify corresponding sheet
 		key.wrd <- "Cumulative Cases by Reported"
 		tgt.sheet <- pmatch(key.wrd,lst.sheets)
+		#if (is.na(tgt.sheet)) {
+		#	#key.wrd <- "Cases by Episode Date"
+		#	#tgt.sheet <- pmatch(key.wrd,lst.sheets)
+		#	covid19.Toronto.data(data.fmt,local.data=TRUE,debrief, OLD.fmt, acknowledge)
+		#}
 
 		# read data
 		if (toupper(data.fmt)=="TS") {
-		  if (!acknowledge) {
-		    header('',"Reading TimeSeries data...")
-		  }
-			toronto <- read_excel(Tor.xlsx.file,sheet=tgt.sheet)
+			# check that the target sheet was found
+			if (!is.na(tgt.sheet)) {
+			  if (!acknowledge) {
+			    header('',"Reading TimeSeries data...")
+			  }
+				toronto <- read_excel(Tor.xlsx.file,sheet=tgt.sheet)
+			} else {
+				message(key.wrd, " NOT FOUND!")
+				toronto.loc <- covid19.Toronto.data(data.fmt,local.data=TRUE,debrief=debrief, OLD.fmt, acknowledge=acknowledge)
+				return(toronto.loc)
+			}
 		} else {
-		  if (!acknowledge) {
-		    header('',"Collecting all data reported...")
-		  }
+			  if (!acknowledge) {
+			    header('',"Collecting all data reported...")
+			  }
 			toronto <- list()
 			# iterate on each sheet...
 			for (sht in lst.sheets) {
@@ -441,7 +485,8 @@ covid19.Toronto.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, O
 	} else {
 		if (!local.data) {
 			warning("Could not access data from 'City of Toronto' source, attempting to reach local repo")
-			toronto <- covid19.Toronto.data(data.fmt=data.fmt,local.data=TRUE,debrief=debrief)
+			toronto.loc <- covid19.Toronto.data(data.fmt=data.fmt,local.data=TRUE,debrief=debrief, OLD.fmt, acknowledge=acknowledge)
+			return(toronto.loc)
 		} else {
 			stop("An error occurred accessing the data for the City of Toronto")
 		}

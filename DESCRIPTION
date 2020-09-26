@@ -2,7 +2,7 @@ Package: covid19.analytics
 Type: Package
 Title: Load and Analyze Live Data from the CoViD-19 Pandemic
 Version: 2.0
-Date: 2020-09-02
+Date: 2020-09-22
 Author: Marcelo Ponce [aut, cre], Amit Sandhel [ctb]
 Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
 Description: Load and analyze updated time series worldwide data of reported cases for the Novel CoronaVirus Disease (CoViD-19) from the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) data repository <https://github.com/CSSEGISandData/COVID-19>. The datasets are available in two main modalities, as a time series sequences and aggregated for the last day with greater spatial resolution. Several analysis, visualization and modelling functions are available in the package that will allow the user to compute and visualize total number of cases, total number of changes and growth rate globally or for an specific geographical location, while at the same time generating models using these trends; generate interactive visualizations and generate Susceptible-Infected-Recovered (SIR) model for the disease spread.
@@ -18,7 +18,7 @@ Suggests:
     knitr,
     devtools,
     roxygen2,
-    markdown,
+    markdown, rmarkdown,
     testthat
 License: GPL (>=2)
 URL: https://mponce0.github.io/covid19.analytics/

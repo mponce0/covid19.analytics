@@ -689,10 +689,11 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 #' @export
 #'
 #' @examples
+#' # triggers CRAN checks for timing
+#' \donttest{
 #' # displaying top 10s
 #' report.summary()
 #'
-#' \dontrun{
 #' # get the top 20
 #' report.summary(Nentries=20,graphical.output=FALSE)
 #'
