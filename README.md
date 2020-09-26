@@ -1054,8 +1054,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 ### in the news
 #### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
-* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
-* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+* https://twitter.com/ComputeOntario/status/1245825891562917888
+* https://twitter.com/ComputeCanada/status/1246123408418426880
 
 
 #### The Bulletin Brief -- UofT
