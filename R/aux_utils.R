@@ -132,7 +132,7 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 			tgt <- gsub(" ","",toupper(geo.ind))
 			#print(tgt); #print(names(regions))
 			if ( sum(tgt %in% names(regions)) != 0 ) {
-				print(regions[tgt])
+				#print(regions[tgt])
 				geo.locs <- c(geo.locs, checkGeoLoc(data,regions[tgt]) )
 			} else {
 				# individual entries, ie. countries
