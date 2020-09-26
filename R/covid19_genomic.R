@@ -108,6 +108,26 @@ covid19.genomic.data <- function(type='genome', src="livedata", graphics.ON=TRUE
 ##################
 
 
+red.devel.ver <- function(fileRDS, force=TRUE) {
+#' function to redirect users to install devel version from github
+#' @param  fileRDS  missing data file
+#' @param  force  boolean flag to force stoping the code
+#'
+
+	message("Missing file", fileRDS)
+
+	message("Please install the developemnt version of the package to access the local datasets!")
+	message('You will need the "devtools" package -- install it using \t install.packages("devtools")')
+	message('Then the develoment version of the covid19.analytics package can be installed using the following command',
+		'\n', '\t  devtools::install_github("mponce0/covid19.analytics")')
+
+	if (force) stop("Error: ",fileRDS," not found!")
+}
+
+
+##################
+
+
 c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 #' function to obtain sequencing data grom NCBI
 #' Reference:  https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
@@ -121,7 +141,7 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 #'
 #' @examples
 #' # obtain covid19's genomic data
-#' covid19.gen.seq <- covid19.genomic.data()
+#' covid19.gen.seq <- c19.refGenome.data()
 #' # display the actual RNA seq
 #' covid19.gen.seq$NC_045512.2
 #'
@@ -194,7 +214,8 @@ c19.refGenome.data <- function(src='livedata', graphics.ON=TRUE) {
 		if (file.exists(fileRDS)) {
 			c19data <- load(fileRDS)
 		} else {
-			stop("Error: ",fileRDS," not found!")
+			red.devel.ver(fileRDS, force=TRUE)
+			#stop("Error: ",fileRDS," not found!")
 		}
 	} else {
 		badOption(src)
@@ -396,6 +417,8 @@ c19.ptree.data <- function(src='livedata') {
 		load(cv19treeloc)
 
 		if ("cv19tree" %in% ls()) return(cv19tree)
+	} else {
+		red.devel.ver(cv19treeloc, force=TRUE)
 	}
 
         ##
@@ -504,6 +527,7 @@ c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 		ann.data <- read.gff(ann.file)
 	} else {
 		warning("File not found: ",ann.file)
+		red.devel.ver(ann.file, force=FALSE)
 	}
 
 
@@ -519,7 +543,11 @@ c19.genomic.data <- function(src='livedata', accOnly=TRUE) {
 		# https://ftp-trace.ncbi.nlm.nih.gov/sra/reports/AccList/Coronaviridae_runs.csv
 		########
 		sra_info <- readLines(paste0(sra_URL,"/","README.txt"))
-		sra_runs <- read.csv(paste0(sra_URL,"/","Coronaviridae_runs.csv"))
+		if (src !=  'local') {
+			sra_runs <- read.csv(paste0(sra_URL,"/","Coronaviridae_runs.csv"))
+		} else {
+			load(paste0(sra_URL,"/","Coronaviridae_runs.csv",'.rds'))
+		}
 	} else {
 		badOption(src)
 	}
@@ -616,8 +644,10 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 ####################################
                 tgt.file <- system.file("extdata",file.tgt, package='covid19.analytics',mustWork=TRUE)
                 if (file.exists(tgt.file)) {
+			nucleotides <- proteins <- NULL
                         load(tgt.file)        # laod  'nucleotides' --or-- 'proteins'
                 } else {
+			red.devel.ver(file.tgt, force=FALSE)
                         stop(DB," file: ", file.tgt," -- ",tgt.file," -- missing!")
                 }
                 #lst.nucs <- nucleotides
@@ -634,9 +664,17 @@ nucleotides_URL <- "https://www.ncbi.nlm.nih.gov/sars-cov-2/download-nuccore-ids
 	}
 
 	if (DB=='nucleotide') {
-		return(nucleotides)
+		if ('nucleotides'%in%ls() & !is.null(nucleotides)) {
+			return(nucleotides)
+		} else {
+			stop("Error: something went wrong reading the nucleotides data")
+		}
 	} else if (DB=='protein') {
-		return(proteins)
+		if ('proteins' %in% ls() & !is.null(proteins)) {
+			return(proteins)
+		} else {
+			stop("Error: something went wrong reading the proteins data")
+		}
 	} else {
 		warning("Unrecognized option")
 	}
