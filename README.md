@@ -65,6 +65,30 @@ The following sections briefly describe some of the covid19.analytics package ma
 <details>
     <summary>Click to Expand/Collapse</summary>
 -->
+
+The `covid19.analytics` package is an open source tool, which its main implementation and API
+is the R package.
+In addition to this, the package has a few more adds-on:
+
+* a central GitHUB repository, https://github.com/mponce0/covid19.analytics
+where the latest development version and source code of the package are available.
+Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
+
+* a rendered version with live examples and documentation also hosted at GitHUB pages,
+(https://mponce0.github.io/covid19.analytics/)
+
+* a dashboard for interactive usage of the package with extended capabilities
+for users without any coding expertise, https://covid19analytics.scinet.utoronto.ca
+
+The dashboard can also be deployed locally using the `covid19.Explorer` function which
+is part of the `covid19.analytics` package.
+
+* a *backup* data repository hosted at GitHUB,
+https://github.com/mponce0/covid19analytics.datasets --
+        where replicas of the live datasets are stored for redundancy and
+robust accesibility sake.
+
+
 ### Data Accessibility <a name="dataaccess"></a>
 <details>
     <summary>Click to Expand/Collapse</summary>
