@@ -6,15 +6,17 @@
 [![Downloads](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
+[![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graphs/badge.svg)](https://codecov.io/github/mponce0/covid19.analytics)
 <!-- badges: end -->
 
 
 
 <!-------------  TOC  ----------------->
 # Table of Contents
+<!--
 <details>
     <summary>Click to Expand/Collapse</summary>
-
+-->
 1. [Introduction](#introduction)
 2. [covid19.analytics Main Features](#packageFeatures)
     1. [Data Accessibility](#dataaccess)
@@ -27,11 +29,12 @@
 5. [Media & Press](#media)
 6. [References and Citation](#references)
     1. [Citing covid19.analytics](#citation)
-</details>
+<!-- </details> -->
 <!-------------  TOC  ----------------->
 
 
-<div><object data=".travis.yml"></object></div>
+
+<!-- <div><object data=".travis.yml"></object></div> -->
 
 
 
@@ -1053,8 +1056,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 ### in the news
 #### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
-* https://twitter.com/ComputeOntario/status/1245825891562917888?s=20
-* https://twitter.com/ComputeCanada/status/1246123408418426880?s=20
+* https://twitter.com/ComputeOntario/status/1245825891562917888
+* https://twitter.com/ComputeCanada/status/1246123408418426880
 
 
 #### The Bulletin Brief -- UofT
