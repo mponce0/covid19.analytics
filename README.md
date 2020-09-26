@@ -1054,6 +1054,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 ## Media and Press <a name="media"></a>
 
 ### in the news
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 #### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
 * https://twitter.com/ComputeOntario/status/1245825891562917888
@@ -1066,9 +1069,13 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 #### UofT Libraries
 * https://mdl.library.utoronto.ca/covid-19/data
 
+</details>
 
 
 ### used in ...
+<details>
+    <summary>Click to Expand/Collapse</summary>
+
 #### RECON: R Epidemics Consortium - COVID19 Challenge
 * https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
 
@@ -1081,6 +1088,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 * https://covid19analytics.scinet.utoronto.ca
 
+</details>
 
 
 ## References  <a name="references"></a>
