@@ -12,29 +12,36 @@ os:
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
+# Will need to exclude R-devel on MacOS
+matrix:
+  exclude:
+  - os: osx
+    r: devel
+
+
 warnings_are_errors: false
 
 
 # for codecov
 r_packages:
   - covr
-  - knitr
-  - devtools
-  - knitr
-  - devtools
-  - roxygen2
-  - markdown
-  - testthat
+#  - knitr
+#  - devtools
+#  - knitr
+#  - devtools
+#  - roxygen2
+#  - markdown
+#  - testthat
 
 
-before_install:
-  #- R -e 'devtools::install_deps(dep = T)'
-  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
+#before_install:
+#  #- R -e 'devtools::install_deps(dep = T)'
+#  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
 
 
-install:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
+#install:
+#  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y r --version 4.0.2.        ; fi
+#  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then   choco install -y rtools --version=4.0.0    ; fi
 
 
 
