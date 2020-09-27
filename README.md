@@ -469,6 +469,14 @@ and daily changes in the reported number of cases.
    <td> generate multiple SIR models by varying parameters used to select the actual data </td>
    <td> list containing the values  parameters, $\beta, \gamma$ and $R_0$ </td>
  </tr>
+ <tr>
+   <th colspan="3">Data Exploration</th>
+ </tr>
+  <tr>
+   <td> <code>covid19Explorer</code> </td>
+   <td> launches a dashboard interface to explore the datasets provided by covid19.analytics</td>
+   <td> web-based dashboard </td>
+ </tr>
   <tr>
    <th colspan="3">Auxiliary functions</th>
  </tr>
