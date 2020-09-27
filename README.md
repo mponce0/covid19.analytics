@@ -6,7 +6,7 @@
 [![Downloads](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
-[![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graphs/badge.svg)](https://codecov.io/github/mponce0/covid19.analytics)
+[![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/mponce0/covid19.analytics)
 <!-- badges: end -->
 
 
@@ -73,7 +73,7 @@ where the latest development version and source code of the package are availabl
 Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
 
 * a rendered version with live examples and documentation also hosted at GitHUB pages,
-(https://mponce0.github.io/covid19.analytics/)
+https://mponce0.github.io/covid19.analytics/
 
 * a dashboard for interactive usage of the package with extended capabilities
 for users without any coding expertise, https://covid19analytics.scinet.utoronto.ca
