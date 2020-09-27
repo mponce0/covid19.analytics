@@ -73,7 +73,7 @@ where the latest development version and source code of the package are availabl
 Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
 
 * a rendered version with live examples and documentation also hosted at GitHUB pages,
-(https://mponce0.github.io/covid19.analytics/)
+https://mponce0.github.io/covid19.analytics/
 
 * a dashboard for interactive usage of the package with extended capabilities
 for users without any coding expertise, https://covid19analytics.scinet.utoronto.ca
