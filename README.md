@@ -251,6 +251,8 @@ which will also prune any incomplete cases (e.g. with NAs present).
 
 
 ### Genomics Data <a name="genomicsdata"></a>
+Similarly to the rapid developments and updates in the reported cases of the disease,
+the genetic sequencing of the virus is moving almost at equal pace.
 That's why the covid19.analytics package provides access to a good number of the genomics
 data currently available.
 
