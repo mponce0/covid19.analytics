@@ -1179,7 +1179,7 @@ A BibTeX entry for LaTeX users is
 
 ## Further Resources
 <details>
-    <summary>Click to Exapand/Collapse</summary>
+    <summary>Click to Expand/Collapse</summary>
 
 <p aling="center">
  <img src="https://phil.cdc.gov//PHIL_Images/2871/2871_lores.jpg" width="75%">
