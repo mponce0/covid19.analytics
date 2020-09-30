@@ -1121,6 +1121,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * https://shiny.cliffweaver.com/covid/
 * https://shiny.cliffweaver.com/covid/#section-about
 
+* https://rpubs.com/pawan_thapa
+
 * https://covid19analytics.scinet.utoronto.ca
 
 </details>
