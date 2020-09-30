@@ -75,8 +75,7 @@ In addition to this, the package has a few more adds-on:
 > 
 > * a dashboard for interactive usage of the package with extended capabilities
 > for users without any coding expertise, https://covid19analytics.scinet.utoronto.ca
->
-> The dashboard can also be deployed locally using the `covid19Explorer()` function which
+>  The dashboard can also be deployed locally using the `covid19Explorer()` function which
 > is part of the `covid19.analytics` package.
 > 
 > * a *backup* data repository hosted at GitHUB,
