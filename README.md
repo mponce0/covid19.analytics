@@ -1125,6 +1125,10 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 * https://covid19analytics.scinet.utoronto.ca
 
+#### Community
+* https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
+
+
 </details>
 
 
