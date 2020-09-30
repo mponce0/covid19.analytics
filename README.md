@@ -61,8 +61,6 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
-<details>
-    <summary>Click to Expand/Collapse</summary>
 
 The `covid19.analytics` package is an open source tool, which its main implementation and API
 is the R package.
@@ -86,6 +84,9 @@ https://github.com/mponce0/covid19analytics.datasets --
         where replicas of the live datasets are stored for redundancy and
 robust accesibility sake.
 
+
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 ### Data Accessibility <a name="dataaccess"></a>
 <details>
