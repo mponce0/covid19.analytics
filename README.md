@@ -260,7 +260,7 @@ That's why the covid19.analytics package provides access to a good number of the
 data currently available.
 
 The `covid19.genomic.data()` function allows users to obtain the CoViD19's
-genomics data from NCBI's databases [3].
+genomics data from NCBI's databases [[3](#NCBIgenome)].
 The type of genomics data accessible from the package is described in
 the following table.
 
@@ -371,7 +371,7 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [2] </td>
+    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [[2](#TORdata)] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
@@ -382,7 +382,7 @@ and daily changes in the reported number of cases.
 
 <tr>
   <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
-  <td> obtain covid19's genomic sequencing data from NCBI [3] </td>
+  <td> obtain covid19's genomic sequencing data from NCBI [[3](#NCBIgenome)] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
@@ -1145,10 +1145,10 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
-[2] COVID-19: Status of Cases in Toronto -- City of Toronto
+[2] <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
 https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
 
-[3] Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+[3] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
