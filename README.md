@@ -41,7 +41,7 @@
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
-JHU CCSE repository [1], as well as, provide basic analysis tools and functions to
+JHU CCSE repository [[1](#JHUrepo)], as well as, provide basic analysis tools and functions to
 investigate these datasets.
 
 The goal of this package is to make the latest data promptly available
@@ -228,7 +228,7 @@ For instance, in some cumulative quantities reported in time series datasets, it
 
 Some negative values have been reported as well in the data, which also is not possible or valid; we call this inconsistency of **"type I"**.
 
-When this occurs, it happens at the level of the origin of the dataset, in our case, the one obtained from the JHU/CCESGIS repository [1].
+When this occurs, it happens at the level of the origin of the dataset, in our case, the one obtained from the JHU/CCESGIS repository [[1](#JHUrepo)].
 In order to make the user aware of this, we implemented two consistency and integrity checking functions:
 
 * `consistency.check()`, this function attempts to determine whether there are consistency issues within the data, such as, negative reported value (inconsistency of "type I") or anomalies in the cumulative quantities of the data (inconsistency of "type II")
@@ -366,7 +366,7 @@ and daily changes in the reported number of cases.
   </tr>
   <tr>
     <td> <code>covid19.data</code> </td>
-    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [[1](#JHUrepo)] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
    <tr>
@@ -376,7 +376,7 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.US.data</code> </td>
-    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [1] </td>
+    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [[1](#JHUrepo)] </td>
     <td> return dataframe with the collected data </td>
   </tr>
 
@@ -1141,7 +1141,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
-[1] 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+[1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
