@@ -366,12 +366,12 @@ and daily changes in the reported number of cases.
   </tr>
   <tr>
     <td> <code>covid19.data</code> </td>
-    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [[1](#JHUrepo)] </td>
+    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [[2](#TORdata)] </td>
+    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
@@ -382,7 +382,7 @@ and daily changes in the reported number of cases.
 
 <tr>
   <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
-  <td> obtain covid19's genomic sequencing data from NCBI [[3](#NCBIgenome)] </td>
+    <td> obtain covid19's genomic sequencing data from NCBI [<a href="#NCBIgenome">3</a>] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
