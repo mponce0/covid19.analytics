@@ -376,7 +376,7 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.US.data</code> </td>
-    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [[1](#JHUrepo)] </td>
+    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframe with the collected data </td>
   </tr>
 
