@@ -1136,16 +1136,14 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 ### Stats
-<details>
-    <summary>Click to Expand/Collapse</summary>
 
 <!-- badges: start -->
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)]
-[![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)]
-[![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)]
-[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)]
-[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)]
-[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)]
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)
+[![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 <!-- badges: end -->
 
 <p align="center">
@@ -1155,8 +1153,6 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 <object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="700px" height="700px">
 
-
-</details>
 
 
 
