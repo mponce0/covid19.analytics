@@ -1159,6 +1159,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 </details>
 
 
+
 ## References  <a name="references"></a>
 (\*) Data can be upto 24 hs delayed wrt the latest updates.
 
