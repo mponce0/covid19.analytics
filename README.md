@@ -1135,10 +1135,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 
-### Stats
+#### Stats
+<!--
 <details>
     <summary>Click to Expand/Collapse</summary>
-
+-->
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)
@@ -1177,7 +1178,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 </p>
 -->
 
+<!--
 </details>
+-->
 
 
 
