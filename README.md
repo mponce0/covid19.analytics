@@ -1148,12 +1148,13 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 <!-- badges: end -->
 
-
+<!--
 <p align="center">
 	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="65%" alt="Download stats"/>
 	<!-- <img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" width="65%" alt="Download stats"/> -->
 	<figcaption>"Live" download stats, figure generated using "Visualize.CRAN.Downloads"</figcaption>
 </p>
+-->
 
 <!--
 <img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="800" /> ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
@@ -1161,7 +1162,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <img align="left" src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="200" /> ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
 -->
 
-
+<!--
 <object data="https://github.com/mponce0/R.pckgs.stats/raw/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="100%" height="500px">
  <embed src="https://github.com/mponce0/R.pckgs.stats/raw/master/DWNLDS_covid19.analytics.pdf">
  <p> 
@@ -1169,7 +1170,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
  </p>
  </embed>
 </object>
-
+-->
 <!--
 <p>
 <object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="700px" height="700px">
