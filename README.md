@@ -1148,13 +1148,13 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 <!-- badges: end -->
 
+<p>
+<object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="700px" height="700px">
+</p>
+
 <p align="center">
 	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="65%" alt="Download stats"/>
 	<figcaption>"Live" download stats, figure generated using "Visualize.CRAN.Downloads"</figcaption>
-</p>
-
-<p>
-<object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="700px" height="700px">
 </p>
 
 </details>
