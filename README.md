@@ -1131,8 +1131,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 #### Community
 * https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
 
+<!--
 </details>
-
+-->
 
 
 #### Stats
@@ -1178,9 +1179,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 </p>
 -->
 
-<!--
+
 </details>
--->
+
 
 
 
