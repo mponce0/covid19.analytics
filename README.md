@@ -1155,10 +1155,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 	<figcaption>"Live" download stats, figure generated using "Visualize.CRAN.Downloads"</figcaption>
 </p>
 
+<!--
 <img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width=800 /> ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
-and
 
 <img align="left" src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width=200 > ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
+-->
 
 <!--
 <object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.pdf" type="application/pdf" width="100%" height="500px">
