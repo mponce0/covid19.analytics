@@ -1121,7 +1121,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
     <summary>Click to Expand/Collapse</summary>
 
 #### Publications
-* "Hackenberger BK. From apparent to true - from frequency to distributions (II)", Croat Med J. 2020 Aug 31;61(4):381-385. doi: 10.3325/cmj.2020.61.381. PMID: 32881438; PMCID: PMC7480748. -- 
+* "Hackenberger BK. From apparent to true - from frequency to distributions (II)", Croat Med J. 2020 Aug 31;61(4):381-385. 
+<!--doi: 10.3325/cmj.2020.61.381. PMID: 32881438; PMCID: PMC7480748. -->
+--
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
 
 
