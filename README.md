@@ -1101,8 +1101,13 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### Social media
 * https://twitter.com/ComputeOntario/status/1245825891562917888
+* https://twitter.com/ComputeOntario/status/1270736806724632576?s=20
 * https://twitter.com/ComputeCanada/status/1246123408418426880
 * https://twitter.com/paulchenz/status/1244799016736624640?s=20
+* https://twitter.com/JamesBradley002/status/1247139312245899264?s=20
+* https://twitter.com/hauselin/status/1247209180492169218?s=20
+* https://twitter.com/Ssiamba/status/1271794279510409217?s=20
+
 
 #### University Resources
 * The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
