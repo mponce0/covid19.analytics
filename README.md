@@ -1101,9 +1101,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### Social media
 * https://twitter.com/ComputeOntario/status/1245825891562917888
-
 * https://twitter.com/ComputeCanada/status/1246123408418426880
-
 * https://twitter.com/paulchenz/status/1244799016736624640
 
 
@@ -1121,9 +1119,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
     <summary>Click to Expand/Collapse</summary>
 
 #### Publications
-* Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385. 
-<!--doi: 10.3325/cmj.2020.61.381. PMID: 32881438; PMCID: PMC7480748. -->
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
+* Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385. -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
 
 
 #### RECON: R Epidemics Consortium - COVID19 Challenge
@@ -1134,13 +1130,9 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
 
 
 #### Dashboards
-* https://shiny.cliffweaver.com/covid/
-* https://shiny.cliffweaver.com/covid/#section-about
-
+* https://shiny.cliffweaver.com/covid/ --  https://shiny.cliffweaver.com/covid/#section-about
 * https://rpubs.com/pawan_thapa
-
 * https://rpubs.com/Drshunya/
-
 * https://covid19analytics.scinet.utoronto.ca
 
 
