@@ -1097,15 +1097,21 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
+
+
+#### Social media
 * https://twitter.com/ComputeOntario/status/1245825891562917888
+
 * https://twitter.com/ComputeCanada/status/1246123408418426880
 
+* https://twitter.com/paulchenz/status/1244799016736624640
 
-#### The Bulletin Brief -- UofT
-* https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 
-#### UofT Libraries
-* https://mdl.library.utoronto.ca/covid-19/data
+#### University Resources
+* The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+* UofT Libraries:  https://mdl.library.utoronto.ca/covid-19/data
+* Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
+
 
 </details>
 
@@ -1114,11 +1120,17 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+#### Publications
+* "Hackenberger BK. From apparent to true - from frequency to distributions (II)", Croat Med J. 2020 Aug 31;61(4):381-385. doi: 10.3325/cmj.2020.61.381. PMID: 32881438; PMCID: PMC7480748. -- 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
+
+
 #### RECON: R Epidemics Consortium - COVID19 Challenge
 * https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
 
 #### CoronaWhy datasets
 * http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
+
 
 #### Dashboards
 * https://shiny.cliffweaver.com/covid/
@@ -1126,10 +1138,17 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 * https://rpubs.com/pawan_thapa
 
+* https://rpubs.com/Drshunya/
+
 * https://covid19analytics.scinet.utoronto.ca
 
-#### Community
+
+#### Community & Turorials
 * https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
+* https://people.math.carleton.ca/~davecampbell/datasets/2020/07/24/covid-data-covid-19-govenrmne-of-canada-and-jhu-csse/
+* https://theactuarialclub.com/2020/05/15/covid-19-analysis-modelling-visualization-using-r/
+* https://stackoverflow.com/questions/63822239/get-r-data-frame-in-python-using-rpy2
+* http://bactra.org/weblog/1176.html
 
 <!--
 </details>
