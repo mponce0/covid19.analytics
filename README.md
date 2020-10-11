@@ -1095,6 +1095,13 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+
+#### University Resources
+* The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+* UofT Libraries:  https://mdl.library.utoronto.ca/covid-19/data
+* Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
+
+
 #### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
 
@@ -1107,12 +1114,6 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * https://twitter.com/JamesBradley002/status/1247139312245899264?s=20
 * https://twitter.com/hauselin/status/1247209180492169218?s=20
 * https://twitter.com/Ssiamba/status/1271794279510409217?s=20
-
-
-#### University Resources
-* The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
-* UofT Libraries:  https://mdl.library.utoronto.ca/covid-19/data
-* Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
 
 
 </details>
@@ -1139,6 +1140,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 #### Community & Turorials
+* Fearued on "R-bloggers" - Top 40 CRAN packages (April 2020):
+	https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
+* Featured on "Eye on AI" papers review:
+        https://www.eye-on.ai/ai-research-watch-papers/2020/9/7/202097-society-papers
+
 * https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
 * https://people.math.carleton.ca/~davecampbell/datasets/2020/07/24/covid-data-covid-19-govenrmne-of-canada-and-jhu-csse/
 * https://theactuarialclub.com/2020/05/15/covid-19-analysis-modelling-visualization-using-r/
@@ -1149,7 +1155,6 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 * https://forums.futura-sciences.com/programmation-langages-algorithmique/883064-r-data-science-analyse-de-donnees-covid19.html                               
 
-* R-bloggers, Top 40 CRAN packages (April 2020): https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
 
 * https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/                                                                                  
 
