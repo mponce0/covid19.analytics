@@ -1152,6 +1152,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
         https://www.eye-on.ai/ai-research-watch-papers/2020/9/7/202097-society-papers
 
 * https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
+* https://rstudio-pubs-static.s3.amazonaws.com/627247_4a5e9d5780844ca2bcddfdd13733cb67.html
 * https://people.math.carleton.ca/~davecampbell/datasets/2020/07/24/covid-data-covid-19-govenrmne-of-canada-and-jhu-csse/
 * https://theactuarialclub.com/2020/05/15/covid-19-analysis-modelling-visualization-using-r/
 * https://stackoverflow.com/questions/63822239/get-r-data-frame-in-python-using-rpy2
