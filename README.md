@@ -1135,8 +1135,6 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### Dashboards
 * https://shiny.cliffweaver.com/covid/ --  https://shiny.cliffweaver.com/covid/#section-about
-* https://rpubs.com/pawan_thapa
-* https://rpubs.com/Drshunya/
 * https://covid19analytics.scinet.utoronto.ca
 
 
@@ -1146,6 +1144,23 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * https://theactuarialclub.com/2020/05/15/covid-19-analysis-modelling-visualization-using-r/
 * https://stackoverflow.com/questions/63822239/get-r-data-frame-in-python-using-rpy2
 * http://bactra.org/weblog/1176.html
+* https://rpubs.com/pawan_thapa
+* https://rpubs.com/Drshunya
+
+* https://forums.futura-sciences.com/programmation-langages-algorithmique/883064-r-data-science-analyse-de-donnees-covid19.html                               
+
+* R-bloggers, Top 40 CRAN packages (April 2020): https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
+
+* https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/                                                                                  
+
+* https://www.academia.edu/44042710/Using_R_studio_to_examine_the_COVID_19_Patients_in_Pakistan_Implementation_of_SIR_Model_on_Cases                          
+
+* https://medium.com/analytics-vidhya/corona-19-visualizations-with-r-and-tableau-595296894ca7                                                                
+
+* https://m.facebook.com/nexacu/photos/a.133550136841673/1407169096146431/?type=3                                                                             
+
+* http://sanaitics.com/research-paper.aspx 
+
 
 <!--
 </details>
