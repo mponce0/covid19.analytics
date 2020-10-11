@@ -1114,6 +1114,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * https://twitter.com/JamesBradley002/status/1247139312245899264?s=20
 * https://twitter.com/hauselin/status/1247209180492169218?s=20
 * https://twitter.com/Ssiamba/status/1271794279510409217?s=20
+* https://m.facebook.com/nexacu/photos/a.133550136841673/1407169096146431/?type=3                                                                             
 
 
 </details>
@@ -1145,7 +1146,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 #### Community & Turorials
-* Fearued on "R-bloggers" - Top 40 CRAN packages (April 2020):
+* Featured on "R-bloggers" - Top 40 CRAN packages (April 2020):
 	https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
 * Featured on "Eye on AI" papers review:
         https://www.eye-on.ai/ai-research-watch-papers/2020/9/7/202097-society-papers
@@ -1160,7 +1161,6 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * https://forums.futura-sciences.com/programmation-langages-algorithmique/883064-r-data-science-analyse-de-donnees-covid19.html                               
 * https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/                                                                                  
 * https://medium.com/analytics-vidhya/corona-19-visualizations-with-r-and-tableau-595296894ca7                                                                
-* https://m.facebook.com/nexacu/photos/a.133550136841673/1407169096146431/?type=3                                                                             
 * http://sanaitics.com/research-paper.aspx 
 
 
