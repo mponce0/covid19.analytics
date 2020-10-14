@@ -40,12 +40,35 @@
 
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
-*novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
-JHU CCSE repository [[1](#JHUrepo)], as well as, provide basic analysis tools and functions to
-investigate these datasets.
-
-The goal of this package is to make the latest data promptly available
+*novel CoronaVirus Disease* originally reported in 2019, CoViD-19.
+One of the main goals of this package is to make the latest data promptly available
 to researchers and the scientific community.
+
+
+### Data Sources <a name="dataSrcs"></a>
+
+The package provides access to the following open-access data sources:
+
+[1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
+https://github.com/CSSEGISandData/COVID-19
+
+[2] <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
+https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+
+[3] <a name="ODtor"></a> COVID-19: Open Data Toronto
+https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
+
+[4] <a name="HealthCan"></a> COVID-19: Health Canada
+
+[5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
+
+
+
+The "covid19.analytics" R package also provides basic analysis tools and functions to
+investigate these datasets.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 <!--
@@ -1225,7 +1248,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
-### Data Sources
+### Data Sources <a name="dataSrcs"></a>
 [1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
