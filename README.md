@@ -49,19 +49,19 @@ to researchers and the scientific community.
 
 The package provides access to the following open-access data sources:
 
-[1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+ * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
-[2] <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
+ * **[2]** <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
 https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
 
-[3] <a name="ODtor"></a> COVID-19: Open Data Toronto
+ * **[3]** <a name="ODtor"></a> COVID-19: Open Data Toronto
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
-[4] <a name="HealthCan"></a> COVID-19: Health Canada
+ * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
 
-[5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+ * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
