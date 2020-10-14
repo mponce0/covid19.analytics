@@ -40,12 +40,36 @@
 
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
-*novel CoronaVirus Disease* originally reported in 2019, CoViD-19, as published by the
-JHU CCSE repository [[1](#JHUrepo)], as well as, provide basic analysis tools and functions to
-investigate these datasets.
-
-The goal of this package is to make the latest data promptly available
+*novel CoronaVirus Disease* originally reported in 2019, CoViD-19.
+One of the main goals of this package is to make the latest data promptly available
 to researchers and the scientific community.
+
+
+### Data Sources <a name="dataSrcs"></a>
+
+The "covid19.analytics" package provides access to the following open-access data sources:
+
+ * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
+https://github.com/CSSEGISandData/COVID-19
+
+ * **[2]** <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
+https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+
+ * **[3]** <a name="ODtor"></a> COVID-19: Open Data Toronto
+https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
+
+ * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/src/data/covidLive
+
+ * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
+
+
+
+The "covid19.analytics" package also provides basic analysis tools and functions to
+investigate these datasets.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
 <!--
@@ -260,7 +284,7 @@ That's why the covid19.analytics package provides access to a good number of the
 data currently available.
 
 The `covid19.genomic.data()` function allows users to obtain the CoViD19's
-genomics data from NCBI's databases [[3](#NCBIgenome)].
+genomics data from NCBI's databases [[5](#NCBIgenome)].
 The type of genomics data accessible from the package is described in
 the following table.
 
@@ -371,7 +395,12 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] </td>
+    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
+    <td> return dataframe/list with the collected data </td>
+  </tr>
+   <tr>
+    <td> <code>covid19.Canada.data</code> </td>
+    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HCdata">4</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
@@ -382,7 +411,7 @@ and daily changes in the reported number of cases.
 
 <tr>
   <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
-    <td> obtain covid19's genomic sequencing data from NCBI [<a href="#NCBIgenome">3</a>] </td>
+    <td> obtain covid19's genomic sequencing data from NCBI [<a href="#NCBIgenome">5</a>] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
@@ -1225,6 +1254,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+### Data Sources <a name="dataSrcs"></a>
 [1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
@@ -1232,15 +1262,15 @@ https://github.com/CSSEGISandData/COVID-19
 [2] <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
 https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
 
-[3] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+[3] <a name="ODtor"></a> COVID-19: Open Data Toronto
+https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
+
+[4] <a name="HealthCan"></a> COVID-19: Health Canada
+ https://health-infobase.canada.ca/src/data/covidLive
+
+[5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
-
-* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
-Complexity of the Basic Reproduction Number (R0).
-Emerg Infect Dis. 2019;25(1):1-4.
-https://dx.doi.org/10.3201/eid2501.171901
-https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 
 </details>
 
@@ -1281,6 +1311,15 @@ A BibTeX entry for LaTeX users is
  <br>
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
+
+
+### Other References
+* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
+Complexity of the Basic Reproduction Number (R0).
+Emerg Infect Dis. 2019;25(1):1-4.
+https://dx.doi.org/10.3201/eid2501.171901
+https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
 
 ### More R Resources
 * The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
