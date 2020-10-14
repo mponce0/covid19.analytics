@@ -47,7 +47,7 @@ to researchers and the scientific community.
 
 ### Data Sources <a name="dataSrcs"></a>
 
-The package provides access to the following open-access data sources:
+The "covid19.analytics" package provides access to the following open-access data sources:
 
  * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
@@ -67,7 +67,7 @@ https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
 
 
-The "covid19.analytics" R package also provides basic analysis tools and functions to
+The "covid19.analytics" package also provides basic analysis tools and functions to
 investigate these datasets.
 
 <object data="man/figures/livemap.html" width="105%" height="525"></object>
