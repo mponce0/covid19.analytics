@@ -260,7 +260,7 @@ That's why the covid19.analytics package provides access to a good number of the
 data currently available.
 
 The `covid19.genomic.data()` function allows users to obtain the CoViD19's
-genomics data from NCBI's databases [[3](#NCBIgenome)].
+genomics data from NCBI's databases [[5](#NCBIgenome)].
 The type of genomics data accessible from the package is described in
 the following table.
 
@@ -382,7 +382,7 @@ and daily changes in the reported number of cases.
 
 <tr>
   <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
-    <td> obtain covid19's genomic sequencing data from NCBI [<a href="#NCBIgenome">3</a>] </td>
+    <td> obtain covid19's genomic sequencing data from NCBI [<a href="#NCBIgenome">5</a>] </td>
   <td> list, with the RNA seq data in the <code>"$NC_045512.2"</code> entry </td>
  </tr>
    <tr>
@@ -1225,6 +1225,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 <details>
     <summary>Click to Expand/Collapse</summary>
 
+* Data Sources
+
 [1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
@@ -1232,7 +1234,12 @@ https://github.com/CSSEGISandData/COVID-19
 [2] <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
 https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
 
-[3] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+[3] <a name="ODtor"></a> COVID-19: Open Data Toronto
+https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
+
+[4] <a name="HealthCan"></a> COVID-19: Health Canada
+
+[5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
