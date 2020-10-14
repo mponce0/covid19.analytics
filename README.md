@@ -1243,12 +1243,6 @@ https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
-* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
-Complexity of the Basic Reproduction Number (R0).
-Emerg Infect Dis. 2019;25(1):1-4.
-https://dx.doi.org/10.3201/eid2501.171901
-https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
-
 </details>
 
 
@@ -1288,6 +1282,15 @@ A BibTeX entry for LaTeX users is
  <br>
  <a href="https://phil.cdc.gov/Details.aspx?pid=2871" target="_blank">Source-Credit: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS</a>
 </p>
+
+
+### Other References
+* Delamater PL, Street EJ, Leslie TF, Yang Y, Jacobsen KH.
+Complexity of the Basic Reproduction Number (R0).
+Emerg Infect Dis. 2019;25(1):1-4.
+https://dx.doi.org/10.3201/eid2501.171901
+https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
+
 
 ### More R Resources
 * The R Epidemics Consortium (RECON): https://www.repidemicsconsortium.org/
