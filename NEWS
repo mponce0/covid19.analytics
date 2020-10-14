@@ -1,3 +1,7 @@
+Oct 2020: Adding more data sources _ ver 2.01
+		- New covid19.Toronto_OD.data fn, to obtain data from Open Data Toronto
+		- New covid19.Canada.data fn, to obtain data from Health Canada
+
 Sept 2020:  Several new features added _ ver 2
 		- New dashboard interface, via covid19Explorer fn
 		- local data restructured to be stored in RDS format instead of CVS
