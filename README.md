@@ -395,7 +395,12 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] </td>
+    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
+    <td> return dataframe/list with the collected data </td>
+  </tr>
+   <tr>
+    <td> <code>covid19.Canada.data</code> </td>
+    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HCdata">4</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
