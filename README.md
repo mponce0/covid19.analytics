@@ -41,32 +41,9 @@
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel CoronaVirus Disease* originally reported in 2019, CoViD-19.
-One of the main goals of this package is to make the latest data promptly available
-to researchers and the scientific community.
 
-
-### Data Sources <a name="dataSrcs"></a>
-
-The "covid19.analytics" package provides access to the following open-access data sources:
-
- * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
-Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
-https://github.com/CSSEGISandData/COVID-19
-
- * **[2]** <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
-https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
-
- * **[3]** <a name="ODtor"></a> COVID-19: Open Data Toronto
-https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
-
- * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
-https://health-infobase.canada.ca/src/data/covidLive
-
- * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
-NCBI Reference Sequence: NC_045512.2
-https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
-
-
+One of the main goals of this package is to make the latest data about the covid19 pandemic
+promptly available to researchers and the scientific community.
 
 The "covid19.analytics" package also provides basic analysis tools and functions to
 investigate these datasets.
@@ -85,7 +62,6 @@ The following sections briefly describe some of the covid19.analytics package ma
 
 
 ## covid19.analytics Main Features  <a name="packageFeatures"></a>
-
 The `covid19.analytics` package is an open source tool, which its main implementation and API
 is the R package.
 In addition to this, the package has a few more adds-on:
@@ -109,6 +85,26 @@ In addition to this, the package has a few more adds-on:
  robust accesibility sake.
  
 
+
+### Data Sources <a name="dataSrcs"></a>
+The "covid19.analytics" package provides access to the following open-access data sources:
+
+ * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
+https://github.com/CSSEGISandData/COVID-19
+
+ * **[2]** <a name="TORdata"></a> COVID-19: Status of Cases in Toronto -- City of Toronto
+https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+
+ * **[3]** <a name="ODtor"></a> COVID-19: Open Data Toronto
+https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
+
+ * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/src/data/covidLive
+
+ * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+NCBI Reference Sequence: NC_045512.2
+https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
 
 <details>
@@ -400,7 +396,7 @@ and daily changes in the reported number of cases.
   </tr>
    <tr>
     <td> <code>covid19.Canada.data</code> </td>
-    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HCdata">4</a>] </td>
+    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HealthCan">4</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
