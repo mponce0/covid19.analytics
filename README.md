@@ -1151,6 +1151,10 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### Publications
 * Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385. -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
+* D.Mercatelli et al., *"Web tools to fight pandemics: the COVID-19 experience"*, Briefings in Bioinformatics --
+https://doi.org/10.1093/bib/bbaa261
+* N.Hussain, B.Li, *"Using R-studio to examine the COVID-19 Patients in Pakistan Implementation of SIR Model on Cases"*, Int Journal of  Scientific Research in Multidisciplinary Studies --
+https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 
 
 #### RECON: R Epidemics Consortium - COVID19 Challenge
@@ -1176,6 +1180,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * Featured on "Eye on AI" papers review:
         https://www.eye-on.ai/ai-research-watch-papers/2020/9/7/202097-society-papers
 
+* https://youtu.be/n-sCFsUw0yg
+
 * https://www.kaggle.com/nishantbhadauria/r-covid19-analytics-tutorial-sir-model-maps-glms
 * https://rstudio-pubs-static.s3.amazonaws.com/627247_4a5e9d5780844ca2bcddfdd13733cb67.html
 * https://people.math.carleton.ca/~davecampbell/datasets/2020/07/24/covid-data-covid-19-govenrmne-of-canada-and-jhu-csse/
@@ -1184,6 +1190,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 * http://bactra.org/weblog/1176.html
 * https://rpubs.com/pawan_thapa
 * https://rpubs.com/Drshunya
+* https://rpubs.com/vegatroz
 * https://forums.futura-sciences.com/programmation-langages-algorithmique/883064-r-data-science-analyse-de-donnees-covid19.html                               
 * https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/                                                                                  
 * https://medium.com/analytics-vidhya/corona-19-visualizations-with-r-and-tableau-595296894ca7                                                                
