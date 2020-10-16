@@ -1170,7 +1170,6 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 
 
 #### Other publications and studies
-* https://www.academia.edu/44042710/Using_R_studio_to_examine_the_COVID_19_Patients_in_Pakistan_Implementation_of_SIR_Model_on_Cases
 * https://www.researchgate.net/publication/341832722_An_Evaluation_of_the_Frameworks_for_Predicting_COVID-19_in_Nigeria_using_Data_Analytics
 
 
