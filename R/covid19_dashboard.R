@@ -320,9 +320,9 @@ torontoUI <- function(id) {
 	ns <- NS(id)
 	box(width=12,
 		h2('Toronto Latest Data Set'),
-		valueBoxOutput(ns("vbox_death"), width=3),
-		valueBoxOutput(ns("vbox_active"), width=3),
-		valueBoxOutput(ns("vbox_recover"), width=3),
+		valueBoxOutput(ns("vbox_d1"), width=3),
+		valueBoxOutput(ns("vbox_d2"), width=3),
+		valueBoxOutput(ns("vbox_d3"), width=3),
 		valueBoxOutput(ns("vbox_total"), width=3),
 		fluidRow(
 			column(4, downloadButton(ns('download_Toronto_Data'), "Download")),
@@ -724,6 +724,15 @@ torontoServer <- function(input, output, session, result) {
 
 	output$table_toronto <- renderDataTable({
 		ts.data <- covid19.Toronto.data()
+		# will reverse the order of the dates, so the latest values (dates) show up first
+		#datesCols <- grep("-",names(ts.data))
+		ts.data <- ts.data[with(ts.data,#order(c(1:4,length(ts.data),rev(datesCols))))]
+						rev(1:length(ts.data)))]
+		# add new cases row
+		ts.data[4,2:(length(ts.data)-5)] <- -diff(as.numeric(ts.data[3,2:(length(ts.data)-4)]))
+		ts.data[4,1] <- "New cases"
+		ts.data[4,(length(ts.data)-4):length(ts.data)] <- ts.data[1,(length(ts.data)-4):length(ts.data)]
+		ts.data <- as.data.frame(ts.data) 
 	}, options = list(scrollX = TRUE, autoWidth = TRUE)  )
 
 	data <- reactive({
@@ -748,16 +757,16 @@ torontoServer <- function(input, output, session, result) {
 		return(b)
 	})
 
-	output$vbox_death <- renderValueBox({
+	output$vbox_d1 <- renderValueBox({
 		b <- getx()
 		#tags$p("90k", style = "font-size: 150%;")
-	    valueBox(value=tags$p(paste('Active ', b[1], sep="\n"), style="font-size: 16pt"), width = 3, subtitle ='', color = 'red')
+	    valueBox(value=tags$p(paste('Death ', b[1], sep="\n"), style="font-size: 16pt"), width = 3, subtitle ='', color = 'red')
 	})
-	output$vbox_active <- renderValueBox({
+	output$vbox_d2 <- renderValueBox({
 		b <- getx()
-	    valueBox(value=tags$p(paste('Death ', b[2], sep="\n"), style="font-size: 16pt"), width = 3, subtitle ='', color = 'yellow')
+	    valueBox(value=tags$p(paste('Active ', b[2], sep="\n"), style="font-size: 16pt"), width = 3, subtitle ='', color = 'yellow')
 	})
-	output$vbox_recover <- renderValueBox({
+	output$vbox_d3 <- renderValueBox({
 		b <- getx()
 	    valueBox(value=tags$p(paste('Recovered ', b[3], sep="\n"), style="font-size: 16pt"), width = 3, subtitle ='', color = 'green')
 	})
