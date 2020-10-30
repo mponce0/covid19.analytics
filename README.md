@@ -1013,7 +1013,7 @@ ts.data <- covid19.data("ts-confirmed")
 mtrends(ts.data, geo.loc=c("Canada","Ontario","Uruguay","Italy")
 
 # multiple cases
-single.trend(tor.data)
+mtrends(tor.data)
 
 
 # interactive plot of trends
