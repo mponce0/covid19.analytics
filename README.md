@@ -982,7 +982,7 @@ growth.rate(TSconfirmed,geo.loc=c("Italy","Canada","Ontario","Quebec","Uruguay")
 
 growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","United States","Canada","Ontario","Quebec","Uruguay"))
 
-growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario","Quebec","Uruguay")
+growth.rate(TSconfirmed,geo.loc=c("Hubei","Italy","Spain","US","Canada","Ontario","Quebec","Uruguay"))
 ```
 
 <p>
@@ -1158,7 +1158,8 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 
 
 #### RECON: R Epidemics Consortium - COVID19 Challenge
-* https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/
+* https://tasks.repidemicsconsortium.org/
+<!-- https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/ -->
 
 #### CoronaWhy datasets
 * http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
@@ -1187,6 +1188,7 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 * https://theactuarialclub.com/2020/05/15/covid-19-analysis-modelling-visualization-using-r/
 * https://stackoverflow.com/questions/63822239/get-r-data-frame-in-python-using-rpy2
 * http://bactra.org/weblog/1176.html
+* https://rpubs.com/MirzaWAhmed/689518
 * https://rpubs.com/pawan_thapa
 * https://rpubs.com/Drshunya
 * https://rpubs.com/vegatroz
