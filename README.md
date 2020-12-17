@@ -1189,6 +1189,7 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 * https://stackoverflow.com/questions/63822239/get-r-data-frame-in-python-using-rpy2
 * https://stackoverflow.com/questions/65155336/how-do-you-add-the-live-map-function-from-covid19-analytics-to-a-shiny-app
 * http://bactra.org/weblog/1176.html
+* https://rpubs.com/alexvezeau
 * https://rpubs.com/MirzaWAhmed/689518
 * https://rpubs.com/pawan_thapa
 * https://rpubs.com/Drshunya
