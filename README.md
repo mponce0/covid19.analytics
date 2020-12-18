@@ -1124,9 +1124,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 #### University Resources
 * The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 * UofT Libraries:
-	- Tutorials
+	- Tutorials 
 		https://mdl.library.utoronto.ca/covid-19/tutorials
-	- Data Sources
+	- Data & Statistical Sources 
 		  https://mdl.library.utoronto.ca/covid-19/data
 * Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
 
