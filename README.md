@@ -1170,7 +1170,8 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 
 
 #### Dashboards
-* https://shiny.cliffweaver.com/covid/ --  https://shiny.cliffweaver.com/covid/#section-about
+* https://shiny.cliffweaver.com/covid/  --  https://shiny.cliffweaver.com/covid/#section-about
+* https://shiny.cliffweaver.com/covid_mobility/  --  https://shiny.cliffweaver.com/covid_mobility/#section-about
 * https://covid19analytics.scinet.utoronto.ca
 
 
