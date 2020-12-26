@@ -1123,7 +1123,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 #### University Resources
 * The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
-* UofT Libraries:  https://mdl.library.utoronto.ca/covid-19/data
+* UofT Libraries:
+	- Tutorials 
+		https://mdl.library.utoronto.ca/covid-19/tutorials
+	- Data & Statistical Sources 
+		  https://mdl.library.utoronto.ca/covid-19/data
 * Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
 
 
@@ -1150,6 +1154,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
     <summary>Click to Expand/Collapse</summary>
 
 #### Publications
+* Deldar et al., *"SIR Model for Estimations of the Coronavirus Epidemic Dynamics in Iran"*, Jurnal of Biostatistics and Epidemiology 6(2):101-106 (2020) --
+https://doi.org/10.18502/jbe.v6i2.4872
 * Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385. -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
 * D.Mercatelli et al., *"Web tools to fight pandemics: the COVID-19 experience"*, Briefings in Bioinformatics --
 https://doi.org/10.1093/bib/bbaa261
@@ -1166,7 +1172,8 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 
 
 #### Dashboards
-* https://shiny.cliffweaver.com/covid/ --  https://shiny.cliffweaver.com/covid/#section-about
+* https://shiny.cliffweaver.com/covid/  --  https://shiny.cliffweaver.com/covid/#section-about
+* https://shiny.cliffweaver.com/covid_mobility/  --  https://shiny.cliffweaver.com/covid_mobility/#section-about
 * https://covid19analytics.scinet.utoronto.ca
 
 
