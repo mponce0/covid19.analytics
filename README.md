@@ -1154,6 +1154,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
     <summary>Click to Expand/Collapse</summary>
 
 #### Publications
+* Deldar et al., *"SIR Model for Estimations of the Coronavirus Epidemic Dynamics in Iran"*, Jurnal of Biostatistics and Epidemiology 6(2):101-106 (2020) --
+https://doi.org/10.18502/jbe.v6i2.4872
 * Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385. -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
 * D.Mercatelli et al., *"Web tools to fight pandemics: the COVID-19 experience"*, Briefings in Bioinformatics --
 https://doi.org/10.1093/bib/bbaa261
