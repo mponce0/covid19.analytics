@@ -1205,10 +1205,10 @@ Preprints (2020) --
 * https://rpubs.com/Drshunya
 * https://rpubs.com/vegatroz
 * https://forums.futura-sciences.com/programmation-langages-algorithmique/883064-r-data-science-analyse-de-donnees-covid19.html                               
-* https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/                                                                                  
+* https://www.europeanvalley.es/noticias/analizamos-datos-del-covid19-con-r/
+* https://medium.com/r-tutorials/how-to-get-daily-covid-19-data-using-r-25bde150df5e
 * https://medium.com/analytics-vidhya/corona-19-visualizations-with-r-and-tableau-595296894ca7                                                                
-* http://sanaitics.com/research-paper.aspx 
-
+* http://www.sanaitics.com/research-paper.aspx?id=112
 
 <!--
 </details>
