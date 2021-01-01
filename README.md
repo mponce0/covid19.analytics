@@ -1122,13 +1122,15 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 #### University Resources
-* The Bulletin Brief -- Univerity of Toronto (UofT):  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
+* The Bulletin Brief -- University of Toronto (UofT):
+  https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 * UofT Libraries:
 	- Tutorials 
 		https://mdl.library.utoronto.ca/covid-19/tutorials
 	- Data & Statistical Sources 
 		  https://mdl.library.utoronto.ca/covid-19/data
-* Department of Statistics, Warwick University (UK):  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
+* Department of Statistics, Warwick University (UK):
+  https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
 
 
 #### Compute Ontario, Compute Canada
@@ -1154,8 +1156,7 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
     <summary>Click to Expand/Collapse</summary>
 
 #### Publications
-* C.M.Yeşilkanat, *"Spatio-temporal estimation of the daily cases of COVID-19 in worldwide using random forest machine learning algorithm"*, Chaos, Solitons & Fractals (2020); 140(110210) --
-https://doi.org/10.1016/j.chaos.2020.110210
+* C.M.Yeşilkanat, *"Spatio-temporal estimation of the daily cases of COVID-19 in worldwide using random forest machine learning algorithm"*, Chaos, Solitons & Fractals (2020); 140(110210) -- https://doi.org/10.1016/j.chaos.2020.110210
 * M.Deldar et al., *"SIR Model for Estimations of the Coronavirus Epidemic Dynamics in Iran"*, Journal of Biostatistics and Epidemiology (2020); 6(2):101-106  --
 https://doi.org/10.18502/jbe.v6i2.4872
 * Hackenberger BK, *"From apparent to true - from frequency to distributions (II)"*, Croat Med J. (2020); 61(4):381-385  -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7480748/
