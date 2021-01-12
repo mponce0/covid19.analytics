@@ -1187,6 +1187,8 @@ Preprints (2020) --
 * M.Murali and R.Srinivasan, "Forecasting COVID-19 Confirmned Cases in India with Snaive, ETS, ARIMA Methods"*, (2020) --
   http://bulletinmonumental.com/gallery/4-sep2020.pdf
 * https://www.researchgate.net/publication/341832722_An_Evaluation_of_the_Frameworks_for_Predicting_COVID-19_in_Nigeria_using_Data_Analytics
+* RDA COVID-19 Epidemiology WG, *"Sharing COVID-19 Epidemiology Data"*, Research Data Alliance (2020) --
+  https://doi.org/10.15497/rda00049
 
 
 #### Community & Turorials
