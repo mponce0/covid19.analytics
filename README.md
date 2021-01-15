@@ -1164,6 +1164,7 @@ https://doi.org/10.18502/jbe.v6i2.4872
 https://doi.org/10.1093/bib/bbaa261
 * N.Hussain, B.Li, *"Using R-studio to examine the COVID-19 Patients in Pakistan Implementation of SIR Model on Cases"*, Int Journal of  Scientific Research in Multidisciplinary Studies (2020); 6(8):54-59  --
 https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
+* List of <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=%22covid19.analytics%22&btnG=" target="_blank">all publications using "covid19.analytics" (from Google Scholar)</a>
 
 
 #### RECON: R Epidemics Consortium - COVID19 Challenge
@@ -1193,7 +1194,7 @@ Preprints (2020) --
     http://dx.doi.org/10.2139/ssrn.3695335
 
 
-#### Community & Turorials
+#### Community & Tutorials
 * Featured on "R-bloggers" - Top 40 CRAN packages (April 2020):
 	https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
 * Featured on "Eye on AI" papers review:
