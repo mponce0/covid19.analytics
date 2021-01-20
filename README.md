@@ -106,6 +106,13 @@ https://health-infobase.canada.ca/src/data/covidLive
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
+ * **[6]** <a name="OWIDvaccination"></a> CoViD-19 Vaccination records from "Our World In Data" (OWID)
+ https://github.com/owid/
+ 
+ * **[7]** <a name="VCpandemics"></a> Pandemics historical records from Visual Capitalist (and sources within)
+ https://www.visualcapitalist.com/history-of-pandemics-deadliest/
+ https://www.visualcapitalist.com/the-race-to-save-lives-comparing-vaccine-development-timelines/
+ 
 
 <details>
     <summary>Click to Expand/Collapse</summary>
@@ -404,6 +411,19 @@ and daily changes in the reported number of cases.
     <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframe with the collected data </td>
   </tr>
+
+   <tr>
+    <td> <code>covid19.vaccination</code> </td>
+    <td> obtain up-to-date CoViD-19 vaccination records from [<a href="#OWIDvaccination">5</a>] </td>
+    <td> return dataframe/list with the collected data </td>
+  </tr>
+
+   <tr>
+    <td> <code>pandemics.data</code> </td>
+    <td> obtain pandemics and pandemics vaccination *historical* records from [<a href="#VCpandemics">6</a>] </td>
+    <td> return dataframe with the collected data </td>
+  </tr>
+
 
 <tr>
   <td> <code>covid19.genomic.data  c19.refGenome.data  c19.fasta.data  c19.ptree.data  c19.NPs.data  c19.NP_fasta.data</code> </td>
