@@ -1,1 +1,0 @@
-covid19analytics_JOSS.md
