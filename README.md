@@ -106,7 +106,7 @@ https://health-infobase.canada.ca/src/data/covidLive
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
- * **[6]** <a name="OWIDvaccination"></a> CoViD-19 Vaccination records from "Our World In Data" (OWID)
+ * **[6]** <a name="OWIDvaccination"></a> CoViD-19 Vaccination and Testing records from "Our World In Data" (OWID)
  https://github.com/owid/
  
  * **[7]** <a name="VCpandemics"></a> Pandemics historical records from Visual Capitalist (and sources within)
@@ -1317,6 +1317,13 @@ https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 [5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
+
+[6] <a name="OWIDvaccination"></a> CoViD-19 Vaccination and Testing records from "Our World In Data" (OWID)
+https://github.com/owid/
+ 
+[7] <a name="VCpandemics"></a> Pandemics historical records from Visual Capitalist (and sources within)
+ https://www.visualcapitalist.com/history-of-pandemics-deadliest/
+ https://www.visualcapitalist.com/the-race-to-save-lives-comparing-vaccine-development-timelines/
 
 </details>
 
