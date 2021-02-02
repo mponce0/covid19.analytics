@@ -1,4 +1,15 @@
 #!/bin/bash
+#
+# script to update covid19 cases datasets and convert them into RDS
+# results are generated into xxx-DATE
+
+DATE=`date -v-1d +"%m-%d-%Y"`
+
+dirTGT="updateDS_"${DATE}
+origDIR=`pwd`
+
+mkdir ${dirTGT}
+cd ${dirTGT}
 
 #curl -L -O https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv
 
@@ -19,7 +30,8 @@ done
 
 echo "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-27-2020.csv"
 
-dailyReport=${JHUurl}/${AGGdomain}/`date -v-1d +"%m-%d-%Y"`".csv"
+#dailyReport=${JHUurl}/${AGGdomain}/`date -v-1d +"%m-%d-%Y"`".csv"
+dailyReport=${JHUurl}/${AGGdomain}/${DATE}".csv"
 echo $dailyReport
 curl -L -O $dailyReport
 
@@ -30,3 +42,9 @@ FILEID="1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY"
 FILENAME="covid19_Toronto.xlsx"	#"City.of.Toronto.xlsx"
 #wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O FILENAME
 curl -L "https://docs.google.com/uc?export=download&id=$FILEID" > $FILENAME
+
+
+# RUN Rscript csv2rds.R
+Rscript ../csv2rds.R
+
+ln -s  ${DATE}".csv.RDS"  latest.RDS
