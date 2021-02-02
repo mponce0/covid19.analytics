@@ -7,7 +7,7 @@
 OWID.repos <- function(tgt) {
 #' function to define the OWID repos URLs
 #'
-#' @param  tgt  target case:  'VAC.global','VAC.us','VAC.country','VAC.locations', 'testing'
+#' @param  tgt  target case:  'VAC.global','VAC.us','VAC.country','VAC.locations', 'testing', 'testing.details'
 #'
 #' @return  URL
 #'
@@ -46,6 +46,8 @@ OWID.repos <- function(tgt) {
 	# TESTING REPOS
 	} else if (tgt == 'testing') {
 		repo <- testing.data
+	} else if (tgt == 'testing.details') {
+		repo <- testing.data.details
 	# UNRECOGNIZED option
 	} else {
 		stop("Error : unrecognized target! -- ",tgt)
@@ -112,9 +114,10 @@ covid19.vaccination <- function(tgt="global", data.fmt='orig', disclaimer=TRUE){
 
 
 
-covid19.testing.data <- function(disclaimer=TRUE){
+covid19.testing.data <- function(tgt='testing', disclaimer=TRUE){
 #' function to read data related to covid19 Testing from OWID repo
 #'
+#' @param  tgt  selects between time series data ('testing') and details and overall view of the data ("testing.details")
 #' @param  disclaimer  indicates whether the information about the source of the data is disclosed
 #'
 #' @return  dataframe containing list of countries (Entity) and testing data
@@ -122,8 +125,12 @@ covid19.testing.data <- function(disclaimer=TRUE){
 #' @export
 #'
 
-	tgt <- "testing"
-	repo <- OWID.repos("testing")
+	valid.options <- c("testing","testing.details")
+
+	if (sum(tgt %in% valid.options) != 1)
+		stop("tgt argument must be one of the following options:  ", paste(valid.options,collapse=' '))
+
+	repo <- OWID.repos(tgt)
 
 	tst.data <- c19.OWID.data(repo,disclaimer)
 
