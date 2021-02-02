@@ -419,6 +419,12 @@ and daily changes in the reported number of cases.
   </tr>
 
    <tr>
+    <td> <code>covid19.testing.data</code> </td>
+    <td> obtain up-to-date CoViD-19 testing records from [<a href="#OWIDvaccination">5</a>] </td>
+    <td> return dataframe with the testing data or testing data details </td>
+  </tr>
+ 
+   <tr>
     <td> <code>pandemics.data</code> </td>
     <td> obtain pandemics and pandemics vaccination *historical* records from [<a href="#VCpandemics">6</a>] </td>
     <td> return dataframe with the collected data </td>
