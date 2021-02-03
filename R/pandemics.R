@@ -42,6 +42,8 @@ pandemics.data <- function(acknowledge=TRUE, show=FALSE, tgt='pandemics') {
 #'
 #' @return data.frame
 #'
+#' @export
+#'
 
 	if (tgt=='pandemics') {
 		src.descr <- "Pandemic historical records -- data from  https://www.visualcapitalist.com/history-of-pandemics-deadliest/"
