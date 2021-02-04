@@ -258,7 +258,7 @@ covid19.Toronto_OD.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE
 		}
 
 		names(df.cum.cases) <- sort(unique(openDataTOR$Episode.Date))
-		df.cum.cases <- cbind(df.cum.cases, Status=cases.types)
+		df.cum.cases <- cbind(df.cum.cases, Status=as.character(cases.types), stringsAsFactors=FALSE)
 
 		# fix names and conventions
 		colnames <- names(df.cum.cases)
