@@ -34,9 +34,18 @@ r_packages:
 #  - testthat
 
 
-#before_install:
-#  #- R -e 'devtools::install_deps(dep = T)'
-#  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
+##before_install:
+##  #- R -e 'devtools::install_deps(dep = T)'
+##  - Rscript -e "pckgs <- c('knitr', 'readxl', 'ape', 'rentrez', 'plotly', 'htmlwidgets', 'deSolve', 'gplots', 'pheatmap', 'shiny','shinydashboard','shinycssloaders','collapsibleTree','devtools','roxygen2','markdown','testhat'); install.packages(pckgs)"
+
+# skip Travid-CI trigger builds for "daily updates" (which are reflected in files in "man/figures"
+before_install:
+ - |
+   if ! git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(man/figures)'
+   then
+     echo "Not running CI since only docs were changed."
+     exit
+   fi
 
 
 #install:
