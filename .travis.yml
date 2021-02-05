@@ -41,7 +41,7 @@ r_packages:
 # skip Travid-CI trigger builds for "daily updates" (which are reflected in files in "man/figures"
 before_install:
  - |
-   if ! git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(man/figures)'
+   if ! git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(man/figures)|(.txt$)'
    then
      echo "Not running CI since only docs were changed."
      exit
