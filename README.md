@@ -548,7 +548,7 @@ and daily changes in the reported number of cases.
 
 
 ### API Documentation
-Documentation of the functions avaialble in the package can be found at
+Documentation of the functions available in the `covid19.analytrics` package can be found at
 https://cran.r-project.org/web/packages/covid19.analytics/covid19.analytics.pdf
 
 
@@ -1148,9 +1148,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 ## About  <a name="about"></a>
-### Authors Contributions
+### Authors
 * *Marcelo Ponce*: creator, author, mantainer and main developer of the package
-* *Amit Sandher*: contributor, main developer of the covid19.Explorer dashboard
+* *Amit Sandhel*: contributor, main developer of the covid19.Explorer dashboard
 * Community contributions are welcome and can be done via pull-requests
 
 
