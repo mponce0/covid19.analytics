@@ -25,8 +25,7 @@ With the emergence of a new pandemic worldwide, a novel strategy to approach
 it has also emerged.
 Several initiatives under the umbrella of *open science* are contributing to
 tackle this unprecedented situation.
-In particular, the *R Language and Environment for Statistical Computing*
-[@citeR; @ihaka:1996] offers an excellent tool and ecosystem for
+In particular, the *R Language* [@citeR; @ihaka:1996] offers an excellent tool and ecosystem for
 approaches focusing on open science and reproducible research.
 Hence it is not surprising that with the onset of the pandemic, a large number
 of R packages and resources were made available for researches working in the
@@ -44,36 +43,36 @@ The `covid19.analytics` package is an open source tool, which its main implement
 is the R package [@covid19analytics] which its stable version is part of CRAN [@cran].
 In addition to this, the package has a few more adds-on:
 
-- a central GitHUB repository, <https://github.com/mponce0/covid19.analytics>
+- A central GitHub repository, <https://github.com/mponce0/covid19.analytics>
   where the latest development version and source code of the package are
 available.
 Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
 
-- a rendered version with live examples and documentation also hosted at GitHUB
+- A rendered version with live examples and documentation also hosted at GitHub
   pages, <https://mponce0.github.io/covid19.analytics/>
 
-- a dashboard for interactive usage of the package with extended capabilities
+- A dashboard for interactive usage of the package with extended capabilities
   for users without any coding expertise,
 <https://covid19analytics.scinet.utoronto.ca>
 
-- a backup data repository hosted at GitHUB,
+- A backup data repository hosted at GitHub,
   <https://github.com/mponce0/covid19analytics.datasets> -- where replicas of
 the live datasets are stored for redundancy and robust accessibility sake (see \autoref{fig:dataSrcs}).
 
 
 The `covid19.analytics` R package allows users to obtain
 live^[The data usually is accessible from the repositories with a 24
-hours delay.] worldwide data of reported cases from the novel *Corona Virus
-Disease* (CoViD19), as well as related datasets, such as, genomics data,
+hours delay.] worldwide data of reported cases from the novel *Coronavirus
+Disease* (COVID-19), as well as related datasets, such as, genomics data,
 vaccinations records and historical pandemics records.
 It does this by accessing and retrieving the data publicly available and
 published by several sources:
 
-- the "COVID-19 Data Repository by the Center for Systems Science and
+- The "COVID-19 Data Repository by the Center for Systems Science and
   Engineering (CSSE) at Johns Hopkins University" [@JHUCSSErepo] for the
 worldwide and US data
 - Health Canada [@HealthCanada], for Canada specific data
-- the city of Toronto for Toronto data [@TorontoData]
+- The city of Toronto for Toronto data [@TorontoData]
 - Open Data Toronto for Toronto data [@OpenDataToronto]
 - Our World In Data for vaccination data [@OWIDvaccination]
 - NCBI servers for genomics datasets [@NCBIdatabases]
@@ -90,7 +89,7 @@ functionalities to less experienced users (see \autoref{fig:dashboard}).
 
 
 As today, there are a few dozen other packages also in the CRAN repository that
-allow users to gain access to different datasets of the CoViD19 pandemic.
+allow users to gain access to different datasets of the COVID-19 pandemic.
 In some cases, some packages just provide access to data from specific
 geographical locations or the approach to the data structure in which the
 data is presented is different from the one presented here.
