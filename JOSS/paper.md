@@ -21,11 +21,11 @@ bibliography: references.bib
 ---
 
 # Summary
-With the emergence of a new pandemic worldwide, a novel strategy to attempt to control it,
-enpowered by computational technqiues such as data analysis and compitational modelling, has also emerged.
+With the emergence of a new pandemic worldwide, novel strategies attempting to understand its evolution and dynamics,
+enpowered by computational techniques such as data analysis and computational modelling, have also emerged.
 Several initiatives under the umbrella of *open science* are contributing to
 tackle this unprecedented situation.
-In particular, the *R Language* [@citeR; @ihaka:1996] offers an excellent tool and ecosystem for
+In particular, the *R Language* [@citeR; @ihaka:1996] could be an excellent tool and ecosystem for
 approaches focusing on open science and reproducible research.
 Hence it is not surprising that with the onset of the pandemic, a large number
 of R packages and resources were made available for researches working in the
