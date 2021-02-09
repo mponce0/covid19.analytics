@@ -145,9 +145,13 @@ and direct access to the data might help on this front.
 Further details, documentation, examples and tutorials of the `covid19.analytics` package can be found on the [package repository](https://github.com/mponce0/covid19.analytics) and [@ponce2020covid19analytics].
 
 
-Users can submit bug reports, improvements requests or seek for support using the "issues tracker" tab from the GitHub repository.
-Contributions from users and the community are welcome and can be done using "pull requests" from the repository as well.
-
+Users can submit bug reports, improvements requests or seek for support using the
+["issues tracker"](https://github.com/mponce0/covid19.analytics/issues) tab from the GitHub repository.
+Contributions from users and the community are welcome and can be done using
+["pull requests"](https://github.com/mponce0/covid19.analytics/pulls) from the repository as well.
+We will continue working on adding and developing new features to the package,
+a glimpse and brief description about these can be found on the repository's
+[Projects area](https://github.com/mponce0/covid19.analytics/projects).
 
 
 # Acknowledgments
