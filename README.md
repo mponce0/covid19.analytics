@@ -26,9 +26,10 @@
     2. [Analytical & Graphical Indicators](#functionalities)
 3. [Installation](#installation)
 4. [Examples](#examples)
-5. [Media & Press](#media)
-6. [References and Citation](#references)
-    1. [Citing covid19.analytics](#citation)
+5. [About](#about)
+	1. [Media & Press](#media)
+	2. [References and Citation](#references)
+	    1. [Citing covid19.analytics](#citation)
 <!-- </details> -->
 <!-------------  TOC  ----------------->
 
@@ -544,6 +545,11 @@ and daily changes in the reported number of cases.
 
 
 ---
+
+
+### API Documentation
+Documentation of the functions available in the `covid19.analytrics` package can be found at
+https://cran.r-project.org/web/packages/covid19.analytics/covid19.analytics.pdf
 
 
 ### Details and Specifications of the Analytical & Visualization Functions
@@ -1140,14 +1146,22 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 </details>
 
 
-## Media and Press <a name="media"></a>
 
-### in the news
+## About  <a name="about"></a>
+### Authors
+* *Marcelo Ponce*: creator, author, mantainer and main developer of the package
+* *Amit Sandhel*: contributor, main developer of the covid19.Explorer dashboard
+* Community contributions are welcome and can be done via pull-requests
+
+
+### Media and Press <a name="media"></a>
+
+#### in the news
 <details>
     <summary>Click to Expand/Collapse</summary>
 
 
-#### University Resources
+##### University Resources
 * The Bulletin Brief -- University of Toronto (UofT):
   https://mailchi.mp/9cea706971a2/bulletinbrief-april6-2020?e=caa3066921
 * UofT Libraries:
@@ -1159,11 +1173,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
   https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
 
 
-#### Compute Ontario, Compute Canada
+##### Compute Ontario, Compute Canada
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
 
 
-#### Social media
+##### Social media
 * https://twitter.com/ComputeOntario/status/1245825891562917888
 * https://twitter.com/ComputeOntario/status/1270736806724632576?s=20
 * https://twitter.com/ComputeCanada/status/1246123408418426880
@@ -1177,11 +1191,11 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 </details>
 
 
-### used in ...
+#### used in ...
 <details>
     <summary>Click to Expand/Collapse</summary>
 
-#### Publications
+##### Publications
 * C.M.Yeşilkanat, *"Spatio-temporal estimation of the daily cases of COVID-19 in worldwide using random forest machine learning algorithm"*, Chaos, Solitons & Fractals (2020); 140(110210) -- https://doi.org/10.1016/j.chaos.2020.110210
 * M.Deldar et al., *"SIR Model for Estimations of the Coronavirus Epidemic Dynamics in Iran"*, Journal of Biostatistics and Epidemiology (2020); 6(2):101-106  --
 https://doi.org/10.18502/jbe.v6i2.4872
@@ -1193,21 +1207,21 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 * List of <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=%22covid19.analytics%22&btnG=" target="_blank">all publications using "covid19.analytics" (from Google Scholar)</a>
 
 
-#### RECON: R Epidemics Consortium - COVID19 Challenge
+##### RECON: R Epidemics Consortium - COVID19 Challenge
 * https://tasks.repidemicsconsortium.org/
 <!-- https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/ -->
 
-#### CoronaWhy datasets
+##### CoronaWhy datasets
 * http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
 
 
-#### Dashboards
+##### Dashboards
 * https://shiny.cliffweaver.com/covid/  --  https://shiny.cliffweaver.com/covid/#section-about
 * https://shiny.cliffweaver.com/covid_mobility/  --  https://shiny.cliffweaver.com/covid_mobility/#section-about
 * https://covid19analytics.scinet.utoronto.ca
 
 
-#### Other publications and studies
+##### Other publications and studies
 * Yadav et al., *"Analyzing the Current Status of India in Global Scenario with Reference to COVID-19 Pandemic"*,
 Preprints (2020) --
  https://doi.org/10.20944/preprints202007.0001.v1
@@ -1220,7 +1234,7 @@ Preprints (2020) --
     http://dx.doi.org/10.2139/ssrn.3695335
 
 
-#### Community & Tutorials
+##### Community & Tutorials
 * Featured on "R-bloggers" - Top 40 CRAN packages (April 2020):
 	https://www.r-bloggers.com/2020/05/april-2020-top-40-new-cran-packages/amp/                                                                                 
 * Featured on "Eye on AI" papers review:
@@ -1251,7 +1265,7 @@ Preprints (2020) --
 -->
 
 
-#### Stats
+##### Stats
 <!--
 <details>
     <summary>Click to Expand/Collapse</summary>
