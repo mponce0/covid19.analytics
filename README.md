@@ -547,6 +547,11 @@ and daily changes in the reported number of cases.
 ---
 
 
+### API Documentation
+Documentation of the functions avaialble in the package can be found at
+https://cran.r-project.org/web/packages/covid19.analytics/covid19.analytics.pdf
+
+
 ### Details and Specifications of the Analytical & Visualization Functions
 <details>
     <summary>Click to Expand/Collapse</summary>
