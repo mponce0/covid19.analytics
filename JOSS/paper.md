@@ -56,7 +56,7 @@ Users can also submit tickets for bugs, suggestions or comments using the "issue
   for users without any coding expertise,
 <https://covid19analytics.scinet.utoronto.ca>
 
-- a **backup** data repository hosted at GitHUB,
+- a backup data repository hosted at GitHUB,
   <https://github.com/mponce0/covid19analytics.datasets> -- where replicas of
 the live datasets are stored for redundancy and robust accessibility sake (see \autoref{fig:dataSrcs}).
 
@@ -86,6 +86,7 @@ The package also incorporates a dashboard to facilitate the access to its
 functionalities to less experienced users (see \autoref{fig:dashboard}).
 
 ![Screenshot of a `covid19.analytics` dashboard implementation -- the dashboard can be used through a web-interface or deployed locally in the users' machine.\label{fig:dashboard}](./dashboard-mosaic.png)
+
 
 
 As today, there are a few dozen other packages also in the CRAN repository that
@@ -125,6 +126,10 @@ and on that regards counting with a variety, in particular of open source tools
 and direct access to the data might help on this front.
 
 Further details, documentation, examples and tutorials of the `covid19.analytics` package can be found on the [package repository](https://github.com/mponce0/covid19.analytics) and [@ponce2020covid19analytics].
+
+Users can submit bug reports, improvements requests or seek for support using the "issues tracker" tab from the GitHub repository.
+Contributions from users and the community are welcome and can be done using "pull requests" from the repository as well.
+
 
 # Acknowledgments
 MP wants to thank all his colleagues at SciNet, especially Daniel Gruner for
