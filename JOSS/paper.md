@@ -21,8 +21,8 @@ bibliography: references.bib
 ---
 
 # Summary
-With the emergence of a new pandemic worldwide, a novel strategy to approach
-it has also emerged.
+With the emergence of a new pandemic worldwide, a novel strategy to attempt to control it,
+enpowered by computational technqiues such as data analysis and compitational modelling, has also emerged.
 Several initiatives under the umbrella of *open science* are contributing to
 tackle this unprecedented situation.
 In particular, the *R Language* [@citeR; @ihaka:1996] offers an excellent tool and ecosystem for
@@ -34,37 +34,11 @@ pandemic.
 In this paper, we present the `covid19.analytics` R package which allows users
 to access and analyze worldwide data from publicly available resources.
 
-The package also provides basic analysis and visualization tools and functions
-to investigate these datasets and other ones structured in a similar fashion.
-
-
-# Statement of need
-The `covid19.analytics` package is an open source tool, which its main implementation and API
-is the R package [@covid19analytics] which its stable version is part of CRAN [@cran].
-In addition to this, the package has a few more adds-on:
-
-- A central GitHub repository, <https://github.com/mponce0/covid19.analytics>
-  where the latest development version and source code of the package are
-available.
-Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
-
-- A rendered version with live examples and documentation also hosted at GitHub
-  pages, <https://mponce0.github.io/covid19.analytics/>
-
-- A dashboard for interactive usage of the package with extended capabilities
-  for users without any coding expertise,
-<https://covid19analytics.scinet.utoronto.ca>
-
-- A backup data repository hosted at GitHub,
-  <https://github.com/mponce0/covid19analytics.datasets> -- where replicas of
-the live datasets are stored for redundancy and robust accessibility sake (see \autoref{fig:dataSrcs}).
-
-
 The `covid19.analytics` R package allows users to obtain
 live^[The data usually is accessible from the repositories with a 24
 hours delay.] worldwide data of reported cases from the novel *Coronavirus
 Disease* (COVID-19), as well as related datasets, such as, genomics data,
-vaccinations records and historical pandemics records.
+testing and  vaccinations records and historical pandemics records.
 It does this by accessing and retrieving the data publicly available and
 published by several sources:
 
@@ -78,15 +52,17 @@ worldwide and US data
 - NCBI servers for genomics datasets [@NCBIdatabases]
 - Visual Capitalist infographics for historical pandemic records [@VCpandemics]
 
-
-![Schematic of the data acquisition flows between the `covid19.analytics` package and the different sources of data. Dark and solid/dashed lines represent API functions provided by the package accessible to the users. Dotted lines are "internal" mechanisms employed by the package to synchronize and update replicas of the data. \label{fig:dataSrcs}](./covid19-data-sources.pdf)
-
-The package also incorporates a dashboard to facilitate the access to its
-functionalities to less experienced users (see \autoref{fig:dashboard}).
-
-![Screenshot of a `covid19.analytics` dashboard implementation -- the dashboard can be used through a web-interface or deployed locally in the users' machine.\label{fig:dashboard}](./dashboard-mosaic.png)
+The package also provides basic analysis and visualization tools and functions
+to investigate these datasets and other ones structured in a similar fashion.
 
 
+
+# Statement of need
+One important element to consider in the case of an ongoing and unfolding pandemic,
+is the rapid data accessibility and its prompt availability.
+One of the main goals of the `covid19.analytics` package is to make the latest data
+related to the COVID19 pandemic promptly available to researchers and the scientific
+community.
 
 As today, there are a few dozen other packages also in the CRAN repository that
 allow users to gain access to different datasets of the COVID-19 pandemic.
@@ -104,14 +80,55 @@ This is specially true in a situation where the unfolding of events and data
 availability is flowing so fast that sometimes is even hard to keep track of
 all the changes.
 
+As today and to the best of our knowledge, there isn't any other R package
+that provides direct access to the COVID19 genomic data of the virus.
+The `covid19.analytics` package is indeed capable of retrieving genomics data,
+and it does that by incorporating a novel, more reliable and robust way of accessing and
+designing different pathways to the data sources.
+
 Moreover, the `covid19.analytics` package offers a modular and versatile approach to
 the data, by allowing users to input their own data for which most of the
 package functions can be applied when the data is structured using a
 *time series* format as described in the package documentation.
 
-The `covid19.analytics` package  is also capable of retrieving genomics data, and it does that
-by incorporating a novel, more reliable and robust way of accessing and
-designing different pathways to the data sources.
+
+
+# Functionalities and Main Features
+
+The `covid19.analytics` package is an open source tool, which its main goal is to offer
+users prompt and quick access to different data sources related to the unfolding pandemics.
+Its main implementation and API is the R package [@covid19analytics] which its stable version is part of CRAN [@cran].
+
+
+In addition to this, the package has a few more adds-on:
+
+- A central GitHub repository, <https://github.com/mponce0/covid19.analytics>
+  where the latest development version and source code of the package are
+available.
+Users can also submit tickets for bugs, suggestions or comments using the "issues" tab from this repository.
+
+- A rendered version with live examples and documentation also hosted at GitHub
+  pages, <https://mponce0.github.io/covid19.analytics/>
+
+- A dashboard for interactive usage of the package with extended capabilities
+  for users without any coding expertise,
+<https://covid19analytics.scinet.utoronto.ca>
+
+- A backup data repository hosted at GitHub,
+  <https://github.com/mponce0/covid19analytics.datasets> -- where replicas of
+the live datasets are stored for redundancy and robust accessibility sake (see \autoref{fig:dataSrcs}).
+
+
+![Schematic of the data acquisition flows between the `covid19.analytics` package and the different sources of data. Dark and solid/dashed lines represent API functions provided by the package accessible to the users. Dotted lines are "internal" mechanisms employed by the package to synchronize and update replicas of the data. \label{fig:dataSrcs}](./covid19-data-sources.pdf)
+
+
+The package also incorporates a dashboard to facilitate the access to its
+functionalities to less experienced users (see \autoref{fig:dashboard}).
+This can be accessed interactively in a local session or through the
+public deployed dashboard at the URL described above.
+
+![Screenshot of a `covid19.analytics` dashboard implementation -- the dashboard can be used through a web-interface or deployed locally in the users' machine.\label{fig:dashboard}](./dashboard-mosaic.png)
+
 
 Another unique feature of this package is the ability of incorporating models
 to estimate the disease spread by using the actual data.
@@ -124,10 +141,13 @@ However all of these approaches face new challenges as well [@Hu:2020aa],
 and on that regards counting with a variety, in particular of open source tools
 and direct access to the data might help on this front.
 
+
 Further details, documentation, examples and tutorials of the `covid19.analytics` package can be found on the [package repository](https://github.com/mponce0/covid19.analytics) and [@ponce2020covid19analytics].
+
 
 Users can submit bug reports, improvements requests or seek for support using the "issues tracker" tab from the GitHub repository.
 Contributions from users and the community are welcome and can be done using "pull requests" from the repository as well.
+
 
 
 # Acknowledgments
@@ -135,6 +155,7 @@ MP wants to thank all his colleagues at SciNet, especially Daniel Gruner for
 his continuous and unconditional support, and Marco Saldarriaga who helped us
 setting up the VM for installing the shiny server hosting the covid19.analytics
 dashboard web interface.
+
 
 
 # References
