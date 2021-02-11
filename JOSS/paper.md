@@ -1,5 +1,5 @@
 ---
-title: 'covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the 2019 Corona Virus Disease Pandemic'
+title: 'covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the 2019 Coronavirus Disease Pandemic'
 tags:
   - R
   - CRAN
