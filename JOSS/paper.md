@@ -87,8 +87,8 @@ and it does that by incorporating a novel, more reliable and robust way of acces
 designing different pathways to the data sources.
 
 Moreover, the `covid19.analytics` package offers a modular and versatile approach to
-the data, by allowing users to input their own data for which most of the
-package functions can be applied when the data is structured using a
+the data, by allowing users to input their own data for which most of the functions in the
+package can be applied when the data is structured using a
 *time series* format as described in the package documentation.
 
 
@@ -134,7 +134,7 @@ Another unique feature of this package is the ability of incorporating models
 to estimate the disease spread by using the actual data.
 The `covid19.analytics` package allows users to model the dispersion of the disease by
 implementing a simple *Susceptible-Infected-Recovered* (SIR) model
-[@kermack1927contribution, @smith2004sir].
+[@kermack1927contribution; @smith2004sir].
 The package can also generate multiple SIR models by varying some of the parameters
 used to select the actual data to be used in the model and some additional visualizations tools.
 
