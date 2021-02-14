@@ -38,9 +38,9 @@ The `covid19.analytics` R package allows users to obtain
 live^[The data usually is accessible from the repositories with a 24
 hours delay.] worldwide data of reported cases from the novel *Coronavirus
 Disease* (COVID-19), as well as related datasets, such as, genomics data,
-testing and  vaccinations records and historical pandemics records.
-It does this by accessing and retrieving the data publicly available and
-published by several sources:
+testing and vaccinations records and historical pandemics records.
+It does this by accessing and retrieving data publicly available and
+published by several sources, such as:
 
 - The "COVID-19 Data Repository by the Center for Systems Science and
   Engineering (CSSE) at Johns Hopkins University" [@JHUCSSErepo] for the
@@ -132,14 +132,14 @@ public deployed dashboard at the URL described above.
 
 Another unique feature of this package is the ability of incorporating models
 to estimate the disease spread by using the actual data.
-Although a simple model, it has shown some interesting results in agreement
-for certain cases.
-Of course there are more sophisticated approaches to shred light in analyzing
-this pandemic; in particular novel *community* approaches have been catalyzed
-by this too [@Luengo-Oroz:2020aa].
-However all of these approaches face new challenges as well [@Hu:2020aa],
-and on that regards counting with a variety, in particular of open source tools
-and direct access to the data might help on this front.
+The `covid19.analytics` package allows users to model the dispersion of the disease by
+implementing a simple *Susceptible-Infected-Recovered* (SIR) model
+[@kermack1927contribution, @smith2004sir].
+The package can also generate multiple SIR models by varying some of the parameters
+used to select the actual data to be used in the model and some additional visualizations tools.
+
+There are several plotting and visualization functions within the `covid19.analytics` package,
+both generating static and interactive visualizations.
 
 
 Further details, documentation, examples and tutorials of the `covid19.analytics` package can be found on the [package repository](https://github.com/mponce0/covid19.analytics) and [@ponce2020covid19analytics].
