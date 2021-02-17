@@ -48,7 +48,7 @@ worldwide and US data
 - Health Canada [@HealthCanada], for Canada specific data
 - The city of Toronto for Toronto data [@TorontoData]
 - Open Data Toronto for Toronto data [@OpenDataToronto]
-- Our World In Data for vaccination data [@OWIDvaccination]
+- Our World In Data for testing and vaccination data [@OWIDvaccination]
 - NCBI servers for genomics datasets [@NCBIdatabases]
 - Visual Capitalist infographics for historical pandemic records [@VCpandemics]
 
