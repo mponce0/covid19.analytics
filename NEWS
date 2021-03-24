@@ -1,8 +1,8 @@
-Jan 2021: More data sources added _ ver 2.1
+Feb/Mar 2021: More data sources added _ ver 2.1
 		- Vaccination data, from OWID
 		- Testing data, from OWID
 		- pandemics data, from Visual Capitalist infographics
-		- report.Tor fn, to report overview analysis of Toronto data
+		- adding flags for having conditional testing (_in unit testing module_)
 
 Oct 2020: Adding more data sources _ ver 2.01 (unreleased)
 		- New covid19.Toronto_OD.data fn, to obtain data from Open Data Toronto

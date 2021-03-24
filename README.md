@@ -1,5 +1,6 @@
 # COVID19.Analytics
 
+<!-- ~*~ -->
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)
@@ -8,7 +9,7 @@
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
 [![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/mponce0/covid19.analytics)
 <!-- badges: end -->
-
+<!-- ~*~ -->
 
 
 <!-------------  TOC  ----------------->
@@ -101,7 +102,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
  * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
+<!--
 https://health-infobase.canada.ca/src/data/covidLive
+https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
+-->
+https://health-infobase.canada.ca/covid-19/
 
  * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
@@ -547,10 +552,11 @@ and daily changes in the reported number of cases.
 ---
 
 
+<!-- ~*~ -->
 ### API Documentation
 Documentation of the functions available in the `covid19.analytrics` package can be found at
 https://cran.r-project.org/web/packages/covid19.analytics/covid19.analytics.pdf
-
+<!-- ~*~ -->
 
 ### Details and Specifications of the Analytical & Visualization Functions
 <details>
@@ -1174,8 +1180,9 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 
 
 ##### Compute Ontario, Compute Canada
+<!--
 * https://computeontario.ca/in-conversation-with-marcelo-ponce-about-his-covid19-analytics-r-package/
-
+-->
 
 ##### Social media
 * https://twitter.com/ComputeOntario/status/1245825891562917888
@@ -1212,8 +1219,9 @@ https://www.isroset.org/pub_paper/IJSRMS/9-IJSRMS-04417.pdf
 <!-- https://www.repidemicsconsortium.org/2020-06-09-covid-challenge/ -->
 
 ##### CoronaWhy datasets
+<!-- ~*~ -->
 * http://datasets.coronawhy.org/dataset.xhtml?persistentId=doi:10.5072/FK2/MYQFTR
-
+<!-- ~*~ -->
 
 ##### Dashboards
 * https://shiny.cliffweaver.com/covid/  --  https://shiny.cliffweaver.com/covid/#section-about
@@ -1332,7 +1340,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
 [4] <a name="HealthCan"></a> COVID-19: Health Canada
+<!--
  https://health-infobase.canada.ca/src/data/covidLive
+ https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
+-->
+https://health-infobase.canada.ca/covid-19/
 
 [5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
