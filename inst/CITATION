@@ -1,19 +1,35 @@
 citHeader("To cite covid19.analytics in publications use:")
 
+
 citEntry(entry = "Article",
-  title        = "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic",
+  title        = "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic",
   author       = personList(as.person("Marcelo Ponce"),
                    as.person("Amit Sandhel")),
-  journal      = "pre-print",
-  year         = "2020",
-#  volume       = "40",
-#  number       = "3",
+  journal      = "Journal of Open Source Software",
+  year         = "2021",
+  volume       = "6",
+  number       = "59",
 #  pages        = "1--25",
-  url          = "https://arxiv.org/abs/2009.01091",
+  doi          = "10.21105/joss.02995",
 
   textVersion  =
-  paste("Marcelo Ponce, Amit Sandhel (2020).",
-        "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic.",
-        #"Journal of Statistical Software, 40(3), 1-25.",
-        "URL https://arxiv.org/abs/2009.01091")
+  paste("Ponce et al. (2021).",
+        "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic.",
+        "Journal of Open Source Software, 6(59), 2995.",
+        "https://doi.org/10.21105/joss.02995")
 )
+
+#citEntry(entry = "Article",
+#  title        = "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic",
+#  author       = personList(as.person("Marcelo Ponce"),
+#                   as.person("Amit Sandhel")),
+#  journal      = "pre-print",
+#  year         = "2020",
+#  url          = "https://arxiv.org/abs/2009.01091",
+#
+#  textVersion  =
+#  paste("Marcelo Ponce, Amit Sandhel (2020).",
+#        "covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic.",
+#        #"Journal of Statistical Software, 40(3), 1-25.",
+#        "URL https://arxiv.org/abs/2009.01091")
+#)
