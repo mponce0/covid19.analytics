@@ -1380,12 +1380,6 @@ To cite covid19.analytics in publications use:
   Journal of Open Source Software, 6(59), 2995.
   https://doi.org/10.21105/joss.02995
 
-and
-
-  Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
-  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
-  Pandemic. URL https://arxiv.org/abs/2009.01091
-
 
 A BibTeX entry for LaTeX users is
 
@@ -1397,6 +1391,17 @@ A BibTeX entry for LaTeX users is
     vol = {6},
     doi = {10.21105/joss.02995}
   }
+```
+
+
+Examples and tutorials are avaialble at,
+```R
+
+  Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
+  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
+  Pandemic. URL https://arxiv.org/abs/2009.01091
+
+A BibTeX entry for LaTeX users is
 
   @Article{,
     title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
@@ -1406,6 +1411,8 @@ A BibTeX entry for LaTeX users is
     url = {https://arxiv.org/abs/2009.01091},
   }
 ```
+
+
 
 
 ## Further Resources
