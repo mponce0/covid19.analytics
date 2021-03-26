@@ -1384,9 +1384,9 @@ To cite covid19.analytics in publications use:
 A BibTeX entry for LaTeX users is
 
   @Article{,
-    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic},
+    title = "{covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic}",
     author = {Marcelo Ponce and Amit Sandhel},
-    journal = {Journal of Open Source Software},
+    journal = "{Journal of Open Source Software}",
     year = {2021},
     vol = {6},
     doi = {10.21105/joss.02995}
@@ -1394,7 +1394,7 @@ A BibTeX entry for LaTeX users is
 ```
 
 
-Examples and tutorials are avaialble at,
+Examples and tutorials are available at,
 ```R
 
   Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
@@ -1404,7 +1404,7 @@ Examples and tutorials are avaialble at,
 A BibTeX entry for LaTeX users is
 
   @Article{,
-    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
+    title = "{covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic}",
     author = {Marcelo Ponce and Amit Sandhel},
     journal = {pre-print},
     year = {2020},
