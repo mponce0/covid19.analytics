@@ -1361,9 +1361,13 @@ https://github.com/owid/
 
 
 ### How to Cite this Package  <a name="citation"></a>
-If you are using this package please cite our main publication about the covid19.analytics package:
+If you are using this package please cite our main publication about the `covid19.analytics` package:
 
-https://arxiv.org/abs/2009.01091
+Ponce et al., (2021).
+*"covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the 2019 Coronavirus Disease Pandemic."*
+**Journal of Open Source Software, 6(59), 2995.**
+  https://doi.org/10.21105/joss.02995
+
 
 You can also ask for this citation information in R:
 ```R
@@ -1371,11 +1375,28 @@ You can also ask for this citation information in R:
 
 To cite covid19.analytics in publications use:
 
+  Ponce et al., (2021). covid19.analytics: An R Package to Obtain,
+  Analyze and Visualize Data from the 2019 Coronavirus Disease Pandemic.
+  Journal of Open Source Software, 6(59), 2995.
+  https://doi.org/10.21105/joss.02995
+
+and
+
   Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
   to Obtain, Analyze and Visualize Data from the Corona Virus Disease
   Pandemic. URL https://arxiv.org/abs/2009.01091
 
+
 A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic},
+    author = {Marcelo Ponce and Amit Sandhel},
+    journal = {Journal of Open Source Software},
+    year = {2021},
+    vol = {6},
+    doi = {10.21105/joss.02995}
+  }
 
   @Article{,
     title = {covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic},
