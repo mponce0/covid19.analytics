@@ -9,6 +9,8 @@ cache: packages
 os:
   - linux
   - osx
+    osx_image: xcode12.2
+    fortran: false
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
@@ -17,10 +19,10 @@ matrix:
 #  exclude:
 #  - os: osx
 #    r: devel
-  include:
-  - os: osx
-    osx_image: xcode12.2
-    fortran: false
+#  include:
+#  - os: osx
+#    osx_image: xcode12.2
+#    fortran: false
 
 warnings_are_errors: false
 
