@@ -17,7 +17,9 @@ matrix:
   exclude:
   - os: osx
     r: devel
-
+  include:
+  - os: osx
+    osx_image: xcode12.2
 
 warnings_are_errors: false
 
