@@ -13,7 +13,7 @@ os:
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
-matrix:
+#matrix:
 #  exclude:
 #  Will need to exclude R-devel on MacOS
 #  - os: osx
