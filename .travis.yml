@@ -14,12 +14,13 @@ os:
 
 # Will need to exclude R-devel on MacOS
 matrix:
-  exclude:
-  - os: osx
-    r: devel
+#  exclude:
+#  - os: osx
+#    r: devel
   include:
   - os: osx
     osx_image: xcode12.2
+    fortran: false
 
 warnings_are_errors: false
 
