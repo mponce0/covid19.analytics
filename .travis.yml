@@ -6,9 +6,10 @@ R:
   
 cache: packages
 
-#os:
-#  - linux
-#  - osx
+os:
+  - linux
+  - osx
+    disable_homebrew: true
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
@@ -17,12 +18,12 @@ matrix:
 #  Will need to exclude R-devel on MacOS
 #  - os: osx
 #    r: devel
-  include:
-  - os: osx
-    osx_image: xcode12.2
-    r: oldrel, release, devel
-    fortran: false
-  - os: linux
+##  include:
+##  - os: osx
+##    osx_image: xcode12.2
+##    r: oldrel, release, devel
+##    fortran: false
+##  - os: linux
 
 warnings_are_errors: false
 
