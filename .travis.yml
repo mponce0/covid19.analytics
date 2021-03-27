@@ -6,23 +6,22 @@ R:
   
 cache: packages
 
-os:
-  - linux
-  - osx
-    osx_image: xcode12.2
-    fortran: false
+#os:
+#  - linux
+#  - osx
   #- windows  # Windows appears to be currently unsuported in TravisCI
 
 
-#matrix:
+matrix:
 #  exclude:
 #  Will need to exclude R-devel on MacOS
 #  - os: osx
 #    r: devel
-#  include:
-#  - os: osx
-#    osx_image: xcode12.2
-#    fortran: false
+  include:
+  - os: osx
+    osx_image: xcode12.2
+    fortran: false
+  - os: linux
 
 warnings_are_errors: false
 
