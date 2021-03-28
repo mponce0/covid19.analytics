@@ -29,12 +29,15 @@ matrix:
   ## OS: xcode9.3 - r oldrel, release, devel
   - os: osx
     osx_image: xcode9.3
+    disable_homebrew: true
     r: oldrel
   - os: osx
     osx_image: xcode9.3
+    disable_homebrew: true
     r: release
   - os: osx
     osx_image: xcode9.3
+    disable_homebrew: true
     r: devel
   ## OS: xcode12.2 - r oldrel
   - os: osx
