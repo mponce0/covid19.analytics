@@ -104,11 +104,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
  * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/covid-19/
 <!--
 https://health-infobase.canada.ca/src/data/covidLive
 https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
 -->
-https://health-infobase.canada.ca/covid-19/
 
  * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
@@ -1354,11 +1354,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
 [4] <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/covid-19/
 <!--
  https://health-infobase.canada.ca/src/data/covidLive
  https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
 -->
-https://health-infobase.canada.ca/covid-19/
 
 [5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
