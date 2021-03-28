@@ -431,7 +431,7 @@ and daily changes in the reported number of cases.
     <td> obtain up-to-date CoViD-19 testing records from [<a href="#OWIDvaccination">5</a>] </td>
     <td> return dataframe with the testing data or testing data details </td>
   </tr>
- 
+
    <tr>
     <td> <code>pandemics.data</code> </td>
     <td> obtain pandemics and pandemics vaccination *historical* records from [<a href="#VCpandemics">6</a>] </td>
@@ -855,10 +855,10 @@ Read covid19's genomic data
 Obtaining Pandemics data
 ```R
 # Pandemic historical records
-pnds <- pandemics.data(tgt="pandemics")
+ pnds <- pandemics.data(tgt="pandemics")
 
 # Pandemics vaccines development times
-pnds.vacs <- pandemics.data(tgt="pandemics_vaccines")
+ pnds.vacs <- pandemics.data(tgt="pandemics_vaccines")
 ```
 
 
