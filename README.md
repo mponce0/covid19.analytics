@@ -838,6 +838,9 @@ https://arxiv.org/abs/2009.01091 .
 
 # reads time series data for casualties
  covid19.TS.deaths <- covid19.data("ts-deaths")
+
+# reads testing data
+ testing.data <- covid19.testing.data()
 ```
 
 Read covid19's genomic data 
@@ -847,6 +850,15 @@ Read covid19's genomic data
 
 # display the actual RNA seq
  covid19.gen.seq$NC_045512.2
+```
+
+Obtaining Pandemics data
+```R
+# Pandemic historical records
+pnds <- pandemics.data(tgt="pandemics")
+
+# Pandemics vaccines development times
+pnds.vacs <- pandemics.data(tgt="pandemics_vaccines")
 ```
 
 
