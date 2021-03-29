@@ -104,11 +104,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
  * **[4]** <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/covid-19/
 <!--
 https://health-infobase.canada.ca/src/data/covidLive
 https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
 -->
-https://health-infobase.canada.ca/covid-19/
 
  * **[5]** <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
@@ -431,7 +431,7 @@ and daily changes in the reported number of cases.
     <td> obtain up-to-date CoViD-19 testing records from [<a href="#OWIDvaccination">5</a>] </td>
     <td> return dataframe with the testing data or testing data details </td>
   </tr>
- 
+
    <tr>
     <td> <code>pandemics.data</code> </td>
     <td> obtain pandemics and pandemics vaccination *historical* records from [<a href="#VCpandemics">6</a>] </td>
@@ -838,6 +838,9 @@ https://arxiv.org/abs/2009.01091 .
 
 # reads time series data for casualties
  covid19.TS.deaths <- covid19.data("ts-deaths")
+
+# reads testing data
+ testing.data <- covid19.testing.data()
 ```
 
 Read covid19's genomic data 
@@ -847,6 +850,15 @@ Read covid19's genomic data
 
 # display the actual RNA seq
  covid19.gen.seq$NC_045512.2
+```
+
+Obtaining Pandemics data
+```R
+# Pandemic historical records
+ pnds <- pandemics.data(tgt="pandemics")
+
+# Pandemics vaccines development times
+ pnds.vacs <- pandemics.data(tgt="pandemics_vaccines")
 ```
 
 
@@ -1342,11 +1354,11 @@ https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-
 https://open.toronto.ca/dataset/covid-19-cases-in-toronto/
 
 [4] <a name="HealthCan"></a> COVID-19: Health Canada
+https://health-infobase.canada.ca/covid-19/
 <!--
  https://health-infobase.canada.ca/src/data/covidLive
  https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
 -->
-https://health-infobase.canada.ca/covid-19/
 
 [5] <a name="NCBIgenome"></a> Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
 NCBI Reference Sequence: NC_045512.2
