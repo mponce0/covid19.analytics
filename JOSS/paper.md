@@ -22,13 +22,13 @@ bibliography: references.bib
 
 # Summary
 With the emergence of a new pandemic worldwide, novel strategies attempting to understand its evolution and dynamics,
-enpowered by computational techniques such as data analysis and computational modelling, have also emerged.
+empowered by computational techniques such as data analysis and computational modelling, have also emerged.
 Several initiatives under the umbrella of *open science* are contributing to
 tackle this unprecedented situation.
 In particular, the *R Language* [@citeR; @ihaka:1996] could be an excellent tool and ecosystem for
 approaches focusing on open science and reproducible research.
 Hence it is not surprising that with the onset of the pandemic, a large number
-of R packages and resources were made available for researches working in the
+of R packages and resources were made available for researchers working in the
 pandemic.
 
 In this paper, we present the `covid19.analytics` R package which allows users
@@ -64,30 +64,30 @@ One of the main goals of the `covid19.analytics` package is to make the latest d
 related to the COVID19 pandemic promptly available to researchers and the scientific
 community.
 
-As today, there are a few dozen other packages also in the CRAN repository that
+As of today, there are a few dozen other packages also in the CRAN repository that
 allow users to gain access to different datasets of the COVID-19 pandemic.
 In some cases, some packages just provide access to data from specific
 geographical locations or the approach to the data structure in which the
 data is presented is different from the one presented here.
 Nevertheless, having a variety of packages from which users can try and
 probably combine, is an important and crucial element in data analysis.
-Moreover it has been reported different cases of data misuse/misinterpretation
+Moreover, it has been reported that different cases of data misuse/misinterpretation
 due to different issues, such as, erroneous metadata or data formats
 [@Ledford_2020] and in some cases ending in articles' retractions [@Schriml:2020aa].
 Therefore providing additional functionalities to check the integrity and
 consistency of the data, as our `covid19.analytics` package does is paramount.
-This is specially true in a situation where the unfolding of events and data
+This is especially true in a situation where the unfolding of events and data
 availability is flowing so fast that sometimes is even hard to keep track of
 all the changes.
 
-As today and to the best of our knowledge, there isn't any other R package
+As of today and to the best of our knowledge, there isn't any other R package
 that provides direct access to the COVID19 genomic data of the virus.
 The `covid19.analytics` package is indeed capable of retrieving genomics data,
 and it does that by incorporating a novel, more reliable and robust way of accessing and
 designing different pathways to the data sources.
 
 Moreover, the `covid19.analytics` package offers a modular and versatile approach to
-the data, by allowing users to input their own data for which most of the functions in the
+the data by allowing users to input their own data for which most of the functions in the
 package can be applied when the data is structured using a
 *time series* format as described in the package documentation.
 
@@ -97,10 +97,10 @@ package can be applied when the data is structured using a
 
 The `covid19.analytics` package is an open source tool, which its main goal is to offer
 users prompt and quick access to different data sources related to the unfolding pandemics.
-Its main implementation and API is the R package [@covid19analytics] which its stable version is part of CRAN [@cran].
+Its main implementation and API is the R package [@covid19analytics] which is available on CRAN [@cran].
 
 
-In addition to this, the package has a few more adds-on:
+In addition to this, the package has a few more add-ons:
 
 - A central GitHub repository, <https://github.com/mponce0/covid19.analytics>
   where the latest development version and source code of the package are
