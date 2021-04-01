@@ -99,7 +99,7 @@ before_install:
 
 # only report coverage after build is successful
 after_success:
-  - Rscript -e 'covid19analytics.testing <- "full.test"; covr::codecov()'
+  - Rscript -e 'covid19analytics.testing <- "full.test"; covr::codecov(token = "${{secrets.CODECOV_TOKEN}}")'
 
 
 # emails
