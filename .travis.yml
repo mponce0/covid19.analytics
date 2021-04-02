@@ -37,10 +37,12 @@ matrix:
   - os: osx
     osx_image: xcode9.3
     disable_homebrew: true
+    latex: false
     r: release
   - os: osx
     osx_image: xcode9.3
     disable_homebrew: true
+    latex: false
     r: devel
   ## OS: xcode12.2 - r oldrel, release, devel
   - os: osx
