@@ -116,7 +116,7 @@ Users can also submit tickets for bugs, suggestions or comments using the "issue
 
 - A backup data repository hosted at GitHub,
   <https://github.com/mponce0/covid19analytics.datasets> -- where replicas of
-the live datasets are stored for redundancy and robust accessibility sake (see \autoref{fig:dataSrcs}).
+the live datasets are stored for redundancy and robust accessibility (see \autoref{fig:dataSrcs}).
 
 
 ![Schematic of the data acquisition flows between the `covid19.analytics` package and the different sources of data. Dark and solid/dashed lines represent API functions provided by the package accessible to the users. Dotted lines are "internal" mechanisms employed by the package to synchronize and update replicas of the data. \label{fig:dataSrcs}](./covid19-data-sources.pdf)
@@ -130,7 +130,7 @@ public deployed dashboard at the URL described above.
 ![Screenshot of a `covid19.analytics` dashboard implementation -- the dashboard can be used through a web-interface or deployed locally in the users' machine.\label{fig:dashboard}](./dashboard-mosaic.png)
 
 
-Another unique feature of this package is the ability of incorporating models
+Another unique feature of this package is the ability to incorporate models
 to estimate the disease spread by using the actual data.
 The `covid19.analytics` package allows users to model the dispersion of the disease by
 implementing a simple *Susceptible-Infected-Recovered* (SIR) model
