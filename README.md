@@ -9,8 +9,8 @@
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
 [![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/mponce0/covid19.analytics)
 [![DOI](https://zenodo.org/badge/246323140.svg)](https://zenodo.org/badge/latestdoi/246323140)
-<!-- [![JOSSstatus](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d/status.svg)](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d) -->
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.02995/status.svg)](https://doi.org/10.21105/joss.02995)
+<!-- [![JOSSstatus](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d/status.svg)](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d) -->
 <!-- badges: end -->
 <!-- ~*~ -->
 
