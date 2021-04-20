@@ -815,11 +815,12 @@ library(covid19.analytics)
 </details>
 
 
+
 ## Examples  <a name="examples"></a>
 
 In this section, we include basic examples of the main features of the `covid19.analytics` package.
 
-  * We strongly recommend users to check for further examples and details about the covid19.analytics package in our manuscript,
+  * We strongly recommend users to check further examples and details about the `covid19.analytics` package available in our manuscript,
 https://arxiv.org/abs/2009.01091 .
 
   * Code scripts and tutorials are available at https://github.com/mponce0/covid19.analytics/tree/literature/tutorial .
