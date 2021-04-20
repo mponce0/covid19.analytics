@@ -816,12 +816,16 @@ library(covid19.analytics)
 
 
 ## Examples  <a name="examples"></a>
-<details>
-    <summary>Click to Expand/Collapse</summary>
 
-Further examples and details about the covid19.analytics package are provided in our manuscript,
+In this section, we include basic examples of the main features of the `covid19.analytics` package.
+
+  * We strongly recommend users to check for further examples and details about the covid19.analytics package in our manuscript,
 https://arxiv.org/abs/2009.01091 .
 
+  * Code scripts and tutorials are available at https://github.com/mponce0/covid19.analytics/tree/literature/tutorial .
+
+<details>
+    <summary>Click to Expand/Collapse</summary>
 
 ### Reading data
 ```R
