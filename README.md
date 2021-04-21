@@ -62,7 +62,7 @@ investigate these datasets.
 </object>
 -->
 
-The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
+The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
 
 
@@ -823,7 +823,7 @@ In this section, we include basic examples of the main features of the `covid19.
   * We strongly recommend users to check further examples and details about the `covid19.analytics` package available in our manuscript,
 https://arxiv.org/abs/2009.01091 
 
-  * Code scripts and tutorials are available at https://github.com/mponce0/covid19.analytics/tree/literature/tutorial 
+  * Code/cripts with examples and tutorials are available at https://github.com/mponce0/covid19.analytics/tree/literature/tutorial 
 
 <details>
     <summary>Click to Expand/Collapse</summary>
@@ -1418,13 +1418,13 @@ Examples and tutorials are available at,
 ```R
 
   Marcelo Ponce, Amit Sandhel (2020). covid19.analytics: An R Package
-  to Obtain, Analyze and Visualize Data from the Corona Virus Disease
+  to Obtain, Analyze and Visualize Data from the Coronavirus Disease
   Pandemic. URL https://arxiv.org/abs/2009.01091
 
 A BibTeX entry for LaTeX users is
 
   @Article{,
-    title = "{covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Corona Virus Disease Pandemic}",
+    title = "{covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic}",
     author = {Marcelo Ponce and Amit Sandhel},
     journal = {pre-print},
     year = {2020},
