@@ -123,4 +123,4 @@ testVaccCtry <- function(Ctry="Canada"){
 ##########
 
 # Apply the fn to a set of countries...
-lapply(c("Argentina","Uruguay","Italy","Spain","Switzerland"), testVaccCtry)
+lapply(c("Argentina","Uruguay","Italy","Spain","Switzerland","New Zealand","Israel"), testVaccCtry)
