@@ -45,6 +45,6 @@ jobs:
 
       - name: Test coverage
         run: |
-          covid19analytics.testing <- "full.test"
+          covid19analytics.testing <<- "full.test"
           covr::codecov()
         shell: Rscript {0}
