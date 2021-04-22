@@ -15,6 +15,7 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      COVID19ANALYTICS: "full.test"
     steps:
       - uses: actions/checkout@v2
 
@@ -45,6 +46,7 @@ jobs:
 
       - name: Test coverage
         run: |
+          Sys.getenv("COVID19ANALYTICS")
           covid19analytics.testing <<- "full.test"
           covr::codecov()
         shell: Rscript {0}
