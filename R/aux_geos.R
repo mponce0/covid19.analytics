@@ -261,7 +261,7 @@ Vanuatu")
 
 
         regions <- list(SOUTHAMERICA=SouthAmerica, NORTHAMERICA=NorthAmerica, CENTRALAMERICA=CentralAmerica, AMERICA=America,
-			EUROPE=Europe, ASIA=Asia, OCEANIA=Oceania)
+			AFRICA=Africa, EUROPE=Europe, ASIA=Asia, OCEANIA=Oceania)
 
 	if (is.null(cont)) {
         	return(regions)
