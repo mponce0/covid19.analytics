@@ -85,7 +85,7 @@ category_list <- list("confirmed"="ts-confirmed", "recovered"="ts-recovered", "d
 ts.data <- covid19.data("ts-ALL")
 TGTs.LOCns <- (unique(ts.data[pmatch("Country",names(ts.data))]))
 #Add All option manually to dropdown to display all countries data to the end of the dropdown
-continents <- c("SouthAmerica","NorthAmerica","CentralAmerica","America","Europe","Asia","Oceania")
+continents <- c("Africa","America","SouthAmerica","NorthAmerica","CentralAmerica","Asia","Europe","Oceania")
 TGTs.LOCns <- list(Countries=TGTs.LOCns[[1]], ALL=list("ALL"))
 #print(typeof(TGTs.LOCns))
 
