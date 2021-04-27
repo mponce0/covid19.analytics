@@ -1,3 +1,6 @@
+Apr 2021: Bugs fixes _ ver 2.2
+		- fix bug in checkGeoLoc and select.per.loc, affecting continents/countries mismatch for some locations/continents, with side-effects on dashboard and totals.plt, ... 
+
 Feb/Mar 2021: More data sources added _ ver 2.1
 		- Vaccination data, from OWID
 		- Testing data, from OWID
