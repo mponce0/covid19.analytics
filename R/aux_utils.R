@@ -58,7 +58,7 @@ select.per.loc <- function(data,geo.loc) {
 #' auxiliary function to select data based on geographical location
 #'
 #' @param  data  data set to process
-#' @param  geo.loc  geopgraphical location, can be a country, region, province or city
+#' @param  geo.loc  geographical location, can be a country, region, province or city
 #'
 #' @keywords internal
 #'
@@ -69,7 +69,9 @@ select.per.loc <- function(data,geo.loc) {
 
 geo.loc0<-geo.loc
 cases.per.loc0 <- data.frame()
+
 for (geo.loc in geo.loc0) {
+	missedLocn <- FALSE
 	# check whether the locations are coutnries/regions or provinces/states
 	if (toupper(geo.loc) %in% toupper(data[,Country.col])) {
 		cases.per.loc <- data[toupper(data[,Country.col]) == toupper(geo.loc),]
@@ -77,8 +79,12 @@ for (geo.loc in geo.loc0) {
 		cases.per.loc <- data[toupper(data[,Province.col]) == toupper(geo.loc),]
 	} else if (toupper(geo.loc) == "ALL") {
 		cases.per.loc <- data
+	} else {
+		#warning("Location not found! -- skipping ",geo.loc)
+		missedLocn <- TRUE
 	}
-cases.per.loc0 <- rbind(cases.per.loc0,cases.per.loc)
+	if (!missedLocn)
+		cases.per.loc0 <- rbind(cases.per.loc0,cases.per.loc)
 }
 return(cases.per.loc0)
 	#print(geo.loc)
@@ -134,6 +140,8 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 			if ( sum(tgt %in% names(regions)) != 0 ) {
 				#print(regions[tgt])
 				geo.locs <- c(geo.locs, checkGeoLoc(data,regions[tgt]) )
+				# return only countries within the dataset, i.e. there could be countries defined in the original regions not included in the data
+				geo.locs <- geo.locs[geo.locs %in% toupper(data[,Country.col])]
 			} else {
 				# individual entries, ie. countries
 				if ( sum(toupper(geo.ind) %in% provinces.states)==0	&
@@ -145,7 +153,6 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 				}
 			}
 		}
-
 		if (length(geo.locs) >= 1) {
 			geo.loc <- geo.locs
 		} else {
@@ -156,7 +163,6 @@ checkGeoLoc <- function(data, geo.loc=NULL) {
 			stop()
 		}
 	}
-
 	return(toupper(unique(geo.loc)))
 }
 

@@ -141,10 +141,10 @@ Algeria
 Angola
 Benin
 Botswana
-Burkina
+Burkina Faso
 Burundi
 Cameroon
-Cape Verde
+Cabo Verde
 Central African Republic
 Chad
 Comoros
