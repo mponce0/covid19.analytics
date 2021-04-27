@@ -174,7 +174,7 @@ dashboardUI <- function(id) {
 		),
 		tabBox(width=12,  
 			tabPanel("ITrend Plot",
-						"The plot represents the normalizaed trend in number of cases",
+						"The plot represents the normalized trend in number of cases",
 						"Daily changes vs total changes in a log plot, for the indicated regions", br(),br(), 
 						withSpinner(
 							plotlyOutput(ns("itrend_plot"),  height = "100%", width = '100%'),
