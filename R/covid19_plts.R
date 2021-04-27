@@ -133,6 +133,7 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
 
 	process.mult.cases <- function(total.cases, geo.loc, col1,colN, ymax=NA, with.totals,stroke=FALSE,new.plt=FALSE) {
 
+
 		if (length(geo.loc)>=1) {
 			#set.plt.canvas(geo.loc,ylayers=1,minBreaks=5)
 			if (!with.totals) {
@@ -143,7 +144,6 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
 			} else {
 				legs <- FALSE
 			}
-
 			par(new=TRUE)
 			if (new.plt) par(new=FALSE)
 			col.index <- 0
@@ -168,7 +168,6 @@ totals.plt <- function(data0=NULL, geo.loc0=NULL,
 				col.index <- col.index+1
 			}
 		}
-
 	}
 
 	############
@@ -371,7 +370,6 @@ n.plt <- FALSE
 } else { n.plt <- TRUE }
 
 		process.mult.cases(total.cases, geo.loc, col1,colN, ymax, with.totals,stroke=TRUE,new.plt=n.plt)
-
 
 		# log-scale plot
 		if (log.plt) {
