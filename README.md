@@ -13,8 +13,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4640307.svg)](https://doi.org/10.5281/zenodo.4640307)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.02995/status.svg)](https://doi.org/10.21105/joss.02995)
 <!-- [![JOSSstatus](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d/status.svg)](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d) -->
-<!-- [![Github All Releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)]() -->
-<!-- ![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads) -->
 <!-- badges: end -->
 <!-- ~*~ -->
 
@@ -1309,6 +1307,8 @@ Preprints (2020) --
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![Github All Releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)]()
+[![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)]()
 <!-- badges: end -->
 
 <!--
