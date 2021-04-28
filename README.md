@@ -1307,8 +1307,12 @@ Preprints (2020) --
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
-[![Github All Releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)]()
-[![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)]()
+.
+![GitHub all releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&style=plastic)
+![Github All Releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)
+![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
+![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
 <!-- badges: end -->
 
 <!--
