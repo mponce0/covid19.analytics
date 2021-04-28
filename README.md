@@ -1313,6 +1313,7 @@ Preprints (2020) --
 ![GitHub All releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&style=plastic)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
 ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
+![R package](https://img.shields.io/badge/R-276DC3?style=plastic&logo=r&logoColor=white)
 <!-- badges: end -->
 
 <!--
