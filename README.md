@@ -1319,9 +1319,11 @@ Preprints (2020) --
 ![Release](https://img.shields.io/github/release/mponce0/covid19.analytics.svg)
 ![Commits](https://img.shields.io/github/commits-since/mponce0/covid9.analytics/latest.svg)
 ![Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)
-![](https://github-readme-stats.vercel.app/api?username=mponce0&theme=blue-green)
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=mponce0&theme=blue-green)
 ![](https://starchart.cc/mponce0/covid19.analytics.svg)
+<!--
+![GHusrStats](https://github-readme-stats.vercel.app/api?username=mponce0&theme=blue-green)
+![GHusrStats](https://github-readme-stats.vercel.app/api/top-langs/?username=mponce0&theme=blue-green)
+-->
 <!-- badges: end -->
 
 <!--
