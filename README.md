@@ -47,7 +47,7 @@
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel Coronavirus Disease* originally reported in 2019, COVID-19.
 
-One of the main goals of this package is to make the latest data about the covid19 pandemic
+One of the main goals of this package is to make the latest data about the COVID-19 pandemic
 promptly available to researchers and the scientific community.
 
 The "covid19.analytics" package also provides basic analysis tools and functions to
@@ -402,22 +402,22 @@ and daily changes in the reported number of cases.
   </tr>
   <tr>
     <td> <code>covid19.data</code> </td>
-    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
+    <td> obtain live* worldwide data for COVID-19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
+    <td> obtain live* data for COVID-19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.Canada.data</code> </td>
-    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HealthCan">4</a>] </td>
+    <td> obtain live* Canada specific data for COVID-19 cases, from Health Canada [<a href="#HealthCan">4</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.US.data</code> </td>
-    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
+    <td> obtain live* US specific data for COVID-19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframe with the collected data </td>
   </tr>
 
