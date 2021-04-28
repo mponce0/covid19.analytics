@@ -9,9 +9,8 @@
 [![R-CMD-check](https://github.com/mponce0/covid19.analytics/actions/workflows/r.yml/badge.svg)](https://github.com/mponce0/covid19.analytics/actions/workflows/r.yml)
 [![Build Status](https://travis-ci.org/mponce0/covid19.analytics.svg?branch=master)](https://travis-ci.org/mponce0/covid19.analytics)
 [![codecov](https://codecov.io/gh/mponce0/covid19.analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/mponce0/covid19.analytics)
-[![DOI](https://zenodo.org/badge/246323140.svg)](https://zenodo.org/badge/latestdoi/246323140)
-[![DOI](https://joss.theoj.org/papers/10.21105/joss.02995/status.svg)](https://doi.org/10.21105/joss.02995)
-<!-- [![JOSSstatus](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d/status.svg)](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d) -->
+[![DOI](https://zenodo.org/badge/246323140.svg)](https://zenodo.org/badge/latestdoi/246323140)	<!--[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4640307.svg)](https://doi.org/10.5281/zenodo.4640307)-->
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.02995/status.svg)](https://doi.org/10.21105/joss.02995)	<!-- [![JOSSstatus](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d/status.svg)](https://joss.theoj.org/papers/43bab096ad574f4510a7258c20a1153d) -->
 <!-- badges: end -->
 <!-- ~*~ -->
 
@@ -1300,12 +1299,29 @@ Preprints (2020) --
     <summary>Click to Expand/Collapse</summary>
 -->
 <!-- badges: start -->
+<!-- CRAN stats -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)
 [![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
-[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![Downloads last.week](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+<!-- GitHub badges stats -->
+![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)
+![GitHub All releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&style=plastic)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
+![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
+![R package](https://img.shields.io/badge/R-276DC3?style=plastic&logo=r&logoColor=white)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![License](https://img.shields.io/github/license/mponce0/covid19.analytics.svg)
+![Release](https://img.shields.io/github/release/mponce0/covid19.analytics.svg)
+![Commits](https://img.shields.io/github/commits-since/mponce0/covid19.analytics/latest.svg)
+![Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)
+![](https://starchart.cc/mponce0/covid19.analytics.svg)
+<!--
+![GHusrStats](https://github-readme-stats.vercel.app/api?username=mponce0&theme=blue-green)
+![GHusrStats](https://github-readme-stats.vercel.app/api/top-langs/?username=mponce0&theme=blue-green)
+-->
 <!-- badges: end -->
 
 <!--
