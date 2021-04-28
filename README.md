@@ -1307,18 +1307,18 @@ Preprints (2020) --
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 <!-- GitHub badges stats -->
-![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)
-![GitHub All releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&style=plastic)
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
-![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
-![R package](https://img.shields.io/badge/R-276DC3?style=plastic&logo=r&logoColor=white)
+![R language](https://img.shields.io/badge/R-276DC3?style=plastic&logo=r&logoColor=white)
 ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![License](https://img.shields.io/github/license/mponce0/covid19.analytics.svg)
 ![Release](https://img.shields.io/github/release/mponce0/covid19.analytics.svg)
 ![Commits](https://img.shields.io/github/commits-since/mponce0/covid19.analytics/latest.svg)
+![GitHub Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&label=GitHub%20downloads)
+![GitHub All releases](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total?color=blue&style=plastic)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
+![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
 ![Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)
-![](https://starchart.cc/mponce0/covid19.analytics.svg)
 <!--
+![](https://starchart.cc/mponce0/covid19.analytics.svg)
 ![GHusrStats](https://github-readme-stats.vercel.app/api?username=mponce0&theme=blue-green)
 ![GHusrStats](https://github-readme-stats.vercel.app/api/top-langs/?username=mponce0&theme=blue-green)
 -->
@@ -1333,9 +1333,16 @@ Preprints (2020) --
 -->
 
 <!--
-<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="800" /> ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
+<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="800" />
+![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
 
-<img align="left" src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="200" /> ![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
+<img align="left" src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="200" />
+![](https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png)
+
+<p align='center'>
+<img align="left" src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_covid19.analytics.png" width="40%" />
+<img align="left" src="https://starchart.cc/mponce0/covid19.analytics.svg" width="50%" />
+</p>
 -->
 
 <!--
