@@ -1314,6 +1314,14 @@ Preprints (2020) --
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/downloads-pre/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
 ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/mponce0/covid19.analytics/latest/total?color=blue&style=plastic)
 ![R package](https://img.shields.io/badge/R-276DC3?style=plastic&logo=r&logoColor=white)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![License](https://img.shields.io/github/license/mponce0/covid19.analytics.svg)
+![Release](https://img.shields.io/github/release/mponce0/covid19.analytics.svg)
+![Commits](https://img.shields.io/github/commits-since/mponce0/covid9.analytics/latest.svg)
+![Downloads](https://img.shields.io/github/downloads/mponce0/covid19.analytics/total.svg)
+![](https://github-readme-stats.vercel.app/api?username=mponce0&theme=blue-green)
+![](https://github-readme-stats.vercel.app/api/top-langs/?username={username}&theme=blue-green)
+![](https://starchart.cc/mponce0/covid19.analytics.svg)
 <!-- badges: end -->
 
 <!--
