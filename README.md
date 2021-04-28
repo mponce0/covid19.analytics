@@ -45,7 +45,7 @@
 
 ## Introduction <a name="introduction"></a>
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
-*novel CoronaVirus Disease* originally reported in 2019, CoViD-19.
+*novel Coronavirus Disease* originally reported in 2019, COVID-19.
 
 One of the main goals of this package is to make the latest data about the covid19 pandemic
 promptly available to researchers and the scientific community.
@@ -94,7 +94,7 @@ In addition to this, the package has a few more adds-on:
 ### Data Sources <a name="dataSrcs"></a>
 The "covid19.analytics" package provides access to the following open-access data sources:
 
- * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+ * **[1]** <a name="JHUrepo"></a> 2019 Novel CoronaVirus COVID-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
@@ -115,7 +115,7 @@ https://health-infobase.canada.ca/src/data/covidLive/covid19-download.csv
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
- * **[6]** <a name="OWIDvaccination"></a> CoViD-19 Vaccination and Testing records from "Our World In Data" (OWID)
+ * **[6]** <a name="OWIDvaccination"></a> COVID-19 Vaccination and Testing records from "Our World In Data" (OWID)
  https://github.com/owid/
  
  * **[7]** <a name="VCpandemics"></a> Pandemics historical records from Visual Capitalist (and sources within)
@@ -130,7 +130,7 @@ https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 <details>
     <summary>Click to Expand/Collapse</summary>
 
-The `covid19.data()` function allows users to obtain realtime data about the CoViD19 reported cases
+The `covid19.data()` function allows users to obtain realtime data about the COVID-19 reported cases
 from the JHU's CCSE repository, in the following modalities:
 * "aggregated" data for the latest day, with a great 'granularity' of geographical regions (ie. cities, provinces, states, countries)
 * "time series" data for larger accumulated geographical regions (provinces/countries)
@@ -258,7 +258,7 @@ Be sure also to check the compatibility of these datasets using the `Data Integr
 
 
 ### Data Integrity and Consistency Checks <a name="dataintegrity"></a>
-Due to the ongoing and rapid changing situation with the CoViD-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
+Due to the ongoing and rapid changing situation with the COVID-19 pandemic, sometimes the reported data has been detected to change its internal format or even show some "anomalies" or "inconsistencies" (see https://github.com/CSSEGISandData/COVID-19/issues/).
 
 For instance, in some cumulative quantities reported in time series datasets, it has been observed that these quantities instead of continuously increase sometimes they decrease their values which is something that should not happen, (see for instance, https://github.com/CSSEGISandData/COVID-19/issues/2165). We refer to this as inconsistency of **"type II"**.
 
@@ -295,7 +295,7 @@ the genetic sequencing of the virus is moving almost at equal pace.
 That's why the covid19.analytics package provides access to a good number of the genomics
 data currently available.
 
-The `covid19.genomic.data()` function allows users to obtain the CoViD19's
+The `covid19.genomic.data()` function allows users to obtain the COVID-19's
 genomics data from NCBI's databases [[5](#NCBIgenome)].
 The type of genomics data accessible from the package is described in
 the following table.
@@ -423,13 +423,13 @@ and daily changes in the reported number of cases.
 
    <tr>
     <td> <code>covid19.vaccination</code> </td>
-    <td> obtain up-to-date CoViD-19 vaccination records from [<a href="#OWIDvaccination">5</a>] </td>
+    <td> obtain up-to-date COVID-19 vaccination records from [<a href="#OWIDvaccination">5</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
 
    <tr>
     <td> <code>covid19.testing.data</code> </td>
-    <td> obtain up-to-date CoViD-19 testing records from [<a href="#OWIDvaccination">5</a>] </td>
+    <td> obtain up-to-date COVID-19 testing records from [<a href="#OWIDvaccination">5</a>] </td>
     <td> return dataframe with the testing data or testing data details </td>
   </tr>
 
@@ -1373,7 +1373,7 @@ Preprints (2020) --
     <summary>Click to Expand/Collapse</summary>
 
 ### Data Sources <a name="dataSrcs"></a>
-[1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus CoViD-19 (2019-nCoV) Data Repository by
+[1] <a name="JHUrepo"></a> 2019 Novel CoronaVirus COVID-19 (2019-nCoV) Data Repository by
 Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)
 https://github.com/CSSEGISandData/COVID-19
 
@@ -1394,7 +1394,7 @@ https://health-infobase.canada.ca/covid-19/
 NCBI Reference Sequence: NC_045512.2
 https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2
 
-[6] <a name="OWIDvaccination"></a> CoViD-19 Vaccination and Testing records from "Our World In Data" (OWID)
+[6] <a name="OWIDvaccination"></a> COVID-19 Vaccination and Testing records from "Our World In Data" (OWID)
 https://github.com/owid/
  
 [7] <a name="VCpandemics"></a> Pandemics historical records from Visual Capitalist (and sources within)
