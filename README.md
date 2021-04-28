@@ -1302,7 +1302,7 @@ Preprints (2020) --
 -->
 <!-- badges: start -->
 <!-- CRAN stats -->
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/covid19.analytics&style=plastic)](https://cran.r-project.org/package=covid19.analytics)
 [![CRAN checks](https://cranchecks.info/badges/worst/covid19.analytics)](https://cranchecks.info/pkgs/covid19.analytics)
 [![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/covid19.analytics)](https://cran.r-project.org/package=covid19.analytics)
