@@ -21,7 +21,7 @@
  Tor.TS.data <- covid19.Toronto.data() 
 
 # or get the original data as reported by the City of Toronto
- Tor.DF.data <- covid19.Toronto.data(data.fmr="ORIG")
+ Tor.DF.data <- covid19.Toronto.data(data.fmt="ORIG")
 
 # retrieve US time series data of confirmed cases
  US.confirmed.cases <- covid19.data("ts-confirmed-US")
