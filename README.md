@@ -1502,4 +1502,12 @@ https://wwwnc.cdc.gov/eid/article/25/1/17-1901_article
 * https://coronavirus.jhu.edu/data/new-cases
 <!-- * https://schulich.yorku.ca/covid-19-dynamics/ -->
 
+### Vaccines
+* https://ici.radio-canada.ca/info/2021/03/vaccination-variants-covid-19-arn-pfizer-moderna-spicule-infection-immunite/en
+* https://www.youtube.com/watch?v=K3odScka55A
+* https://www.youtube.com/watch?v=mvA9gs5gxNY
+
+### Models
+* https://www.youtube.com/watch?v=wKOslhIFt6U
+
 </details>
