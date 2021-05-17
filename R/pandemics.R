@@ -26,6 +26,10 @@ pandemics.loaddata <- function(tgt.file="pandemics.RDS",
 		pnd.data <- readRDS(pnds.RDS)
 		if (acknowledge) message("Data obtained from",src.descr)
 		if (show) print(datatable(pnd.data))
+		# update Death.toll for COVID-19 ongoing pandemic
+		c19.data <- covid19.data()
+		nameCol <- which(grepl(toupper("Name.of.Pandemic"),toupper(names(pnd.data)))) 
+		pnd.data[ pnd.data[,nameCol]=="CoViD-19","Death.toll"] <- sum(c19.data$Deaths)
 		return(pnd.data)
 	} else {
 		stop("CRITICAL Error:", tgt.file, " missing!")
