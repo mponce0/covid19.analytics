@@ -47,7 +47,7 @@
 The "covid19.analytics" R package allows users to obtain live\* worldwide data from the
 *novel Coronavirus Disease* originally reported in 2019, COVID-19.
 
-One of the main goals of this package is to make the latest data about the covid19 pandemic
+One of the main goals of this package is to make the latest data about the COVID-19 pandemic
 promptly available to researchers and the scientific community.
 
 The "covid19.analytics" package also provides basic analysis tools and functions to
@@ -71,11 +71,11 @@ The `covid19.analytics` package is an open source tool, which its main implement
 is the R package.
 In addition to this, the package has a few more adds-on:
 
- * a central GitHUB repository, https://github.com/mponce0/covid19.analytics
+ * a central GitHub repository, https://github.com/mponce0/covid19.analytics
  where the latest development version and source code of the package are available.
  Users can also submit tickets for bugs, suggestions or comments using the "issues" tab.
  
- * a rendered version with live examples and documentation also hosted at GitHUB pages,
+ * a rendered version with live examples and documentation also hosted at GitHub pages,
  https://mponce0.github.io/covid19.analytics/
  
  * a dashboard for interactive usage of the package with extended capabilities
@@ -84,7 +84,7 @@ In addition to this, the package has a few more adds-on:
    The dashboard can also be deployed locally using the `covid19Explorer()` function which
  is part of the `covid19.analytics` package.
  
- * a *backup* data repository hosted at GitHUB,
+ * a *backup* data repository hosted at GitHub,
  https://github.com/mponce0/covid19analytics.datasets --
         where replicas of the live datasets are stored for redundancy and
  robust accesibility sake.
@@ -402,22 +402,22 @@ and daily changes in the reported number of cases.
   </tr>
   <tr>
     <td> <code>covid19.data</code> </td>
-    <td> obtain live* worldwide data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
+    <td> obtain live* worldwide data for COVID-19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframes/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.Toronto.data</code> </td>
-    <td> obtain live* data for covid19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
+    <td> obtain live* data for COVID-19 cases in the city of Toronto, ON Canada, from the City of Toronto reports [<a href="#TORdata">2</a>] --or-- Open Data Toronto [<a href="#ODtor">3</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.Canada.data</code> </td>
-    <td> obtain live* Canada specific data for covid19 cases, from Health Canada [<a href="#HealthCan">4</a>] </td>
+    <td> obtain live* Canada specific data for COVID-19 cases, from Health Canada [<a href="#HealthCan">4</a>] </td>
     <td> return dataframe/list with the collected data </td>
   </tr>
    <tr>
     <td> <code>covid19.US.data</code> </td>
-    <td> obtain live* US specific data for covid19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
+    <td> obtain live* US specific data for COVID-19 virus, from the JHU's CCSE repository [<a href="#JHUrepo">1</a>] </td>
     <td> return dataframe with the collected data </td>
   </tr>
 

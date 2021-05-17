@@ -95,6 +95,9 @@ c19fulltest_R <- ( ("covid19analytics.testing" %in% ls()) && (covid19analytics.t
 message(c19fulltest_OS)
 message(c19fulltest_R)
 
+#c19fulltest_R <- TRUE
+#assign("N",tot.population, envir = .SIR.model.env)	#.GlobalEnv)
+
 # check if the fulltest flags were activated...
 if (c19fulltest_OS | c19fulltest_R) {
 
