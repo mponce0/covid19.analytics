@@ -1,17 +1,17 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:50 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 13:02:42 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  88 
   Unique number of distinct geographical locations combined: 279 
 -------------------------------------------------------------------------------- 
-  Worldwide ts-confirmed  Totals: 201707586 
+  Worldwide ts-confirmed  Totals: 201746214 
 -------------------------------------------------------------------------------- 
    Country.Region Province.State   Totals GlobalPerc LastDayChange    t-2   t-3   t-7  t-14  t-30
-1              US                35695469      17.70        254981 109824 92714 32808 27802 20061
-2           India                31856757      15.79             0  44643 42982 41831 78839 43393
+1              US                35695469      17.69        254981 109824 92714 32808 27802 20061
+2           India                31895385      15.81         38628  44643 42982 41831 78839 43393
 3          Brazil                20108746       9.97         42159  40054 40716 37582 38091 53725
 4          Russia                 6318643       3.13         22073  22564 22053 23264 23395 24361
 5          France                 6161967       3.05         24019  26445 27436 23471 25624  4442
@@ -33,18 +33,18 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:51 
+  ##### TS-DEATHS Cases  -- Data dated:  2021-08-06  ::  2021-08-07 13:02:43 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  88 
   Unique number of distinct geographical locations combined: 279 
 -------------------------------------------------------------------------------- 
-  Worldwide ts-deaths  Totals: 4277737 
+  Worldwide ts-deaths  Totals: 4278354 
 -------------------------------------------------------------------------------- 
    Country.Region Province.State Totals Perc LastDayChange  t-2  t-3  t-7 t-14 t-30
 1              US                616493 1.73          1173  535  490  144  116  260
 2          Brazil                561762 2.79          1056 1099 1175  910 1108 1639
-3           India                426754 1.34             0  464  533  541 1081  911
+3           India                427371 1.34           617  464  533  541 1081  911
 4          Mexico                243733 8.28           568  618  611  450  690  266
 5            Peru                196818 9.27            58   87   75  139   99  166
 6          Russia                160574 2.54           771  771  769  772  787  723
@@ -63,7 +63,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:51 
+  ##### TS-RECOVERED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 13:02:44 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  72 
@@ -92,39 +92,39 @@
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 13:02:44 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1       Maharashtra, India   6336220           3.14 133530        2.11        NA             NA     NA          NA
+1       Maharashtra, India   6341759           3.14 133717        2.11        NA             NA     NA          NA
 2                   France   6161967           3.05 111050        1.80        NA             NA     NA          NA
 3                   Turkey   5870741           2.91  51976        0.89        NA             NA     NA          NA
 4  England, United Kingdom   5253181           2.60 114359        2.18        NA             NA     NA          NA
 5                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
-6        Sao Paulo, Brazil   4104768           2.04 140428        3.42        NA             NA     NA          NA
+6        Sao Paulo, Brazil   4104768           2.03 140428        3.42        NA             NA     NA          NA
 7                     Iran   4092671           2.03  93086        2.27        NA             NA     NA          NA
 8                Indonesia   3607863           1.79 104010        2.88        NA             NA     NA          NA
-9            Kerala, India   3493603           1.73  17328        0.50        NA             NA     NA          NA
-10        Karnataka, India   2913512           1.44  36705        1.26        NA             NA     NA          NA
+9            Kerala, India   3513551           1.74  17515        0.50        NA             NA     NA          NA
+10        Karnataka, India   2915317           1.45  36741        1.26        NA             NA     NA          NA
 11                  Poland   2883796           1.43  75281        2.61        NA             NA     NA          NA
-12       Tamil Nadu, India   2569398           1.27  34230        1.33        NA             NA     NA          NA
+12       Tamil Nadu, India   2571383           1.27  34260        1.33        NA             NA     NA          NA
 13            South Africa   2511178           1.24  74352        2.96        NA             NA     NA          NA
 14    Minas Gerais, Brazil   1991198           0.99  51088        2.57        NA             NA     NA          NA
-15   Andhra Pradesh, India   1976141           0.98  13468        0.68        NA             NA     NA          NA
+15   Andhra Pradesh, India   1978350           0.98  13490        0.68        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2021-08-07  ::  2021-08-07 13:02:45 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1        Sao Paulo, Brazil   4104768           2.04 140428        3.42        NA             NA     NA          NA
-2       Maharashtra, India   6336220           3.14 133530        2.11        NA             NA     NA          NA
+1        Sao Paulo, Brazil   4104768           2.03 140428        3.42        NA             NA     NA          NA
+2       Maharashtra, India   6341759           3.14 133717        2.11        NA             NA     NA          NA
 3  England, United Kingdom   5253181           2.60 114359        2.18        NA             NA     NA          NA
 4                   France   6161967           3.05 111050        1.80        NA             NA     NA          NA
 5                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
@@ -137,10 +137,10 @@
 12                  Turkey   5870741           2.91  51976        0.89        NA             NA     NA          NA
 13    Minas Gerais, Brazil   1991198           0.99  51088        2.57        NA             NA     NA          NA
 14          Mexico, Mexico    301988           0.15  38700       12.82        NA             NA     NA          NA
-15        Karnataka, India   2913512           1.44  36705        1.26        NA             NA     NA          NA
+15        Karnataka, India   2915317           1.45  36741        1.26        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 13:02:45 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
@@ -164,7 +164,7 @@
 15                     Victoria, Australia     20997           0.01    820        3.91        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2021-08-07  ::  2021-08-07 13:02:45 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
@@ -189,11 +189,11 @@
 ============================================================================================================================================ 
   	 Confirmed	Deaths	Recovered	Active 
   Totals 
-  	 201707586	4277737	NA	NA 
+  	 201746214	4278354	NA	NA 
   Average 
-  	 50591.32	1072.92	NA	NA 
+  	 50601.01	1073.08	NA	NA 
   Standard Deviation 
-  	 285585.15	6210.77	NA	NA 
+  	 285692.04	6212.03	NA	NA 
   
 
  * Statistical estimators computed considering 3987 independent reported entries 
@@ -204,15 +204,15 @@
 ******************************************************************************** 
   ****  Time Series Worldwide TOTS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 201707586	4277737	0 
+  	 201746214	4278354	0 
   			2.12% 		0% 
   ****  Time Series Worldwide AVGS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 722966.26	15332.39	0 
+  	 723104.71	15334.6	0 
   			2.12% 		0% 
   ****  Time Series Worldwide SDS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 3229456.65	62139.38	0 
+  	 3230796.75	62154.08	0 
   			1.92% 		0% 
   
 
