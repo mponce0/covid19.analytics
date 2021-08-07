@@ -1,30 +1,30 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-CONFIRMED Cases  -- Data dated:  2021-08-05  ::  2021-08-06 13:02:42 
+  ##### TS-CONFIRMED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:50 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  88 
   Unique number of distinct geographical locations combined: 279 
 -------------------------------------------------------------------------------- 
-  Worldwide ts-confirmed  Totals: 200924905 
+  Worldwide ts-confirmed  Totals: 201707586 
 -------------------------------------------------------------------------------- 
-   Country.Region Province.State   Totals GlobalPerc LastDayChange   t-2    t-3    t-7   t-14  t-30
-1              US                35440488      17.64        109824 92714 106557 194608 119158 22931
-2           India                31856757      15.86         44643 42982  42625  41649      0 45892
-3          Brazil                20066587       9.99         40054 40716  32316  40904 108732 54022
-4          Russia                 6296570       3.13         22564 22053  21471  23016  23276 23510
-5          France                 6137948       3.05         26445 27436  20665  24199  19270  3802
-6  United Kingdom                 5982581       2.98         29825 28936  21466  29213  35654 32048
-7          Turkey                 5846784       2.91         24297 26822  24832  22083  11094  5160
-8       Argentina                 4989402       2.48         13786 13736  14850  13483  15622 19423
-9        Colombia                 4821603       2.40          6540  7084   6929   9462  13164 24229
-10          Spain                 4566571       2.27         21387 21874  20327  24753  31171 17384
-11          Italy                 4377188       2.18          7224  6590   4841   6613   5142  1010
-12           Iran                 4057758       2.02         38674 39357  39019  24715  21814 17212
-13        Germany                 3789460       1.89          3457  3659   2547   2592   1866   992
-14      Indonesia                 3568331       1.78         35764 35867  33900  41168  49071 34379
-15         Mexico                 2922663       1.45         21569 20685  18911  19346      0  8507
+   Country.Region Province.State   Totals GlobalPerc LastDayChange    t-2   t-3   t-7  t-14  t-30
+1              US                35695469      17.70        254981 109824 92714 32808 27802 20061
+2           India                31856757      15.79             0  44643 42982 41831 78839 43393
+3          Brazil                20108746       9.97         42159  40054 40716 37582 38091 53725
+4          Russia                 6318643       3.13         22073  22564 22053 23264 23395 24361
+5          France                 6161967       3.05         24019  26445 27436 23471 25624  4442
+6  United Kingdom                 6014023       2.98         31442  29825 28936 25754 31285 31977
+7          Turkey                 5870741       2.91         23957  24297 26822 22332 12381  5171
+8       Argentina                 5002951       2.48         13549  13786 13736 10356 11136 19256
+9        Colombia                 4828583       2.39          6980   6540  7084  9029 11064 23275
+10          Spain                 4588132       2.27         21561  21387 21874     0     0 17317
+11          Italy                 4383787       2.17          6599   7224  6590  6509  5138  1391
+12           Iran                 4092671       2.03         34913  38674 39357 19846 18632 23391
+13        Germany                 3792848       1.88          3388   3457  3659  1806  1578   903
+14      Indonesia                 3607863       1.79         39532  35764 35867 37284 45416 38391
+15         Mexico                 2944226       1.46         21563  21569 20685 18809 32244  9452
 -------------------------------------------------------------------------------- 
   Global Perc. Average:  0.36 (sd: 1.6) 
   Global Perc. Average in top  15 :  4.8 (sd: 5.26) 
@@ -33,37 +33,37 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-DEATHS Cases  -- Data dated:  2021-08-05  ::  2021-08-06 13:02:43 
+  ##### TS-DEATHS Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:51 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  88 
   Unique number of distinct geographical locations combined: 279 
 -------------------------------------------------------------------------------- 
-  Worldwide ts-deaths  Totals: 4267764 
+  Worldwide ts-deaths  Totals: 4277737 
 -------------------------------------------------------------------------------- 
    Country.Region Province.State Totals Perc LastDayChange  t-2  t-3  t-7 t-14 t-30
-1              US                615320 1.74           535  490  616  889  525  294
-2          Brazil                560706 2.79          1099 1175 1209  963 1324 1648
-3           India                426754 1.34           464  533  562  593    0  817
-4          Mexico                243165 8.32           618  611  657  459    0  234
-5            Peru                196760 9.28            87   75   80    0  149  155
-6          Russia                159803 2.54           771  769  767  776  784  713
-7  United Kingdom                130086 2.17            86  119  138   68   64   33
-8           Italy                128163 2.93            27   21   27   18   17   14
-9        Colombia                121899 2.53           204  479    0  306  352  559
-10         France                111001 1.81            49   30   62   59   28   22
-11      Argentina                107023 2.15           276  300  402  473  285  456
-12      Indonesia                102375 2.87          1739 1747 1598 1759 1566 1040
-13           Iran                 92628 2.28           434  409  378  270  210  166
-14        Germany                 91761 2.42            25   26   25   41    9   30
-15          Spain                 81931 1.79            87   71  130   44   27   17
+1              US                616493 1.73          1173  535  490  144  116  260
+2          Brazil                561762 2.79          1056 1099 1175  910 1108 1639
+3           India                426754 1.34             0  464  533  541 1081  911
+4          Mexico                243733 8.28           568  618  611  450  690  266
+5            Peru                196818 9.27            58   87   75  139   99  166
+6          Russia                160574 2.54           771  771  769  772  787  723
+7  United Kingdom                130178 2.16            92   86  119   71   86   35
+8           Italy                128187 2.92            24   27   21   16    5   13
+9        Colombia                122087 2.53           188  204  479  291  350  577
+10         France                111050 1.80            49   49   30   43   22   25
+11      Argentina                107213 2.14           190  276  300  135  225  465
+12      Indonesia                104010 2.88          1635 1739 1747 1808 1415  852
+13           Iran                 93086 2.27           458  434  409  286  259  136
+14        Germany                 91785 2.42            24   25   26    3   17   49
+15          Spain                 82006 1.79            75   87   71    0    0   28
 -------------------------------------------------------------------------------- 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 -------------------------------------------------------------------------------- 
 ################################################################################ 
-  ##### TS-RECOVERED Cases  -- Data dated:  2021-08-05  ::  2021-08-06 13:02:44 
+  ##### TS-RECOVERED Cases  -- Data dated:  2021-08-06  ::  2021-08-07 01:02:51 
 ################################################################################ 
   Number of Countries/Regions reported:  195 
   Number of Cities/Provinces reported:  72 
@@ -71,129 +71,129 @@
 -------------------------------------------------------------------------------- 
   Worldwide ts-recovered  Totals: 0 
 -------------------------------------------------------------------------------- 
-        Country.Region               Province.State Totals LastDayChange  t-2   t-3   t-7  t-14  t-30
-1          Afghanistan                                   0        -82586    0     0     0     0  1062
-2              Albania                                   0       -130314   23    35    18     9     2
-3              Algeria                                   0       -118409  852   787   824   812   409
-4              Andorra                                   0        -14380   32    52    30     0     5
-5               Angola                                   0        -39582  193  1029   683   202    28
-6  Antigua and Barbuda                                   0         -1239    4     0     0     0     0
-7            Argentina                                   0      -4615834 9808 11153 14133 17034 13932
-8              Armenia                                   0       -220438  149   156   199   120    53
-9            Australia Australian Capital Territory      0          -121    0     0     0     0     0
-10           Australia              New South Wales      0             0    0     0     0     0     0
-11           Australia           Northern Territory      0          -193    0     2     1     0     0
-12           Australia                   Queensland      0         -1727    0     0     0     0     0
-13           Australia              South Australia      0          -841    6     4     0     0     0
-14           Australia                     Tasmania      0          -221    0     0     0     0     0
-15           Australia                     Victoria      0        -20061   25    25    22     1     3
+        Country.Region               Province.State Totals LastDayChange      t-2  t-3   t-7  t-14  t-30
+1          Afghanistan                                   0             0   -82586    0     0     0  1241
+2              Albania                                   0             0  -130314   23    17     7     2
+3              Algeria                                   0             0  -118409  852   745   602   421
+4              Andorra                                   0             0   -14380   32     0     0     3
+5               Angola                                   0             0   -39582  193   547   139    53
+6  Antigua and Barbuda                                   0             0    -1239    4     0     4     0
+7            Argentina                                   0             0 -4615834 9808 12515 15349 20216
+8              Armenia                                   0             0  -220438  149   163   162    78
+9            Australia Australian Capital Territory      0             0     -121    0     0     0     0
+10           Australia              New South Wales      0             0        0    0     0     0     0
+11           Australia           Northern Territory      0             0     -193    0     0     0     0
+12           Australia                   Queensland      0             0    -1727    0     5     8     0
+13           Australia              South Australia      0             0     -841    6     1     0     0
+14           Australia                     Tasmania      0             0     -221    0     0     0     0
+15           Australia                     Victoria      0             0   -20061   25    23     2     1
 -------------------------------------------------------------------------------- 
 -------------------------------------------------------------------------------- 
 ================================================================================ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2021-08-06  ::  2021-08-06 13:02:44 
+  ##### AGGREGATED Data  -- ORDERED BY  CONFIRMED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1       Maharashtra, India   6336220           3.15 133530        2.11        NA             NA     NA          NA
-2                   France   6137948           3.05 111001        1.81        NA             NA     NA          NA
-3                   Turkey   5846784           2.91  51875        0.89        NA             NA     NA          NA
-4  England, United Kingdom   5225224           2.60 114278        2.19        NA             NA     NA          NA
-5                Argentina   4989402           2.48 107023        2.15        NA             NA     NA          NA
-6        Sao Paulo, Brazil   4094211           2.04 140135        3.42        NA             NA     NA          NA
-7                     Iran   4057758           2.02  92628        2.28        NA             NA     NA          NA
-8                Indonesia   3568331           1.78 102375        2.87        NA             NA     NA          NA
-9            Kerala, India   3493603           1.74  17328        0.50        NA             NA     NA          NA
-10        Karnataka, India   2913512           1.45  36705        1.26        NA             NA     NA          NA
-11                  Poland   2883624           1.44  75275        2.61        NA             NA     NA          NA
-12       Tamil Nadu, India   2569398           1.28  34230        1.33        NA             NA     NA          NA
-13            South Africa   2497655           1.24  73873        2.96        NA             NA     NA          NA
-14    Minas Gerais, Brazil   1985928           0.99  50938        2.56        NA             NA     NA          NA
+1       Maharashtra, India   6336220           3.14 133530        2.11        NA             NA     NA          NA
+2                   France   6161967           3.05 111050        1.80        NA             NA     NA          NA
+3                   Turkey   5870741           2.91  51976        0.89        NA             NA     NA          NA
+4  England, United Kingdom   5253181           2.60 114359        2.18        NA             NA     NA          NA
+5                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
+6        Sao Paulo, Brazil   4104768           2.04 140428        3.42        NA             NA     NA          NA
+7                     Iran   4092671           2.03  93086        2.27        NA             NA     NA          NA
+8                Indonesia   3607863           1.79 104010        2.88        NA             NA     NA          NA
+9            Kerala, India   3493603           1.73  17328        0.50        NA             NA     NA          NA
+10        Karnataka, India   2913512           1.44  36705        1.26        NA             NA     NA          NA
+11                  Poland   2883796           1.43  75281        2.61        NA             NA     NA          NA
+12       Tamil Nadu, India   2569398           1.27  34230        1.33        NA             NA     NA          NA
+13            South Africa   2511178           1.24  74352        2.96        NA             NA     NA          NA
+14    Minas Gerais, Brazil   1991198           0.99  51088        2.57        NA             NA     NA          NA
 15   Andhra Pradesh, India   1976141           0.98  13468        0.68        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2021-08-06  ::  2021-08-06 13:02:45 
+  ##### AGGREGATED Data  -- ORDERED BY  DEATHS Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1        Sao Paulo, Brazil   4094211           2.04 140135        3.42        NA             NA     NA          NA
-2       Maharashtra, India   6336220           3.15 133530        2.11        NA             NA     NA          NA
-3  England, United Kingdom   5225224           2.60 114278        2.19        NA             NA     NA          NA
-4                   France   6137948           3.05 111001        1.81        NA             NA     NA          NA
-5                Argentina   4989402           2.48 107023        2.15        NA             NA     NA          NA
-6                Indonesia   3568331           1.78 102375        2.87        NA             NA     NA          NA
-7                     Iran   4057758           2.02  92628        2.28        NA             NA     NA          NA
-8               Lima, Peru    925649           0.46  87475        9.45        NA             NA     NA          NA
-9                   Poland   2883624           1.44  75275        2.61        NA             NA     NA          NA
-10            South Africa   2497655           1.24  73873        2.96        NA             NA     NA          NA
-11  Rio de Janeiro, Brazil   1044535           0.52  59659        5.71        NA             NA     NA          NA
-12                  Turkey   5846784           2.91  51875        0.89        NA             NA     NA          NA
-13    Minas Gerais, Brazil   1985928           0.99  50938        2.56        NA             NA     NA          NA
-14          Mexico, Mexico    299839           0.15  38612       12.88        NA             NA     NA          NA
-15        Karnataka, India   2913512           1.45  36705        1.26        NA             NA     NA          NA
+1        Sao Paulo, Brazil   4104768           2.04 140428        3.42        NA             NA     NA          NA
+2       Maharashtra, India   6336220           3.14 133530        2.11        NA             NA     NA          NA
+3  England, United Kingdom   5253181           2.60 114359        2.18        NA             NA     NA          NA
+4                   France   6161967           3.05 111050        1.80        NA             NA     NA          NA
+5                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
+6                Indonesia   3607863           1.79 104010        2.88        NA             NA     NA          NA
+7                     Iran   4092671           2.03  93086        2.27        NA             NA     NA          NA
+8               Lima, Peru    926866           0.46  87526        9.44        NA             NA     NA          NA
+9                   Poland   2883796           1.43  75281        2.61        NA             NA     NA          NA
+10            South Africa   2511178           1.24  74352        2.96        NA             NA     NA          NA
+11  Rio de Janeiro, Brazil   1046494           0.52  59787        5.71        NA             NA     NA          NA
+12                  Turkey   5870741           2.91  51976        0.89        NA             NA     NA          NA
+13    Minas Gerais, Brazil   1991198           0.99  51088        2.57        NA             NA     NA          NA
+14          Mexico, Mexico    301988           0.15  38700       12.82        NA             NA     NA          NA
+15        Karnataka, India   2913512           1.44  36705        1.26        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2021-08-06  ::  2021-08-06 13:02:45 
+  ##### AGGREGATED Data  -- ORDERED BY  RECOVERED Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1                              Afghanistan    149361           0.07   6864        4.60        NA             NA     NA          NA
-2                                  Albania    133442           0.07   2457        1.84        NA             NA     NA          NA
-3                                  Algeria    178013           0.09   4441        2.49        NA             NA     NA          NA
-4                                  Andorra     14809           0.01    128        0.86        NA             NA     NA          NA
-5                                   Angola     43269           0.02   1032        2.39        NA             NA     NA          NA
-6                      Antigua and Barbuda      1320           0.00     43        3.26        NA             NA     NA          NA
-7                                Argentina   4989402           2.48 107023        2.15        NA             NA     NA          NA
-8                                  Armenia    231322           0.12   4632        2.00        NA             NA     NA          NA
+1                              Afghanistan    149810           0.07   6879        4.59        NA             NA     NA          NA
+2                                  Albania    133591           0.07   2458        1.84        NA             NA     NA          NA
+3                                  Algeria    179216           0.09   4487        2.50        NA             NA     NA          NA
+4                                  Andorra     14836           0.01    128        0.86        NA             NA     NA          NA
+5                                   Angola     43487           0.02   1042        2.40        NA             NA     NA          NA
+6                      Antigua and Barbuda      1328           0.00     43        3.24        NA             NA     NA          NA
+7                                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
+8                                  Armenia    231625           0.11   4636        2.00        NA             NA     NA          NA
 9  Australian Capital Territory, Australia       124           0.00      3        2.42        NA             NA     NA          NA
-10              New South Wales, Australia     10354           0.01     77        0.74        NA             NA     NA          NA
-11           Northern Territory, Australia       198           0.00      0        0.00        NA             NA     NA          NA
-12                   Queensland, Australia      1896           0.00      7        0.37        NA             NA     NA          NA
+10              New South Wales, Australia     10662           0.01     83        0.78        NA             NA     NA          NA
+11           Northern Territory, Australia       199           0.00      0        0.00        NA             NA     NA          NA
+12                   Queensland, Australia      1909           0.00      7        0.37        NA             NA     NA          NA
 13              South Australia, Australia       866           0.00      4        0.46        NA             NA     NA          NA
 14                     Tasmania, Australia       235           0.00     13        5.53        NA             NA     NA          NA
-15                     Victoria, Australia     20967           0.01    820        3.91        NA             NA     NA          NA
+15                     Victoria, Australia     20997           0.01    820        3.91        NA             NA     NA          NA
 ============================================================================================================================================ 
 ############################################################################################################################################ 
-  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2021-08-06  ::  2021-08-06 13:02:45 
+  ##### AGGREGATED Data  -- ORDERED BY  ACTIVE Cases  -- Data dated:  2021-08-07  ::  2021-08-07 01:02:52 
 ############################################################################################################################################ 
   Number of Countries/Regions reported: 195 
   Number of Cities/Provinces reported: 578 
   Unique number of distinct geographical locations combined: 3987 
 -------------------------------------------------------------------------------------------------------------------------------------------- 
                                   Location Confirmed Perc.Confirmed Deaths Perc.Deaths Recovered Perc.Recovered Active Perc.Active
-1                              Afghanistan    149361           0.07   6864        4.60        NA             NA     NA          NA
-2                                  Albania    133442           0.07   2457        1.84        NA             NA     NA          NA
-3                                  Algeria    178013           0.09   4441        2.49        NA             NA     NA          NA
-4                                  Andorra     14809           0.01    128        0.86        NA             NA     NA          NA
-5                                   Angola     43269           0.02   1032        2.39        NA             NA     NA          NA
-6                      Antigua and Barbuda      1320           0.00     43        3.26        NA             NA     NA          NA
-7                                Argentina   4989402           2.48 107023        2.15        NA             NA     NA          NA
-8                                  Armenia    231322           0.12   4632        2.00        NA             NA     NA          NA
+1                              Afghanistan    149810           0.07   6879        4.59        NA             NA     NA          NA
+2                                  Albania    133591           0.07   2458        1.84        NA             NA     NA          NA
+3                                  Algeria    179216           0.09   4487        2.50        NA             NA     NA          NA
+4                                  Andorra     14836           0.01    128        0.86        NA             NA     NA          NA
+5                                   Angola     43487           0.02   1042        2.40        NA             NA     NA          NA
+6                      Antigua and Barbuda      1328           0.00     43        3.24        NA             NA     NA          NA
+7                                Argentina   5002951           2.48 107213        2.14        NA             NA     NA          NA
+8                                  Armenia    231625           0.11   4636        2.00        NA             NA     NA          NA
 9  Australian Capital Territory, Australia       124           0.00      3        2.42        NA             NA     NA          NA
-10              New South Wales, Australia     10354           0.01     77        0.74        NA             NA     NA          NA
-11           Northern Territory, Australia       198           0.00      0        0.00        NA             NA     NA          NA
-12                   Queensland, Australia      1896           0.00      7        0.37        NA             NA     NA          NA
+10              New South Wales, Australia     10662           0.01     83        0.78        NA             NA     NA          NA
+11           Northern Territory, Australia       199           0.00      0        0.00        NA             NA     NA          NA
+12                   Queensland, Australia      1909           0.00      7        0.37        NA             NA     NA          NA
 13              South Australia, Australia       866           0.00      4        0.46        NA             NA     NA          NA
 14                     Tasmania, Australia       235           0.00     13        5.53        NA             NA     NA          NA
-15                     Victoria, Australia     20967           0.01    820        3.91        NA             NA     NA          NA
+15                     Victoria, Australia     20997           0.01    820        3.91        NA             NA     NA          NA
 ============================================================================================================================================ 
   	 Confirmed	Deaths	Recovered	Active 
   Totals 
-  	 200924905	4267764	NA	NA 
+  	 201707586	4277737	NA	NA 
   Average 
-  	 50395.01	1070.42	NA	NA 
+  	 50591.32	1072.92	NA	NA 
   Standard Deviation 
-  	 284636.26	6194.62	NA	NA 
+  	 285585.15	6210.77	NA	NA 
   
 
  * Statistical estimators computed considering 3987 independent reported entries 
@@ -204,16 +204,16 @@
 ******************************************************************************** 
   ****  Time Series Worldwide TOTS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 200924905	4267764	0 
+  	 201707586	4277737	0 
   			2.12% 		0% 
   ****  Time Series Worldwide AVGS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 720160.95	15296.65	0 
+  	 722966.26	15332.39	0 
   			2.12% 		0% 
   ****  Time Series Worldwide SDS **** 
   	 ts-confirmed	ts-deaths	ts-recovered 
-  	 3217436.93	62035.17	0 
-  			1.93% 		0% 
+  	 3229456.65	62139.38	0 
+  			1.92% 		0% 
   
 
  * Statistical estimators computed considering 279/279/264 independent reported entries per case-type 
