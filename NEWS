@@ -1,6 +1,7 @@
-Apr 2021: Bugs fixes _ ver 2.2
+Sept/Apr 2021: Bugs fixes _ ver 2.1.1
 		- pandemics.data (for both historical pandemics and vaccines records): live update of COVID-19 Death.toll cases when loading the datasets
 		- fix bug in checkGeoLoc and select.per.loc, affecting continents/countries mismatch for some locations/continents, with side-effects on dashboard and totals.plt, ... 
+		- extra protection for report.summary() fn to avoid crashes due to incomplete datasets
 
 Feb/Mar 2021: More data sources added _ ver 2.1
 		- Vaccination data, from OWID

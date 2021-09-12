@@ -628,6 +628,11 @@ process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
 		##ord.combKey.col <- pmatch("Combined",names(data.ordered))
 		ord.combKey.col <- which("Location"==names(data.ordered))
 
+#print("#!!!")
+#filter.data <- na.omit(data.ordered[data.ordered[,target.col]>0,target.col])
+#print(filter.data)
+#print("#!!!")
+
                 # graphics
                 if (graphical.output) {
 			#legends <- paste(as.character(data.ordered[,ord.cty.col]),as.character(data.ordered[,ord.prv.col]),'\n',data.ordered[,target.col])
@@ -636,12 +641,12 @@ process.agg.cases <- function(data, Nentries, geo.loc=NULL, graphical.output) {
                                         #terrain.colors(Nentries)       #rainbow(Nentries)
 
 			filter.data <- na.omit(data.ordered[data.ordered[,target.col]>0,target.col])
+
                         #pie(na.omit(data.ordered[,target.col]),
 			pie(filter.data,
                                 labels=legends,
                                 main=substr(report.title,1,floor(nchar(report.title)/2)),
                                 col=color.scheme )
-
                         #par(new=TRUE)
                         #par(mfrow=c(1,2))
                         barplot(data.ordered[,target.col], names.arg=legends,
@@ -690,7 +695,7 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 #'
 #' @examples
 #' # triggers CRAN checks for timing
-#' \donttest{
+#' \dontrun{
 #' # displaying top 10s
 #' report.summary()
 #'
@@ -847,6 +852,8 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 
 		# graphics
 		if (graphical.output) {
+			# check if there are any records with positive values
+			if (sum(data.ordered$Totals>0) > 0) {
 			legends <- paste(data.ordered$Country.Region,data.ordered$Province.State,'\n',data.ordered$Totals)
 			color.scheme <- heat.colors(Nentriex)	#topo.colors(Nentriex)
 					#terrain.colors(Nentriex)	#rainbow(Nentriex)
@@ -863,6 +870,9 @@ report.summary <- function(cases.to.process="ALL", Nentries=10, geo.loc=NULL,
 			barplot(data.ordered$Totals, names.arg=legends,
 				col=color.scheme,
 				main=substr(report.title,ceiling(nchar(report.title)/2),nchar(report.title)) )
+			} else {
+				warning("Graphical Output: Data yields non-positive results!")
+			}
 		}
 	}
 
