@@ -132,7 +132,8 @@ sidebar <- dashboardSidebar(
 					#
 					menuItem("Data Sources", icon=icon("file-code-o"),startExpanded = FALSE,
 						menuItem("JHU CCSE data repository", icon = icon("file-code-o"), href = "https://github.com/CSSEGISandData/COVID-19"),
-						menuItem("City of Toronto", icon = icon("file-code-o"), href = "https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/"),
+#						menuItem("City of Toronto", icon = icon("file-code-o"), href = "https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/"),
+						menuItem("City of Toronto", icon = icon("file-code-o"), href = "ihttps://www.toronto.ca/home/covid-19/covid-19-pandemic-data/"),
 						menuItem("NCBI datasets", icon = icon("file-code-o"), href = "https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2")
 					),
 					menuItem("External Dashboards", icon=icon("file-code-o"),startExpanded = FALSE, 

@@ -42,7 +42,7 @@ covid19.Toronto.data <- function(origin="OD", data.fmt="TS",local.data=FALSE,deb
 covid19.Toronto_city.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE, OLD.fmt=FALSE, acknowledge=FALSE) {
 #' function to import data from the city of Toronto, ON - Canada
 #' as reported by the City of Toronto
-#'	https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+#'	https://www.toronto.ca/home/covid-19/covid-19-pandemic-data/
 #'
 #' @param  data.fmt  "TS" for TimeSeries of cumulative cases or "original" for the data as reported in the google-document with multiple sheets
 #' @param  local.data  boolean flag to indicate whether the data will be read from the local repo, in case of connectivity issues or data integrity
@@ -57,6 +57,18 @@ covid19.Toronto_city.data <- function(data.fmt="TS",local.data=FALSE,debrief=FAL
 #'
 #' @export
 #'
+
+## Diclaimer LOG...
+## // Sept. 12, 2021 //
+## orig URL:
+##	https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/
+## moved to
+##	https://www.toronto.ca/home/covid-19/covid-19-pandemic-data/
+## From: inst/doc/covid19.analytics.html
+## Status: 301
+## Message: Moved Permanently
+
+
 	loadLibrary("readxl")
 
 	# identify source of the data
