@@ -252,7 +252,8 @@ covid19.Toronto_OD.data <- function(data.fmt="TS",local.data=FALSE,debrief=FALSE
 
 	# read data
 	openDataTOR <- covid19.URL_csv.data(local.data, acknowledge,
-				srcURL="https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv",
+				#srcURL="https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv",
+				srcURL="https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/64b54586-6180-4485-83eb-81e8fae3b8fe/resource/fff4ee65-3527-43be-9a8a-cb9401377dbc/download/COVID19%20cases.csv",
 				srcName="Open Data Toronto",
 				locFileName="covid19_openData_Toronto.RDS", locVarName="openDataTOR")
 
@@ -354,6 +355,29 @@ covid19.URL_csv.data <- function(local.data=FALSE, acknowledge=FALSE,
 #' @export
 #'
 
+
+        ###############################
+
+        ## function for error handling
+        errorHandling.Msg <- function(condition,target.case) {
+                header('=')
+                message("A problem was detected when trying to retrieve the data for the package: ",target.case)
+                if (grepl("404 Not Found",condition)) {
+                        message("The URL or file was not found! Please contact the developer about this!")
+                } else {
+                        message("It is possible that your internet connection is down! Please check!")
+                }
+                message(condition,'\n')
+                header('=')
+
+                # update problems counter
+                #pkg.env$problems <- pkg.env$problems + 1
+        }
+
+        ###############################
+
+
+	tryCatch( {
         # identify source of the data
         if (!local.data) {
 
@@ -382,6 +406,18 @@ covid19.URL_csv.data <- function(local.data=FALSE, acknowledge=FALSE,
 
 			return(eval(parse(text=locVarName)))
 		}
+
+		},
+		# warning
+		warning = function(cond) {
+                                errorHandling.Msg(cond,srcURL)
+                },
+
+                # error
+                error = function(e){
+                                errorHandling.Msg(e,srcURL)
+		}
+	)
 
 }
 
