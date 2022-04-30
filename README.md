@@ -64,6 +64,7 @@ investigate these datasets.
 -->
 ![liveMAP](https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html)
 ![liveMAP](https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html)
+![liveMap]({{ site.url }}{{ site.baseurl }}/blob/master/reports/livemap.html)
 
 The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
