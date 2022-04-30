@@ -880,8 +880,8 @@ report.summary()
 ```
 
 <p>
-  <img src="{{ base.url }}/man/figures/report-summ-agg.pdf" width="45%" />
-  <img src="{{ base.url }}/man/figures/report-summ-TSconfirmed.pdf" width="45%" />
+  <img src="{{ site.url }}{{ site.baseurl }}/man/figures/report-summ-agg.pdf" width="45%" />
+  <img src="{{ site.url }}{{ site.baseurl }}/man/figures/report-summ-TSconfirmed.pdf" width="45%" />
 </p>
 
 
