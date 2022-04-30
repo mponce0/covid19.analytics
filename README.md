@@ -55,12 +55,12 @@ investigate these datasets.
 
 <object data="{{ site.url }}{{ site.baseurl }}/man/figures/livemap.html" width="105%" height="525"></object>
 <!--
-.
+. -->
 <object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html" width="105%" height="525"></object>
 .
 <object data="https://github.com/mponce0/covid19.reports/blob/master/reports/livemap.html" width="105%" height="525">
 </object>
--->
+<!-- . -->
 
 The following sections briefly describe some of the covid19.analytics package main features, we strongly recomend users to read our paper ["covid19.analytics: An R Package to Obtain, Analyze and Visualize Data from the Coronavirus Disease Pandemic"](https://arxiv.org/abs/2009.01091) (https://arxiv.org/abs/2009.01091) where further details about the package are presented and discussed.
 
