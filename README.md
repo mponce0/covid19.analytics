@@ -53,7 +53,7 @@ promptly available to researchers and the scientific community.
 The "covid19.analytics" package also provides basic analysis tools and functions to
 investigate these datasets.
 
-<object data="man/figures/livemap.html" width="105%" height="525"></object>
+<object data="{{ site.url }}{{ site.baseurl }}/man/figures/livemap.html" width="105%" height="525"></object>
 <!--
 .
 <object data="https://raw.githubusercontent.com/mponce0/covid19.reports/master/reports/livemap.html" width="105%" height="525"></object>
