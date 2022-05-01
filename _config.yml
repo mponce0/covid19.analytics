@@ -1,9 +1,11 @@
 theme: jekyll-theme-hacker
 
+# this option renders the HTML nicely, ie. the code blocks but *not* the plots or images
 #markdown: CommonMarkGhPages
 
 #baseurl: /covid19.analytics
 
+# renders images and figures, as well as code but the "details" for clikc and expand not so nicely
 markdown: kramdown
 kramdown:
   parse_block_html: true
