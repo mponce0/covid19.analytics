@@ -894,18 +894,13 @@ report.summary(saveReport=TRUE)
 ```
 
 <object data="man/figures/covid19-SummaryReport.pdf" type="application/pdf" width="100%" height="500px">
- <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf">
+ <embed src="man/figures/covid19-SummaryReport.pdf">
  <p> 
   E.g. today's report is available <a href="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.txt">here</a> 
  </p>
  </embed>
 </object>
-<div>
-     <embed src="https://sumanbogati.github.io/sample.pdf" width="600px" height="500px" />
-</div>
-<div>
-     <embed src="https://github.com/mponce0/covid19.analytics/blob/master/man/figures/covid19-SummaryReport.pdf" width="600px" height="500px" />
-</div>
+
 
 ```R
 # summary report for an specific location with default number of entries
