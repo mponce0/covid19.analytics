@@ -4,6 +4,6 @@ theme: jekyll-theme-hacker
 
 #baseurl: /covid19.analytics
 
-#markdown: kramdown
-#kramdown:
-#  parse_block_html: true
+markdown: kramdown
+kramdown:
+  parse_block_html: true
