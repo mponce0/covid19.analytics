@@ -288,6 +288,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="", staticPlt=TRUE, 
 		gr.rate <- changes[range2]/changes[range1]
 		# remove infinites in case of divison by 0 or something tiny...
 		gr.rate[gr.rate == "Inf"] <- NA
+		gr.rate[gr.rate == "-Inf"] <- NA
 		#print(gr.rate)
 
 		# update resulting dataframe
@@ -374,6 +375,7 @@ growth.rate <- function(data0, geo.loc=NULL, stride=1, info="", staticPlt=TRUE, 
 			#mat.tgt <-  mat.tgt[,which(unlist(lapply(mat.tgt, function(x) !all(is.nan(x)))))]
 			# deal with NA/nan/... setting to 0
 			mat.tgt[is.na(mat.tgt)] <- 0
+			mat.tgt[is.nan(mat.tgt)] <- 0
 
 			heatmap.2(mat.tgt,
 				dendrogram="none", trace='none',

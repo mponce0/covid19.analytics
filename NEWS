@@ -1,3 +1,6 @@
+Aug 2022: Minor bug fix in growth.rate() fn _ ver 2.1.3
+		- adjust to consider arithmetic "corner" cases
+
 Apr 2022: Data soruce update _ ver 2.1.2
 		- updating data source for Open Data Toronto
 
