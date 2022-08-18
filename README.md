@@ -1209,7 +1209,8 @@ plt.SIR.model(world.SIR.model,"World",interactiveFig=TRUE,fileName="world.SIR.mo
 		  https://mdl.library.utoronto.ca/covid-19/data
 * Department of Statistics, Warwick University (UK):
   https://warwick.ac.uk/fac/sci/statistics/courses/offerholders-post-2020/welcome2020/package1
-
+* ResCOVID-19 (FR):
+  http://rescovid19.fr/db/outils.html
 
 ##### Compute Ontario, Compute Canada
 <!--
